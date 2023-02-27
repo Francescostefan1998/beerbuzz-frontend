@@ -1,11 +1,18 @@
 import "./loginModal.css";
 import { FaGoogle } from "react-icons/fa";
 
-const LoginModal = () => {
+const LoginModal = ({
+  setRegister,
+  mainClass,
+  dispalayNone,
+  login,
+  signUp,
+  title,
+}) => {
   return (
-    <div className="loginModal-box">
+    <div className={mainClass}>
       <div className="loginModal-form">
-        <h2>Sign In</h2>
+        <h2>{title}</h2>
         <div className="loginModal-inputBox">
           <input
             type="text"
@@ -24,10 +31,20 @@ const LoginModal = () => {
           <span>Password </span>
           <hr />
         </div>
+        <div className="loginModal-inputBox" id={dispalayNone}>
+          <input
+            type="password"
+            placeholder="Type here your email"
+            id="loginModal-inputBox-input3"
+          />
+          <span>Confirm password </span>
+          <hr />
+        </div>
         <div className="loginModal-links">
-          <br />
-          <br /> <a href="">Login</a>
-          <a href="">Sing Up</a>
+          <div className="loginModal-links-click">{login}</div>
+          <div className="loginModal-links-click" onClick={setRegister}>
+            {signUp}
+          </div>
         </div>
         <div className="loginModal-google">
           <div className="loginModal-google-inset">
