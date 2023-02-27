@@ -1,6 +1,6 @@
 import "./loginModal.css";
 import { FaGoogle } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const LoginModal = ({
   setRegister,
   mainClass,
@@ -9,6 +9,7 @@ const LoginModal = ({
   signUp,
   title,
 }) => {
+  const navigate = useNavigate();
   return (
     <div className={mainClass}>
       <div className="loginModal-form">
@@ -41,7 +42,12 @@ const LoginModal = ({
           <hr />
         </div>
         <div className="loginModal-links">
-          <div className="loginModal-links-click">{login}</div>
+          <div
+            className="loginModal-links-click"
+            onClick={() => navigate("/home")}
+          >
+            {login}
+          </div>
           <div className="loginModal-links-click" onClick={setRegister}>
             {signUp}
           </div>
