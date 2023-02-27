@@ -1,7 +1,7 @@
 .loginModal-box {
   position: relative;
-  width: 380px;
-  height: 420px;
+  width: 420px;
+  height: 470px;
   background-color: var(--background-black);
   border-radius: 8px;
   overflow: hidden;
@@ -12,7 +12,7 @@
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 380px;
+  width: 420px;
   height: 420px;
   background: linear-gradient(
     0deg,
@@ -29,8 +29,8 @@
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 380px;
-  height: 420px;
+  width: 420px;
+  height: 470px;
   background: linear-gradient(
     0deg,
     transparent,
@@ -57,39 +57,51 @@
   border-radius: 8px;
   background-color: var(--background-black);
   z-index: 10;
-  padding: 80px 40px;
+  padding: 40px 40px;
   display: flex;
   flex-direction: column;
 }
 
 .loginModal-form h2 {
   color: var(--main-secondary);
-  font-weight: 500;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px var(--main-secondary);
   text-align: center;
   letter-spacing: 0.1em;
 }
 
 .loginModal-inputBox {
   position: relative;
-  width: 300px;
-  margin-top: 25px;
+  height: 90px;
+  width: 100%;
+  margin-top: 0px;
 }
 
-.loginModal-inputBox input {
-  position: relative;
-  width: 100px;
-  padding: 20px 10px 10px;
-  background: transparent;
+.loginModal-box input {
+  position: absolute;
+  border-radius: 4px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0px !important;
+  overflow: hidden;
+  padding: 0px;
+  background-color: transparent !important;
   border: none;
   outline: none;
   color: var(--background-black);
-  font-size: 1.5em;
+  font-size: 0em;
   letter-spacing: 0.05em;
+  z-index: 10;
+  color: white;
+  transition: padding 0.5s, transform 0.5s, font-size 0.5s,
+    background-color 0.5s;
 }
 
 .loginModal-inputBox span {
   position: absolute;
-  left: 0;
+  bottom: 15px;
+  left: 0px;
   padding: 30px 0px 10px;
   font-size: 1em;
   color: white;
@@ -97,11 +109,28 @@
   letter-spacing: 0.05em;
   transition: 0.5s;
 }
-
-.loginModal-inputBox input:valid ~ span,
-.loginModal-inputBox input:focus ~ span {
+.loginModal-inputBox hr {
+  width: 100%;
   color: var(--main-secondary);
-  transform: translate(0px) translate(-50px);
+  position: absolute;
+  bottom: 0;
+  border-top: 2px solid var(--main-secondary);
+  opacity: 1;
+  margin-top: 4px;
+}
+.loginModal-inputBox:hover hr {
+  display: none;
+}
+
+.loginModal-inputBox:hover span {
+  z-index: 9;
+  color: var(--main-secondary);
+  transform: translate(0px) translateY(-25px);
+}
+.loginModal-inputBox:hover input {
+  font-size: 1.2em;
+  padding: 20px 10px 20px;
+  background-color: var(--main-secondary) !important;
 }
 
 .loginModal-inputBox i {
@@ -117,8 +146,8 @@
   z-index: 9;
 }
 
-.loginModal-inputBox input:valid ~ i,
-.loginModal-inputBox input:focus ~ i {
+.loginModal-inputBox input:valid,
+.loginModal-inputBox input:focus {
   height: 44px;
 }
 
@@ -141,14 +170,61 @@
   color: var(--main-secondary);
 }
 
-.loginModal-box input[type="submit"] {
-  border: none;
-  outline: none;
-  background: var(--main-secondary);
-  padding: 12px 25px;
-  width: 100px;
-  margin-top: 20px;
+.loginModal-google {
   border-radius: 4px;
-  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-top: 30px;
+}
+
+.loginModal-google-inset {
+  position: absolute;
+  inset: 2px;
+  border-radius: 4px;
+  background-color: var(--background-black);
+  z-index: 10;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
+  box-shadow: 0 0 10px var(--main-secondary);
+}
+.loginModal-google-inset:hover {
+  background-color: var(--main-secondary);
+  box-shadow: 0 0 10px var(--main-secondary);
+  inset: 4px;
+}
+.loginModal-google:hover {
+  box-shadow: 0 0 10px var(--main-secondary);
+}
+.loginModal-google:hover .loginModal-google-inset-icon {
+  color: white;
+}
+
+.loginModal-google::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    var(--main-secondary),
+    var(--main-secondary)
+  );
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3;
+
+  box-shadow: 0 0 10px var(--main-secondary);
+}
+
+.loginModal-google-inset-icon {
+  color: var(--main-secondary);
 }
