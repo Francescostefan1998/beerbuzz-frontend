@@ -1,0 +1,138 @@
+.homePage {
+  background-color: var(--background-dark);
+  width: 100%;
+  height: 100vh;
+}
+
+.homePage-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  gap: 10vh;
+}
+.homePage-main {
+  background-color: var(--background-black);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 5vh;
+  width: 60vh;
+  cursor: pointer;
+  position: relative;
+}
+
+.homePage-main-liquid {
+  position: absolute;
+  background-color: var(--main-secondary);
+  left: -2%;
+  width: 104%;
+  height: 104%;
+  z-index: 0;
+  animation: animateLiquid 25s linear infinite;
+}
+
+.homePage-main-title {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bubble {
+  width: 2px;
+  height: 2px;
+  background-color: var(--background-black);
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  animation: animateBubble 5s linear infinite;
+}
+.bubble1 {
+  animation-delay: 2.5s;
+  animation-duration: 3.5s;
+}
+.bubble2 {
+  animation-delay: 1.4s;
+  animation-duration: 1.2s;
+}
+.bubble3 {
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+.bubble4 {
+  animation-delay: 0.2s;
+  animation-duration: 2s;
+}
+.bubble5 {
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+.bubble6 {
+  animation-delay: 2s;
+  animation-duration: 1.5s;
+}
+.homePage-main-liquid-baal1 {
+  width: 300px;
+  height: 30px;
+  border-radius: 50%;
+  animation: animateBall 3s linear infinite;
+  background-color: var(--main-secondary);
+  position: absolute;
+  bottom: 100px;
+  z-index: 0;
+}
+.homePage-main-liquid-baal2 {
+  position: absolute;
+  animation: animateBall 3s linear infinite;
+  width: 300px;
+  height: 30px;
+  z-index: 0;
+  bottom: 100px;
+  margin-left: 220px;
+  border-radius: 50%;
+  background-color: var(--main-secondary);
+}
+.homePage-main-liquid-baal3 {
+  position: absolute;
+  animation: animateBall 3s linear infinite;
+  width: 300px;
+  height: 30px;
+  z-index: 0;
+  bottom: 100px;
+  margin-left: -220px;
+  border-radius: 50%;
+  background-color: var(--main-secondary);
+}
+@keyframes animateBubble {
+  0% {
+    bottom: 0px;
+    width: 2px;
+    height: 2px;
+  }
+  100% {
+    bottom: 120px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@keyframes animateLiquid {
+  0% {
+    bottom: -135px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+@keyframes animateBall {
+  0% {
+    left: -65px;
+  }
+  100% {
+    left: 198px;
+  }
+}

@@ -1,0 +1,17 @@
+@media (max-width: 788px) {
+  .registerModal {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
+  }
+  .loginModal-box {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
+  }
+  .loginModal-box::after {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
+  }
+}
