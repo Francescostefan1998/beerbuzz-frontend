@@ -1,0 +1,154 @@
+.loginModal-box {
+  position: relative;
+  width: 380px;
+  height: 420px;
+  background-color: var(--background-black);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/*.loginModal-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    var(--main-secondary),
+    var(--main-secondary)
+  );
+  transform-origin: bottom right;
+  animation-delay: -3;
+}*/
+
+.loginModal-box::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    var(--main-secondary),
+    var(--main-secondary)
+  );
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loginModal-form {
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+  background-color: var(--background-black);
+  z-index: 10;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginModal-form h2 {
+  color: var(--main-secondary);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.loginModal-inputBox {
+  position: relative;
+  width: 300px;
+  margin-top: 25px;
+}
+
+.loginModal-inputBox input {
+  position: relative;
+  width: 100px;
+  padding: 20px 10px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--background-black);
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+}
+
+.loginModal-inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 30px 0px 10px;
+  font-size: 1em;
+  color: white;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+}
+
+.loginModal-inputBox input:valid ~ span,
+.loginModal-inputBox input:focus ~ span {
+  color: var(--main-secondary);
+  transform: translate(0px) translate(-50px);
+}
+
+.loginModal-inputBox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 2px;
+  background: var(--main-secondary);
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.loginModal-inputBox input:valid ~ i,
+.loginModal-inputBox input:focus ~ i {
+  height: 44px;
+}
+
+.loginModal-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginModal-links a {
+  position: relative;
+  left: -55px;
+  top: 25px;
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+}
+
+.loginModal-links a:hover,
+.loginModal-links a:nth-child(2) {
+  color: var(--main-secondary);
+}
+
+.loginModal-box input[type="submit"] {
+  border: none;
+  outline: none;
+  background: var(--main-secondary);
+  padding: 12px 25px;
+  width: 100px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
