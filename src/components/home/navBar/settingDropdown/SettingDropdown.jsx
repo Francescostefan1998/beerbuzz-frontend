@@ -2,10 +2,11 @@ import "./settingDropdown.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const SettingDropdown = ({ classname, setSettingDropdown }) => {
   const [myclassname, setMyclassname] = useState("settingDropdown-previous");
-
+  const navigate = useNavigate();
   useEffect(() => {
     setMyclassname(classname);
   }, [classname]);
@@ -23,16 +24,31 @@ const SettingDropdown = ({ classname, setSettingDropdown }) => {
         </div>
       </div>
       <div className="settingDropdown-main">
-        <div className="settingDropdown-main-section">profile</div>
-        <div className="settingDropdown-main-section">help</div>
-        <div className="settingDropdown-main-section">tool</div>
-        <div className="settingDropdown-main-section">about</div>
-        <div className="settingDropdown-main-section">instructions</div>
-        <div className="settingDropdown-main-section">recipes</div>
-        <div className="settingDropdown-main-section">raw material</div>
-        <div className="settingDropdown-main-section">instructions</div>
-        <div className="settingDropdown-main-section">recipes</div>
-        <div className="settingDropdown-main-section">raw material</div>
+        <div className="settingDropdown-main-section">Profile</div>
+        <div className="settingDropdown-main-section">Help</div>
+        <div className="settingDropdown-main-section">Tool</div>
+        <div className="settingDropdown-main-section">About</div>
+        <div className="settingDropdown-main-section">Instructions</div>
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/recipes")}
+        >
+          Recipes
+        </div>
+        <div className="settingDropdown-main-section">Raw material</div>
+        <div className="settingDropdown-main-section">Instructions</div>
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/recipes")}
+        >
+          Recipes
+        </div>
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/")}
+        >
+          Exit
+        </div>
       </div>
     </div>
   );
