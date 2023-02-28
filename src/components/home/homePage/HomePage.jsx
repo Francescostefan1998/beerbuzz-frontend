@@ -47,7 +47,7 @@ const HomePage = () => {
   }
   return (
     <div className="homePage">
-      <NavBar />
+      <NavBar selectedSection={"Home"} />
       <div className="homePage-container">
         <div className="homePage-main" onClick={() => navigate("/recipes")}>
           <ImList2 className="homePage-main-icon iconList" />

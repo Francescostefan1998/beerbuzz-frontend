@@ -43,6 +43,9 @@
 .my-navbar-icon:hover {
   opacity: 1;
 }
+.my-navbar-sections.selected {
+  opacity: 1 !important;
+}
 
 @keyframes spin {
   from {
