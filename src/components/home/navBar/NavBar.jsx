@@ -27,7 +27,10 @@ const NavBar = ({ selectedSection }) => {
     <div className="my-navbar">
       <div className="my-navbar-logo">logo</div>
       <div className="my-navbar-menue">
-        <HiMenu className="my-navbar-icon" />
+        <HiMenu
+          className="my-navbar-icon"
+          onClick={() => setsettingDropdown(true)}
+        />
         {sections.map(({ icon, label }) => (
           <div
             key={label}

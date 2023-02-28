@@ -39,9 +39,21 @@ const SettingDropdown = ({ classname, setSettingDropdown }) => {
         <div className="settingDropdown-main-section">Instructions</div>
         <div
           className="settingDropdown-main-section"
-          onClick={() => navigate("/recipes")}
+          onClick={() => navigate("/home")}
         >
-          Recipes
+          Home
+        </div>
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/contacts")}
+        >
+          Contacts
+        </div>
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/brew")}
+        >
+          Brew
         </div>
         <div
           className="settingDropdown-main-section"
