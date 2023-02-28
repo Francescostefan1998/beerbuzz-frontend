@@ -1,0 +1,105 @@
+.recipesList {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-dark);
+}
+
+.recipesList-search {
+  width: 100%;
+  padding: 2vh;
+  padding-inline: 4vh;
+  overflow: hidden;
+  background-color: var(--background-black);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipesList-search input {
+  outline: none;
+  direction: none;
+  border: none;
+  width: 100%;
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.recipesList-search .search-icon {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.recipesList-recipe {
+  padding: 2vh;
+  padding-inline: 6vh;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  border-top: 2px solid var(--main-secondary);
+  opacity: 0.8;
+}
+.recipesList-recipe:hover {
+  background-color: var(--background-black);
+}
+.recipesList-recipe-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipesList-recipe-image-icon {
+  font-size: 60px;
+}
+
+.recipesList-recipe-data {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.recipesList-recipe-data .author {
+  opacity: 0.5;
+}
+
+.recipesList-recipe-data .details {
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.recipesList-recipe-date {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  height: 100%;
+}
+.recipesList-recipe-date-edit {
+  display: none;
+  background-color: var(--main-secondary);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.recipesList-recipe-date:hover .recipesList-recipe-date-date {
+  display: none;
+}
+
+.recipesList-recipe-date:hover .recipesList-recipe-date-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

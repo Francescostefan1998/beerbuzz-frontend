@@ -32,6 +32,9 @@
   z-index: 0;
   animation: animateLiquid 25s linear infinite;
 }
+.homePage-main:hover {
+  box-shadow: inset 0 0 10px var(--main-secondary);
+}
 
 .homePage-main-title {
   position: relative;
@@ -107,6 +110,63 @@
   border-radius: 50%;
   background-color: var(--main-secondary);
 }
+
+.homePage-main-icon {
+  color: var(--main-secondary);
+  position: absolute;
+}
+
+.homePage-main-icon.iconSetting {
+  font-size: 60px;
+  z-index: 0;
+  top: 10px;
+  right: 10px;
+  animation: rotate 6s linear infinite;
+}
+.homePage-main-icon.iconSetting:hover {
+  animation: rotate 2s linear infinite;
+}
+
+.homePage-main-icon.iconList {
+  font-size: 30px;
+  top: 15px;
+  left: 15px;
+  transform: rotate(25deg);
+  opacity: 0.4;
+}
+
+.homePage-main-icon.iconPen {
+  font-size: 30px;
+  top: 15px;
+  right: 15px;
+  opacity: 0.4;
+}
+
+.homePage-main-icon.iconHops {
+  font-size: 30px;
+  bottom: 15px;
+  right: 15px;
+  transform: rotate(-95deg);
+  opacity: 0.4;
+}
+
+.homePage-main-icon.iconWheat {
+  font-size: 30px;
+  bottom: 15px;
+  left: 15px;
+  transform: rotate(-25deg);
+  opacity: 0.4;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes animateBubble {
   0% {
     bottom: 0px;

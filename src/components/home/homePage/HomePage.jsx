@@ -1,7 +1,13 @@
 import "./homePage.css";
 import NavBar from "../navBar/NavBar";
-
+import { ImList2 } from "react-icons/im";
+import { BsPencilFill } from "react-icons/bs";
+import { GiHops } from "react-icons/gi";
+import { GiWheat } from "react-icons/gi";
+import { AiOutlineSetting } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const navigate = useNavigate();
   let bubbles1 = [];
   let bubbles2 = [];
   let bubbles3 = [];
@@ -43,7 +49,11 @@ const HomePage = () => {
     <div className="homePage">
       <NavBar />
       <div className="homePage-container">
-        <div className="homePage-main">
+        <div className="homePage-main" onClick={() => navigate("/recipes")}>
+          <ImList2 className="homePage-main-icon iconList" />
+          <BsPencilFill className="homePage-main-icon iconPen" />
+          <GiHops className="homePage-main-icon iconHops" />
+          <GiWheat className="homePage-main-icon iconWheat" />
           <h1>Recipes</h1>
         </div>
         <div className="homePage-main">
@@ -65,6 +75,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="homePage-main">
+          <AiOutlineSetting className="homePage-main-icon iconSetting" />
           <h1>Instructions</h1>
         </div>
       </div>

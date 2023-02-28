@@ -35,6 +35,14 @@
 .my-navbar-sections:hover {
   opacity: 1;
 }
+.my-navbar-icon {
+  opacity: 0.7;
+  display: none;
+  cursor: pointer;
+}
+.my-navbar-icon:hover {
+  opacity: 1;
+}
 
 @keyframes spin {
   from {
@@ -54,5 +62,9 @@
 @media (max-width: 788px) {
   .my-navbar-sections {
     display: none;
+  }
+  .my-navbar-icon {
+    display: flex;
+    position: relative;
   }
 }
