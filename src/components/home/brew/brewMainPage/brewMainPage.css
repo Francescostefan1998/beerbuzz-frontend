@@ -1,0 +1,71 @@
+.brewMainPage {
+  background-color: var(--background-dark);
+  width: 100%;
+  min-height: 100vh;
+}
+.brewMainPage-section {
+  opacity: 0.8;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 8px;
+  overflow: hidden;
+  padding-block: 8vh;
+  position: relative;
+  height: 22vh;
+  width: 50vh;
+  position: relative;
+}
+.brewMainPage-section img {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  object-fit: cover;
+  filter: invert(1);
+  opacity: 0.4;
+}
+.brewMainPage-section h1 {
+  z-index: 1;
+}
+
+.brewMainPage-section:hover {
+  opacity: 1;
+  background-color: var(--background-black);
+
+  box-shadow: inset 0 0 10px var(--main-secondary);
+}
+.brewMainPage-step {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+}
+.brewMainPage-step:hover {
+  background-color: var(--main-secondary);
+}
+
+@media (max-width: 788px) {
+  .brewMainPage-section {
+    width: 100%;
+    display: block;
+  }
+  .brewMainPage-row {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 788px) {
+  .brewMainPage-section img {
+    top: 0;
+  }
+}

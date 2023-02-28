@@ -9,7 +9,7 @@ const RecipesList = () => {
   const [image, setImage] = useState("");
   return (
     <div className="recipesList">
-      <NavBar />
+      <NavBar selectedSection={"Recipes"} />
       <div className="recipesList-search">
         <BsSearch className="search-icon" />
         <input type="text" placeholder="Search here the name of your beer" />

@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LoginBackground from "./components/login/webLogin/loginBackground/LoginBackground";
 import HomePage from "./components/home/homePage/HomePage";
 import RecipesList from "./components/home/recipes/recipesList/RecipesList";
+import BrewMainPage from "./components/home/brew/brewMainPage/BrewMainPage";
+import Ingredients from "./components/home/brew/ingredients/Ingredients";
+import SelectStyle from "./components/home/brew/selectStyle/SelectStyle";
 import "./App.css";
 
 function App() {
@@ -13,6 +16,9 @@ function App() {
           <Route path="/" element={<LoginBackground />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/recipes" element={<RecipesList />} />
+          <Route path="/brew" element={<BrewMainPage />} />
+          <Route path="/ingredients" element={<Ingredients />} />
+          <Route path="/selectstyle" element={<SelectStyle />} />
         </Routes>
       </BrowserRouter>
     </div>
