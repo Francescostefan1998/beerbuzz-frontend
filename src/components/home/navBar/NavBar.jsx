@@ -7,8 +7,10 @@ import { MdContacts } from "react-icons/md";
 import { IoIosListBox } from "react-icons/io";
 import { AiFillSetting } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import SettingDropdown from "./settingDropdown/SettingDropdown";
 
 const NavBar = () => {
+  const [settingDropdown, setsettingDropdown] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="my-navbar">
@@ -36,8 +38,28 @@ const NavBar = () => {
         </div>
 
         <div className="my-navbar-sections">
-          <AiFillSetting />
-          <div>Settings</div>
+          <AiFillSetting
+            onClick={() => {
+              settingDropdown !== false
+                ? setsettingDropdown(false)
+                : setsettingDropdown(true);
+            }}
+          />
+          <div
+            onClick={() => {
+              settingDropdown !== false
+                ? setsettingDropdown(false)
+                : setsettingDropdown(true);
+            }}
+          >
+            Settings
+          </div>
+          {settingDropdown && (
+            <SettingDropdown
+              classname="settingDropdown"
+              setSettingDropdown={setsettingDropdown}
+            />
+          )}
         </div>
       </div>
     </div>
