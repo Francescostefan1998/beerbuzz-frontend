@@ -1,11 +1,13 @@
-import "./water.css";
+import "./yeasts.css";
+import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 
-const Water = () => {
+const Yeasts = () => {
   return (
-    <div className="water">
+    <div className="yeasts">
+      <NavbarIngredients prew="/hops" next="/others" />
       <div>hello</div>
     </div>
   );
 };
 
-export default Water;
+export default Yeasts;

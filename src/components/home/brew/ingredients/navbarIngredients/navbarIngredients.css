@@ -1,0 +1,37 @@
+.navbarIngredients {
+  background-color: var(--background-black);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5vh;
+  padding-inline: 4.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 10px var(--main-secondary);
+  z-index: 1;
+}
+
+.navbarIngredients-prew-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+.navbarIngredients-prew-icon:hover {
+  box-shadow: 0 0 10px var(--main-secondary);
+}
+.navbarIngredients-next {
+  height: 4vh;
+  width: 8vh;
+  text-align: center;
+  font-weight: 700;
+  background-color: var(--main-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.navbarIngredients-next:hover {
+  box-shadow: 0 0 10px var(--main-secondary);
+}
