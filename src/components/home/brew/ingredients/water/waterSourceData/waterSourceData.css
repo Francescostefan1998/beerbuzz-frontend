@@ -1,0 +1,47 @@
+.waterSouceData {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+}
+
+.waterSouceData-modal {
+  width: 50%;
+  height: 80vh;
+  margin-top: 10vh;
+  overflow: hidden;
+  background-color: var(--background-dark);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px var(--main-secondary);
+}
+.waterSouceData-modal-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.waterSouceData-modal-top h4 {
+  padding-left: 20px;
+}
+.waterSouceData-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: auto;
+}
+.waterSouceData-close:hover {
+  background-color: var(--main-secondary);
+}
+.waterSouceData-close-icon {
+  color: white;
+  font-size: 30px;
+}
