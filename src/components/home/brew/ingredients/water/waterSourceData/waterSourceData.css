@@ -65,10 +65,19 @@
 .waterSouceData .field input {
   background-color: transparent;
   border: 0px;
-
   outline: none;
+  width: 100px;
   text-align: right;
   color: white;
+}
+.waterSouceData .field div:first-child {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.waterSouceData .field div:nth-child(2) {
+  display: flex;
+  justify-content: end;
 }
 
 .waterSouceData .field button {
@@ -85,4 +94,16 @@
 
 .waterSouceData .field button:hover {
   box-shadow: 0px 0px 10px var(--main-secondary);
+}
+
+@media (max-width: 1024px) {
+  .waterSouceData-modal {
+    width: 100%;
+  }
+}
+
+@media (max-width: 414px) {
+  .waterSouceData .field input {
+    width: 50px;
+  }
 }
