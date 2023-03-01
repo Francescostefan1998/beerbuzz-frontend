@@ -59,10 +59,12 @@ const ResidualAlkalinity = ({ setModal }) => {
 
           <div className="field button">
             <div>
-              <button>Confirm and Proceed</button>
+              <button onClick={() => setModal("souceWaterDiluition")}>
+                Confirm and Proceed
+              </button>
             </div>
             <div>
-              <button>Clear value</button>
+              <button onClick={() => setModal("closed")}>Close</button>
             </div>
           </div>
         </div>

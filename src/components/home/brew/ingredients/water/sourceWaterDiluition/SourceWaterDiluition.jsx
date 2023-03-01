@@ -84,10 +84,12 @@ const SourceWaterDiluition = ({ setModal }) => {
           </div>
           <div className="field button sourceWaterDiluition-button">
             <div>
-              <button>Confirm and Proceed</button>
+              <button onClick={() => setModal("saltAdditions")}>
+                Confirm and Proceed
+              </button>
             </div>
             <div>
-              <button>Clear value</button>
+              <button onClick={() => setModal("closed")}>Close</button>
             </div>
           </div>
         </div>

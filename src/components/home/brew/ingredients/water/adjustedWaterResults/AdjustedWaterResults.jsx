@@ -98,10 +98,12 @@ const AdjustedWaterResults = ({ setModal }) => {
           </div>
           <div className="field button adjustedWaterResults-button">
             <div>
-              <button>Confirm and Proceed</button>
+              <button onClick={() => setModal("spargeWaterAcidification")}>
+                Confirm and Proceed
+              </button>
             </div>
             <div>
-              <button>Clear value</button>
+              <button onClick={() => setModal("closed")}>Close</button>
             </div>
           </div>
         </div>

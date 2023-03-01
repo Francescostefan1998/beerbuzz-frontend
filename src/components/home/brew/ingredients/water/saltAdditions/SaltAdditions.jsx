@@ -7,7 +7,7 @@ const SaltAdditions = ({ setModal }) => {
     <div className="waterSouceData">
       <div className="waterSouceData-modal saltAdditions">
         <div className="waterSouceData-modal-top">
-          <h4 className="mt-2">Souce Water Data</h4>
+          <h4 className="mt-2">Salt Additions</h4>
           <div
             className="waterSouceData-close"
             onClick={() => setModal("closed")}
@@ -99,10 +99,12 @@ const SaltAdditions = ({ setModal }) => {
           </div>
           <div className="field button saltAdditions-button">
             <div>
-              <button>Confirm and Proceed</button>
+              <button onClick={() => setModal("acidAdditions")}>
+                Confirm and Proceed
+              </button>
             </div>
             <div>
-              <button>Clear value</button>
+              <button onClick={() => setModal("closed")}>Close</button>
             </div>
           </div>
         </div>

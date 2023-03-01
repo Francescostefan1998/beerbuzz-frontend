@@ -114,10 +114,12 @@ const AcidAdditions = ({ setModal }) => {
 
           <div className="field button">
             <div>
-              <button>Confirm and Proceed</button>
+              <button onClick={() => setModal("adjustedWaterResults")}>
+                Confirm and Proceed
+              </button>
             </div>
             <div>
-              <button>Clear value</button>
+              <button onClick={() => setModal("closed")}>Close</button>
             </div>
           </div>
         </div>
