@@ -106,4 +106,13 @@
   .waterSouceData .field input {
     width: 50px;
   }
+  .waterSouceData .field.button {
+    padding-top: 10px;
+  }
+  .waterSouceData .field button {
+    padding: 6px;
+  }
+  .waterSouceData .field {
+    padding: 10px;
+  }
 }
