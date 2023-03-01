@@ -6,6 +6,12 @@ import RecipesList from "./components/home/recipes/recipesList/RecipesList";
 import BrewMainPage from "./components/home/brew/brewMainPage/BrewMainPage";
 import Ingredients from "./components/home/brew/ingredients/Ingredients";
 import SelectStyle from "./components/home/brew/selectStyle/SelectStyle";
+import Water from "./components/home/brew/ingredients/water/Water";
+import Others from "./components/home/brew/ingredients/others/Others";
+import Malts from "./components/home/brew/ingredients/malts/Malts";
+import Hops from "./components/home/brew/ingredients/hops/Hops";
+import Yeasts from "./components/home/brew/ingredients/yeasts/Yeasts";
+
 import "./App.css";
 
 function App() {
@@ -19,6 +25,11 @@ function App() {
           <Route path="/brew" element={<BrewMainPage />} />
           <Route path="/ingredients" element={<Ingredients />} />
           <Route path="/selectstyle" element={<SelectStyle />} />
+          <Route path="/water" element={<Water />} />
+          <Route path="/malts" element={<Malts />} />
+          <Route path="/hops" element={<Hops />} />
+          <Route path="/yests" element={<Yeasts />} />
+          <Route path="/others" element={<Others />} />
         </Routes>
       </BrowserRouter>
     </div>

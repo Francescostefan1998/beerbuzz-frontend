@@ -1,0 +1,42 @@
+.selectStyle-list-element {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 8vh;
+  opacity: 0.8;
+  background-color: var(--background-dark);
+  padding-inline: 30px;
+  cursor: pointer;
+  border-top: 1px solid var(--background-black);
+}
+
+.selectStyle-list-element:hover {
+  background-color: var(--background-black);
+  opacity: 1;
+}
+.selectStyle-list-element h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.selectStyle-list-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--background-black);
+  border: 2px solid var(--main-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectStyle-list-ball {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--main-secondary);
+  margin-left: 1px;
+}
