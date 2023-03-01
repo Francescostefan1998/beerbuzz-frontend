@@ -1,6 +1,8 @@
-import "./waterSourceData.css";
+import "../waterSourceData/waterSourceData.css";
+import "./residualAlkalinity.css";
+
 import { RiCloseLine } from "react-icons/ri";
-const WaterSourceData = ({ setModal }) => {
+const ResidualAlkalinity = ({ setModal }) => {
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal">
@@ -76,4 +78,4 @@ const WaterSourceData = ({ setModal }) => {
   );
 };
 
-export default WaterSourceData;
+export default ResidualAlkalinity;

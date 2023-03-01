@@ -24,7 +24,7 @@
   padding: 10px;
 }
 .waterSouceData-modal-top h4 {
-  padding-left: 20px;
+  padding-left: 28px;
 }
 .waterSouceData-close {
   width: 40px;
@@ -44,4 +44,45 @@
 .waterSouceData-close-icon {
   color: white;
   font-size: 30px;
+}
+.waterSouceData-salt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.waterSouceData .field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  padding-inline: 40px;
+  overflow: hidden;
+  border-top: 1px solid var(--main-secondary);
+}
+
+.waterSouceData .field input {
+  background-color: transparent;
+  border: 0px;
+
+  outline: none;
+  text-align: right;
+  color: white;
+}
+
+.waterSouceData .field button {
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+  background-color: var(--main-secondary);
+  border: 0px;
+  padding: 10px;
+}
+.waterSouceData .field.button {
+  padding-top: 80px;
+}
+
+.waterSouceData .field button:hover {
+  box-shadow: 0px 0px 10px var(--main-secondary);
 }

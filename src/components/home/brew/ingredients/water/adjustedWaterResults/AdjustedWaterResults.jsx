@@ -1,6 +1,7 @@
-import "./waterSourceData.css";
+import "./adjustedWaterResults.css";
+import "../waterSourceData/waterSourceData.css";
 import { RiCloseLine } from "react-icons/ri";
-const WaterSourceData = ({ setModal }) => {
+const AdjustedWaterResults = ({ setModal }) => {
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal">
@@ -76,4 +77,4 @@ const WaterSourceData = ({ setModal }) => {
   );
 };
 
-export default WaterSourceData;
+export default AdjustedWaterResults;
