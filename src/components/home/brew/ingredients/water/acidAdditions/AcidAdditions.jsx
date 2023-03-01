@@ -31,11 +31,14 @@ const AcidAdditions = ({ setModal }) => {
               <input type="text" placeholder="0.0" />
             </div>
           </div>
-          <div className="field" onClick={() => setSelectAcid(true)}>
+          <div
+            className="field special-field-acid-addiction"
+            onClick={() => setSelectAcid(true)}
+          >
             <div>Select Acid</div>
             {selectAcid && (
               <div className="acid-selections-main">
-                <div className="acid-selections">
+                <div id="acid-selections-container">
                   <div className="acid-selections-section">
                     <div className="mt-3">Select Value</div>
                     <div

@@ -5,9 +5,9 @@ import { RiCloseLine } from "react-icons/ri";
 const SourceWaterDiluition = ({ setModal }) => {
   return (
     <div className="waterSouceData">
-      <div className="waterSouceData-modal">
+      <div className="waterSouceData-modal sourceWaterDiluition">
         <div className="waterSouceData-modal-top">
-          <h4 className="mt-2">Souce Water Data</h4>
+          <h4 className="mt-2">Source Water Diluition</h4>
           <div
             className="waterSouceData-close"
             onClick={() => setModal("closed")}
@@ -16,6 +16,24 @@ const SourceWaterDiluition = ({ setModal }) => {
           </div>
         </div>
         <div className="waterSouceData-salt">
+          <div className="field">
+            <div>Input Data</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Diluition Rate in % of distilled water</div>
+            <div>
+              <input type="text" placeholder="0%" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Output Data</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
           <div className="field">
             <div>Calcium (ppm)</div>
             <div>
@@ -64,7 +82,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input type="text" placeholder="0.0" />
             </div>
           </div>
-          <div className="field button">
+          <div className="field button sourceWaterDiluition-button">
             <div>
               <button>Confirm and Proceed</button>
             </div>

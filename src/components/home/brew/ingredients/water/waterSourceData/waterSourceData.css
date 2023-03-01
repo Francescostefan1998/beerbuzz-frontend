@@ -7,12 +7,15 @@
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .waterSouceData-modal {
   width: 50%;
   height: 80vh;
   margin-top: 10vh;
+  margin-bottom: 10vh;
+
   overflow: hidden;
   background-color: var(--background-dark);
   border-radius: 10px;
@@ -75,11 +78,6 @@
   text-align: left;
 }
 
-.waterSouceData .field div:nth-child(2) {
-  display: flex;
-  justify-content: end;
-}
-
 .waterSouceData .field button {
   border-radius: 10px;
   overflow: hidden;
@@ -115,4 +113,22 @@
   .waterSouceData .field {
     padding: 10px;
   }
+}
+
+.waterSouceData::-webkit-scrollbar {
+  width: 10px;
+}
+
+.waterSouceData::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.waterSouceData::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.waterSouceData::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
 }

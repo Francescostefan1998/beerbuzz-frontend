@@ -7,17 +7,18 @@
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
+  padding-inline: 30%;
 }
-.acid-selections {
+#acid-selections-container {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 300px;
+  width: 300px !important;
+  height: 300px !important;
   background-color: var(--background-black);
   overflow: hidden;
   margin-top: 12vh;
   border-radius: 10px;
-  justify-content: space-between;
+  justify-content: space-between !important;
   padding: 10px;
   cursor: pointer;
   box-shadow: 0px 0px 20px var(--main-secondary);
@@ -25,7 +26,9 @@
 
 .acid-selections-section {
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
+  margin: 0;
 }
 
 .acidAddition {
