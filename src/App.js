@@ -28,7 +28,7 @@ function App() {
           <Route path="/water" element={<Water />} />
           <Route path="/malts" element={<Malts />} />
           <Route path="/hops" element={<Hops />} />
-          <Route path="/yests" element={<Yeasts />} />
+          <Route path="/yeasts" element={<Yeasts />} />
           <Route path="/others" element={<Others />} />
         </Routes>
       </BrowserRouter>

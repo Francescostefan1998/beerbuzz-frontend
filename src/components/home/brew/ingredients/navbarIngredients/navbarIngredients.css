@@ -17,9 +17,7 @@
   font-size: 30px;
   cursor: pointer;
 }
-.navbarIngredients-prew-icon:hover {
-  box-shadow: 0 0 10px var(--main-secondary);
-}
+
 .navbarIngredients-next {
   height: 4vh;
   width: 8vh;
