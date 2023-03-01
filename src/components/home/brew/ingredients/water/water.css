@@ -1,0 +1,60 @@
+.water {
+  background-color: var(--background-dark);
+  width: 100%;
+  height: 100vh;
+}
+.water-list {
+  height: 80vh;
+  overflow-y: scroll;
+  padding-bottom: 30px;
+}
+.water-list-element {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  padding: 2vh;
+  padding-inline: 4vh;
+  background-color: var(--background-dark);
+  border-top: 1px solid var(--main-secondary);
+}
+.water-list-element:hover {
+  background-color: var(--background-black);
+}
+
+.water-list-element .icon {
+  font-size: 50px;
+}
+.water-list-element-tile {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: left;
+  gap: 6px;
+}
+.water-list-element-tile div {
+  text-align: left;
+}
+.water-list-element-tile h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.water-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.water-list::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.water-list::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.water-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
+}

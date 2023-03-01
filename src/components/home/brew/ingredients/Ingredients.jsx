@@ -1,9 +1,8 @@
 import "./ingredients.css";
 import NavBar from "../../navBar/NavBar";
-
 const Ingredients = () => {
   return (
-    <div className="ingredients">
+    <div className="yeasts">
       <NavBar />
       <div>hello</div>
     </div>
