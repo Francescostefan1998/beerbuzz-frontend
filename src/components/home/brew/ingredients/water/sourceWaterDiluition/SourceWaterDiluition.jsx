@@ -1,11 +1,13 @@
-import "./waterSourceData.css";
+import "../waterSourceData/waterSourceData.css";
+import "./sourceWaterDiluition.css";
+
 import { RiCloseLine } from "react-icons/ri";
-const WaterSourceData = ({ setModal }) => {
+const SourceWaterDiluition = ({ setModal }) => {
   return (
     <div className="waterSouceData">
-      <div className="waterSouceData-modal">
+      <div className="waterSouceData-modal sourceWaterDiluition">
         <div className="waterSouceData-modal-top">
-          <h4 className="mt-2">Souce Water Data</h4>
+          <h4 className="mt-2">Source Water Diluition</h4>
           <div
             className="waterSouceData-close"
             onClick={() => setModal("closed")}
@@ -14,6 +16,24 @@ const WaterSourceData = ({ setModal }) => {
           </div>
         </div>
         <div className="waterSouceData-salt">
+          <div className="field">
+            <div>Input Data</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Diluition Rate in % of distilled water</div>
+            <div>
+              <input type="text" placeholder="0%" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Output Data</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
           <div className="field">
             <div>Calcium (ppm)</div>
             <div>
@@ -62,9 +82,9 @@ const WaterSourceData = ({ setModal }) => {
               <input type="text" placeholder="0.0" />
             </div>
           </div>
-          <div className="field button">
+          <div className="field button sourceWaterDiluition-button">
             <div>
-              <button onClick={() => setModal("residualAlkalinityTarger")}>
+              <button onClick={() => setModal("saltAdditions")}>
                 Confirm and Proceed
               </button>
             </div>
@@ -78,4 +98,4 @@ const WaterSourceData = ({ setModal }) => {
   );
 };
 
-export default WaterSourceData;
+export default SourceWaterDiluition;

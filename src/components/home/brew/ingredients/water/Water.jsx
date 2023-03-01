@@ -1,6 +1,12 @@
 import "./water.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import WaterSourceData from "./waterSourceData/WaterSourceData";
+import AcidAdditions from "./acidAdditions/AcidAdditions";
+import AdjustedWaterResults from "./adjustedWaterResults/AdjustedWaterResults";
+import ResidualAlkalinity from "./residualAlkalinityTarget/ResidualAlkalinity";
+import SaltAdditions from "./saltAdditions/SaltAdditions";
+import SourceWaterDiluition from "./sourceWaterDiluition/SourceWaterDiluition";
+import SpargeWaterAcidification from "./spargeWaterAcidification/SpargeWaterAcidification";
 import { useState } from "react";
 import { IoWaterOutline } from "react-icons/io5";
 import { FiTarget } from "react-icons/fi";
@@ -51,7 +57,7 @@ const Water = () => {
           </div>
         </div>
         {step === "residualAlkalinityTarger" ? (
-          <WaterSourceData setModal={setStep} />
+          <ResidualAlkalinity setModal={setStep} />
         ) : (
           <div></div>
         )}
@@ -70,7 +76,7 @@ const Water = () => {
           </div>
         </div>
         {step === "souceWaterDiluition" ? (
-          <WaterSourceData setModal={setStep} />
+          <SourceWaterDiluition setModal={setStep} />
         ) : (
           <div></div>
         )}
@@ -89,7 +95,7 @@ const Water = () => {
           </div>
         </div>
         {step === "saltAdditions" ? (
-          <WaterSourceData setModal={setStep} />
+          <SaltAdditions setModal={setStep} />
         ) : (
           <div></div>
         )}
@@ -108,7 +114,7 @@ const Water = () => {
           </div>
         </div>
         {step === "acidAdditions" ? (
-          <WaterSourceData setModal={setStep} />
+          <AcidAdditions setModal={setStep} />
         ) : (
           <div></div>
         )}
@@ -129,7 +135,7 @@ const Water = () => {
           </div>
         </div>
         {step === "adjustedWaterResults" ? (
-          <WaterSourceData setModal={setStep} />
+          <AdjustedWaterResults setModal={setStep} />
         ) : (
           <div></div>
         )}
@@ -151,7 +157,7 @@ const Water = () => {
           </div>
         </div>
         {step === "spargeWaterAcidification" ? (
-          <WaterSourceData setModal={setStep} />
+          <SpargeWaterAcidification setModal={setStep} />
         ) : (
           <div></div>
         )}

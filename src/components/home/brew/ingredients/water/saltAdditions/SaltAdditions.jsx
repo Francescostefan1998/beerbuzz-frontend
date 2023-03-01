@@ -1,11 +1,13 @@
-import "./waterSourceData.css";
+import "../waterSourceData/waterSourceData.css";
+import "./saltAdditions.css";
+
 import { RiCloseLine } from "react-icons/ri";
-const WaterSourceData = ({ setModal }) => {
+const SaltAdditions = ({ setModal }) => {
   return (
     <div className="waterSouceData">
-      <div className="waterSouceData-modal">
+      <div className="waterSouceData-modal saltAdditions">
         <div className="waterSouceData-modal-top">
-          <h4 className="mt-2">Souce Water Data</h4>
+          <h4 className="mt-2">Salt Additions</h4>
           <div
             className="waterSouceData-close"
             onClick={() => setModal("closed")}
@@ -14,6 +16,50 @@ const WaterSourceData = ({ setModal }) => {
           </div>
         </div>
         <div className="waterSouceData-salt">
+          <div className="field">
+            <div>
+              <b> Salt Additions (grams)</b>
+            </div>
+            <div></div>
+          </div>
+          <div className="field">
+            <div>Gypsum CaSO4*2H2O</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Calcium Chloride CaCl2*2H2O</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+
+          <div className="field">
+            <div>Epson Salt MgSO4*7H2O</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Baking Soda NaHCO3</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>Canning Salt NaCl</div>
+            <div>
+              <input type="text" placeholder="0.0" />
+            </div>
+          </div>
+          <div className="field">
+            <div>
+              {" "}
+              <b>Salt Contributions (ppm)</b>
+            </div>
+            <div></div>
+          </div>
           <div className="field">
             <div>Calcium (ppm)</div>
             <div>
@@ -26,18 +72,7 @@ const WaterSourceData = ({ setModal }) => {
               <input type="text" placeholder="0.0" />
             </div>
           </div>
-          <div className="field">
-            <div>Choose Bicarbonate or Alkalinity</div>
-            <div>
-              <input type="text" placeholder="0.0" />
-            </div>
-          </div>
-          <div className="field">
-            <div>Alkaliniy as CaCO3</div>
-            <div>
-              <input type="text" placeholder="0.0" />
-            </div>
-          </div>
+
           <div className="field">
             <div>Sulfate (ppm)</div>
             <div>
@@ -57,14 +92,14 @@ const WaterSourceData = ({ setModal }) => {
             </div>
           </div>
           <div className="field">
-            <div>Water pH</div>
+            <div>Adjusted Residual Alkalinity as CaCO3</div>
             <div>
               <input type="text" placeholder="0.0" />
             </div>
           </div>
-          <div className="field button">
+          <div className="field button saltAdditions-button">
             <div>
-              <button onClick={() => setModal("residualAlkalinityTarger")}>
+              <button onClick={() => setModal("acidAdditions")}>
                 Confirm and Proceed
               </button>
             </div>
@@ -78,4 +113,4 @@ const WaterSourceData = ({ setModal }) => {
   );
 };
 
-export default WaterSourceData;
+export default SaltAdditions;

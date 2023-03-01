@@ -7,12 +7,15 @@
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .waterSouceData-modal {
   width: 50%;
   height: 80vh;
   margin-top: 10vh;
+  margin-bottom: 10vh;
+
   overflow: hidden;
   background-color: var(--background-dark);
   border-radius: 10px;
@@ -24,7 +27,7 @@
   padding: 10px;
 }
 .waterSouceData-modal-top h4 {
-  padding-left: 20px;
+  padding-left: 28px;
 }
 .waterSouceData-close {
   width: 40px;
@@ -44,4 +47,88 @@
 .waterSouceData-close-icon {
   color: white;
   font-size: 30px;
+}
+.waterSouceData-salt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.waterSouceData .field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  padding-inline: 40px;
+  overflow: hidden;
+  border-top: 1px solid var(--main-secondary);
+}
+
+.waterSouceData .field input {
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  width: 100px;
+  text-align: right;
+  color: white;
+}
+.waterSouceData .field div:first-child {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.waterSouceData .field button {
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+  background-color: var(--main-secondary);
+  border: 0px;
+  padding: 10px;
+}
+.waterSouceData .field.button {
+  padding-top: 80px;
+}
+
+.waterSouceData .field button:hover {
+  box-shadow: 0px 0px 10px var(--main-secondary);
+}
+
+@media (max-width: 1024px) {
+  .waterSouceData-modal {
+    width: 100%;
+  }
+}
+
+@media (max-width: 414px) {
+  .waterSouceData .field input {
+    width: 50px;
+  }
+  .waterSouceData .field.button {
+    padding-top: 10px;
+  }
+  .waterSouceData .field button {
+    padding: 6px;
+  }
+  .waterSouceData .field {
+    padding: 10px;
+  }
+}
+
+.waterSouceData::-webkit-scrollbar {
+  width: 10px;
+}
+
+.waterSouceData::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.waterSouceData::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.waterSouceData::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
 }
