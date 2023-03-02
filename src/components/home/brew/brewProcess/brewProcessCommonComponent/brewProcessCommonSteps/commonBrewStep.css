@@ -12,6 +12,20 @@
   justify-content: space-between;
   align-items: center;
 }
+.commonBrewStep-others-single {
+  display: flex;
+  width: 100%;
+}
+.commonBrewStep-others-single-icon {
+  color: var(--main-secondary);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.commonBrewStep-others-single-icon:hover {
+  scale: 1.2;
+}
+
 .commonBrewStep-others-single input {
   border: none;
   outline: none;

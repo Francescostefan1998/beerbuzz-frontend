@@ -36,6 +36,30 @@
 .mash-main-section {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
+  border-bottom: 3px solid var(--main-secondary);
+}
+.mash-main-section-process {
+  flex-grow: 1;
+  border-left: 3px solid var(--main-secondary);
+}
+.mash-bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.mash-bottom-section-button {
+  padding: 6px;
+  padding-inline: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--main-secondary);
+  z-index: 3;
+}
+
+.mash-bottom-section-button:hover {
+  box-shadow: 0px 0px 10px var(--main-secondary);
 }
 
 .mash-overflow-scroll::-webkit-scrollbar {

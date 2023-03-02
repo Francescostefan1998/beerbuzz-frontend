@@ -7,8 +7,10 @@ import ValueSuggested from "../brewProcessCommonComponent/valueSuggested/ValueSu
 import CommonList from "../brewProcessCommonComponent/brewProcessCommonList/CommonList";
 import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps/CommonBrewStep";
 import { GiWheat } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 const Mash = () => {
+  const navigate = useNavigate();
   return (
     <div className="mash">
       <NavBar />
@@ -27,9 +29,23 @@ const Mash = () => {
             <h1>Mash</h1>
             <CommonList icon={<GiWheat />} colorOrIbu={"Color (EBC)"} />
           </div>
-          <div>
+          <div className="mash-main-section-process">
             <h1>Process</h1>
             <CommonBrewStep />
+          </div>
+        </div>
+        <div className="mash-bottom-section">
+          <div
+            className="mash-bottom-section-button"
+            onClick={() => navigate("/others")}
+          >
+            Back
+          </div>
+          <div
+            className="mash-bottom-section-button"
+            onClick={() => navigate("/boil")}
+          >
+            Save and Go to Boil Page
           </div>
         </div>
       </div>
