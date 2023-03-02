@@ -1,4 +1,4 @@
-.malts-container-inside-malt {
+.common-element-container-inside-malt {
   width: 100%;
   cursor: pointer;
   display: flex;
@@ -9,17 +9,17 @@
   padding-inline: 10px;
 }
 
-.malts-container-inside-malt:hover {
+.common-element-container-inside-malt:hover {
   background-color: var(--background-black);
 }
-.malts-container-inside-malt-description-section {
+.common-element-container-inside-malt-description-section {
   display: flex;
   gap: 10px;
   font-size: 14px;
 }
-.malts-container-inside-malt-icon {
+.common-element-container-inside-malt .icon {
   font-size: 25px;
 }
-#malts-container-inside-malt-purple {
+#common-element-container-inside-malt-purple {
   background-color: var(--main-secondary);
 }

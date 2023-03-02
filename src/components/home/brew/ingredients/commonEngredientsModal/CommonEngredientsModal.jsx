@@ -2,12 +2,13 @@ import "./commonEngredientsModal.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import { GiWheat } from "react-icons/gi";
 import { HiSearch } from "react-icons/hi";
-import MaltSingleListElement from "../malts/maltSingleListElement/MaltSingleListElement";
+import CommonSingleElement from "./commonSingleElement/CommonSingleElement";
 import { useState } from "react";
 import AddProduct from "./addProduct/AddProduct";
-const CommonEngredientsModal = ({ title, icon, colorOrIbu }) => {
+import { useNavigate } from "react-router-dom";
+const CommonEngredientsModal = ({ title, icon, colorOrIbu, next }) => {
   const [add, setAdd] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className="common-ingredients-container">
       <div className="common-ingredients-container-inside">
@@ -36,8 +37,8 @@ const CommonEngredientsModal = ({ title, icon, colorOrIbu }) => {
                 <input type="text" placeholder="Search the product you need" />
               </div>
             </div>
-            <MaltSingleListElement />
-            <MaltSingleListElement />
+            <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+            <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
           </div>
         )}
         {add && <AddProduct colorOrIbu={colorOrIbu} />}
@@ -48,9 +49,10 @@ const CommonEngredientsModal = ({ title, icon, colorOrIbu }) => {
               <div
                 onClick={() => {
                   add !== false ? setAdd(false) : setAdd(true);
+                  navigate(next);
                 }}
               >
-                Save
+                Save and Proceed
               </div>
             )}
             {add && (

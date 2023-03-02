@@ -7,9 +7,10 @@ const Hops = () => {
     <div className="hops">
       <NavbarIngredients prew="/malts" next="/yeasts" />
       <CommonEngredientsModal
-        icon={<GiHops />}
+        icon={<GiHops className="icon" />}
         title={"Hops"}
         colorOrIbu={"Alpha Acid (%)"}
+        next={"/yeasts"}
       />
     </div>
   );

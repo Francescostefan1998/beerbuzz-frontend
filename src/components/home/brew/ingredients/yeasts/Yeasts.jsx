@@ -7,9 +7,10 @@ const Yeasts = () => {
     <div className="yeasts">
       <NavbarIngredients prew="/hops" next="/others" />
       <CommonEngredientsModal
-        icon={<FaBacterium />}
+        icon={<FaBacterium className="icon" />}
         title={"Yeasts and Bacterias"}
         colorOrIbu={"Attenuation (%)"}
+        next={"/others"}
       />
     </div>
   );
