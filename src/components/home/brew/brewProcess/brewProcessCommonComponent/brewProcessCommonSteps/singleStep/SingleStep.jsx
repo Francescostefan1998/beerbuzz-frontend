@@ -1,8 +1,9 @@
 import "../commonBrewStep.css";
 import { BsTrashFill } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
+import { MdAddCircle } from "react-icons/md";
 
-const SingleStepAdd = () => {
+const SingleStep = () => {
   return (
     <div className="commonBrewStep-others-single mt-5">
       <div>
@@ -12,27 +13,27 @@ const SingleStepAdd = () => {
 
       <div className="commonBrewStep-others-single-grow1">
         <div>Name</div>
-        <input type="text" placeholder="Name of the product" />
+        <div>Mash in</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div>Step duration (minuts)</div>
-        <input type="text" placeholder="Step Duration" />
+        <div>60 min</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div>Temperature (C)</div>
-        <input type="text" placeholder="Temperature" />
+        <div>60 min</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div>Description</div>
 
-        <textarea name="description and note"></textarea>
+        <div>this beer is amzing, please note to add some cheese in it</div>
       </div>
       <div>
         {" "}
-        <FaSave className="commonBrewStep-others-single-icon" />
+        <MdAddCircle className="commonBrewStep-others-single-icon" />
       </div>
     </div>
   );
 };
 
-export default SingleStepAdd;
+export default SingleStep;
