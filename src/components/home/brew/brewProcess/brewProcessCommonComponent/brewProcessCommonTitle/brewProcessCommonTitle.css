@@ -1,0 +1,51 @@
+.brewProcessCommonTitle-main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  gap: 30px;
+  position: relative;
+}
+
+.brewProcessCommonTitle-image {
+  width: 18vh;
+  height: 18vh;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.brewProcessCommonTitle-image img {
+  width: 100%;
+  object-fit: cover;
+}
+.brewProcessCommonTitle-title-name {
+  text-align: left;
+  padding: 4px;
+  margin-top: 3px;
+}
+.brewProcessCommonTitle-image-modify {
+  position: absolute;
+  top: 20px;
+  left: 15vh;
+  color: var(--main-secondary);
+  font-size: 50px;
+  z-index: 2;
+  cursor: pointer;
+}
+.brewProcessCommonTitle-title-input {
+  width: 160px;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: var(--background-black);
+  margin-bottom: 3px;
+}
+.brewProcessCommonTitle-title input {
+  outline: none;
+  border: none;
+  overflow: hidden;
+  background-color: transparent;
+  color: white;
+  height: 100%;
+  width: 100%;
+}

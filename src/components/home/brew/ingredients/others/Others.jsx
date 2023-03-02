@@ -5,6 +5,7 @@ import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import { BsTrashFill } from "react-icons/bs";
 import { MdAddCircle } from "react-icons/md";
 import AddOthers from "./addOthers/AddOthers";
+import { useNavigate } from "react-router-dom";
 const Others = () => {
   const [add, setAdd] = useState(false);
   const [engredients, setEngredients] = useState([
@@ -13,6 +14,8 @@ const Others = () => {
       description: "new",
     },
   ]);
+
+  const navigate = useNavigate();
   return (
     <div className="ingredients">
       <NavbarIngredients prew="/yeasts" next="/recipes" />
@@ -53,10 +56,13 @@ const Others = () => {
             {add && <AddOthers />}
           </div>
           <div className="common-ingredients-container-inside-section-bottom">
-            <div className="malts-container-inside-section-bottom-add">
+            <div
+              className="malts-container-inside-section-bottom-add"
+              onClick={() => navigate("/mash")}
+            >
               <div>Skip and proceed</div>
             </div>
-            <div>Save and proceed</div>
+            <div onClick={() => navigate("/mash")}>Save and proceed</div>
           </div>
         </div>
       </div>
