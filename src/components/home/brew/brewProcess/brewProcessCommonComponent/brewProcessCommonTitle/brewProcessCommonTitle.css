@@ -49,3 +49,26 @@
   height: 100%;
   width: 100%;
 }
+@media (max-width: 788px) {
+  .brewProcessCommonTitle-image {
+    width: 12vh;
+    height: 12vh;
+  }
+  .brewProcessCommonTitle-image-modify {
+    position: absolute;
+    top: 50px;
+    left: 12vh;
+    color: var(--main-secondary);
+    font-size: 30px;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .brewProcessCommonTitle-title-input {
+    width: 140px;
+    overflow: hidden;
+    border-radius: 3px;
+    padding: 2px;
+    background-color: var(--background-black);
+    margin-bottom: 3px;
+  }
+}

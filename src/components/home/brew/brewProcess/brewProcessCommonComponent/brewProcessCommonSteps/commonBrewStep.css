@@ -51,10 +51,43 @@
 
 .commonBrewStep-others-single {
   text-align: left;
-  gap: 26px;
+  gap: 10px;
 }
 
 .commonBrewStep-others-single-grow1 {
   text-align: left;
   flex-grow: 1;
+}
+.commonBrewStep-others-nonebig {
+  display: flex;
+}
+@media (min-width: 788px) {
+  .commonBrewStep-others-nonebig {
+    display: none;
+  }
+}
+@media (max-width: 788px) {
+  .commonBrewStep-others-single {
+    position: relative;
+    padding-bottom: 4vh;
+  }
+  .commonBrewStep-others-single-grow1 .none {
+    display: none;
+  }
+  .commonBrewStep-others-nonebig {
+    position: absolute;
+    top: 4vh;
+    left: 4.6vh;
+    height: 6vh;
+    width: 80%;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  .commonBrewStep {
+    padding-bottom: 10vh;
+  }
+  textarea {
+    width: 28vh !important;
+    margin-top: 10px;
+  }
 }

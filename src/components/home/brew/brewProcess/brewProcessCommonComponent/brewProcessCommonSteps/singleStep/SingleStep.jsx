@@ -12,25 +12,30 @@ const SingleStep = () => {
       </div>
 
       <div className="commonBrewStep-others-single-grow1">
-        <div>Name</div>
+        <div className="none">Name</div>
         <div>Mash in</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div>Step duration (minuts)</div>
+        <div className="none">Step duration (minuts)</div>
         <div>60 min</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div>Temperature (C)</div>
-        <div>60 min</div>
+        <div className="none">Temperature (C)</div>
+        <div>60 C</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div>Description</div>
+        <div className="none">Description</div>
 
-        <div>this beer is amzing, please note to add some cheese in it</div>
+        <div className="none">
+          this beer is amzing, please note to add some cheese in it
+        </div>
       </div>
       <div>
         {" "}
         <MdAddCircle className="commonBrewStep-others-single-icon" />
+      </div>
+      <div className="commonBrewStep-others-nonebig">
+        this beer is amzing, please note to add some cheese in it
       </div>
     </div>
   );
