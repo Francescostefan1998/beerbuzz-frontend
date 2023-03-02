@@ -1,4 +1,4 @@
-.add-malts {
+.add-products {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,17 +8,17 @@
   margin-top: 30px;
 }
 
-.add-malts input {
+.add-products input {
   border: none;
   color: white;
   background-color: transparent;
   outline: none;
 }
 
-.add-malts.below input {
+.add-products.below input {
   width: 40%;
 }
 
-.add-malts {
+.add-products {
   text-align: left;
 }
