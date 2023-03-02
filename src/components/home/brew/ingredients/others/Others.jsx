@@ -2,8 +2,11 @@ import "../commonEngredientsModal/commonEngredientsModal.css";
 import "./others.css";
 import { useState } from "react";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
-
+import { BsTrashFill } from "react-icons/bs";
+import { MdAddCircle } from "react-icons/md";
+import AddOthers from "./addOthers/AddOthers";
 const Others = () => {
+  const [add, setAdd] = useState(false);
   const [engredients, setEngredients] = useState([
     {
       name: "new",
@@ -23,13 +26,23 @@ const Others = () => {
           <div className="common-ingredients-container-inside-section-middle">
             {engredients.map((engrediet, i) => (
               <div key={engrediet.name} className="ingredients-others-single">
-                <div> cancel</div>
+                <div>
+                  {" "}
+                  <BsTrashFill className="ingredients-others-single-icon" />
+                </div>
 
-                <div> {engrediet.name}</div>
+                <div>{engrediet.name}</div>
                 <div> {engrediet.description}</div>
-                <div> plus</div>
+                <div>
+                  {" "}
+                  <MdAddCircle
+                    className="ingredients-others-single-icon"
+                    onClick={() => setAdd(true)}
+                  />
+                </div>
               </div>
             ))}
+            {add && <AddOthers />}
           </div>
           <div className="common-ingredients-container-inside-section-bottom">
             <div className="malts-container-inside-section-bottom-add">

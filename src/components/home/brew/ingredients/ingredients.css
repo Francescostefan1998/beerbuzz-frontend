@@ -8,3 +8,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.ingredients-others-single-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--main-secondary);
+}
+
+.ingredients-others-single-icon:hover {
+  scale: 1.2;
+}
