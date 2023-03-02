@@ -1,0 +1,46 @@
+.commonBrewStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+}
+.commonBrewStep-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.commonBrewStep-others-single input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--background-black);
+  border-radius: 4px;
+}
+
+.commonBrewStep-others-single textarea {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-black);
+  border-radius: 4px;
+}
+
+.commonBrewStep-others-single {
+  text-align: left;
+  gap: 26px;
+}
+
+.commonBrewStep-others-single-grow1 {
+  text-align: left;
+  flex-grow: 1;
+}

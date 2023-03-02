@@ -5,13 +5,42 @@ import CommonSingleElement from "../../../ingredients/commonEngredientsModal/com
 const CommonList = ({ icon, colorOrIbu }) => {
   return (
     <div className="commonList">
-      <h2>Malts</h2>
+      <div className="commonList-title">
+        <h2>Malts</h2>
+        <div>Kg</div>
+      </div>
       <div>
-        <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
-        <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
-        <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
-        <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
-        <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+        <div className="commonList-element">
+          {" "}
+          <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+          <div className="commonList-element-add">
+            <input type="text" placeholder="0.000kg" />
+          </div>
+        </div>
+        <div className="commonList-element">
+          <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+          <div className="commonList-element-add">
+            <input type="text" placeholder="0.000kg" />
+          </div>
+        </div>
+        <div className="commonList-element">
+          <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+          <div className="commonList-element-add">
+            <input type="text" placeholder="0.000kg" />
+          </div>
+        </div>
+        <div className="commonList-element">
+          <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+          <div className="commonList-element-add">
+            <input type="text" placeholder="0.000kg" />
+          </div>
+        </div>
+        <div className="commonList-element">
+          <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+          <div className="commonList-element-add">
+            <input type="text" placeholder="0.000kg" />
+          </div>
+        </div>
       </div>
     </div>
   );
