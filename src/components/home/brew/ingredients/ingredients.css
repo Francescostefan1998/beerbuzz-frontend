@@ -3,3 +3,8 @@
   width: 100%;
   height: 100vh;
 }
+
+.ingredients-others-single {
+  display: flex;
+  justify-content: space-between;
+}
