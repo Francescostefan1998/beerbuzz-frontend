@@ -1,0 +1,25 @@
+.malts-container-inside-malt {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px;
+  padding-block: 10px;
+  padding-inline: 10px;
+}
+
+.malts-container-inside-malt:hover {
+  background-color: var(--background-black);
+}
+.malts-container-inside-malt-description-section {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+}
+.malts-container-inside-malt-icon {
+  font-size: 25px;
+}
+#malts-container-inside-malt-purple {
+  background-color: var(--main-secondary);
+}
