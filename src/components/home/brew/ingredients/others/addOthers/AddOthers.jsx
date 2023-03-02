@@ -1,20 +1,28 @@
+import "../others.css";
 import "./addOthers.css";
 import { BsTrashFill } from "react-icons/bs";
-import { MdAddCircle } from "react-icons/md";
+import { FaSave } from "react-icons/fa";
 
 const AddOthers = () => {
   return (
-    <div className="ingredients-others-single">
+    <div className="ingredients-others-single mt-5">
       <div>
         {" "}
         <BsTrashFill className="ingredients-others-single-icon" />
       </div>
 
-      <div>name</div>
-      <div>description</div>
+      <div className="ingredients-others-single-grow1">
+        <div>Name</div>
+        <input type="text" placeholder="Name of the product" />
+      </div>
+      <div className="ingredients-others-single-grow1">
+        <div>Description</div>
+
+        <textarea name="description"></textarea>
+      </div>
       <div>
         {" "}
-        <MdAddCircle className="ingredients-others-single-icon" />
+        <FaSave className="ingredients-others-single-icon" />
       </div>
     </div>
   );

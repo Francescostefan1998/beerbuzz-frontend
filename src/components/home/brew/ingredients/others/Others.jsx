@@ -25,14 +25,22 @@ const Others = () => {
           </div>
           <div className="common-ingredients-container-inside-section-middle">
             {engredients.map((engrediet, i) => (
-              <div key={engrediet.name} className="ingredients-others-single">
+              <div
+                key={engrediet.name}
+                className="ingredients-others-single mt-4"
+              >
                 <div>
                   {" "}
                   <BsTrashFill className="ingredients-others-single-icon" />
                 </div>
 
-                <div>{engrediet.name}</div>
-                <div> {engrediet.description}</div>
+                <div className="ingredients-others-single-grow1">
+                  {engrediet.name}
+                </div>
+                <div className="ingredients-others-single-grow1">
+                  {" "}
+                  {engrediet.description}
+                </div>
                 <div>
                   {" "}
                   <MdAddCircle
