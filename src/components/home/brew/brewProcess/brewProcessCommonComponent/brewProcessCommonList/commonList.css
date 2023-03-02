@@ -40,3 +40,11 @@
   margin-inline: 0;
   text-align: left;
 }
+@media (max-width: 788px) {
+  .commonList-element-add input {
+    width: 10vh;
+  }
+  .commonList {
+    padding: 10px;
+  }
+}

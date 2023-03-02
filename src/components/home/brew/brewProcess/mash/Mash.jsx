@@ -20,8 +20,13 @@ const Mash = () => {
             <BrewProcessCommonTitle select={"mash"} />
           </div>
           <div className="mash-top-section-right">
-            <ValueObtaining />
-            <ValueSuggested />
+            <div className="mash-top-section-right-container1">
+              {" "}
+              <ValueObtaining />
+            </div>
+            <div className="mash-top-section-right-container">
+              <ValueSuggested />
+            </div>
           </div>
         </div>
         <div className="mash-main-section">

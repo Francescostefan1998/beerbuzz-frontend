@@ -30,3 +30,14 @@
 .valueObtaining-section {
   cursor: pointer;
 }
+.valueObtaining-section-input input {
+  width: 16vh;
+}
+@media (max-width: 788px) {
+  .valueObtaining-section-input input {
+    width: 14vh;
+  }
+  .valueObtaining-section-input .icon {
+    margin-right: 10px;
+  }
+}
