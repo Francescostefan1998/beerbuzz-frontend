@@ -1,4 +1,4 @@
-import "./mash.css";
+import "./fermentation.css";
 import NavBar from "../../../navBar/NavBar";
 import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
 import BrewProcessCommonTitle from "../brewProcessCommonComponent/brewProcessCommonTitle/brewProcessCommonTitle";
@@ -9,48 +9,48 @@ import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 
-const Mash = () => {
+const Fermentation = () => {
   const navigate = useNavigate();
   return (
-    <div className="mash">
+    <div className="fermentation">
       <NavBar />
-      <div className="mash-overflow-scroll">
-        <div className="mash-top-section">
-          <div className="mash-top-section-left">
-            <BrewProcessCommonTitle select={"mash"} />
+      <div className="fermentation-overflow-scroll">
+        <div className="fermentation-top-section">
+          <div className="fermentation-top-section-left">
+            <BrewProcessCommonTitle select={"fermentation"} />
           </div>
-          <div className="mash-top-section-right">
-            <div className="mash-top-section-right-container1">
+          <div className="fermentation-top-section-right">
+            <div className="fermentation-top-section-right-container1">
               {" "}
               <ValueObtaining />
             </div>
-            <div className="mash-top-section-right-container">
+            <div className="fermentation-top-section-right-container">
               <ValueSuggested />
             </div>
           </div>
         </div>
-        <div className="mash-main-section">
+        <div className="fermentation-main-section">
           <div>
-            <h1>Mash</h1>
+            <h1>Fermentation</h1>
             <CommonList icon={<GiWheat />} colorOrIbu={"Color (EBC)"} />
           </div>
-          <div className="mash-main-section-process">
-            <h1>Mash Process</h1>
+          <div className="fermentation-main-section-process">
+            <h1>Fermentation Process</h1>
             <CommonBrewStep />
           </div>
         </div>
-        <div className="mash-bottom-section">
+        <div className="fermentation-bottom-section">
           <div
-            className="mash-bottom-section-button"
-            onClick={() => navigate("/others")}
+            className="fermentation-bottom-section-button"
+            onClick={() => navigate("/boil")}
           >
             Back
           </div>
           <div
-            className="mash-bottom-section-button"
-            onClick={() => navigate("/boil")}
+            className="fermentation-bottom-section-button"
+            onClick={() => navigate("/home")}
           >
-            Save and Go to Boil Page
+            Save and Go to Check Page
           </div>
         </div>
       </div>
@@ -58,4 +58,4 @@ const Mash = () => {
   );
 };
 
-export default Mash;
+export default Fermentation;
