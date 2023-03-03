@@ -12,6 +12,9 @@ import Malts from "./components/home/brew/ingredients/malts/Malts";
 import Hops from "./components/home/brew/ingredients/hops/Hops";
 import Yeasts from "./components/home/brew/ingredients/yeasts/Yeasts";
 import Mash from "./components/home/brew/brewProcess/mash/Mash";
+import Fermentation from "./components/home/brew/brewProcess/fermentation/Fermentation";
+import Boil from "./components/home/brew/brewProcess/boil/Boil";
+import CheckResults from "./components/home/brew/brewProcess/checkResults/CheckResults";
 import "./App.css";
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
           <Route path="/yeasts" element={<Yeasts />} />
           <Route path="/others" element={<Others />} />
           <Route path="/mash" element={<Mash />} />
+          <Route path="/boil" element={<Boil />} />
+          <Route path="/fermentation" element={<Fermentation />} />
+          <Route path="/check" element={<CheckResults />} />
         </Routes>
       </BrowserRouter>
     </div>
