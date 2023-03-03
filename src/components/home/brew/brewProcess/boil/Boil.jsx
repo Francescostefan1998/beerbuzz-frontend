@@ -8,6 +8,7 @@ import CommonList from "../brewProcessCommonComponent/brewProcessCommonList/Comm
 import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps/CommonBrewStep";
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import { GiHops } from "react-icons/gi";
 
 const Boil = () => {
   const navigate = useNavigate();
@@ -32,7 +33,11 @@ const Boil = () => {
         <div className="boil-main-section">
           <div>
             <h1>Boil</h1>
-            <CommonList icon={<GiWheat />} colorOrIbu={"Color (EBC)"} />
+            <CommonList
+              icon={<GiHops />}
+              colorOrIbu={"Alpha Acid (%)"}
+              title={"Hops"}
+            />
           </div>
           <div className="boil-main-section-process">
             <h1>Boil Process</h1>

@@ -7,6 +7,8 @@ import ValueSuggested from "../brewProcessCommonComponent/valueSuggested/ValueSu
 import CommonList from "../brewProcessCommonComponent/brewProcessCommonList/CommonList";
 import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps/CommonBrewStep";
 import { GiWheat } from "react-icons/gi";
+import { FaBacterium } from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
 
 const Fermentation = () => {
@@ -32,7 +34,11 @@ const Fermentation = () => {
         <div className="fermentation-main-section">
           <div>
             <h1>Fermentation</h1>
-            <CommonList icon={<GiWheat />} colorOrIbu={"Color (EBC)"} />
+            <CommonList
+              icon={<FaBacterium />}
+              colorOrIbu={"Attenuation (%)"}
+              title={"Yeasts and Bacteria"}
+            />
           </div>
           <div className="fermentation-main-section-process">
             <h1>Fermentation Process</h1>

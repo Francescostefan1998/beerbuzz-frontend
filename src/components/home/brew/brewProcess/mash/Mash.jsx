@@ -32,7 +32,11 @@ const Mash = () => {
         <div className="mash-main-section">
           <div>
             <h1>Mash</h1>
-            <CommonList icon={<GiWheat />} colorOrIbu={"Color (EBC)"} />
+            <CommonList
+              icon={<GiWheat />}
+              colorOrIbu={"Color (EBC)"}
+              title={"Mash"}
+            />
           </div>
           <div className="mash-main-section-process">
             <h1>Mash Process</h1>

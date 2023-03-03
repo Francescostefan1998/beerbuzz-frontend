@@ -2,11 +2,11 @@ import "./commonList.css";
 import { GiWheat } from "react-icons/gi";
 
 import CommonSingleElement from "../../../ingredients/commonEngredientsModal/commonSingleElement/CommonSingleElement";
-const CommonList = ({ icon, colorOrIbu }) => {
+const CommonList = ({ icon, colorOrIbu, title }) => {
   return (
     <div className="commonList">
       <div className="commonList-title">
-        <h2>Malts</h2>
+        <h2>{title}</h2>
         <div>Kg</div>
       </div>
       <div>
