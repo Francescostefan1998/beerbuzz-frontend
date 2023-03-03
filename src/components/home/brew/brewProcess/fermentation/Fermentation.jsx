@@ -10,6 +10,7 @@ import { GiWheat } from "react-icons/gi";
 import { FaBacterium } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
+import FermentationChart from "./fermentationChart/FermentationChart";
 
 const Fermentation = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const Fermentation = () => {
             <CommonBrewStep />
           </div>
         </div>
+        <FermentationChart />
         <div className="fermentation-bottom-section">
           <div
             className="fermentation-bottom-section-button"
