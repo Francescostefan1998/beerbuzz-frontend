@@ -56,7 +56,7 @@ const Fermentation = () => {
           </div>
           <div
             className="fermentation-bottom-section-button"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/check")}
           >
             Save and Go to Check Page
           </div>
