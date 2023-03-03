@@ -17,7 +17,7 @@ const Others = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="ingredients">
+    <div className="others">
       <NavbarIngredients prew="/yeasts" next="/recipes" />
       <div className="common-ingredients-container">
         <div className="common-ingredients-container-inside">

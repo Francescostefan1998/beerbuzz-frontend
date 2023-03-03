@@ -55,7 +55,7 @@ const Boil = () => {
             className="boil-bottom-section-button"
             onClick={() => navigate("/fermentation")}
           >
-            Save and Go to Boil Page
+            Save and Go to Fermentation Page
           </div>
         </div>
       </div>
