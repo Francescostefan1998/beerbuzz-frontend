@@ -77,7 +77,7 @@ const CommonEngredientsModal = ({
             ))}
           </div>
         )}
-        {add && <AddProduct colorOrIbu={colorOrIbu} />}
+        {add && <AddProduct colorOrIbu={colorOrIbu} fetchProp={fetchProps} />}
 
         <div className="common-ingredients-container-inside-section-bottom">
           <div>
