@@ -16,9 +16,17 @@ const CommonEngredientsModal = ({
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
-
+  const [newIngredient, setNewIngredient] = useState({
+    name: "",
+  });
   const [add, setAdd] = useState(false);
   const navigate = useNavigate();
+
+  const addNewField = async (field, value) => {
+    setNewIngredient({ ...newIngredient, [field]: value });
+    console.log(newIngredient);
+  };
+
   const fetchProducts = async (fetchProp, search) => {
     const res = await fetch(
       `http://localhost:3001/${fetchProp}?name=${search}`
@@ -34,7 +42,16 @@ const CommonEngredientsModal = ({
     await setSearch(e);
     await fetchProducts(fetchProps, search);
   };
-
+  const postProducts = async (fetchProps, newIngredient) => {
+    const res = await fetch(`http://localhost:3001/${fetchProps}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newIngredient),
+    });
+    const data = await res.json();
+  };
   return (
     <div className="common-ingredients-container">
       <div className="common-ingredients-container-inside">
@@ -77,7 +94,13 @@ const CommonEngredientsModal = ({
             ))}
           </div>
         )}
-        {add && <AddProduct colorOrIbu={colorOrIbu} fetchProp={fetchProps} />}
+        {add && (
+          <AddProduct
+            colorOrIbu={colorOrIbu}
+            fetchProp={fetchProps}
+            setNewIngredient={addNewField}
+          />
+        )}
 
         <div className="common-ingredients-container-inside-section-bottom">
           <div>
@@ -120,7 +143,11 @@ const CommonEngredientsModal = ({
             }}
           >
             {!add && <div>+ Add a new {title}</div>}
-            {add && <div>Save</div>}
+            {add && (
+              <div onClick={(e) => postProducts(fetchProps, newIngredient)}>
+                Save
+              </div>
+            )}
           </div>
         </div>
       </div>

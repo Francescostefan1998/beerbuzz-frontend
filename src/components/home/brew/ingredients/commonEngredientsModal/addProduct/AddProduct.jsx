@@ -3,34 +3,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./addProduct.css";
 
-const AddProduct = ({ colorOrIbu, fetchProp }) => {
-  const [listProducts, setListProducts] = useState([]);
-  const [search, setSearch] = useState("");
-  const [newIngredient, setNewIngredient] = useState({
-    name: "",
-  });
+const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
+  useEffect(() => {}, [fetchProp]);
 
-  const [add, setAdd] = useState(false);
-  const fetchProducts = async (fetchProps) => {
-    const res = await fetch(`http://localhost:3001/${fetchProps}`);
-    const data = await res.json();
-    await setListProducts(data);
-  };
-  useEffect(() => {
-    fetchProducts(fetchProp);
-  }, [fetchProp]);
-
-  const postProducts = async (fetchProp, search) => {
-    const res = await fetch(`http://localhost:3001/${fetchProp}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: search }),
-    });
-    const data = await res.json();
-    setListProducts(data);
-  };
   return (
     <div className="common-ingredients-container-inside-section-middle">
       <div className="add-products top">
@@ -41,9 +16,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <input
                 type="text"
                 placeholder="Select a name"
-                onChange={(e) =>
-                  setNewIngredient({ ...newIngredient, name: e.target.value })
-                }
+                onChange={(e) => setNewIngredient("name", e.target.value)}
               />
             </div>
           </div>{" "}
@@ -54,9 +27,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 <input
                   type="text"
                   placeholder="Select a value"
-                  onChange={(e) =>
-                    setNewIngredient({ ...newIngredient, type: e.target.value })
-                  }
+                  onChange={(e) => setNewIngredient("type", e.target.value)}
                 />
               </div>
             </div>
@@ -70,12 +41,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 <input
                   type="text"
                   placeholder="Select a name"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      techName: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("techName", e.target.value)}
                 />
               </div>
             </div>
@@ -89,12 +55,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 <input
                   type="text"
                   placeholder="Select a name"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      category: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("category", e.target.value)}
                 />
               </div>
             </div>
@@ -108,14 +69,9 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <div>Alpha (%)</div>
               <div className="add-products-top-input">
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Select a value"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      alpha: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("alpha", e.target.value)}
                 />
               </div>
             </div>
@@ -129,12 +85,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 <input
                   type="text"
                   placeholder="Select a name"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      supplier: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("supplier", e.target.value)}
                 />
               </div>
             </div>
@@ -149,10 +100,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                   type="text"
                   placeholder="Select a name"
                   onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      laboratory: e.target.value,
-                    })
+                    setNewIngredient("laboratory", e.target.value)
                   }
                 />
               </div>
@@ -165,14 +113,9 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <div>ABV toll (%)</div>
               <div className="add-products-top-input">
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Select a value"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      maxAbv: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("maxAbv", e.target.value)}
                 />
               </div>
             </div>
@@ -183,12 +126,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 <input
                   type="text"
                   placeholder="Select a name"
-                  onChange={(e) =>
-                    setNewIngredient({
-                      ...newIngredient,
-                      origin: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setNewIngredient("origin", e.target.value)}
                 />
               </div>
             </div>
@@ -203,12 +141,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <input
                 type="text"
                 placeholder="Select a value"
-                onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    form: e.target.value,
-                  })
-                }
+                onChange={(e) => setNewIngredient("form", e.target.value)}
               />
             </div>
           </div>
@@ -222,12 +155,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <input
                 type="text"
                 placeholder="Select a value"
-                onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    type: e.target.value,
-                  })
-                }
+                onChange={(e) => setNewIngredient("type", e.target.value)}
               />
             </div>
           </div>
@@ -242,39 +170,45 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
         ) : (
           <div></div>
         )}
-        {fetchProp === "hops" ? (
-          <div></div>
-        ) : (
+        {fetchProp === "hops" ? <div></div> : <div></div>}
+        {fetchProp === "yeasts" ? (
           <div className="mt-3">
             <div>{colorOrIbu}</div>
             <div className="add-products-top-input">
               <input
-                type="text"
+                type="number"
                 placeholder="Select a value"
                 onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    ebc: e.target.value,
-                  })
+                  setNewIngredient("cellsPerGram", e.target.value)
                 }
               />
             </div>
           </div>
+        ) : (
+          <div></div>
         )}
-
+        {fetchProp === "malts" ? (
+          <div className="mt-3">
+            <div>{colorOrIbu}</div>
+            <div className="add-products-top-input">
+              <input
+                type="number"
+                placeholder="Select a value"
+                onChange={(e) => setNewIngredient("ebc", e.target.value)}
+              />
+            </div>
+          </div>
+        ) : (
+          <div></div>
+        )}
         {fetchProp === "malts" ? (
           <div className="mt-3">
             <div>Potential</div>
             <div className="add-products-top-input">
               <input
-                type="text"
+                type="number"
                 placeholder="Select a value"
-                onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    potential: e.target.value,
-                  })
-                }
+                onChange={(e) => setNewIngredient("potential", e.target.value)}
               />
             </div>
           </div>
@@ -286,13 +220,10 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
             <div>Att (%)</div>
             <div className="add-products-top-input">
               <input
-                type="text"
+                type="number"
                 placeholder="Select a value"
                 onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    attenuation: e.target.value,
-                  })
+                  setNewIngredient("attenuation", e.target.value)
                 }
               />
             </div>
@@ -306,14 +237,9 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
 
             <div className="add-products-top-input">
               <input
-                type="text"
+                type="number"
                 placeholder="Select a value"
-                onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    yield: e.target.value,
-                  })
-                }
+                onChange={(e) => setNewIngredient("yield", e.target.value)}
               />
             </div>
           </div>
@@ -329,10 +255,7 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
                 type="text"
                 placeholder="Select a value"
                 onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    temperature: e.target.value,
-                  })
+                  setNewIngredient("temperature", e.target.value)
                 }
               />
             </div>
@@ -350,27 +273,19 @@ const AddProduct = ({ colorOrIbu, fetchProp }) => {
               <input
                 type="text"
                 placeholder="Select a value"
-                onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    type: e.target.value,
-                  })
-                }
+                onChange={(e) => setNewIngredient("type", e.target.value)}
               />
             </div>
           </div>
           <div className="mt-3">
-            <div onClick={(e) => console.log(newIngredient)}>Flocculation</div>
+            <div>Flocculation</div>
 
             <div className="add-products-top-input">
               <input
                 type="text"
                 placeholder="Select a value"
                 onChange={(e) =>
-                  setNewIngredient({
-                    ...newIngredient,
-                    flocculation: e.target.value,
-                  })
+                  setNewIngredient("flocculation", e.target.value)
                 }
               />
             </div>
