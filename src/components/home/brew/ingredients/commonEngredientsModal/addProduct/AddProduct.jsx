@@ -194,7 +194,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
               <input
                 type="number"
                 placeholder="Select a value"
-                onChange={(e) => setNewIngredient("ebc", e.target.value)}
+                onChange={(e) => setNewIngredient("color", e.target.value)}
               />
             </div>
           </div>

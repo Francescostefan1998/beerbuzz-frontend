@@ -16,6 +16,8 @@ const CommonEngredientsModal = ({
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+
   const [newIngredient, setNewIngredient] = useState({
     name: "",
   });
@@ -32,7 +34,8 @@ const CommonEngredientsModal = ({
       `http://localhost:3001/${fetchProp}?name=${search}`
     );
     const data = await res.json();
-    setListProducts(data);
+    await setListProducts(data);
+    setLoading(false);
   };
   useEffect(() => {
     fetchProducts(fetchProps, search);
@@ -84,6 +87,16 @@ const CommonEngredientsModal = ({
                 />
               </div>
             </div>
+            {loading && (
+              <div class="loading-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            )}
             {listProducts.map((product, i) => (
               <CommonSingleElement
                 icon={icon}
