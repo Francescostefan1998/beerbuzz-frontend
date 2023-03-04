@@ -6,9 +6,55 @@ import CommonSingleElement from "./commonSingleElement/CommonSingleElement";
 import { useState } from "react";
 import AddProduct from "./addProduct/AddProduct";
 import { useNavigate } from "react-router-dom";
-const CommonEngredientsModal = ({ title, icon, colorOrIbu, next }) => {
+import { useEffect } from "react";
+const CommonEngredientsModal = ({
+  title,
+  icon,
+  colorOrIbu,
+  next,
+  fetchProps,
+}) => {
+  const [listProducts, setListProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const [newIngredient, setNewIngredient] = useState({
+    name: "",
+  });
   const [add, setAdd] = useState(false);
   const navigate = useNavigate();
+
+  const addNewField = async (field, value) => {
+    setNewIngredient({ ...newIngredient, [field]: value });
+    console.log(newIngredient);
+  };
+
+  const fetchProducts = async (fetchProp, search) => {
+    const res = await fetch(
+      `http://localhost:3001/${fetchProp}?name=${search}`
+    );
+    const data = await res.json();
+    await setListProducts(data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    fetchProducts(fetchProps, search);
+  }, [fetchProps]);
+
+  const onchangeHandler = async (e) => {
+    await setSearch(e);
+    await fetchProducts(fetchProps, search);
+  };
+  const postProducts = async (fetchProps, newIngredient) => {
+    const res = await fetch(`http://localhost:3001/${fetchProps}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newIngredient),
+    });
+    const data = await res.json();
+  };
   return (
     <div className="common-ingredients-container">
       <div className="common-ingredients-container-inside">
@@ -34,14 +80,40 @@ const CommonEngredientsModal = ({ title, icon, colorOrIbu, next }) => {
                 <HiSearch />
               </div>
               <div className="common-ingredients-container-inside-search-input">
-                <input type="text" placeholder="Search the product you need" />
+                <input
+                  type="text"
+                  placeholder="Search the product you need"
+                  onChange={(e) => onchangeHandler(e.target.value)}
+                />
               </div>
             </div>
-            <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
-            <CommonSingleElement icon={icon} colorOrIbu={colorOrIbu} />
+            {loading && (
+              <div class="loading-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            )}
+            {listProducts.map((product, i) => (
+              <CommonSingleElement
+                icon={icon}
+                colorOrIbu={colorOrIbu}
+                key={product._id}
+                body={product}
+              />
+            ))}
           </div>
         )}
-        {add && <AddProduct colorOrIbu={colorOrIbu} />}
+        {add && (
+          <AddProduct
+            colorOrIbu={colorOrIbu}
+            fetchProp={fetchProps}
+            setNewIngredient={addNewField}
+          />
+        )}
 
         <div className="common-ingredients-container-inside-section-bottom">
           <div>
@@ -84,7 +156,11 @@ const CommonEngredientsModal = ({ title, icon, colorOrIbu, next }) => {
             }}
           >
             {!add && <div>+ Add a new {title}</div>}
-            {add && <div>Save</div>}
+            {add && (
+              <div onClick={(e) => postProducts(fetchProps, newIngredient)}>
+                Save
+              </div>
+            )}
           </div>
         </div>
       </div>

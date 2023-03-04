@@ -9,8 +9,9 @@ const Yeasts = () => {
       <CommonEngredientsModal
         icon={<FaBacterium className="icon" />}
         title={"Yeasts and Bacterias"}
-        colorOrIbu={"Attenuation (%)"}
+        colorOrIbu={"Cells/g"}
         next={"/others"}
+        fetchProps={"yeasts"}
       />
     </div>
   );

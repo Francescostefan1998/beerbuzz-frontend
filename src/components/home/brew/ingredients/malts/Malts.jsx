@@ -11,8 +11,9 @@ const Malts = () => {
       <CommonEngredientsModal
         icon={<GiWheat className="icon" />}
         title={"Fermentable"}
-        colorOrIbu={"Color (EBC)"}
+        colorOrIbu={"Col.(EBC)"}
         next={"/hops"}
+        fetchProps={"malts"}
       />
     </div>
   );
