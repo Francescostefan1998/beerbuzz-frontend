@@ -11,6 +11,7 @@ const Yeasts = () => {
         title={"Yeasts and Bacterias"}
         colorOrIbu={"Attenuation (%)"}
         next={"/others"}
+        fetchProps={"yeasts"}
       />
     </div>
   );

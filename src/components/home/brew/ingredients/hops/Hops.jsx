@@ -11,6 +11,7 @@ const Hops = () => {
         title={"Hops"}
         colorOrIbu={"Alpha Acid (%)"}
         next={"/yeasts"}
+        fetchProps={"hops"}
       />
     </div>
   );

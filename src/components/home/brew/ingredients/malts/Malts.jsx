@@ -13,6 +13,7 @@ const Malts = () => {
         title={"Fermentable"}
         colorOrIbu={"Color (EBC)"}
         next={"/hops"}
+        fetchProps={"malts"}
       />
     </div>
   );
