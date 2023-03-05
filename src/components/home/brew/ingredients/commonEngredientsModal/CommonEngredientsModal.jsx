@@ -107,6 +107,7 @@ const CommonEngredientsModal = ({
                 body={product}
                 addProduct={addProduct}
                 subtractProduct={subtractProduct}
+                title={title}
               />
             ))}
           </div>

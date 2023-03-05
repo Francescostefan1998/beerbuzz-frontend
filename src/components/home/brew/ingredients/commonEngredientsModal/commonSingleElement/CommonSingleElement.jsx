@@ -1,17 +1,64 @@
 import "./commonSingleElement.css";
 import { GiWheat } from "react-icons/gi";
 import { useState } from "react";
-
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 const CommonSingleElement = ({
   icon,
   colorOrIbu,
   body,
   addProduct,
   subtractProduct,
+  title,
 }) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
   );
+  const { hops } = useSelector((state) => state.recipeIngredient);
+  const { malts } = useSelector((state) => state.recipeIngredient);
+  const { yeasts } = useSelector((state) => state.recipeIngredient);
+  const { others } = useSelector((state) => state.recipeIngredient);
+  const verifyIfSelected = (title) => {
+    switch (title) {
+      case "Fermentable":
+        const verifySelection1 = malts.find((malt) => malt._id === body._id);
+        setSelected(
+          verifySelection1
+            ? "common-element-container-inside-malt-purple"
+            : "common-element-container-inside-malt-none"
+        );
+        break;
+      case "Hops":
+        const verifySelection2 = hops.find((hop) => hop._id === body._id);
+        setSelected(
+          verifySelection2
+            ? "common-element-container-inside-malt-purple"
+            : "common-element-container-inside-malt-none"
+        );
+        break;
+      case "Yeasts and Bacterias":
+        const verifySelection3 = yeasts.find((yeast) => yeast._id === body._id);
+        setSelected(
+          verifySelection3
+            ? "common-element-container-inside-malt-purple"
+            : "common-element-container-inside-malt-none"
+        );
+        break;
+      case "Others":
+        const verifySelection4 = others.find((other) => other._id === body._id);
+        setSelected(
+          verifySelection4
+            ? "common-element-container-inside-malt-purple"
+            : "common-element-container-inside-malt-none"
+        );
+        break;
+      default:
+        setSelected("common-element-container-inside-malt-none");
+    }
+  };
+  useEffect(() => {
+    verifyIfSelected(title);
+  }, []);
   return (
     <div
       className="common-element-container-inside-malt"
