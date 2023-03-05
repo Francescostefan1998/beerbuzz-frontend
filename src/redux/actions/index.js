@@ -7,7 +7,7 @@ export const addMaltRecipeAction = (param) => {
   };
 };
 
-export const subtracMaltRecipeAction = (param) => {
+export const subtractMaltRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
       type: "SUBTRACT_MALT_FROM_RECIPE",
@@ -52,7 +52,7 @@ export const subtractYeastRecipeAction = (param) => {
   };
 };
 
-export const addOthetRecipeReducer = (param) => {
+export const addOtherRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
       type: "ADD_OTHER_TO_RECIPE",
@@ -61,7 +61,7 @@ export const addOthetRecipeReducer = (param) => {
   };
 };
 
-export const subtractOtherRecipeReducer = (param) => {
+export const subtractOtherRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
       type: "SUBTRACT_OTHER_FROM_RECIPE",

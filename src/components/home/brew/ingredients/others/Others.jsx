@@ -6,6 +6,11 @@ import { BsTrashFill } from "react-icons/bs";
 import { MdAddCircle } from "react-icons/md";
 import AddOthers from "./addOthers/AddOthers";
 import { useNavigate } from "react-router-dom";
+import { addOtherRecipeAction } from "../../../../../redux/actions";
+import { subtractOtherRecipeAction } from "../../../../../redux/actions";
+import { useDispatch } from "react-redux";
+import { useStore } from "react-redux";
+
 const Others = () => {
   const [add, setAdd] = useState(false);
   const [engredients, setEngredients] = useState([
@@ -14,6 +19,13 @@ const Others = () => {
       description: "new",
     },
   ]);
+  const dispatch = useDispatch();
+  const addRecipeAction = async (other) => {
+    dispatch(addOtherRecipeAction(other));
+  };
+  const subtractRecipeAction = async (other) => {
+    dispatch(subtractOtherRecipeAction(other));
+  };
 
   const navigate = useNavigate();
   return (

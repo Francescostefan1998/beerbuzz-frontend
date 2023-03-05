@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-const mainReducer = {};
+import { addProductRecipeReducer } from "../reducers/addProductReducer";
+const mainReducer = {
+  recipeIngredient: addProductRecipeReducer,
+};
 
 export const store = configureStore({
   reducer: mainReducer,

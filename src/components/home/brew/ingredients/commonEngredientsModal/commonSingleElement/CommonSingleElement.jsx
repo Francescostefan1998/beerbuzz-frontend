@@ -2,7 +2,13 @@ import "./commonSingleElement.css";
 import { GiWheat } from "react-icons/gi";
 import { useState } from "react";
 
-const CommonSingleElement = ({ icon, colorOrIbu, body }) => {
+const CommonSingleElement = ({
+  icon,
+  colorOrIbu,
+  body,
+  addProduct,
+  subtractProduct,
+}) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
   );
@@ -14,6 +20,9 @@ const CommonSingleElement = ({ icon, colorOrIbu, body }) => {
         selected !== "common-element-container-inside-malt-purple"
           ? setSelected("common-element-container-inside-malt-purple")
           : setSelected("common-element-container-inside-malt-none");
+        selected !== "common-element-container-inside-malt-purple"
+          ? addProduct(body)
+          : subtractProduct(body);
       }}
     >
       <div>{icon}</div>

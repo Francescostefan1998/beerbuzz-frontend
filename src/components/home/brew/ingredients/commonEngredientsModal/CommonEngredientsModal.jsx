@@ -13,6 +13,8 @@ const CommonEngredientsModal = ({
   colorOrIbu,
   next,
   fetchProps,
+  addProduct,
+  subtractProduct,
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -103,6 +105,8 @@ const CommonEngredientsModal = ({
                 colorOrIbu={colorOrIbu}
                 key={product._id}
                 body={product}
+                addProduct={addProduct}
+                subtractProduct={subtractProduct}
               />
             ))}
           </div>
