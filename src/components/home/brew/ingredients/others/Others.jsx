@@ -7,14 +7,15 @@ import AddOthers from "./addOthers/AddOthers";
 import { useNavigate } from "react-router-dom";
 import { addOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
+import { addOthersRecipeAction } from "../../../../../redux/actions/recipe.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 import { useSelector } from "react-redux";
-import { addOthersRecipeAction } from "../../../../../redux/actions/recipe";
 import SingleOther from "./singleOther/SingleOther";
 import { useEffect } from "react";
 const Others = () => {
-  const [add, setAdd] = useState(false);
+  const [add, setAddNew] = useState(false);
+  const [refreshThisState, setRefreshThisState] = useState(false);
   const [engredients, setEngredients] = useState([
     {
       name: "example",
@@ -33,14 +34,26 @@ const Others = () => {
     dispatch(addOtherRecipeAction(other));
   };
   const subtractRecipeAction = async (other) => {
-    dispatch(subtractOtherRecipeAction(other));
+    await dispatch(subtractOtherRecipeAction(other));
+    await setRefreshDeleting();
+    fetchProducts();
   };
 
   const navigate = useNavigate();
-
+  const setAdd = async (param) => {
+    await fetchProducts();
+    await setAddNew(param);
+  };
+  const setRefreshDeleting = () => {
+    if (refreshThisState) {
+      setRefreshThisState(false);
+    } else {
+      setRefreshThisState(true);
+    }
+  };
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [add, refreshThisState]);
   return (
     <div className="others">
       <NavbarIngredients prew="/yeasts" next="/recipes" />
@@ -60,12 +73,15 @@ const Others = () => {
                   setAdd={setAdd}
                   addRecipeAction={addRecipeAction}
                   subtractRecipeAction={subtractRecipeAction}
+                  setRefreshDeleting={setRefreshDeleting}
                 />
               ))
             ) : (
               <SingleOther engredient={engredients[0]} setAdd={setAdd} />
             )}
-            {add && <AddOthers addRecipeAction={addRecipeAction} />}
+            {add && (
+              <AddOthers addRecipeAction={addRecipeAction} setAdd={setAdd} />
+            )}
           </div>
           <div className="common-ingredients-container-inside-section-bottom">
             <div
@@ -74,7 +90,14 @@ const Others = () => {
             >
               <div>Skip and proceed</div>
             </div>
-            <div onClick={() => navigate("/mash")}>Save and proceed</div>
+            <div
+              onClick={() => {
+                dispatch(addOthersRecipeAction(others));
+                navigate("/mash");
+              }}
+            >
+              Save and proceed
+            </div>
           </div>
         </div>
       </div>
