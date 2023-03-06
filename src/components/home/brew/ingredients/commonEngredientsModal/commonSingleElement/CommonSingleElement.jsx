@@ -69,8 +69,8 @@ const CommonSingleElement = ({
           ? setSelected("common-element-container-inside-malt-purple")
           : setSelected("common-element-container-inside-malt-none");
         selected !== "common-element-container-inside-malt-purple"
-          ? addProduct(body)
-          : subtractProduct(body);
+          ? addProduct({ ...body, quantity: 0 })
+          : subtractProduct({ ...body, quantity: 0 });
       }}
     >
       <div>{icon}</div>
