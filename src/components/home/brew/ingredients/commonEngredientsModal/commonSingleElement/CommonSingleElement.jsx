@@ -14,6 +14,7 @@ const CommonSingleElement = ({
   title,
   colorOff,
   refresh,
+  addThisProduct,
 }) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
@@ -59,6 +60,7 @@ const CommonSingleElement = ({
       default:
         setSelected("common-element-container-inside-malt-none");
     }
+    addThisProduct(body._id);
   };
 
   const handleMainClick = () => {

@@ -21,6 +21,7 @@ const CommonEngredientsModal = ({
   fetchProps,
   addProduct,
   subtractProduct,
+  addThisProduct,
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -149,6 +150,7 @@ const CommonEngredientsModal = ({
                 addProduct={addProduct}
                 subtractProduct={subtractProduct}
                 title={title}
+                addThisProduct={addThisProduct}
               />
             ))}
           </div>

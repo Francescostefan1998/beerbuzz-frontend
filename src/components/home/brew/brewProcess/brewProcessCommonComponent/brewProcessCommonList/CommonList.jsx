@@ -16,6 +16,8 @@ const CommonList = ({
   subtractProduct,
   addProduct,
   refresh,
+  colorOff,
+  addThisProduct,
 }) => {
   const [selectedList, setSelected] = useState([]);
   const { hops } = useSelector((state) => state.recipeIngredient);
@@ -70,11 +72,13 @@ const CommonList = ({
         default:
           setSelected([]);
       }
+      addThisProduct(body._id);
     }
   };
   useEffect(() => {
     verifyIfSelected(title);
-  }, [refresh]);
+    verifyIfSelected(title);
+  }, [refresh, title]);
   return (
     <div className="commonList">
       <div className="commonList-title">
@@ -90,16 +94,22 @@ const CommonList = ({
               colorOrIbu={colorOrIbu}
               body={body}
               key={body._id}
-              colorOff={"colorOff"}
+              colorOff={colorOff}
               addProduct={addProduct}
               subtractProduct={subtractProduct}
+              refresh={refresh}
+              addThisProduct={addThisProduct}
             />
             <div className="commonList-element-add">
-              <input
-                type="number"
-                placeholder="0.000kg"
-                onChange={(e) => handleQuantity(body, e.target.value)}
-              />
+              {colorOff === "colorOff" ? (
+                <input
+                  type="number"
+                  placeholder="0.000kg"
+                  onChange={(e) => handleQuantity(body, e.target.value)}
+                />
+              ) : (
+                <div>{body.quantity}</div>
+              )}
             </div>
           </div>
         ))}

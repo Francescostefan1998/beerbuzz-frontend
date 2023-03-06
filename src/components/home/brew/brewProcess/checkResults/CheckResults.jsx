@@ -12,11 +12,24 @@ import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import FermentationChart from "../fermentation/fermentationChart/FermentationChart";
-
+import { useEffect } from "react";
+import { useState } from "react";
 import { FaBacterium } from "react-icons/fa";
 import { GiHops } from "react-icons/gi";
+import { useSelector } from "react-redux";
 const CheckResults = () => {
+  const [refresh, setRefresh] = useState("");
+  const { others } = useSelector((state) => state.recipeIngredient);
+  const { malts } = useSelector((state) => state.recipeIngredient);
+  const { hops } = useSelector((state) => state.recipeIngredient);
+  const { yeasts } = useSelector((state) => state.recipeIngredient);
+
   const navigate = useNavigate();
+
+  const addProduct = async (body) => {
+    await setRefresh(body._id);
+  };
+
   return (
     <div className="checkResults">
       <NavBar />
@@ -42,6 +55,10 @@ const CheckResults = () => {
               icon={<GiWheat />}
               colorOrIbu={"Color (EBC)"}
               title={"Mash"}
+              colorOff={"false"}
+              refresh={refresh}
+              addProduct={addProduct}
+              addThisProduct={addProduct}
             />
           </div>
           <div className="checkResults-main-section-process">
@@ -56,6 +73,10 @@ const CheckResults = () => {
               icon={<GiHops />}
               colorOrIbu={"Alpha Acid (%)"}
               title={"Hops"}
+              colorOff={"false"}
+              refresh={refresh}
+              addProduct={addProduct}
+              addThisProduct={addProduct}
             />
           </div>
           <div className="boil-main-section-process">
@@ -71,6 +92,10 @@ const CheckResults = () => {
               icon={<FaBacterium />}
               colorOrIbu={"Attenuation (%)"}
               title={"Yeasts and Bacteria"}
+              colorOff={"false"}
+              refresh={refresh}
+              addThisProduct={addProduct}
+              addProduct={addProduct}
             />
           </div>
           <div className="fermentation-main-section-process">

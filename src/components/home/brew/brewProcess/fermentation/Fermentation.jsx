@@ -26,6 +26,8 @@ const Fermentation = () => {
     await dispatch(subtractYeastRecipeAction(yeast));
     setRefresh(yeast._id);
   };
+  const addThisProduct = async (product) => {};
+
   return (
     <div className="fermentation">
       <NavBar />
@@ -54,6 +56,8 @@ const Fermentation = () => {
               addProduct={addRecipeAction}
               subtractProduct={subtractRecipeAction}
               refresh={refresh}
+              colorOff={"colorOff"}
+              addThisProduct={addThisProduct}
             />
           </div>
           <div className="fermentation-main-section-process">

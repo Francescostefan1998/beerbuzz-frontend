@@ -26,6 +26,8 @@ const Boil = () => {
     await dispatch(subtractHopRecipeAction(hop));
     setRefresh(hop._id);
   };
+  const addThisProduct = async (product) => {};
+
   return (
     <div className="boil">
       <NavBar />
@@ -54,6 +56,8 @@ const Boil = () => {
               addProduct={addRecipeAction}
               subtractProduct={subtractRecipeAction}
               refresh={refresh}
+              colorOff={"colorOff"}
+              addThisProduct={addThisProduct}
             />
           </div>
           <div className="boil-main-section-process">

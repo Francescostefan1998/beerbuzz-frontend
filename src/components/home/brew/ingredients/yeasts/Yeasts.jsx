@@ -14,6 +14,7 @@ const Yeasts = () => {
   const subtractRecipeAction = async (yeast) => {
     dispatch(subtractYeastRecipeAction(yeast));
   };
+  const addThisProduct = async (product) => {};
 
   return (
     <div className="yeasts">
@@ -26,6 +27,7 @@ const Yeasts = () => {
         fetchProps={"yeasts"}
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
+        addThisProduct={addThisProduct}
       />
     </div>
   );

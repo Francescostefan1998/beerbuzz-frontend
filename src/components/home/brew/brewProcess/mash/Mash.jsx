@@ -24,6 +24,8 @@ const Mash = () => {
     await dispatch(subtractMaltRecipeAction(malt));
     setRefresh(malt._id);
   };
+  const addThisProduct = async (product) => {};
+
   useEffect(() => {}, [refresh]);
 
   return (
@@ -54,6 +56,8 @@ const Mash = () => {
               addProduct={addRecipeAction}
               subtractProduct={subtractRecipeAction}
               refresh={refresh}
+              colorOff={"colorOff"}
+              addThisProduct={addThisProduct}
             />
           </div>
           <div className="mash-main-section-process">
