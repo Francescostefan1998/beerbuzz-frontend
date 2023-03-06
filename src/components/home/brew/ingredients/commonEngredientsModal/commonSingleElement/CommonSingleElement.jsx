@@ -3,6 +3,8 @@ import { GiWheat } from "react-icons/gi";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { BsTrashFill } from "react-icons/bs";
+
 const CommonSingleElement = ({
   icon,
   colorOrIbu,
@@ -11,6 +13,7 @@ const CommonSingleElement = ({
   subtractProduct,
   title,
   colorOff,
+  refresh,
 }) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
@@ -57,23 +60,43 @@ const CommonSingleElement = ({
         setSelected("common-element-container-inside-malt-none");
     }
   };
+
+  const handleMainClick = () => {
+    if (colorOff === "colorOff") {
+      setSelected("common-element-container-inside-malt-none");
+    } else {
+      selected !== "common-element-container-inside-malt-purple"
+        ? setSelected("common-element-container-inside-malt-purple")
+        : setSelected("common-element-container-inside-malt-none");
+      selected !== "common-element-container-inside-malt-purple"
+        ? addProduct({ ...body, quantity: 0 })
+        : subtractProduct({ ...body, quantity: 0 });
+    }
+  };
+
   useEffect(() => {
     verifyIfSelected(title);
-  }, []);
+  }, [refresh]);
   return (
     <div
       className="common-element-container-inside-malt"
       id={colorOff !== "colorOff" ? selected : "colorOff"}
-      onClick={() => {
-        selected !== "common-element-container-inside-malt-purple"
-          ? setSelected("common-element-container-inside-malt-purple")
-          : setSelected("common-element-container-inside-malt-none");
-        selected !== "common-element-container-inside-malt-purple"
-          ? addProduct({ ...body, quantity: 0 })
-          : subtractProduct({ ...body, quantity: 0 });
-      }}
+      onClick={() => handleMainClick()}
     >
-      <div>{icon}</div>
+      {colorOff === "colorOff" ? (
+        <div className="visible-trash">
+          <BsTrashFill
+            onClick={() => subtractProduct({ ...body, quantity: 0 })}
+          />
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {colorOff === "colorOff" ? (
+        <div className="visible-icon">{icon}</div>
+      ) : (
+        <div>{icon}</div>
+      )}
       <div className="common-element-container-inside-malt-description">
         <div className="common-element-container-inside-malt-description-section">
           <b>{body.name}</b>

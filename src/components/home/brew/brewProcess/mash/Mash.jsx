@@ -7,10 +7,25 @@ import ValueSuggested from "../brewProcessCommonComponent/valueSuggested/ValueSu
 import CommonList from "../brewProcessCommonComponent/brewProcessCommonList/CommonList";
 import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps/CommonBrewStep";
 import { GiWheat } from "react-icons/gi";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
+import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 const Mash = () => {
+  const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const addRecipeAction = async (malt) => {
+    await dispatch(addMaltRecipeAction(malt));
+    setRefresh(malt._id);
+  };
+  const subtractRecipeAction = async (malt) => {
+    await dispatch(subtractMaltRecipeAction(malt));
+    setRefresh(malt._id);
+  };
+  useEffect(() => {}, [refresh]);
+
   return (
     <div className="mash">
       <NavBar />
@@ -36,6 +51,9 @@ const Mash = () => {
               icon={<GiWheat />}
               colorOrIbu={"Color (EBC)"}
               title={"Mash"}
+              addProduct={addRecipeAction}
+              subtractProduct={subtractRecipeAction}
+              refresh={refresh}
             />
           </div>
           <div className="mash-main-section-process">

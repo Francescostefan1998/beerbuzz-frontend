@@ -8,9 +8,20 @@
   padding-block: 10px;
   padding-inline: 10px;
 }
-
+.common-element-container-inside-malt .visible-trash {
+  display: none;
+}
+.common-element-container-inside-malt .visible-icon {
+  display: flex;
+}
 .common-element-container-inside-malt:hover {
   background-color: var(--background-black);
+}
+.common-element-container-inside-malt:hover .visible-trash {
+  display: flex;
+}
+.common-element-container-inside-malt:hover .visible-icon {
+  display: none;
 }
 .common-element-container-inside-malt-description-section {
   display: flex;

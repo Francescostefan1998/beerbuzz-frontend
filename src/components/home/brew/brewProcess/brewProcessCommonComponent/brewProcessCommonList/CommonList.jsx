@@ -9,7 +9,14 @@ import { addMaltsRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addOthersRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addHopsRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addYeastsRecipeAction } from "../../../../../../redux/actions/recipe";
-const CommonList = ({ icon, colorOrIbu, title }) => {
+const CommonList = ({
+  icon,
+  colorOrIbu,
+  title,
+  subtractProduct,
+  addProduct,
+  refresh,
+}) => {
   const [selectedList, setSelected] = useState([]);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
@@ -37,6 +44,7 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
         setSelected([]);
     }
   };
+
   const handleQuantity = async (body, value) => {
     const index = selectedList.findIndex((product) => product._id === body._id);
     if (index !== -1) {
@@ -66,7 +74,7 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
   };
   useEffect(() => {
     verifyIfSelected(title);
-  }, []);
+  }, [refresh]);
   return (
     <div className="commonList">
       <div className="commonList-title">
@@ -83,6 +91,8 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
               body={body}
               key={body._id}
               colorOff={"colorOff"}
+              addProduct={addProduct}
+              subtractProduct={subtractProduct}
             />
             <div className="commonList-element-add">
               <input

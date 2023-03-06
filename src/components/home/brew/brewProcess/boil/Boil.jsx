@@ -9,9 +9,23 @@ import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import { GiHops } from "react-icons/gi";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
+import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
 
 const Boil = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [refresh, setRefresh] = useState("");
+  const addRecipeAction = async (hop) => {
+    await dispatch(addHopRecipeAction(hop));
+    setRefresh(hop._id);
+  };
+  const subtractRecipeAction = async (hop) => {
+    await dispatch(subtractHopRecipeAction(hop));
+    setRefresh(hop._id);
+  };
   return (
     <div className="boil">
       <NavBar />
@@ -37,6 +51,9 @@ const Boil = () => {
               icon={<GiHops />}
               colorOrIbu={"Alpha Acid (%)"}
               title={"Hops"}
+              addProduct={addRecipeAction}
+              subtractProduct={subtractRecipeAction}
+              refresh={refresh}
             />
           </div>
           <div className="boil-main-section-process">
