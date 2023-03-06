@@ -4,7 +4,7 @@ import { BsTrashFill } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
 import { useState } from "react";
 
-const AddOthers = ({ addRecipeAction }) => {
+const AddOthers = ({ addRecipeAction, setAdd }) => {
   const [body, setBody] = useState({
     name: "",
     description: "",
@@ -25,7 +25,10 @@ const AddOthers = ({ addRecipeAction }) => {
     <div className="ingredients-others-single mt-5">
       <div>
         {" "}
-        <BsTrashFill className="ingredients-others-single-icon" />
+        <BsTrashFill
+          className="ingredients-others-single-icon"
+          onClick={() => setAdd(false)}
+        />
       </div>
 
       <div className="ingredients-others-single-grow1">
@@ -48,7 +51,10 @@ const AddOthers = ({ addRecipeAction }) => {
         {" "}
         <FaSave
           className="ingredients-others-single-icon"
-          onClick={() => postOther("others", body)}
+          onClick={() => {
+            postOther("others", body);
+            setAdd(false);
+          }}
         />
       </div>
     </div>

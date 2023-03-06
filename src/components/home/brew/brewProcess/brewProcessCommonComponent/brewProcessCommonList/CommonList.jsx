@@ -3,13 +3,28 @@ import { GiWheat } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import CommonSingleElement from "../../../ingredients/commonEngredientsModal/commonSingleElement/CommonSingleElement";
-const CommonList = ({ icon, colorOrIbu, title }) => {
+import { addMaltsRecipeAction } from "../../../../../../redux/actions/recipe";
+import { addOthersRecipeAction } from "../../../../../../redux/actions/recipe";
+import { addHopsRecipeAction } from "../../../../../../redux/actions/recipe";
+import { addYeastsRecipeAction } from "../../../../../../redux/actions/recipe";
+const CommonList = ({
+  icon,
+  colorOrIbu,
+  title,
+  subtractProduct,
+  addProduct,
+  refresh,
+  colorOff,
+  addThisProduct,
+}) => {
   const [selectedList, setSelected] = useState([]);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
   const { others } = useSelector((state) => state.recipeIngredient);
+  const dispatch = useDispatch();
   const verifyIfSelected = (title) => {
     switch (title) {
       case "Mash":
@@ -31,9 +46,39 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
         setSelected([]);
     }
   };
+
+  const handleQuantity = async (body, value) => {
+    const index = selectedList.findIndex((product) => product._id === body._id);
+    if (index !== -1) {
+      const newList = [...selectedList];
+      newList[index] = { ...selectedList[index], quantity: value };
+      setSelected(newList);
+      switch (title) {
+        case "Mash":
+          dispatch(addMaltsRecipeAction(newList));
+          break;
+        case "Hops":
+          dispatch(addHopsRecipeAction(newList));
+
+          break;
+        case "Yeasts and Bacteria":
+          dispatch(addYeastsRecipeAction(newList));
+
+          break;
+        case "Others":
+          dispatch(addOthersRecipeAction(newList));
+
+          break;
+        default:
+          setSelected([]);
+      }
+      addThisProduct(body._id);
+    }
+  };
   useEffect(() => {
     verifyIfSelected(title);
-  }, []);
+    verifyIfSelected(title);
+  }, [refresh, title]);
   return (
     <div className="commonList">
       <div className="commonList-title">
@@ -49,10 +94,22 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
               colorOrIbu={colorOrIbu}
               body={body}
               key={body._id}
-              colorOff={"colorOff"}
+              colorOff={colorOff}
+              addProduct={addProduct}
+              subtractProduct={subtractProduct}
+              refresh={refresh}
+              addThisProduct={addThisProduct}
             />
             <div className="commonList-element-add">
-              <input type="text" placeholder="0.000kg" />
+              {colorOff === "colorOff" ? (
+                <input
+                  type="number"
+                  placeholder="0.000kg"
+                  onChange={(e) => handleQuantity(body, e.target.value)}
+                />
+              ) : (
+                <div>{body.quantity}</div>
+              )}
             </div>
           </div>
         ))}

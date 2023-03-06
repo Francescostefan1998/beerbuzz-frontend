@@ -8,6 +8,7 @@ const SingleOther = ({
   setAdd,
   subtractRecipeAction,
   addRecipeAction,
+  setRefreshDeleting,
 }) => {
   const [classPurple, setClassPurple] = useState("ingredients-others-single");
   const [refresh, setRefresh] = useState();
@@ -27,6 +28,7 @@ const SingleOther = ({
       const data = await res.json();
       console.log(data);
       await subtractRecipeAction(engredient);
+      await setAdd(false);
     } else {
       return;
     }

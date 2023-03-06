@@ -16,7 +16,7 @@ const Malts = () => {
   const subtractRecipeAction = async (malt) => {
     dispatch(subtractMaltRecipeAction(malt));
   };
-
+  const addThisProduct = async (product) => {};
   return (
     <div className="malts">
       <NavbarIngredients prew="/water" next="/hops" />
@@ -28,6 +28,7 @@ const Malts = () => {
         fetchProps={"malts"}
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
+        addThisProduct={addThisProduct}
       />
     </div>
   );

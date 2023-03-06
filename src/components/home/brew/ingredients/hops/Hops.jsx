@@ -15,6 +15,7 @@ const Hops = () => {
   const subtractRecipeAction = async (hop) => {
     dispatch(subtractHopRecipeAction(hop));
   };
+  const addThisProduct = async (product) => {};
 
   return (
     <div className="hops">
@@ -27,6 +28,7 @@ const Hops = () => {
         fetchProps={"hops"}
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
+        addThisProduct={addThisProduct}
       />
     </div>
   );
