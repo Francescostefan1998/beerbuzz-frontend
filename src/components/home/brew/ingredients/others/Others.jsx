@@ -2,23 +2,33 @@ import "../commonEngredientsModal/commonEngredientsModal.css";
 import "./others.css";
 import { useState } from "react";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
-import { BsTrashFill } from "react-icons/bs";
-import { MdAddCircle } from "react-icons/md";
+
 import AddOthers from "./addOthers/AddOthers";
 import { useNavigate } from "react-router-dom";
 import { addOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
-
+import { useSelector } from "react-redux";
+import { addOthersRecipeAction } from "../../../../../redux/actions/recipe";
+import SingleOther from "./singleOther/SingleOther";
+import { useEffect } from "react";
 const Others = () => {
   const [add, setAdd] = useState(false);
   const [engredients, setEngredients] = useState([
     {
-      name: "new",
-      description: "new",
+      name: "example",
+      description: "example",
     },
   ]);
+  const [engredientsFetched, setEngredientsFetched] = useState([
+    {
+      name: "example",
+      description: "example",
+    },
+  ]);
+  const { others } = useSelector((state) => state.recipeIngredient);
+
   const dispatch = useDispatch();
   const addRecipeAction = async (other) => {
     dispatch(addOtherRecipeAction(other));
@@ -28,6 +38,10 @@ const Others = () => {
   };
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setEngredientsFetched(others);
+  }, []);
   return (
     <div className="others">
       <NavbarIngredients prew="/yeasts" next="/recipes" />
@@ -39,33 +53,19 @@ const Others = () => {
             </div>
           </div>
           <div className="common-ingredients-container-inside-section-middle">
-            {engredients.map((engrediet, i) => (
-              <div
-                key={engrediet.name}
-                className="ingredients-others-single mt-4"
-              >
-                <div>
-                  {" "}
-                  <BsTrashFill className="ingredients-others-single-icon" />
-                </div>
-
-                <div className="ingredients-others-single-grow1">
-                  {engrediet.name}
-                </div>
-                <div className="ingredients-others-single-grow1">
-                  {" "}
-                  {engrediet.description}
-                </div>
-                <div>
-                  {" "}
-                  <MdAddCircle
-                    className="ingredients-others-single-icon"
-                    onClick={() => setAdd(true)}
-                  />
-                </div>
-              </div>
-            ))}
-            {add && <AddOthers />}
+            {engredientsFetched.length >= 1 ? (
+              engredientsFetched.map((engredient, i) => (
+                <SingleOther
+                  engredient={engredient}
+                  key={engredient._id}
+                  setAdd={setAdd}
+                  subtractRecipeAction={subtractRecipeAction}
+                />
+              ))
+            ) : (
+              <SingleOther engredient={engredients[0]} setAdd={setAdd} />
+            )}
+            {add && <AddOthers addRecipeAction={addRecipeAction} />}
           </div>
           <div className="common-ingredients-container-inside-section-bottom">
             <div
