@@ -6,8 +6,8 @@ import { BsTrashFill } from "react-icons/bs";
 import { MdAddCircle } from "react-icons/md";
 import AddOthers from "./addOthers/AddOthers";
 import { useNavigate } from "react-router-dom";
-import { addOtherRecipeAction } from "../../../../../redux/actions";
-import { subtractOtherRecipeAction } from "../../../../../redux/actions";
+import { addOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
+import { subtractOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 

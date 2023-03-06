@@ -2,8 +2,8 @@ import "./yeasts.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsModal";
 import { FaBacterium } from "react-icons/fa";
-import { addYeastRecipeAction } from "../../../../../redux/actions";
-import { subtractYeastRecipeAction } from "../../../../../redux/actions";
+import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients.js";
+import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 const Yeasts = () => {

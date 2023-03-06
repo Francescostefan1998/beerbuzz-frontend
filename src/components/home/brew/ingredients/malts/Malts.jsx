@@ -4,8 +4,8 @@ import { GiWheat } from "react-icons/gi";
 import { HiSearch } from "react-icons/hi";
 import { useState } from "react";
 import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsModal";
-import { addMaltRecipeAction } from "../../../../../redux/actions";
-import { subtractMaltRecipeAction } from "../../../../../redux/actions";
+import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients.js";
+import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 const Malts = () => {
