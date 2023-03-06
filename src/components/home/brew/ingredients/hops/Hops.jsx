@@ -4,8 +4,8 @@ import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsM
 import { GiHops } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
-import { addHopRecipeAction } from "../../../../../redux/actions";
-import { subtractHopRecipeAction } from "../../../../../redux/actions";
+import { addHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
+import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
 
 const Hops = () => {
   const dispatch = useDispatch();

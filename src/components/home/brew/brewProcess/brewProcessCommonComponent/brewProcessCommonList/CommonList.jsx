@@ -49,6 +49,7 @@ const CommonList = ({ icon, colorOrIbu, title }) => {
               colorOrIbu={colorOrIbu}
               body={body}
               key={body._id}
+              colorOff={"colorOff"}
             />
             <div className="commonList-element-add">
               <input type="text" placeholder="0.000kg" />

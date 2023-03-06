@@ -10,6 +10,7 @@ const CommonSingleElement = ({
   addProduct,
   subtractProduct,
   title,
+  colorOff,
 }) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
@@ -62,7 +63,7 @@ const CommonSingleElement = ({
   return (
     <div
       className="common-element-container-inside-malt"
-      id={selected}
+      id={colorOff !== "colorOff" ? selected : "colorOff"}
       onClick={() => {
         selected !== "common-element-container-inside-malt-purple"
           ? setSelected("common-element-container-inside-malt-purple")
