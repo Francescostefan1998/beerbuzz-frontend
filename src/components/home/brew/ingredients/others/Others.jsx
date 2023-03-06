@@ -21,14 +21,13 @@ const Others = () => {
       description: "example",
     },
   ]);
-  const [engredientsFetched, setEngredientsFetched] = useState([
-    {
-      name: "example",
-      description: "example",
-    },
-  ]);
+  const [engredientsFetched, setEngredientsFetched] = useState([]);
   const { others } = useSelector((state) => state.recipeIngredient);
-
+  const fetchProducts = async () => {
+    const res = await fetch("http://localhost:3001/others");
+    const data = await res.json();
+    setEngredientsFetched(data);
+  };
   const dispatch = useDispatch();
   const addRecipeAction = async (other) => {
     dispatch(addOtherRecipeAction(other));
@@ -40,7 +39,7 @@ const Others = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setEngredientsFetched(others);
+    fetchProducts();
   }, []);
   return (
     <div className="others">
