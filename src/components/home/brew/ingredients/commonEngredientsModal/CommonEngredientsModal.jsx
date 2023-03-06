@@ -7,6 +7,12 @@ import { useState } from "react";
 import AddProduct from "./addProduct/AddProduct";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addMaltsRecipeAction } from "../../../../../redux/actions/recipe";
+import { addHopsRecipeAction } from "../../../../../redux/actions/recipe";
+import { addYeastsRecipeAction } from "../../../../../redux/actions/recipe";
+import { addOthersRecipeAction } from "../../../../../redux/actions/recipe";
 const CommonEngredientsModal = ({
   title,
   icon,
@@ -19,13 +25,19 @@ const CommonEngredientsModal = ({
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-
+  const [status, setStatus] = useState(false);
   const [newIngredient, setNewIngredient] = useState({
     name: "",
   });
   const [add, setAdd] = useState(false);
-  const navigate = useNavigate();
 
+  const { hops } = useSelector((state) => state.recipeIngredient);
+  const { malts } = useSelector((state) => state.recipeIngredient);
+  const { yeasts } = useSelector((state) => state.recipeIngredient);
+  const { others } = useSelector((state) => state.recipeIngredient);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const addNewField = async (field, value) => {
     setNewIngredient({ ...newIngredient, [field]: value });
     console.log(newIngredient);
@@ -57,6 +69,35 @@ const CommonEngredientsModal = ({
     });
     const data = await res.json();
   };
+  const setRefreshStatus = () => {
+    if (!status) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+  };
+  const saveSelected = async (title) => {
+    await setRefreshStatus();
+    switch (title) {
+      case "Fermentable":
+        dispatch(addMaltsRecipeAction(malts));
+        break;
+      case "Hops":
+        dispatch(addHopsRecipeAction(hops));
+
+        break;
+      case "Yeasts and Bacterias":
+        dispatch(addYeastsRecipeAction(yeasts));
+
+        break;
+      case "Others":
+        dispatch(addYeastsRecipeAction(others));
+
+        break;
+      default:
+    }
+  };
+
   return (
     <div className="common-ingredients-container">
       <div className="common-ingredients-container-inside">
@@ -127,6 +168,7 @@ const CommonEngredientsModal = ({
                 onClick={() => {
                   add !== false ? setAdd(false) : setAdd(true);
                   navigate(next);
+                  saveSelected(title);
                 }}
               >
                 Save and Proceed
