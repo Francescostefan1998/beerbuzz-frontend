@@ -6,7 +6,21 @@
 
 .ingredients-others-single {
   text-align: left;
-  gap: 26px;
+  gap: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 3;
+  width: 100%;
+  padding-block: 10px;
+}
+.ingredients-others-single:hover {
+  background-color: var(--background-black);
+}
+.ingredients-others-single.purple {
+  background-color: var(--main-secondary);
+}
+.ingredients-others-single.purple .ingredients-others-single-icon {
+  color: var(--background-black);
 }
 
 .ingredients-others-single-grow1 {

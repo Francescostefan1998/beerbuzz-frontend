@@ -58,6 +58,7 @@ const Others = () => {
                   engredient={engredient}
                   key={engredient._id}
                   setAdd={setAdd}
+                  addRecipeAction={addRecipeAction}
                   subtractRecipeAction={subtractRecipeAction}
                 />
               ))
