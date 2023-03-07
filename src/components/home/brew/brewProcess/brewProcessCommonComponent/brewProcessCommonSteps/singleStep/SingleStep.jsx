@@ -2,13 +2,23 @@ import "../commonBrewStep.css";
 import { BsTrashFill } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
 import { MdAddCircle } from "react-icons/md";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const SingleStep = () => {
+const SingleStep = ({ subtractStepRecipeAction, body, refresh }) => {
+  const [refreshThis, setRefresh] = useState("");
+  useEffect(() => {
+    setRefresh(refresh);
+  }, [refresh]);
+
   return (
     <div className="commonBrewStep-others-single mt-5">
       <div>
         {" "}
-        <BsTrashFill className="commonBrewStep-others-single-icon" />
+        <BsTrashFill
+          className="commonBrewStep-others-single-icon"
+          onClick={(e) => subtractStepRecipeAction(body)}
+        />
       </div>
 
       <div className="commonBrewStep-others-single-grow1">

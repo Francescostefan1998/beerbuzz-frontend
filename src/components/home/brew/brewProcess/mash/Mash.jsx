@@ -12,6 +12,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
+import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
+import { subtractMashStepRecipeAction } from "../../../../../redux/actions/steps";
+
 const Mash = () => {
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
@@ -23,6 +26,14 @@ const Mash = () => {
   const subtractRecipeAction = async (malt) => {
     await dispatch(subtractMaltRecipeAction(malt));
     setRefresh(malt._id);
+  };
+  const addStepRecipeAction = async (step) => {
+    await dispatch(addMashStepRecipeAction(step));
+    setRefresh(step.name);
+  };
+  const subtractStepRecipeAction = async (step) => {
+    await dispatch(subtractMashStepRecipeAction(step));
+    setRefresh(step.name);
   };
   const addThisProduct = async (product) => {};
 
@@ -62,7 +73,10 @@ const Mash = () => {
           </div>
           <div className="mash-main-section-process">
             <h1>Mash Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={addStepRecipeAction}
+              subtractStepRecipeAction={subtractStepRecipeAction}
+            />
           </div>
         </div>
         <div className="mash-bottom-section">

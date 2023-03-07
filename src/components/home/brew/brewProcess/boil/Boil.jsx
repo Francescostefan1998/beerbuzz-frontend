@@ -13,7 +13,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
-
+import { addBoilStepRecipeAction } from "../../../../../redux/actions/steps";
+import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps";
 const Boil = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +26,14 @@ const Boil = () => {
   const subtractRecipeAction = async (hop) => {
     await dispatch(subtractHopRecipeAction(hop));
     setRefresh(hop._id);
+  };
+  const addStepRecipeAction = async (step) => {
+    await dispatch(addBoilStepRecipeAction(step));
+    setRefresh(step.name);
+  };
+  const subtractStepRecipeAction = async (step) => {
+    await dispatch(subtractBoilStepRecipeAction(step));
+    setRefresh(step.name);
   };
   const addThisProduct = async (product) => {};
 
@@ -62,7 +71,10 @@ const Boil = () => {
           </div>
           <div className="boil-main-section-process">
             <h1>Boil Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={addStepRecipeAction}
+              subtractStepRecipeAction={subtractStepRecipeAction}
+            />
           </div>
         </div>
         <div className="boil-bottom-section">
