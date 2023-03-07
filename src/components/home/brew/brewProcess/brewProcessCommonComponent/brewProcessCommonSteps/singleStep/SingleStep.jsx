@@ -5,7 +5,7 @@ import { MdAddCircle } from "react-icons/md";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const SingleStep = ({ subtractStepRecipeAction, body, refresh }) => {
+const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
   const [refreshThis, setRefresh] = useState("");
   useEffect(() => {
     setRefresh(refresh);
@@ -43,7 +43,10 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh }) => {
       </div>
       <div>
         {" "}
-        <MdAddCircle className="commonBrewStep-others-single-icon" />
+        <MdAddCircle
+          className="commonBrewStep-others-single-icon"
+          onClick={(e) => setShow(true)}
+        />
       </div>
       <div className="commonBrewStep-others-nonebig">
         this beer is amzing, please note to add some cheese in it

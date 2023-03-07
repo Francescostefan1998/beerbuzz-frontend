@@ -35,7 +35,7 @@ const Fermentation = () => {
   };
   const subtractStepRecipeAction = async (step) => {
     await dispatch(subtractFermentationSteptRecipeAction(step));
-    setRefresh(step.name);
+    setRefresh(step.name + "sub");
   };
   const addThisProduct = async (product) => {};
   useEffect(() => {

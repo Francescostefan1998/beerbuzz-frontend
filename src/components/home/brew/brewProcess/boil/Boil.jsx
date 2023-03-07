@@ -34,7 +34,7 @@ const Boil = () => {
   };
   const subtractStepRecipeAction = async (step) => {
     await dispatch(subtractBoilStepRecipeAction(step));
-    setRefresh(step.name);
+    setRefresh(step.name + "sub");
   };
   const addThisProduct = async (product) => {};
   useEffect(() => {

@@ -4,7 +4,7 @@ import { FaSave } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const SingleStepAdd = ({ addStepRecipeAction, refresh }) => {
+const SingleStepAdd = ({ addStepRecipeAction, refresh, setShow }) => {
   const [stepBody, setStepBody] = useState({
     name: "",
     duration: 0,
@@ -18,7 +18,10 @@ const SingleStepAdd = ({ addStepRecipeAction, refresh }) => {
     <div className="commonBrewStep-others-single mt-5">
       <div>
         {" "}
-        <BsTrashFill className="commonBrewStep-others-single-icon" />
+        <BsTrashFill
+          className="commonBrewStep-others-single-icon"
+          onClick={(e) => setShow(false)}
+        />
       </div>
 
       <div className="commonBrewStep-others-single-grow1">
