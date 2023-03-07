@@ -9,6 +9,7 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh }) => {
   const [refreshThis, setRefresh] = useState("");
   useEffect(() => {
     setRefresh(refresh);
+    console.log(refresh);
   }, [refresh]);
 
   return (
@@ -23,18 +24,18 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh }) => {
 
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">Name</div>
-        <div>Mash in</div>
+        <div>{body.name}</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">Step duration (minuts)</div>
-        <div>60 min</div>
+        <div>{body.duration}</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">Temperature (C)</div>
-        <div>60 C</div>
+        <div>{body.temperature}</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Description</div>
+        <div className="none">{body.description}</div>
 
         <div className="none">
           this beer is amzing, please note to add some cheese in it

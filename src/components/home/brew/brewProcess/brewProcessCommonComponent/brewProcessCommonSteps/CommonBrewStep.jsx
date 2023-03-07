@@ -4,29 +4,27 @@ import { FaSave } from "react-icons/fa";
 import SingleStepAdd from "./singleStep/SingleStepAdd";
 import SingleStep from "./singleStep/SingleStep";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const CommonBrewStep = ({
   addStepRecipeAction,
   subtractStepRecipeAction,
   title,
+  refresh,
 }) => {
   const [stepList, setStepList] = useState([]);
-  const [refresh, setRefresh] = useState("");
-  const { mash } = useSelector((state) => state.recipeSteps);
   const { boil } = useSelector((state) => state.recipeSteps);
+  const { mash } = useSelector((state) => state.recipeSteps);
   const { fermentation } = useSelector((state) => state.recipeSteps);
-
-  const setTheList = async (title) => {
+  const setStepListFunction = async (title, mash, boil, fermentation) => {
+    console.log(title, mash, boil, fermentation);
     switch (title) {
       case "Mash":
         setStepList(mash);
-
         break;
       case "Boil":
         setStepList(boil);
-
+        console.log(boil);
         break;
       case "Fermentation":
         setStepList(fermentation);
@@ -35,10 +33,11 @@ const CommonBrewStep = ({
       default:
     }
   };
-
   useEffect(() => {
-    setTheList(title);
-  }, [title, refresh]);
+    setStepListFunction(title, mash, boil, fermentation);
+    console.log("ref");
+  }, [refresh]);
+
   return (
     <div className="commonBrewStep">
       {stepList.map((step, i) => (
@@ -50,7 +49,10 @@ const CommonBrewStep = ({
           refresh={refresh}
         />
       ))}
-      <SingleStepAdd addStepRecipeAction={addStepRecipeAction} />
+      <SingleStepAdd
+        addStepRecipeAction={addStepRecipeAction}
+        refresh={refresh}
+      />
     </div>
   );
 };

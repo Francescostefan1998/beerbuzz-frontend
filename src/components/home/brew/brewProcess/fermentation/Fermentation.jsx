@@ -16,6 +16,7 @@ import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addFermentationStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractFermentationSteptRecipeAction } from "../../../../../redux/actions/steps";
+import { useEffect } from "react";
 const Fermentation = () => {
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
@@ -37,7 +38,9 @@ const Fermentation = () => {
     setRefresh(step.name);
   };
   const addThisProduct = async (product) => {};
-
+  useEffect(() => {
+    console.log(refresh);
+  }, [refresh]);
   return (
     <div className="fermentation">
       <NavBar />
@@ -75,6 +78,8 @@ const Fermentation = () => {
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}
+              title={"Fermentation"}
+              refresh={refresh}
             />
           </div>
         </div>

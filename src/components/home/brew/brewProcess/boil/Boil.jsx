@@ -15,6 +15,7 @@ import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addBoilStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps";
+import { useEffect } from "react";
 const Boil = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +37,9 @@ const Boil = () => {
     setRefresh(step.name);
   };
   const addThisProduct = async (product) => {};
-
+  useEffect(() => {
+    console.log(refresh);
+  }, [refresh]);
   return (
     <div className="boil">
       <NavBar />
@@ -74,6 +77,8 @@ const Boil = () => {
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}
+              refresh={refresh}
+              title={"Boil"}
             />
           </div>
         </div>

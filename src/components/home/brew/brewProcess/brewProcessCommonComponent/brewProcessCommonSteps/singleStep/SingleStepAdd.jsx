@@ -4,14 +4,16 @@ import { FaSave } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const SingleStepAdd = ({ addStepRecipeAction, setRefresh }) => {
+const SingleStepAdd = ({ addStepRecipeAction, refresh }) => {
   const [stepBody, setStepBody] = useState({
     name: "",
     duration: 0,
     temperature: 0,
     description: "",
   });
-
+  useEffect(() => {
+    console.log("r");
+  }, [refresh]);
   return (
     <div className="commonBrewStep-others-single mt-5">
       <div>
@@ -66,7 +68,6 @@ const SingleStepAdd = ({ addStepRecipeAction, setRefresh }) => {
             stepBody.name !== ""
               ? addStepRecipeAction(stepBody)
               : alert("Please enter a name for the Brew Step");
-            setRefresh(stepBody.name);
           }}
         />
       </div>

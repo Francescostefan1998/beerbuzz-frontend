@@ -37,7 +37,9 @@ const Mash = () => {
   };
   const addThisProduct = async (product) => {};
 
-  useEffect(() => {}, [refresh]);
+  useEffect(() => {
+    console.log(refresh);
+  }, [refresh]);
 
   return (
     <div className="mash">
@@ -76,6 +78,8 @@ const Mash = () => {
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}
+              refresh={refresh}
+              title={"Mash"}
             />
           </div>
         </div>
