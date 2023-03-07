@@ -15,8 +15,12 @@ import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addBoilStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps";
+import { addBoilRecipeAction } from "../../../../../redux/actions/recipe";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 const Boil = () => {
+  const { boil } = useSelector((state) => state.recipeSteps);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [refresh, setRefresh] = useState("");
@@ -35,6 +39,17 @@ const Boil = () => {
   const subtractStepRecipeAction = async (step) => {
     await dispatch(subtractBoilStepRecipeAction(step));
     setRefresh(step.name + "sub");
+  };
+  const saveSelected = async (title) => {
+    await setRefresh(title);
+    switch (title) {
+      case "Boil":
+        dispatch(addBoilRecipeAction(boil));
+        break;
+
+        break;
+      default:
+    }
   };
   const addThisProduct = async (product) => {};
   useEffect(() => {
@@ -91,7 +106,10 @@ const Boil = () => {
           </div>
           <div
             className="boil-bottom-section-button"
-            onClick={() => navigate("/fermentation")}
+            onClick={() => {
+              saveSelected("Boil");
+              navigate("/fermentation");
+            }}
           >
             Save and Go to Fermentation Page
           </div>

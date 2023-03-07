@@ -16,8 +16,12 @@ import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addFermentationStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractFermentationSteptRecipeAction } from "../../../../../redux/actions/steps";
+import { addFermentationRecipeAction } from "../../../../../redux/actions/recipe";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 const Fermentation = () => {
+  const { fermentation } = useSelector((state) => state.recipeSteps);
+
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,6 +40,17 @@ const Fermentation = () => {
   const subtractStepRecipeAction = async (step) => {
     await dispatch(subtractFermentationSteptRecipeAction(step));
     setRefresh(step.name + "sub");
+  };
+  const saveSelected = async (title) => {
+    await setRefresh(title);
+    switch (title) {
+      case "Fermentation":
+        dispatch(addFermentationRecipeAction(fermentation));
+        break;
+
+        break;
+      default:
+    }
   };
   const addThisProduct = async (product) => {};
   useEffect(() => {
@@ -93,7 +108,10 @@ const Fermentation = () => {
           </div>
           <div
             className="fermentation-bottom-section-button"
-            onClick={() => navigate("/check")}
+            onClick={() => {
+              saveSelected("Fermentation");
+              navigate("/check");
+            }}
           >
             Save and Go to Check Page
           </div>
