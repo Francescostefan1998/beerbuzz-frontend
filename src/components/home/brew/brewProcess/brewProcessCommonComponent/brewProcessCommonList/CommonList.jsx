@@ -20,30 +20,54 @@ const CommonList = ({
   addThisProduct,
 }) => {
   const [selectedList, setSelected] = useState([]);
+  console.log(selectedList);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
+  console.log(malts);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
   const { others } = useSelector((state) => state.recipeIngredient);
+  const recipeHops = useSelector((state) => state.createRecipe.hops);
+  const recipeMalts = useSelector((state) => state.createRecipe.malts);
+  const recipeYeasts = useSelector((state) => state.createRecipe.yeasts);
+
   const dispatch = useDispatch();
-  const verifyIfSelected = (title) => {
-    switch (title) {
-      case "Mash":
-        setSelected(malts);
-        break;
-      case "Hops":
-        setSelected(hops);
+  const verifyIfSelected = (title, refresh) => {
+    if (refresh === "refresh check page") {
+      switch (title) {
+        case "Mash":
+          setSelected(recipeMalts);
+          break;
+        case "Hops":
+          setSelected(recipeHops);
 
-        break;
-      case "Yeasts and Bacteria":
-        setSelected(yeasts);
+          break;
+        case "Yeasts and Bacteria":
+          setSelected(recipeYeasts);
 
-        break;
-      case "Others":
-        setSelected(others);
+          break;
+        default:
+          setSelected([]);
+      }
+    } else {
+      switch (title) {
+        case "Mash":
+          setSelected(malts);
+          break;
+        case "Hops":
+          setSelected(hops);
 
-        break;
-      default:
-        setSelected([]);
+          break;
+        case "Yeasts and Bacteria":
+          setSelected(yeasts);
+
+          break;
+        case "Others":
+          setSelected(others);
+
+          break;
+        default:
+          setSelected([]);
+      }
     }
   };
 
@@ -76,8 +100,9 @@ const CommonList = ({
     }
   };
   useEffect(() => {
-    verifyIfSelected(title);
-    verifyIfSelected(title);
+    verifyIfSelected(title, refresh);
+    console.log("commonlist");
+    console.log(refresh);
   }, [refresh, title]);
   return (
     <div className="commonList">
