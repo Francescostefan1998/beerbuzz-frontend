@@ -25,7 +25,7 @@ export const addBoilStepRecipeAction = (param) => {
   };
 };
 
-export const subtractBoilSteoRecipeAction = (param) => {
+export const subtractBoilStepRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
       type: "SUBTRACT_BOILSTEP_FROM_RECIPE",

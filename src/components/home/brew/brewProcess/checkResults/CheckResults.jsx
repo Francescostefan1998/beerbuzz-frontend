@@ -30,6 +30,11 @@ const CheckResults = () => {
     await setRefresh(body._id);
   };
 
+  useEffect(() => {
+    console.log("refresh check page");
+    setRefresh("refresh check page");
+  }, []);
+
   return (
     <div className="checkResults">
       <NavBar />
@@ -56,7 +61,7 @@ const CheckResults = () => {
               colorOrIbu={"Color (EBC)"}
               title={"Mash"}
               colorOff={"false"}
-              refresh={refresh}
+              refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
             />
@@ -74,7 +79,7 @@ const CheckResults = () => {
               colorOrIbu={"Alpha Acid (%)"}
               title={"Hops"}
               colorOff={"false"}
-              refresh={refresh}
+              refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
             />
@@ -93,7 +98,7 @@ const CheckResults = () => {
               colorOrIbu={"Attenuation (%)"}
               title={"Yeasts and Bacteria"}
               colorOff={"false"}
-              refresh={refresh}
+              refresh={"refresh check page"}
               addThisProduct={addProduct}
               addProduct={addProduct}
             />

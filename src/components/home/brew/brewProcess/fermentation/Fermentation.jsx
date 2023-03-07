@@ -14,6 +14,9 @@ import FermentationChart from "./fermentationChart/FermentationChart";
 import { useDispatch } from "react-redux";
 import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients";
+import { addFermentationStepRecipeAction } from "../../../../../redux/actions/steps";
+import { subtractFermentationSteptRecipeAction } from "../../../../../redux/actions/steps";
+import { useEffect } from "react";
 const Fermentation = () => {
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
@@ -26,8 +29,18 @@ const Fermentation = () => {
     await dispatch(subtractYeastRecipeAction(yeast));
     setRefresh(yeast._id);
   };
+  const addStepRecipeAction = async (step) => {
+    await dispatch(addFermentationStepRecipeAction(step));
+    setRefresh(step.name);
+  };
+  const subtractStepRecipeAction = async (step) => {
+    await dispatch(subtractFermentationSteptRecipeAction(step));
+    setRefresh(step.name + "sub");
+  };
   const addThisProduct = async (product) => {};
-
+  useEffect(() => {
+    console.log(refresh);
+  }, [refresh]);
   return (
     <div className="fermentation">
       <NavBar />
@@ -62,7 +75,12 @@ const Fermentation = () => {
           </div>
           <div className="fermentation-main-section-process">
             <h1>Fermentation Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={addStepRecipeAction}
+              subtractStepRecipeAction={subtractStepRecipeAction}
+              title={"Fermentation"}
+              refresh={refresh}
+            />
           </div>
         </div>
         <FermentationChart />
