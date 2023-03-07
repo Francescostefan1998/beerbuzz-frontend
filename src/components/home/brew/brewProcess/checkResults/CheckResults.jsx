@@ -17,6 +17,7 @@ import { useState } from "react";
 import { FaBacterium } from "react-icons/fa";
 import { GiHops } from "react-icons/gi";
 import { useSelector } from "react-redux";
+import Comment from "../comments/Comment";
 const CheckResults = () => {
   const [refresh, setRefresh] = useState("");
   const { others } = useSelector((state) => state.recipeIngredient);
@@ -108,6 +109,7 @@ const CheckResults = () => {
           </div>
         </div>
         <FermentationChart />
+        <Comment />
         <div className="checkResults-bottom-section">
           <div
             className="checkResults-bottom-section-button"
