@@ -20,10 +20,8 @@ const CommonList = ({
   addThisProduct,
 }) => {
   const [selectedList, setSelected] = useState([]);
-  console.log(selectedList);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
-  console.log(malts);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
   const { others } = useSelector((state) => state.recipeIngredient);
   const recipeHops = useSelector((state) => state.createRecipe.hops);
@@ -35,14 +33,14 @@ const CommonList = ({
     if (refresh === "refresh check page") {
       switch (title) {
         case "Mash":
-          setSelected(recipeMalts);
+          setSelected(recipeMalts[0]);
           break;
         case "Hops":
-          setSelected(recipeHops);
+          setSelected(recipeHops[0]);
 
           break;
         case "Yeasts and Bacteria":
-          setSelected(recipeYeasts);
+          setSelected(recipeYeasts[0]);
 
           break;
         default:
@@ -101,8 +99,6 @@ const CommonList = ({
   };
   useEffect(() => {
     verifyIfSelected(title, refresh);
-    console.log("commonlist");
-    console.log(refresh);
   }, [refresh, title]);
   return (
     <div className="commonList">

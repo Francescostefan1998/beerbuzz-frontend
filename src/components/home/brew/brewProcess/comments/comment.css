@@ -1,0 +1,5 @@
+.comment {
+  width: 100%;
+  background-color: var(--background-dark);
+  border-bottom: 3px solid var(--main-secondary);
+}

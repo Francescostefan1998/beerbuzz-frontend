@@ -66,6 +66,9 @@ const CommonSingleElement = ({
   const handleMainClick = () => {
     if (colorOff === "colorOff") {
       setSelected("common-element-container-inside-malt-none");
+    }
+    if (colorOff === "false") {
+      setSelected("common-element-container-inside-malt-none");
     } else {
       selected !== "common-element-container-inside-malt-purple"
         ? setSelected("common-element-container-inside-malt-purple")

@@ -3,9 +3,11 @@ import "../acidAdditions/acidAdditions.css";
 import "./spargeWaterAcidification.css";
 import { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 const SpargeWaterAcidification = ({ setModal }) => {
   const [selectAcid, setSelectAcid] = useState(false);
   const [acid, setAcid] = useState("88% Lactic");
+  const navigate = useNavigate();
   const handleSelectedValue = async (e) => {
     console.log(e);
     await setAcid(e);
@@ -131,7 +133,12 @@ const SpargeWaterAcidification = ({ setModal }) => {
           </div>
           <div className="field button">
             <div>
-              <button onClick={() => setModal("closed")}>
+              <button
+                onClick={() => {
+                  setModal("closed");
+                  navigate("/malts");
+                }}
+              >
                 Confirm and Proceed
               </button>
             </div>

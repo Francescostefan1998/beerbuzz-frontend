@@ -14,11 +14,27 @@ import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractMashStepRecipeAction } from "../../../../../redux/actions/steps";
-
+import { addMashRecipeAction } from "../../../../../redux/actions/recipe";
+import { useSelector } from "react-redux";
 const Mash = () => {
+  const { mash } = useSelector((state) => state.recipeSteps);
+
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const saveSelected = async (title) => {
+    await setRefresh(title);
+    switch (title) {
+      case "Mash":
+        dispatch(addMashRecipeAction(mash));
+        break;
+
+        break;
+      default:
+    }
+  };
+
   const addRecipeAction = async (malt) => {
     await dispatch(addMaltRecipeAction(malt));
     setRefresh(malt._id);
@@ -92,7 +108,10 @@ const Mash = () => {
           </div>
           <div
             className="mash-bottom-section-button"
-            onClick={() => navigate("/boil")}
+            onClick={() => {
+              saveSelected("Mash");
+              navigate("/boil");
+            }}
           >
             Save and Go to Boil Page
           </div>

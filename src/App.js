@@ -15,6 +15,8 @@ import Mash from "./components/home/brew/brewProcess/mash/Mash";
 import Fermentation from "./components/home/brew/brewProcess/fermentation/Fermentation";
 import Boil from "./components/home/brew/brewProcess/boil/Boil";
 import CheckResults from "./components/home/brew/brewProcess/checkResults/CheckResults";
+import Contact from "./components/contact/Contact";
+import Instruction from "./components/home/instructions/Instruction";
 import "./App.css";
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
           <Route path="/boil" element={<Boil />} />
           <Route path="/fermentation" element={<Fermentation />} />
           <Route path="/check" element={<CheckResults />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/instruction" element={<Instruction />} />
         </Routes>
       </BrowserRouter>
     </div>
