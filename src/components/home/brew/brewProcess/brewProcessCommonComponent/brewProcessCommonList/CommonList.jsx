@@ -20,10 +20,8 @@ const CommonList = ({
   addThisProduct,
 }) => {
   const [selectedList, setSelected] = useState([]);
-  console.log(selectedList);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
-  console.log(malts);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
   const { others } = useSelector((state) => state.recipeIngredient);
   const recipeHops = useSelector((state) => state.createRecipe.hops);
@@ -101,8 +99,6 @@ const CommonList = ({
   };
   useEffect(() => {
     verifyIfSelected(title, refresh);
-    console.log("commonlist");
-    console.log(refresh);
   }, [refresh, title]);
   return (
     <div className="commonList">

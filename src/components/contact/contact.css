@@ -1,0 +1,53 @@
+.contact {
+  background-color: var(--background-dark);
+  width: 100%;
+  height: 100vh;
+}
+
+.contact .contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact .contact-page h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.contact .contact-page p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact .form-group {
+  margin-bottom: 20px;
+}
+
+.contact .form-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 4px;
+}

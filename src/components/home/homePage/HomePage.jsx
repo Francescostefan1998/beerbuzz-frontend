@@ -56,7 +56,7 @@ const HomePage = () => {
           <GiWheat className="homePage-main-icon iconWheat" />
           <h1>Recipes</h1>
         </div>
-        <div className="homePage-main">
+        <div className="homePage-main" onClick={() => navigate("/brew")}>
           <div className="homePage-main-title">
             <h1>Make a New Beer</h1>
           </div>
@@ -74,7 +74,7 @@ const HomePage = () => {
             {bubbles6}
           </div>
         </div>
-        <div className="homePage-main">
+        <div className="homePage-main" onClick={() => navigate("/instruction")}>
           <AiOutlineSetting className="homePage-main-icon iconSetting" />
           <h1>Instructions</h1>
         </div>

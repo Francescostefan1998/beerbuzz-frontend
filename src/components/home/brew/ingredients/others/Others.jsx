@@ -56,7 +56,7 @@ const Others = () => {
   }, [add, refreshThisState]);
   return (
     <div className="others">
-      <NavbarIngredients prew="/yeasts" next="/recipes" />
+      <NavbarIngredients prew="/yeasts" next="/mash" />
       <div className="common-ingredients-container">
         <div className="common-ingredients-container-inside">
           <div className="common-ingredients-container-inside-section-top">

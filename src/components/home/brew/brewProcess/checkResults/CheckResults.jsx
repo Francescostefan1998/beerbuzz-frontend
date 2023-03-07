@@ -31,7 +31,6 @@ const CheckResults = () => {
   };
 
   useEffect(() => {
-    console.log("refresh check page");
     setRefresh("refresh check page");
   }, []);
 
