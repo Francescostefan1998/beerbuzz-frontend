@@ -35,14 +35,14 @@ const CommonList = ({
     if (refresh === "refresh check page") {
       switch (title) {
         case "Mash":
-          setSelected(recipeMalts);
+          setSelected(recipeMalts[0]);
           break;
         case "Hops":
-          setSelected(recipeHops);
+          setSelected(recipeHops[0]);
 
           break;
         case "Yeasts and Bacteria":
-          setSelected(recipeYeasts);
+          setSelected(recipeYeasts[0]);
 
           break;
         default:

@@ -27,7 +27,7 @@ const CheckResults = () => {
   const navigate = useNavigate();
 
   const addProduct = async (body) => {
-    await setRefresh(body._id);
+    await setRefresh(body.name);
   };
 
   useEffect(() => {
