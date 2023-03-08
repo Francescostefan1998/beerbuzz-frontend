@@ -13,7 +13,13 @@
 .selectStyle-list::-webkit-scrollbar {
   width: 10px;
 }
-
+.selectStyle li {
+  text-align: left;
+  margin-inline: 30px;
+}
+.selectStyle ul {
+  padding: 20px;
+}
 .selectStyle-list-proceed {
   width: 100%;
   height: 12vh;

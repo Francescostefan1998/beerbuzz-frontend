@@ -16,6 +16,8 @@
   opacity: 1;
 }
 .selectStyle-list-element h4 {
+  flex-grow: 1;
+  text-align: left;
   margin: 0;
   padding: 0;
 }
@@ -39,4 +41,8 @@
   overflow: hidden;
   background-color: var(--main-secondary);
   margin-left: 1px;
+}
+
+.selectStyle li {
+  text-align: left;
 }
