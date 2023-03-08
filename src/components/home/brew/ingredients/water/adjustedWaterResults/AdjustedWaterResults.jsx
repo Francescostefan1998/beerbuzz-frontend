@@ -1,8 +1,14 @@
 import "../waterSourceData/waterSourceData.css";
 import "./adjustedWaterResults.css";
-
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import { RiCloseLine } from "react-icons/ri";
 const AdjustedWaterResults = ({ setModal }) => {
+  const { style } = useSelector((state) => state.style);
+
+  useEffect(() => {
+    console.log("style");
+  }, []);
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal adjustedWaterResults">
@@ -26,7 +32,10 @@ const AdjustedWaterResults = ({ setModal }) => {
 
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.calcium[0]} -{" "}
+                {style && style.waterProfile.calcium[1]}
+              </div>
             </div>
           </div>
           <div className=" column">
@@ -38,7 +47,10 @@ const AdjustedWaterResults = ({ setModal }) => {
             </div>
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.magnesium[0]} -{" "}
+                {style && style.waterProfile.magnesium[1]}
+              </div>
             </div>
           </div>
           <div className=" column">
@@ -50,7 +62,10 @@ const AdjustedWaterResults = ({ setModal }) => {
             </div>
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.alkalinity[0]} -{" "}
+                {style && style.waterProfile.alkalinity[1]}
+              </div>
             </div>
           </div>
 
@@ -63,7 +78,10 @@ const AdjustedWaterResults = ({ setModal }) => {
             </div>
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.sulfate[0]} -{" "}
+                {style && style.waterProfile.sulfate[1]}
+              </div>
             </div>
           </div>
           <div className=" column">
@@ -75,7 +93,10 @@ const AdjustedWaterResults = ({ setModal }) => {
             </div>
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.chloride[0]} -{" "}
+                {style && style.waterProfile.chloride[1]}
+              </div>
             </div>
           </div>
           <div className=" column">
@@ -87,7 +108,10 @@ const AdjustedWaterResults = ({ setModal }) => {
             </div>
             <div>
               <div>Suggested (ppm)</div>
-              <div>0.0</div>
+              <div>
+                {style && style.waterProfile.sodium[0]} -{" "}
+                {style && style.waterProfile.sodium[1]}
+              </div>
             </div>
           </div>
           <div className="field">

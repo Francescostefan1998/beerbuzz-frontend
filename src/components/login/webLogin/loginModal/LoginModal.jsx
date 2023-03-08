@@ -27,7 +27,11 @@ const LoginModal = ({
         password,
       });
       toast("Login successfull! 💪", { autoClose: 1000 });
+      console.log(data);
+
       localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("userId", data._id);
+
       navigate("/home");
     } catch (error) {
       alert("wrong email or password");
@@ -44,6 +48,7 @@ const LoginModal = ({
       body: JSON.stringify({
         email: email,
         password: password,
+        image: [],
       }),
     })
       .then((response) => response.json())
