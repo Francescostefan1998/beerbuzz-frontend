@@ -15,6 +15,8 @@ const LoginModal = ({
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfPassword] = useState("");
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ const LoginModal = ({
       localStorage.setItem("accessToken", data.accessToken);
       navigate("/home");
     } catch (error) {
+      alert("wrong email or password");
       setError(error.response.data.message);
     }
   };
@@ -52,10 +55,14 @@ const LoginModal = ({
       });
   };
 
-  const handleLogin = async (title, email, password) => {
+  const handleLogin = async (title, email, password, confirmpassword) => {
     if (title === "Register") {
-      await handlePost(email, password);
-      handleSubmit(email, password);
+      if (password === confirmpassword) {
+        await handlePost(email, password);
+        handleSubmit(email, password);
+      } else {
+        alert("Password doesn't match");
+      }
     } else {
       handleSubmit(email, password);
     }
@@ -90,6 +97,7 @@ const LoginModal = ({
             type="password"
             placeholder="Type here your email"
             id="loginModal-inputBox-input3"
+            onChange={(e) => setConfPassword(e.target.value)}
           />
           <span>Confirm password </span>
           <hr />
@@ -97,7 +105,7 @@ const LoginModal = ({
         <div className="loginModal-links">
           <div
             className="loginModal-links-click"
-            onClick={() => handleLogin(title, email, password)}
+            onClick={() => handleLogin(title, email, password, confirmPassword)}
           >
             {login}
           </div>
@@ -105,12 +113,14 @@ const LoginModal = ({
             {signUp}
           </div>
         </div>
-        <div className="loginModal-google">
-          <div className="loginModal-google-inset">
-            <FaGoogle className="loginModal-google-inset-icon" />
-            <div>Login with Google</div>
+        <a href="http://localhost:3001/users/googleLogin">
+          <div className="loginModal-google">
+            <div className="loginModal-google-inset">
+              <FaGoogle className="loginModal-google-inset-icon" />
+              <div>Login with Google</div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

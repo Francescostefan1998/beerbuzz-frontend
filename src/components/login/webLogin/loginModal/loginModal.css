@@ -186,7 +186,14 @@
 .loginModal-google:hover .loginModal-google-inset-icon {
   color: white;
 }
-
+.loginModal-form a {
+  text-decoration: none;
+  color: var(--main-secondary);
+}
+.loginModal-form a:hover {
+  text-decoration: none;
+  color: white;
+}
 .loginModal-google::after {
   content: "";
   position: absolute;
