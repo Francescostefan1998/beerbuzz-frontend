@@ -122,9 +122,16 @@ export const createRecipeReducer = (state = initialState, action) => {
     case "ADD_COMMENTS_TO_RECIPE":
       return {
         ...state,
-        comments: [action.payload],
+        comments: [...state.comments, action.payload],
       };
-
+    case "SUBTRACT_COMMENTS_TO_RECIPE":
+      const updateComments = state.comments.filter(
+        (comment) => comment.name !== action.payload.name
+      );
+      return {
+        ...state,
+        comments: updateComments,
+      };
     default:
       return {
         ...state,

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import AddComment from "./addComment/AddComment";
 import SingleComment from "./singleComment/SingleComment";
 import { addCommentsRecipeAction } from "../../../../../redux/actions/recipe";
+import { subtractCommentsRecipeAction } from "../../../../../redux/actions/recipe";
 
 const Comment = () => {
   const [add, setAddNew] = useState(false);
@@ -27,38 +28,26 @@ const Comment = () => {
   };
   const addRecipeAction = async (body, param) => {
     if (param === "delete") {
-      console.log(commentList[0]);
-      const newArray = await commentList.filter(
-        (comment) => comment.name === body.name
-      );
-      console.log(newArray);
-      let mycomments = comments;
-      mycomments[0] = newArray;
-      await dispatch(addCommentsRecipeAction(newArray));
+      await dispatch(subtractCommentsRecipeAction(body));
       setRefreshThisState(body.name + "sub");
     }
     if (param === "add") {
-      if (Array.isArray(commentList) && commentList.length >= 1) {
-        const newArray = await commentList.push(body);
-        let mycomments = comments;
-        mycomments[0] = newArray;
-        await dispatch(addCommentsRecipeAction(newArray));
-        setRefreshThisState(body.name + "sub");
-      } else {
-        await dispatch(addCommentsRecipeAction(body));
-      }
+      await dispatch(addCommentsRecipeAction(body));
+      setRefreshThisState(body.name + "add");
     }
   };
 
   useEffect(() => {
     console.log(comments);
     setComments(comments);
-    console.log(comments[0]);
+    console.log(comments);
   }, [add, refreshThisState]);
   return (
     <div className="comment">
-      <div>comment</div>
-      {Array.isArray(commentList) && commentList.length >= 2 ? (
+      <div className="comment-title">
+        <h5>Comments</h5>
+      </div>
+      {Array.isArray(commentList) && commentList.length >= 1 ? (
         commentList.map((comment, i) => (
           <SingleComment
             key={comment.name}

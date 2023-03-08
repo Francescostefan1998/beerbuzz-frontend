@@ -17,11 +17,11 @@ const SingleComment = ({ commentBody, addRecipeAction, setAdd }) => {
 
       {commentBody && (
         <div className="ingredients-others-single-grow1">
-          {commentBody.name}
+          {commentBody.name}:
         </div>
       )}
       {commentBody && (
-        <div className="ingredients-others-single-grow1">
+        <div className="ingredients-others-single-grow1 second">
           {commentBody.description}
         </div>
       )}

@@ -6,7 +6,7 @@ import { useState } from "react";
 const AddComment = ({ setAdd, addRecipeAction }) => {
   const [body, setBody] = useState({
     name: "",
-    comment: "",
+    description: "",
   });
   return (
     <div className="ingredients-others-single mt-5">
@@ -31,7 +31,7 @@ const AddComment = ({ setAdd, addRecipeAction }) => {
 
         <textarea
           name="comment"
-          onChange={(e) => setBody({ ...body, comment: e.target.value })}
+          onChange={(e) => setBody({ ...body, description: e.target.value })}
         ></textarea>
       </div>
       <div>
