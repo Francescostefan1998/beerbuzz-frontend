@@ -4,15 +4,19 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { addStyleAction } from "../../../../../redux/actions/style";
 
 const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
   const [show, setShow] = useState(false);
   const [description, setDescription] = useState(false);
+  const dispatch = useDispatch();
   useEffect(() => {}, [propsShow]);
   const handleShowClick = async () => {
     await setPropsShow(false);
     if (!show) {
       setShow(true);
+      dispatch(addStyleAction(body));
     } else {
       setShow(false);
     }
