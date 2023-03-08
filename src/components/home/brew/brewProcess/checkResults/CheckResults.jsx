@@ -66,6 +66,7 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="checkResults-main-section-process">
@@ -89,6 +90,7 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="boil-main-section-process">
@@ -113,6 +115,7 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addThisProduct={addProduct}
               addProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="fermentation-main-section-process">

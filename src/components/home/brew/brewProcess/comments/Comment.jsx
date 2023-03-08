@@ -11,16 +11,8 @@ import { addCommentsRecipeAction } from "../../../../../redux/actions/recipe";
 const Comment = () => {
   const [add, setAddNew] = useState(false);
   const [refreshThisState, setRefreshThisState] = useState("");
-  const [commentList, setComments] = useState([
-    {
-      name: "example1",
-      description: "example",
-    },
-    {
-      name: "example",
-      description: "example",
-    },
-  ]);
+  const [commentList, setComments] = useState([]);
+  console.log(commentList);
   console.log(commentList);
   const [commentListExample, setCommentList] = useState([
     {
@@ -40,25 +32,33 @@ const Comment = () => {
         (comment) => comment.name === body.name
       );
       console.log(newArray);
-
+      let mycomments = comments;
+      mycomments[0] = newArray;
       await dispatch(addCommentsRecipeAction(newArray));
       setRefreshThisState(body.name + "sub");
     }
     if (param === "add") {
-      const newArray = await commentList.push(body);
-      await dispatch(addCommentsRecipeAction(newArray));
-      setRefreshThisState(body.name + "sub");
+      if (Array.isArray(commentList) && commentList.length >= 1) {
+        const newArray = await commentList.push(body);
+        let mycomments = comments;
+        mycomments[0] = newArray;
+        await dispatch(addCommentsRecipeAction(newArray));
+        setRefreshThisState(body.name + "sub");
+      } else {
+        await dispatch(addCommentsRecipeAction(body));
+      }
     }
   };
 
   useEffect(() => {
     console.log(comments);
+    setComments(comments);
     console.log(comments[0]);
   }, [add, refreshThisState]);
   return (
     <div className="comment">
       <div>comment</div>
-      {/*{commentList.length >= 1 ? (
+      {Array.isArray(commentList) && commentList.length >= 2 ? (
         commentList.map((comment, i) => (
           <SingleComment
             key={comment.name}
@@ -73,7 +73,7 @@ const Comment = () => {
           commentBody={commentListExample[0]}
           addRecipeAction={addRecipeAction}
         />
-      )}*/}
+      )}
       {add && <AddComment setAdd={setAdd} addRecipeAction={addRecipeAction} />}
     </div>
   );
