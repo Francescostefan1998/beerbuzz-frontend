@@ -1,6 +1,10 @@
 import "./loginModal.css";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { toast } from "react-toastify";
+
 const LoginModal = ({
   setRegister,
   mainClass,
@@ -9,7 +13,61 @@ const LoginModal = ({
   signUp,
   title,
 }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfPassword] = useState("");
+
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const handleSubmit = async (email, password) => {
+    try {
+      const { data } = await axios.post("http://localhost:3001/users/login", {
+        email,
+        password,
+      });
+      toast("Login successfull! 💪", { autoClose: 1000 });
+      localStorage.setItem("accessToken", data.accessToken);
+      navigate("/home");
+    } catch (error) {
+      alert("wrong email or password");
+      setError(error.response.data.message);
+    }
+  };
+
+  const handlePost = async (email, password) => {
+    await fetch("http://localhost:3001/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const handleLogin = async (title, email, password, confirmpassword) => {
+    if (title === "Register") {
+      if (password === confirmpassword) {
+        await handlePost(email, password);
+        handleSubmit(email, password);
+      } else {
+        alert("Password doesn't match");
+      }
+    } else {
+      handleSubmit(email, password);
+    }
+  };
+
   return (
     <div className={mainClass}>
       <div className="loginModal-form">
@@ -19,6 +77,7 @@ const LoginModal = ({
             type="text"
             placeholder="Type here your email"
             id="loginModal-inputBox-input1"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <span>Email or Username </span>
           <hr />
@@ -28,6 +87,7 @@ const LoginModal = ({
             type="password"
             placeholder="Type here your email"
             id="loginModal-inputBox-input2"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span>Password </span>
           <hr />
@@ -37,6 +97,7 @@ const LoginModal = ({
             type="password"
             placeholder="Type here your email"
             id="loginModal-inputBox-input3"
+            onChange={(e) => setConfPassword(e.target.value)}
           />
           <span>Confirm password </span>
           <hr />
@@ -44,7 +105,7 @@ const LoginModal = ({
         <div className="loginModal-links">
           <div
             className="loginModal-links-click"
-            onClick={() => navigate("/home")}
+            onClick={() => handleLogin(title, email, password, confirmPassword)}
           >
             {login}
           </div>
@@ -52,12 +113,14 @@ const LoginModal = ({
             {signUp}
           </div>
         </div>
-        <div className="loginModal-google">
-          <div className="loginModal-google-inset">
-            <FaGoogle className="loginModal-google-inset-icon" />
-            <div>Login with Google</div>
+        <a href="http://localhost:3001/users/googleLogin">
+          <div className="loginModal-google">
+            <div className="loginModal-google-inset">
+              <FaGoogle className="loginModal-google-inset-icon" />
+              <div>Login with Google</div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

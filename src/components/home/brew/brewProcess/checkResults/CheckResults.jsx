@@ -30,7 +30,9 @@ const CheckResults = () => {
   const addProduct = async (body) => {
     await setRefresh(body.name);
   };
-
+  const nonSenseFunction = (param) => {
+    return;
+  };
   useEffect(() => {
     setRefresh("refresh check page");
   }, []);
@@ -64,11 +66,17 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="checkResults-main-section-process">
             <h1>Mash Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={nonSenseFunction}
+              subtractStepRecipeAction={nonSenseFunction}
+              refresh={refresh}
+              title={"Mash"}
+            />
           </div>
         </div>
         <div className="boil-main-section">
@@ -82,11 +90,17 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addProduct={addProduct}
               addThisProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="boil-main-section-process">
             <h1>Boil Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={nonSenseFunction}
+              subtractStepRecipeAction={nonSenseFunction}
+              refresh={refresh}
+              title={"Boil"}
+            />
           </div>
         </div>
 
@@ -101,11 +115,17 @@ const CheckResults = () => {
               refresh={"refresh check page"}
               addThisProduct={addProduct}
               addProduct={addProduct}
+              subtractProduct={nonSenseFunction}
             />
           </div>
           <div className="fermentation-main-section-process">
             <h1>Fermentation Process</h1>
-            <CommonBrewStep />
+            <CommonBrewStep
+              addStepRecipeAction={nonSenseFunction}
+              subtractStepRecipeAction={nonSenseFunction}
+              refresh={refresh}
+              title={"Fermentation"}
+            />
           </div>
         </div>
         <FermentationChart />

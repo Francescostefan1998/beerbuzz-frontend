@@ -7,20 +7,13 @@ import { useSelector } from "react-redux";
 import AddComment from "./addComment/AddComment";
 import SingleComment from "./singleComment/SingleComment";
 import { addCommentsRecipeAction } from "../../../../../redux/actions/recipe";
+import { subtractCommentsRecipeAction } from "../../../../../redux/actions/recipe";
 
 const Comment = () => {
   const [add, setAddNew] = useState(false);
   const [refreshThisState, setRefreshThisState] = useState("");
-  const [commentList, setComments] = useState([
-    {
-      name: "example1",
-      description: "example",
-    },
-    {
-      name: "example",
-      description: "example",
-    },
-  ]);
+  const [commentList, setComments] = useState([]);
+  console.log(commentList);
   console.log(commentList);
   const [commentListExample, setCommentList] = useState([
     {
@@ -35,30 +28,26 @@ const Comment = () => {
   };
   const addRecipeAction = async (body, param) => {
     if (param === "delete") {
-      console.log(commentList[0]);
-      const newArray = await commentList.filter(
-        (comment) => comment.name === body.name
-      );
-      console.log(newArray);
-
-      await dispatch(addCommentsRecipeAction(newArray));
+      await dispatch(subtractCommentsRecipeAction(body));
       setRefreshThisState(body.name + "sub");
     }
     if (param === "add") {
-      const newArray = await commentList.push(body);
-      await dispatch(addCommentsRecipeAction(newArray));
-      setRefreshThisState(body.name + "sub");
+      await dispatch(addCommentsRecipeAction(body));
+      setRefreshThisState(body.name + "add");
     }
   };
 
   useEffect(() => {
     console.log(comments);
-    console.log(comments[0]);
+    setComments(comments);
+    console.log(comments);
   }, [add, refreshThisState]);
   return (
     <div className="comment">
-      <div>comment</div>
-      {/*{commentList.length >= 1 ? (
+      <div className="comment-title">
+        <h5>Comments</h5>
+      </div>
+      {Array.isArray(commentList) && commentList.length >= 1 ? (
         commentList.map((comment, i) => (
           <SingleComment
             key={comment.name}
@@ -73,7 +62,7 @@ const Comment = () => {
           commentBody={commentListExample[0]}
           addRecipeAction={addRecipeAction}
         />
-      )}*/}
+      )}
       {add && <AddComment setAdd={setAdd} addRecipeAction={addRecipeAction} />}
     </div>
   );

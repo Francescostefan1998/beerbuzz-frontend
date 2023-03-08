@@ -33,15 +33,25 @@ const CommonList = ({
     if (refresh === "refresh check page") {
       switch (title) {
         case "Mash":
-          setSelected(recipeMalts[0]);
+          if (Array.isArray(recipeMalts) && recipeMalts.length > 0) {
+            setSelected(recipeMalts[0]);
+          } else {
+            setSelected([]);
+          }
           break;
         case "Hops":
-          setSelected(recipeHops[0]);
-
+          if (Array.isArray(recipeHops) && recipeHops.length > 0) {
+            setSelected(recipeHops[0]);
+          } else {
+            setSelected([]);
+          }
           break;
         case "Yeasts and Bacteria":
-          setSelected(recipeYeasts[0]);
-
+          if (Array.isArray(recipeYeasts) && recipeYeasts.length > 0) {
+            setSelected(recipeYeasts[0]);
+          } else {
+            setSelected([]);
+          }
           break;
         default:
           setSelected([]);

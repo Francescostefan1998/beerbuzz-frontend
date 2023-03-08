@@ -2,4 +2,27 @@
   width: 100%;
   background-color: var(--background-dark);
   border-bottom: 3px solid var(--main-secondary);
+  padding: 30px;
+}
+
+.single-comment {
+  width: 100%;
+  display: flex;
+  padding-block: 20px;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.single-comment .ingredients-others-single-grow1 {
+  flex-grow: 0.2;
+}
+
+.single-comment .ingredients-others-single-grow1.second {
+  flex-grow: 4;
+}
+.comment-title {
+  text-align: left;
+}
+.comment-title h5 {
+  text-align: left;
 }

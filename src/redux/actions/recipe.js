@@ -43,6 +43,15 @@ export const addCommentsRecipeAction = (param) => {
   };
 };
 
+export const subtractCommentsRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "SUBTRACT_COMMENTS_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
+
 export const addNameRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({

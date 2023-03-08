@@ -7,23 +7,6 @@
   overflow: hidden;
 }
 
-/*.loginModal-box::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 420px;
-  height: 420px;
-  background: linear-gradient(
-    0deg,
-    transparent,
-    var(--main-secondary),
-    var(--main-secondary)
-  );
-  transform-origin: bottom right;
-  animation-delay: -3;
-}*/
-
 .loginModal-box::after {
   content: "";
   position: absolute;
@@ -203,7 +186,14 @@
 .loginModal-google:hover .loginModal-google-inset-icon {
   color: white;
 }
-
+.loginModal-form a {
+  text-decoration: none;
+  color: var(--main-secondary);
+}
+.loginModal-form a:hover {
+  text-decoration: none;
+  color: white;
+}
 .loginModal-google::after {
   content: "";
   position: absolute;
