@@ -70,7 +70,7 @@ export const addImageRecipeAction = (param) => {
   };
 };
 
-export const addAuthorbRecipeAction = (param) => {
+export const addAuthorRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
       type: "ADD_AUTHOR_TO_RECIPE",

@@ -43,23 +43,23 @@ const CommonBrewStep = ({
 
   return (
     <div className="commonBrewStep">
-      {stepList.length >= 1 ? (
-        stepList.map((step, i) => (
-          <SingleStep
-            body={step}
-            addStepRecipeAction={addStepRecipeAction}
-            subtractStepRecipeAction={subtractStepRecipeAction}
-            key={step.name}
-            refresh={refresh}
-            setShow={setShow}
-          />
-        ))
-      ) : (
-        <SingleStepAdd
-          addStepRecipeAction={addStepRecipeAction}
-          refresh={refresh}
-        />
-      )}
+      {stepList.length >= 1
+        ? stepList.map((step, i) => (
+            <SingleStep
+              body={step}
+              addStepRecipeAction={addStepRecipeAction}
+              subtractStepRecipeAction={subtractStepRecipeAction}
+              key={step.name}
+              refresh={refresh}
+              setShow={setShow}
+            />
+          ))
+        : refresh !== "refresh check page" && (
+            <SingleStepAdd
+              addStepRecipeAction={addStepRecipeAction}
+              refresh={refresh}
+            />
+          )}
       {showAddingStep && (
         <SingleStepAdd
           addStepRecipeAction={addStepRecipeAction}

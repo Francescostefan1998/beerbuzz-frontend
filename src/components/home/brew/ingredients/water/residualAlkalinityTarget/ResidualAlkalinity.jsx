@@ -21,25 +21,25 @@ const ResidualAlkalinity = ({ setModal }) => {
               <b>Input Data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
             <div>Water Input Unit</div>
             <div>
-              <input type="text" placeholder="liter" />
+              <div style={{ marginRight: "0.8rem" }}>liter</div>
             </div>
           </div>
           <div className="field">
             <div>Target Residual Alkalinity</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <input type="number" placeholder="0.0" />
             </div>
           </div>
           <div className="field">
             <div>Mash Water Volume</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <input type="number" placeholder="0.0" />
             </div>
           </div>
           <div className="field">
@@ -47,13 +47,13 @@ const ResidualAlkalinity = ({ setModal }) => {
               <b>Output Data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
             <div>Additional Alkainity Needed</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <input type="number" placeholder="0.0" />
             </div>
           </div>
 

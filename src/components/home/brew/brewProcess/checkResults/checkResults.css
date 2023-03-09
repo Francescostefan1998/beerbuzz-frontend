@@ -57,6 +57,28 @@
   background-color: var(--main-secondary);
   z-index: 3;
 }
+.checkResults h1 button {
+  font-size: 14px;
+  font-size: 500;
+  margin-left: 20px;
+  margin-top: 4px;
+  background-color: var(--main-secondary);
+  padding: 9px;
+  padding-inline: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  z-index: 6;
+  border: none;
+  color: white;
+  display: none;
+}
+.checkResults h1:hover {
+  display: flex;
+}
+.checkResults h1:hover button {
+  display: flex;
+}
 
 .checkResults-bottom-section-button:hover {
   box-shadow: 0px 0px 10px var(--main-secondary);
