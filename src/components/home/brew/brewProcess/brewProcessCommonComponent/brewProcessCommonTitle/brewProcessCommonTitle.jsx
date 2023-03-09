@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { addImageRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addNameRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addAuthorRecipeAction } from "../../../../../../redux/actions/recipe";
+import { addUserIdRecipeAction } from "../../../../../../redux/actions/recipe";
 const BrewProcessCommonTitle = ({ select }) => {
   const dispatch = useDispatch();
   const { image } = useSelector((state) => state.createRecipe);
@@ -106,9 +107,10 @@ const BrewProcessCommonTitle = ({ select }) => {
                 <input
                   type="text"
                   placeholder="Choose a Name"
-                  onChange={(e) =>
-                    dispatch(addNameRecipeAction(e.target.value))
-                  }
+                  onChange={(e) => {
+                    dispatch(addNameRecipeAction(e.target.value));
+                    dispatch(addUserIdRecipeAction(user));
+                  }}
                 />
               </div>
             </div>

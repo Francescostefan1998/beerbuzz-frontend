@@ -16,10 +16,14 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
     <div className="commonBrewStep-others-single mt-5">
       <div>
         {" "}
-        <BsTrashFill
-          className="commonBrewStep-others-single-icon"
-          onClick={(e) => subtractStepRecipeAction(body)}
-        />
+        {refresh !== "refresh check page" ? (
+          <BsTrashFill
+            className="commonBrewStep-others-single-icon"
+            onClick={(e) => subtractStepRecipeAction(body)}
+          />
+        ) : (
+          <div></div>
+        )}
       </div>
 
       <div className="commonBrewStep-others-single-grow1">
@@ -28,11 +32,11 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">Step duration (minuts)</div>
-        <div>{body.duration}</div>
+        <div>{body.duration}min</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">Temperature (C)</div>
-        <div>{body.temperature}</div>
+        <div>{body.temperature}(C)</div>
       </div>
       <div className="commonBrewStep-others-single-grow1">
         <div className="none">{body.description}</div>
@@ -43,10 +47,14 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
       </div>
       <div>
         {" "}
-        <MdAddCircle
-          className="commonBrewStep-others-single-icon"
-          onClick={(e) => setShow(true)}
-        />
+        {refresh !== "refresh check page" ? (
+          <MdAddCircle
+            className="commonBrewStep-others-single-icon"
+            onClick={(e) => setShow(true)}
+          />
+        ) : (
+          <div></div>
+        )}
       </div>
       <div className="commonBrewStep-others-nonebig">
         this beer is amzing, please note to add some cheese in it
