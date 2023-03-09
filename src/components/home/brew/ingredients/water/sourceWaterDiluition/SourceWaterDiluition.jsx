@@ -4,6 +4,16 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
+import {
+  updateOriginalAlkalinityAction,
+  updateOriginalCalciumAction,
+  updateOriginalMagnesiumAction,
+  updateOriginalSulfateAction,
+  updateOriginalChlorideAction,
+  updateOriginalSodiumAction,
+  updateOriginalPhAction,
+} from "../../../../../../redux/actions/updatedWater";
+
 const SourceWaterDiluition = ({ setModal }) => {
   const dispatch = useDispatch();
   const { calcium } = useSelector((state) => state.originalWater);
@@ -30,7 +40,19 @@ const SourceWaterDiluition = ({ setModal }) => {
     setS((100 - value) * 0.01 * sulfate);
     setNa((100 - value) * 0.01 * sodium);
     setCaCO3((100 - value) * 0.01 * alkalinity);
-    setPh((100 - value) * 0.01 * ph);
+    setPh(
+      ((7 * value + ph * (100 - value)) / 100 + ph * (10 - value / 10)) /
+        (10 - value / 10 + 1)
+    );
+  };
+  const saveResults = async () => {
+    dispatch(updateOriginalAlkalinityAction(newAlkalinity));
+    dispatch(updateOriginalCalciumAction(newCalcium));
+    dispatch(updateOriginalMagnesiumAction(newMagnesium));
+    dispatch(updateOriginalSulfateAction(newSulfate));
+    dispatch(updateOriginalChlorideAction(newChloride));
+    dispatch(updateOriginalSodiumAction(newSodium));
+    dispatch(updateOriginalPhAction(newPh));
   };
 
   return (
@@ -141,7 +163,12 @@ const SourceWaterDiluition = ({ setModal }) => {
           </div>
           <div className="field button sourceWaterDiluition-button">
             <div>
-              <button onClick={() => setModal("saltAdditions")}>
+              <button
+                onClick={() => {
+                  saveResults();
+                  setModal("saltAdditions");
+                }}
+              >
                 Confirm and Proceed
               </button>
             </div>
