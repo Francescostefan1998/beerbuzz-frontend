@@ -16,6 +16,7 @@
 }
 .brewProcessCommonTitle-image img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .brewProcessCommonTitle-title-name {
@@ -49,6 +50,60 @@
   height: 100%;
   width: 100%;
 }
+.brewProcessCommonTitle .file-uploader {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 11;
+}
+
+.brewProcessCommonTitle .file-uploader .input {
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 5px;
+  border: none;
+  background-color: var(--main-secondary);
+  cursor: pointer;
+  color: white;
+}
+
+.brewProcessCommonTitle .file-uploader-modal {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15vh;
+  background-color: var(--background-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40vh;
+  box-shadow: 0px 0px 10px var(--main-secondary);
+}
+.waterSouceData-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: auto;
+}
+.waterSouceData-close:hover {
+  background-color: var(--main-secondary);
+}
+.waterSouceData-close-icon {
+  color: white;
+  font-size: 30px;
+}
+
 @media (max-width: 788px) {
   .brewProcessCommonTitle-image {
     width: 12vh;
