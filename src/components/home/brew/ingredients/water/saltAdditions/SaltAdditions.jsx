@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RiCloseLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
   updateOriginalAlkalinityAction,
   updateOriginalCalciumAction,
@@ -19,12 +20,39 @@ const SaltAdditions = ({ setModal }) => {
   const dispatch = useDispatch();
   const { salts } = useSelector((state) => state.createRecipe);
   const { mashVolume } = useSelector((state) => state.waterAndBeerData);
+  const [CaGypsum, setCaGy] = useState(0);
+  const [so4Gypsum, setSo4Gy] = useState(0);
+
+  const [CaCalciumCloride, setCaCl] = useState(0);
+  const [ClCalciumCloride, setClCa] = useState(0);
+  const [mgEpson, setMgEpson] = useState(0);
+  const [so4Epson, setSo4Epson] = useState(0);
+  const [naSoda, setNaSoda] = useState(0);
+  const [alkSoda, setAlkSoda] = useState(0);
+  const [NaSalt, setNaSalt] = useState(0);
+  const [ClSalt, setClSalt] = useState(0);
+  useEffect(() => {
+    console.log(CaGypsum);
+  }, [
+    CaGypsum,
+    so4Gypsum,
+    CaCalciumCloride,
+    ClCalciumCloride,
+    mgEpson,
+    so4Epson,
+    naSoda,
+    alkSoda,
+    NaSalt,
+    ClSalt,
+  ]);
   const verifyIfSelected = (title, value) => {
     switch (title) {
-      case "gipsum":
+      case "gypsum":
         if (Array.isArray(salts) && salts.length > 0) {
           dispatch(subtractSaltRecipeAction({ name: title, quantity: value }));
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
+          setCaGy(((value * 0.257) / mashVolume) * 1000);
+          setSo4Gy(((value * 0.58) / mashVolume) * 1000);
         } else {
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
         }
@@ -33,6 +61,9 @@ const SaltAdditions = ({ setModal }) => {
         if (Array.isArray(salts) && salts.length > 0) {
           dispatch(subtractSaltRecipeAction({ name: title, quantity: value }));
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
+
+          setCaCl(((value * 0.273) / mashVolume) * 1000);
+          setClCa(((value * 0.48) / mashVolume) * 1000);
         } else {
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
         }
@@ -41,6 +72,8 @@ const SaltAdditions = ({ setModal }) => {
         if (Array.isArray(salts) && salts.length > 0) {
           dispatch(subtractSaltRecipeAction({ name: title, quantity: value }));
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
+          setMgEpson(((value * 0.1) / mashVolume) * 1000);
+          setSo4Epson(((value * 0.39) / mashVolume) * 1000);
         } else {
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
         }
@@ -49,6 +82,8 @@ const SaltAdditions = ({ setModal }) => {
         if (Array.isArray(salts) && salts.length > 0) {
           dispatch(subtractSaltRecipeAction({ name: title, quantity: value }));
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
+          setNaSoda(((value * 0.27) / mashVolume) * 1000);
+          setAlkSoda((value * 2.5 * 50) / mashVolume);
         } else {
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
         }
@@ -57,12 +92,13 @@ const SaltAdditions = ({ setModal }) => {
         if (Array.isArray(salts) && salts.length > 0) {
           dispatch(subtractSaltRecipeAction({ name: title, quantity: value }));
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
+          setNaSalt(((value * 0.39) / mashVolume) * 1000);
+          setClSalt(((value * 0.61) / mashVolume) * 1000);
         } else {
           dispatch(addSaltRecipeAction({ name: title, quantity: value }));
         }
         break;
       default:
-        setSelected([]);
     }
   };
 
@@ -163,38 +199,38 @@ const SaltAdditions = ({ setModal }) => {
           <div className="field">
             <div>Calcium (ppm)</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{(CaCalciumCloride + CaGypsum).toFixed(2)}</div>
             </div>
           </div>
           <div className="field">
             <div>Magnesium (ppm)</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{mgEpson.toFixed(2)}</div>
             </div>
           </div>
 
           <div className="field">
             <div>Sulfate (ppm)</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{(so4Epson + so4Gypsum).toFixed(2)}</div>
             </div>
           </div>
           <div className="field">
             <div>Chloride (ppm)</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{(ClCalciumCloride + ClSalt).toFixed(2)}</div>
             </div>
           </div>
           <div className="field">
             <div>Sodium (ppm)</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{(naSoda + NaSalt).toFixed(2)}</div>
             </div>
           </div>
           <div className="field">
             <div>Adjusted Residual Alkalinity as CaCO3</div>
             <div>
-              <input type="number" placeholder="0.0" />
+              <div>{alkSoda.toFixed(2)}</div>
             </div>
           </div>
           <div className="field button saltAdditions-button">
