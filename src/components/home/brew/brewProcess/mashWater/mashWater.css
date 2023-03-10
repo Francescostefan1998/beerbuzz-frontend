@@ -1,0 +1,23 @@
+.mashWater {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mashWater-tab {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.mashWater-tab-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mashWater-tab-line.head {
+  background-color: var(--main-secondary);
+}
