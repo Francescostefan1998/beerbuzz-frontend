@@ -5,6 +5,7 @@ import { addStepsRecipeReducer } from "../reducers/addStepsReducer";
 import { addStyleReducer } from "../reducers/addStyleReducer";
 import { originalWaterReducer } from "../reducers/originalWaterReducer";
 import { updateWaterReducer } from "../reducers/updateWaterReducer";
+import { waterAndBeerDataReducer } from "../reducers/waterAndBeerData";
 const mainReducer = {
   recipeIngredient: addProductRecipeReducer,
   recipeSteps: addStepsRecipeReducer,
@@ -12,6 +13,7 @@ const mainReducer = {
   style: addStyleReducer,
   originalWater: originalWaterReducer,
   updatedWater: updateWaterReducer,
+  waterAndBeerData: waterAndBeerDataReducer,
 };
 
 export const store = configureStore({
