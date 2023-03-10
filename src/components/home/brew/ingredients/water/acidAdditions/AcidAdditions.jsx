@@ -10,6 +10,38 @@ const AcidAdditions = ({ setModal }) => {
     await setAcid(e);
     setSelectAcid(false);
   };
+
+  const verifyIfSelected = (title, value) => {
+    switch (title) {
+      case "10% Hydrochloric":
+        if (Array.isArray(salts) && salts.length > 0) {
+        } else {
+        }
+        break;
+      case "37% Hydrochloric":
+        if (Array.isArray(salts) && salts.length > 0) {
+        } else {
+        }
+        break;
+      case "10% Phosphoric":
+        if (Array.isArray(salts) && salts.length > 0) {
+        } else {
+        }
+        break;
+      case "88% Lactic":
+        if (Array.isArray(salts) && salts.length > 0) {
+        } else {
+        }
+        break;
+      case "10% Sulfuric":
+        if (Array.isArray(salts) && salts.length > 0) {
+        } else {
+        }
+        break;
+      default:
+    }
+  };
+
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal acidAddition">
@@ -28,7 +60,7 @@ const AcidAdditions = ({ setModal }) => {
               <b>Input data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div
@@ -96,13 +128,13 @@ const AcidAdditions = ({ setModal }) => {
               <b>Output data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
             <div>Est. Acid Addition (ml)</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
