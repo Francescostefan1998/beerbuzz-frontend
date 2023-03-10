@@ -15,6 +15,22 @@ export const addHopsRecipeAction = (param) => {
     });
   };
 };
+export const addSaltRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "ADD_SALT_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
+export const subtractSaltRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "SUBTRACT_SALT_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
 
 export const addYeastsRecipeAction = (param) => {
   return async (dispatch, getState) => {

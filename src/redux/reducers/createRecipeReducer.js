@@ -10,7 +10,7 @@ const initialState = {
   ibu: null,
   og: null,
   fg: null,
-
+  salts: [],
   malts: [],
   hops: [],
   yeasts: [],
@@ -27,8 +27,22 @@ export const createRecipeReducer = (state = initialState, action) => {
     case "ADD_NAME_TO_RECIPE":
       return {
         ...state,
-        name: action.payload,
+        slats: action.payload,
       };
+    case "ADD_SALT_TO_RECIPE":
+      return {
+        ...state,
+        salts: [...state.salts, action.payload],
+      };
+    case "SUBTRACT_SALT_TO_RECIPE":
+      const updateSalts = state.salts.filter(
+        (comment) => comment.name !== action.payload.name
+      );
+      return {
+        ...state,
+        salts: updateSalts,
+      };
+
     case "ADD_IMAGE_TO_RECIPE":
       return {
         ...state,

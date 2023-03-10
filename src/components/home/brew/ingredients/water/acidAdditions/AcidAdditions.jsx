@@ -2,14 +2,57 @@ import "../waterSourceData/waterSourceData.css";
 import "./acidAdditions.css";
 import { RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { afterAcidOriginalAlkalinityAction } from "../../../../../../redux/actions/afterSalt";
 const AcidAdditions = ({ setModal }) => {
+  const { mashVolume } = useSelector((state) => state.waterAndBeerData);
+  const { alkalinity } = useSelector((state) => state.afterSalt);
+
+  const [value, setValue] = useState(0);
   const [selectAcid, setSelectAcid] = useState(false);
   const [acid, setAcid] = useState("88% Lactic");
+  const [newAlkalinity, setNewAlkalinity] = useState(0);
+  const dispatch = useDispatch();
   const handleSelectedValue = async (e) => {
     console.log(e);
     await setAcid(e);
+    await verifyIfSelected(e, value);
     setSelectAcid(false);
   };
+  const changeValue = async (e) => {
+    await setValue(e);
+    verifyIfSelected(acid, e);
+  };
+  useEffect(() => {
+    console.log(value);
+  }, [value, acid]);
+  const verifyIfSelected = (title, value) => {
+    switch (title) {
+      case "10% Hydrochloric":
+        setNewAlkalinity((value * 1.6) / (mashVolume / 100));
+        break;
+      case "37% Hydrochloric":
+        setNewAlkalinity((value * 2.9) / (mashVolume / 100));
+
+        break;
+      case "10% Phosphoric":
+        setNewAlkalinity((value * 0.8) / (mashVolume / 100));
+
+        break;
+      case "88% Lactic":
+        setNewAlkalinity((value * 4.2) / (mashVolume / 100));
+
+        break;
+      case "10% Sulfuric":
+        setNewAlkalinity((value * 1.2) / (mashVolume / 100));
+
+        break;
+      default:
+    }
+  };
+
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal acidAddition">
@@ -28,7 +71,7 @@ const AcidAdditions = ({ setModal }) => {
               <b>Input data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div
@@ -88,7 +131,11 @@ const AcidAdditions = ({ setModal }) => {
           <div className="field">
             <div>Mash Water Addition (ml)</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <input
+                type="number"
+                placeholder={`${value}`}
+                onChange={(e) => changeValue(e.target.value)}
+              />
             </div>
           </div>
           <div className="field">
@@ -96,25 +143,34 @@ const AcidAdditions = ({ setModal }) => {
               <b>Output data</b>
             </div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
             <div>Est. Acid Addition (ml)</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div></div>
             </div>
           </div>
           <div className="field">
             <div>Alkalinity Reduced (as CaCO3)</div>
             <div>
-              <input type="text" placeholder="0.0" />
+              <div>{newAlkalinity.toFixed(2)}</div>
             </div>
           </div>
 
           <div className="field button">
             <div>
-              <button onClick={() => setModal("adjustedWaterResults")}>
+              <button
+                onClick={() => {
+                  dispatch(
+                    afterAcidOriginalAlkalinityAction(
+                      alkalinity - newAlkalinity
+                    )
+                  );
+                  setModal("adjustedWaterResults");
+                }}
+              >
                 Confirm and Proceed
               </button>
             </div>
