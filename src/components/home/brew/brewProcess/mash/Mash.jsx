@@ -16,6 +16,7 @@ import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractMashStepRecipeAction } from "../../../../../redux/actions/steps";
 import { addMashRecipeAction } from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
+import MashWater from "../mashWater/MashWater";
 const Mash = () => {
   const { mash } = useSelector((state) => state.recipeSteps);
 
@@ -75,6 +76,8 @@ const Mash = () => {
             </div>
           </div>
         </div>
+        <MashWater />
+
         <div className="mash-main-section">
           <div>
             <h1>Mash</h1>
