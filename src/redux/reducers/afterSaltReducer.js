@@ -6,6 +6,7 @@ const initialState = {
   chloride: 0,
   sodium: 0,
   ph: 0,
+  alkalinityAfterAcid: 0,
 };
 
 export const afterSaltReducer = (state = initialState, action) => {
@@ -24,6 +25,11 @@ export const afterSaltReducer = (state = initialState, action) => {
       return {
         ...state,
         alkalinity: action.payload,
+      };
+    case "AFTERACID_ALKALINITY_TO_ORIGINALWATER":
+      return {
+        ...state,
+        alkalinityAfterAcid: action.payload,
       };
     case "AFTERSALT_SULFATE_TO_ORIGINALWATER":
       return {

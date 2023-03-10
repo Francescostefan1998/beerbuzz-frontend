@@ -51,3 +51,11 @@ export const afterSaltOriginalSodiumAction = (param) => {
     });
   };
 };
+export const afterAcidOriginalAlkalinityAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "AFTERACID_ALKALINITY_TO_ORIGINALWATER",
+      payload: param,
+    });
+  };
+};
