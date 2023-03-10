@@ -8,17 +8,23 @@ import { RiCloseLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {
-  updateOriginalAlkalinityAction,
-  updateOriginalCalciumAction,
-  updateOriginalMagnesiumAction,
-  updateOriginalSulfateAction,
-  updateOriginalChlorideAction,
-  updateOriginalSodiumAction,
-  updateOriginalPhAction,
-} from "../../../../../../redux/actions/updatedWater";
+  afterSaltOriginalAlkalinityAction,
+  afterSaltOriginalCalciumAction,
+  afterSaltOriginalMagnesiumAction,
+  afterSaltOriginalSulfateAction,
+  afterSaltOriginalChlorideAction,
+  afterSaltOriginalSodiumAction,
+} from "../../../../../../redux/actions/afterSalt";
 const SaltAdditions = ({ setModal }) => {
   const dispatch = useDispatch();
   const { salts } = useSelector((state) => state.createRecipe);
+  const { calcium } = useSelector((state) => state.updatedWater);
+  const { magnesium } = useSelector((state) => state.updatedWater);
+  const { chloride } = useSelector((state) => state.updatedWater);
+  const { alkalinity } = useSelector((state) => state.updatedWater);
+  const { sulfate } = useSelector((state) => state.updatedWater);
+  const { sodium } = useSelector((state) => state.updatedWater);
+
   const { mashVolume } = useSelector((state) => state.waterAndBeerData);
   const [CaGypsum, setCaGy] = useState(0);
   const [so4Gypsum, setSo4Gy] = useState(0);
@@ -100,6 +106,33 @@ const SaltAdditions = ({ setModal }) => {
         break;
       default:
     }
+  };
+
+  const dispatchCorrection = async () => {
+    dispatch(
+      afterSaltOriginalAlkalinityAction((alkalinity + alkSoda).toFixed(2))
+    );
+    dispatch(
+      afterSaltOriginalCalciumAction(
+        (CaCalciumCloride + CaGypsum + calcium).toFixed(2)
+      )
+    );
+    dispatch(
+      afterSaltOriginalMagnesiumAction((magnesium + mgEpson).toFixed(2))
+    );
+    dispatch(
+      afterSaltOriginalSulfateAction(
+        (sulfate + so4Epson + so4Gypsum).toFixed(2)
+      )
+    );
+    dispatch(
+      afterSaltOriginalChlorideAction(
+        (ClCalciumCloride + ClSalt + chloride).toFixed(2)
+      )
+    );
+    dispatch(
+      afterSaltOriginalSodiumAction((naSoda + NaSalt + sodium).toFixed(2))
+    );
   };
 
   return (
@@ -235,7 +268,12 @@ const SaltAdditions = ({ setModal }) => {
           </div>
           <div className="field button saltAdditions-button">
             <div>
-              <button onClick={() => setModal("acidAdditions")}>
+              <button
+                onClick={() => {
+                  dispatchCorrection();
+                  setModal("acidAdditions");
+                }}
+              >
                 Confirm and Proceed
               </button>
             </div>
