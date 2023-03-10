@@ -31,13 +31,11 @@ const AdjustedWaterResults = ({ setModal }) => {
   const ph2 = useSelector((store) => store.updatedWater.ph);
   const [totalSalt, setSum] = useState(0);
   useEffect(() => {
-    console.log("style");
     const divs = document.querySelectorAll(".my-value");
     let sum = 0;
     divs.forEach((div) => {
       sum += parseInt(div.innerHTML);
     });
-    console.log(sum);
     setSum(sum);
   }, []);
   return (
