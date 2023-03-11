@@ -47,12 +47,41 @@
   justify-content: flex-end;
   width: 100%;
 }
+.mashWater-tab-line-cell input {
+  outline: none;
+  color: white;
+  background-color: transparent;
+  border: none;
+  text-align: right;
+}
 
 .mashWater-tab-line.head {
   background-color: var(--main-secondary);
 }
-
+.mashWater-tab ul {
+  position: relative;
+}
 .mashWater-tab li {
   text-align: left;
   padding-top: 10px;
+  z-index: 2;
+}
+
+.mashWater-tab .image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.mashWater-tab .image img {
+  width: 70%;
+  margin-top: -50px;
+  margin-left: 200px;
+  transform: rotate(45deg);
+  object-fit: cover;
+  z-index: 0;
+  filter: hue-rotate(270deg);
 }

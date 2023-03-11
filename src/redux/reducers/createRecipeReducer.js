@@ -46,10 +46,10 @@ export const createRecipeReducer = (state = initialState, action) => {
     case "ADD_ACID_TO_RECIPE":
       return {
         ...state,
-        acids: [...state.acids, action.payload],
+        acids: [action.payload],
       };
     case "SUBTRACT_ACID_TO_RECIPE":
-      const updateAcids = state.salts.filter(
+      const updateAcids = state.acids.filter(
         (comment) => comment.name !== action.payload.name
       );
       return {

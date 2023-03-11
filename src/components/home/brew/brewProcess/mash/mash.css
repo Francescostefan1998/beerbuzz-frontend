@@ -1,7 +1,8 @@
 .mash {
   background-color: var(--background-dark);
-  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .mash h1 {
   padding: 20px;
@@ -11,6 +12,7 @@
   height: 88vh;
   padding-bottom: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .mash-top-section {

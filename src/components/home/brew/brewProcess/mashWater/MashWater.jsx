@@ -1,17 +1,28 @@
 import "./mashWater.css";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 const MashWater = () => {
   const { salts } = useSelector((state) => state.createRecipe);
   const { acids } = useSelector((state) => state.createRecipe);
   const { acid } = useSelector((state) => state.sparge);
   const { acidQuantity } = useSelector((state) => state.sparge);
-  const { mashVolume } = useSelector((state) => state.createRecipe);
-  const finalpHMash = useSelector((state) => state.afterSalts.ph);
-  const initialpHMash = useSelector((state) => state.createRecipe.ph);
+  const { mashVolume } = useSelector((state) => state.waterAndBeerData);
+  const finalpHMash = useSelector((state) => state.afterSalt.ph);
+  const initialpHMash = useSelector((state) => state.updatedWater.ph);
   const finalpHSparge = useSelector((state) => state.sparge.finalph);
   const volumeSparge = useSelector((state) => state.sparge.volume);
-  const { lostInFiltering } = useSelector((state) => state.waterAndBeerData);
+  const { lostInfiltering } = useSelector((state) => state.waterAndBeerData);
+  const { totalBoilTime } = useSelector((state) => state.waterAndBeerData);
 
+  const { evaporationRate } = useSelector((state) => state.waterAndBeerData);
+  const { preBoil } = useSelector((state) => state.waterAndBeerData);
+  const { postBoil } = useSelector((state) => state.waterAndBeerData);
+  const { equipmentEfficienty } = useSelector(
+    (state) => state.waterAndBeerData
+  );
+  useEffect(() => {
+    console.log(initialpHMash);
+  }, []);
   return (
     <div className="mashWater">
       <div className="mashWater-tab">
@@ -22,14 +33,24 @@ const MashWater = () => {
               <div>Mash Volume</div>
               <div>L</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={mashVolume}
+            />
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
               <div>Mash pH</div>
               <div>pH</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={
+                finalpHMash !== 0 ? finalpHMash : initialpHMash.toFixed(2)
+              }
+            />
           </div>
         </div>
         <div className="mashWater-tab-line">
@@ -38,14 +59,22 @@ const MashWater = () => {
               <div>Sparge Volume</div>
               <div>L</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={volumeSparge}
+            />
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
               <div>Sparge pH</div>
               <div>pH</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={finalpHSparge}
+            />
           </div>
         </div>
         <div className="mashWater-tab-line">
@@ -54,14 +83,22 @@ const MashWater = () => {
               <div>Pre Boil Volume</div>
               <div>L</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={preBoil}
+            />
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
               <div>Evaporation rate/hr</div>
               <div>(%)</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={evaporationRate}
+            />
           </div>
         </div>
         <div className="mashWater-tab-line">
@@ -70,14 +107,22 @@ const MashWater = () => {
               <div>Post Boil Volume</div>
               <div>L</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={postBoil}
+            />
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
               <div>Filtering Lost</div>
               <div>(%)</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={lostInfiltering}
+            />
           </div>
         </div>
 
@@ -87,20 +132,34 @@ const MashWater = () => {
               <div>Equipment Efficiency</div>
               <div>(%)</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={equipmentEfficienty}
+            />
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
               <div>Boil Duration</div>
               <div>min</div>
             </div>
-            <div className="second-line">value</div>
+            <input
+              type="number"
+              className="second-line"
+              placeholder={totalBoilTime}
+            />
           </div>
         </div>
       </div>
       <div className="mashWater-tab">
         <div className="mashWater-tab-line head">Additions</div>
         <ul>
+          <div className="image">
+            <img
+              src="https://images.theconversation.com/files/179175/original/file-20170721-18110-oqdban.png?ixlib=rb-1.1.0&q=45&auto=format&w=600&h=835&fit=crop&dpr=1"
+              alt="molecule"
+            />
+          </div>
           {salts.map((salt, i) => (
             <li key={salt.name}>
               {salt.name}: {salt.quantity}g{"  to mash"}
