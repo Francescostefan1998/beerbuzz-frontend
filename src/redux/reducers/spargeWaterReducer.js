@@ -1,9 +1,9 @@
 const initialState = {
-  initialPh: 0,
+  initialPh: 7,
   volume: 0,
   acid: 0,
   acidQuantity: 0,
-  finalph: 0,
+  finalph: 7,
   alkalinity: 0,
 };
 

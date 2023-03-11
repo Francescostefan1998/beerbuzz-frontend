@@ -16,6 +16,7 @@ const initialState = {
   yeasts: [],
   others: [],
   salts: [],
+  acids: [],
   mash: [],
   boil: [],
   fermentation: [],
@@ -27,7 +28,7 @@ export const createRecipeReducer = (state = initialState, action) => {
     case "ADD_NAME_TO_RECIPE":
       return {
         ...state,
-        slats: action.payload,
+        name: action.payload,
       };
     case "ADD_SALT_TO_RECIPE":
       return {
@@ -42,7 +43,19 @@ export const createRecipeReducer = (state = initialState, action) => {
         ...state,
         salts: updateSalts,
       };
-
+    case "ADD_ACID_TO_RECIPE":
+      return {
+        ...state,
+        acids: [...state.acids, action.payload],
+      };
+    case "SUBTRACT_ACID_TO_RECIPE":
+      const updateAcids = state.salts.filter(
+        (comment) => comment.name !== action.payload.name
+      );
+      return {
+        ...state,
+        acids: updateAcids,
+      };
     case "ADD_IMAGE_TO_RECIPE":
       return {
         ...state,

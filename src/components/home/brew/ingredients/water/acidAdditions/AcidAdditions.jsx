@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { subtractAcidRecipeAction } from "../../../../../../redux/actions/recipe";
+import { addAcidRecipeAction } from "../../../../../../redux/actions/recipe";
 import { afterAcidOriginalAlkalinityAction } from "../../../../../../redux/actions/afterSalt";
 const AcidAdditions = ({ setModal }) => {
   const { mashVolume } = useSelector((state) => state.waterAndBeerData);
@@ -32,21 +34,32 @@ const AcidAdditions = ({ setModal }) => {
     switch (title) {
       case "10% Hydrochloric":
         setNewAlkalinity((value * 1.6) / (mashVolume / 100));
+        dispatch(subtractAcidRecipeAction({ name: title, quantity: value }));
+        dispatch(addAcidRecipeAction({ name: title, quantity: value }));
+
         break;
       case "37% Hydrochloric":
         setNewAlkalinity((value * 2.9) / (mashVolume / 100));
+        dispatch(subtractAcidRecipeAction({ name: title, quantity: value }));
+        dispatch(addAcidRecipeAction({ name: title, quantity: value }));
 
         break;
       case "10% Phosphoric":
         setNewAlkalinity((value * 0.8) / (mashVolume / 100));
+        dispatch(subtractAcidRecipeAction({ name: title, quantity: value }));
+        dispatch(addAcidRecipeAction({ name: title, quantity: value }));
 
         break;
       case "88% Lactic":
         setNewAlkalinity((value * 4.2) / (mashVolume / 100));
+        dispatch(subtractAcidRecipeAction({ name: title, quantity: value }));
+        dispatch(addAcidRecipeAction({ name: title, quantity: value }));
 
         break;
       case "10% Sulfuric":
         setNewAlkalinity((value * 1.2) / (mashVolume / 100));
+        dispatch(subtractAcidRecipeAction({ name: title, quantity: value }));
+        dispatch(addAcidRecipeAction({ name: title, quantity: value }));
 
         break;
       default:

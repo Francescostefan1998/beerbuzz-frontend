@@ -31,7 +31,22 @@ export const subtractSaltRecipeAction = (param) => {
     });
   };
 };
-
+export const addAcidRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "ADD_ACID_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
+export const subtractAcidRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "SUBTRACT_ACID_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
 export const addYeastsRecipeAction = (param) => {
   return async (dispatch, getState) => {
     dispatch({
