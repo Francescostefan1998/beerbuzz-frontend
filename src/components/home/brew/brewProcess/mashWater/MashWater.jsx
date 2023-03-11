@@ -1,7 +1,18 @@
 import "./mashWater.css";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-const MashWater = () => {
+import { useDispatch } from "react-redux";
+import { addBatchVolumeRecipeAction } from "../../../../../redux/actions/recipe";
+import { volumeSpargeAction } from "../../../../../redux/actions/spargeWater";
+import { updatePreBoilWaterAndBeerAction } from "../../../../../redux/actions/waterAndBeerAction";
+import {
+  updatePostBoilWaterAndBeerAction,
+  updateTotalBoilTimeWaterAndBeerAction,
+  updateLostInFilteringWaterAndBeerAction,
+  updateEvaporationRateWaterAndBeerAction,
+} from "../../../../../redux/actions/waterAndBeerAction";
+import { updateMashVolumeWaterAndBeerAction } from "../../../../../redux/actions/waterAndBeerAction";
+const MashWater = ({ setRefresh }) => {
   const { salts } = useSelector((state) => state.createRecipe);
   const { acids } = useSelector((state) => state.createRecipe);
   const { acid } = useSelector((state) => state.sparge);
@@ -13,6 +24,7 @@ const MashWater = () => {
   const volumeSparge = useSelector((state) => state.sparge.volume);
   const { lostInfiltering } = useSelector((state) => state.waterAndBeerData);
   const { totalBoilTime } = useSelector((state) => state.waterAndBeerData);
+  const { malts } = useSelector((state) => state.createRecipe.malts);
 
   const { evaporationRate } = useSelector((state) => state.waterAndBeerData);
   const { preBoil } = useSelector((state) => state.waterAndBeerData);
@@ -20,9 +32,97 @@ const MashWater = () => {
   const { equipmentEfficienty } = useSelector(
     (state) => state.waterAndBeerData
   );
+  const dispatch = useDispatch();
   useEffect(() => {
     console.log(initialpHMash);
   }, []);
+
+  const updateTheValues = async (e) => {
+    setRefresh(e);
+  };
+  const changeMashVolume = (e) => {
+    let kg = 0;
+    if (malts) {
+      for (let i = 0; i < malts.lenght; i++) {
+        kg += malts[i].quantity;
+      }
+    }
+    dispatch(updateMashVolumeWaterAndBeerAction(parseFloat(e)));
+    let preboil = parseFloat(e) + parseFloat(volumeSparge) - kg * 1.3;
+    dispatch(updatePreBoilWaterAndBeerAction(preboil));
+    let postboil =
+      (preboil / 100) * (100 - (evaporationRate * totalBoilTime) / 60);
+    dispatch(updatePostBoilWaterAndBeerAction(postboil));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
+    );
+  };
+  const changeSpargeVolume = (e) => {
+    let kg = 0;
+    if (malts) {
+      for (let i = 0; i < malts.lenght; i++) {
+        kg += malts[i].quantity;
+      }
+    }
+    dispatch(volumeSpargeAction(parseFloat(e)));
+    let preboil = parseFloat(mashVolume) + parseFloat(e) - kg * 1.3;
+    dispatch(updatePreBoilWaterAndBeerAction(preboil));
+    let postboil =
+      (preboil / 100) * (100 - (evaporationRate * totalBoilTime) / 60);
+    dispatch(updatePostBoilWaterAndBeerAction(postboil));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
+    );
+  };
+  const changePreBoilVolume = (e) => {
+    dispatch(updatePreBoilWaterAndBeerAction(parseFloat(e)));
+    let postboil =
+      (parseFloat(e) / 100) * (100 - (evaporationRate * totalBoilTime) / 60);
+    dispatch(updatePostBoilWaterAndBeerAction(postboil));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
+    );
+  };
+  const changePostBoilVolume = (e) => {
+    dispatch(updatePostBoilWaterAndBeerAction(parseFloat(e)));
+
+    dispatch(
+      addBatchVolumeRecipeAction(
+        (parseFloat(e) / 100) * (100 - lostInfiltering)
+      )
+    );
+  };
+  const changeEvaporation = (e) => {
+    dispatch(updateEvaporationRateWaterAndBeerAction(parseFloat(e)));
+    let postboil =
+      (preBoil / 100) * (100 - (parseFloat(e) * totalBoilTime) / 60);
+    dispatch(updatePostBoilWaterAndBeerAction(postboil));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
+    );
+  };
+  const changeFiltering = (e) => {
+    dispatch(updateLostInFilteringWaterAndBeerAction(parseFloat(e)));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postBoil / 100) * (100 - parseFloat(e)))
+    );
+  };
+  const changeBoilDuration = (e) => {
+    dispatch(updateTotalBoilTimeWaterAndBeerAction(parseFloat(e)));
+
+    let postboil =
+      (preBoil / 100) * (100 - (evaporationRate * parseFloat(e)) / 60);
+    dispatch(updatePostBoilWaterAndBeerAction(postboil));
+
+    dispatch(
+      addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
+    );
+  };
   return (
     <div className="mashWater">
       <div className="mashWater-tab">
@@ -37,6 +137,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={mashVolume}
+              onChange={(e) => {
+                changeMashVolume(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
           <div className="mashWater-tab-line-cell">
@@ -63,6 +167,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={volumeSparge}
+              onChange={(e) => {
+                changeSpargeVolume(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
           <div className="mashWater-tab-line-cell">
@@ -87,6 +195,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={preBoil}
+              onChange={(e) => {
+                changePreBoilVolume(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
           <div className="mashWater-tab-line-cell">
@@ -98,6 +210,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={evaporationRate}
+              onChange={(e) => {
+                changeEvaporation(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
         </div>
@@ -110,7 +226,11 @@ const MashWater = () => {
             <input
               type="number"
               className="second-line"
-              placeholder={postBoil}
+              placeholder={postBoil.toFixed(2)}
+              onChange={(e) => {
+                changePostBoilVolume(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
           <div className="mashWater-tab-line-cell">
@@ -122,6 +242,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={lostInfiltering}
+              onChange={(e) => {
+                changeFiltering(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
         </div>
@@ -147,6 +271,10 @@ const MashWater = () => {
               type="number"
               className="second-line"
               placeholder={totalBoilTime}
+              onChange={(e) => {
+                changeBoilDuration(e.target.value);
+                updateTheValues(e.target.value);
+              }}
             />
           </div>
         </div>

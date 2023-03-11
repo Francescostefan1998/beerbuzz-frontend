@@ -69,14 +69,14 @@ const Mash = () => {
           <div className="mash-top-section-right">
             <div className="mash-top-section-right-container1">
               {" "}
-              <ValueObtaining />
+              <ValueObtaining refresh={refresh} />
             </div>
             <div className="mash-top-section-right-container">
               <ValueSuggested />
             </div>
           </div>
         </div>
-        <MashWater />
+        <MashWater setRefresh={setRefresh} />
 
         <div className="mash-main-section">
           <div>
