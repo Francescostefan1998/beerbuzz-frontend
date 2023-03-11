@@ -6,25 +6,85 @@ const MashWater = () => {
       <div className="mashWater-tab">
         <div className="mashWater-tab-line head">Measured values</div>
         <div className="mashWater-tab-line">
-          <div>Mash Volume</div>
-          <div>Mash pH</div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Mash Volume</div>
+              <div>L</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Mash pH</div>
+              <div>pH</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
         </div>
         <div className="mashWater-tab-line">
-          <div>Sparge Volume</div>
-          <div>Sparge pH</div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Sparge Volume</div>
+              <div>L</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Sparge pH</div>
+              <div>pH</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
         </div>
         <div className="mashWater-tab-line">
-          <div>Pre Boil Volume</div>
-          <div>Evaporation rate/hr</div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Pre Boil Volume</div>
+              <div>L</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Evaporation rate/hr</div>
+              <div>(%)</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
         </div>
         <div className="mashWater-tab-line">
-          <div>Post Boil Volume</div>
-          <div>Filtering Lost</div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Post Boil Volume</div>
+              <div>L</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Filtering Lost</div>
+              <div>(%)</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
         </div>
 
         <div className="mashWater-tab-line">
-          <div>Equipment Efficiency</div>
-          <div></div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div>Equipment Efficiency</div>
+              <div>(%)</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
+          <div className="mashWater-tab-line-cell">
+            <div className="first-line">
+              <div> Attenuation</div>
+              <div>(%)</div>
+            </div>
+            <div className="second-line">value</div>
+          </div>
         </div>
       </div>
       <div className="mashWater-tab">
@@ -51,7 +111,6 @@ const MashWater = () => {
           <div></div>
         </div>
       </div>
-      <div className="mashWater-tab">animation</div>
     </div>
   );
 };
