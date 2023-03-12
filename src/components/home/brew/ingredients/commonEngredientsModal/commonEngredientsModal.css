@@ -211,3 +211,21 @@
     filter: blur(0);
   }
 }
+
+.common-ingredients-container-inside-section-middle::-webkit-scrollbar {
+  width: 10px;
+}
+
+.common-ingredients-container-inside-section-middle::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.common-ingredients-container-inside-section-middle::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.common-ingredients-container-inside-section-middle::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
+}
