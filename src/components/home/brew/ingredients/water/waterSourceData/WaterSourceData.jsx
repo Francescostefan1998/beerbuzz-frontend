@@ -24,12 +24,6 @@ const WaterSourceData = ({ setModal }) => {
       <div className="waterSouceData-modal">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Souce Water Data</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className="field">

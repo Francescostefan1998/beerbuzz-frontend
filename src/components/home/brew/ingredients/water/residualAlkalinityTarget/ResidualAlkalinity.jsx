@@ -27,12 +27,6 @@ const ResidualAlkalinity = ({ setModal }) => {
       <div className="waterSouceData-modal residualAlkalinity">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Residual Alkalinity To Be Reduced</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className="field">

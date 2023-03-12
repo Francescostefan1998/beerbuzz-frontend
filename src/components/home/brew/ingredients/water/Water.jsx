@@ -15,13 +15,62 @@ import { TbSalt } from "react-icons/tb";
 import { GiAcid, GiChemicalDrop } from "react-icons/gi";
 import { FaEquals } from "react-icons/fa";
 import NavBar from "../../../navBar/NavBar";
+import BottomBar from "../../../../bottomBar/BottomBar";
+import { useEffect } from "react";
 const Water = () => {
   const [step, setStep] = useState("");
+  const [myZindex, setZindexPriority] = useState("");
+  const [proceed, setProceed] = useState("waterSourceData");
+  const [back, setBack] = useState("");
+  const setBackAndForth = (step) => {
+    switch (step) {
+      case "waterSourceData":
+        setProceed("residualAlkalinityTarger");
+        setBack("");
+        break;
+      case "residualAlkalinityTarger":
+        setProceed("souceWaterDiluition");
+        setBack("waterSourceData");
+
+        break;
+      case "souceWaterDiluition":
+        setProceed("saltAdditions");
+        setBack("residualAlkalinityTarger");
+
+        break;
+      case "saltAdditions":
+        setProceed("acidAdditions");
+        setBack("souceWaterDiluition");
+
+        break;
+      case "acidAdditions":
+        setProceed("adjustedWaterResults");
+        setBack("saltAdditions");
+
+        break;
+      case "adjustedWaterResults":
+        setProceed("spargeWaterAcidification");
+        setBack("acidAdditions");
+
+        break;
+      case "spargeWaterAcidification":
+        setProceed("");
+        setBack("adjustedWaterResults");
+
+        break;
+      default:
+    }
+  };
+
+  useEffect(() => {
+    console.log("water");
+    setBackAndForth(step);
+  }, [step, myZindex]);
   return (
     <div className="water">
       <NavBar />
       <div className="common-selection-bigger-container">
-        <div className="water-title">
+        <div className="water-title" style={{ zIndex: `${myZindex}` }}>
           <h2>Water</h2>
         </div>
         <div className="water-list">
@@ -40,7 +89,11 @@ const Water = () => {
             </div>
           </div>
           {step === "waterSourceData" ? (
-            <WaterSourceData setModal={setStep} />
+            <WaterSourceData
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+            />
           ) : (
             <div></div>
           )}
@@ -61,7 +114,11 @@ const Water = () => {
             </div>
           </div>
           {step === "residualAlkalinityTarger" ? (
-            <ResidualAlkalinity setModal={setStep} />
+            <ResidualAlkalinity
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+            />
           ) : (
             <div></div>
           )}
@@ -80,7 +137,11 @@ const Water = () => {
             </div>
           </div>
           {step === "souceWaterDiluition" ? (
-            <SourceWaterDiluition setModal={setStep} />
+            <SourceWaterDiluition
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+            />
           ) : (
             <div></div>
           )}
@@ -99,7 +160,11 @@ const Water = () => {
             </div>
           </div>
           {step === "saltAdditions" ? (
-            <SaltAdditions setModal={setStep} />
+            <SaltAdditions
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+            />
           ) : (
             <div></div>
           )}
@@ -118,7 +183,12 @@ const Water = () => {
             </div>
           </div>
           {step === "acidAdditions" ? (
-            <AcidAdditions setModal={setStep} />
+            <AcidAdditions
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+              setZindexPriority={setZindexPriority}
+            />
           ) : (
             <div></div>
           )}
@@ -139,7 +209,11 @@ const Water = () => {
             </div>
           </div>
           {step === "adjustedWaterResults" ? (
-            <AdjustedWaterResults setModal={setStep} />
+            <AdjustedWaterResults
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+            />
           ) : (
             <div></div>
           )}
@@ -161,11 +235,22 @@ const Water = () => {
             </div>
           </div>
           {step === "spargeWaterAcidification" ? (
-            <SpargeWaterAcidification setModal={setStep} />
+            <SpargeWaterAcidification
+              setModal={setStep}
+              setProceed={setProceed}
+              setBack={setBack}
+              setZindexPriority={setZindexPriority}
+            />
           ) : (
             <div></div>
           )}
         </div>
+        <BottomBar
+          proceedWater={proceed}
+          backWater={back}
+          setStepWater={setStep}
+          style={{ zIndex: `${myZindex}` }}
+        />
       </div>
     </div>
   );

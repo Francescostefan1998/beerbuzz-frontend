@@ -15,7 +15,7 @@ import {
   alkalinitySpargeAction,
 } from "../../../../../../redux/actions/spargeWater";
 import { useEffect } from "react";
-const SpargeWaterAcidification = ({ setModal }) => {
+const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
   const { volume } = useSelector((state) => state.sparge);
   const { alkalinity } = useSelector((state) => state.sparge);
   const { finalph } = useSelector((state) => state.sparge);
@@ -72,18 +72,17 @@ const SpargeWaterAcidification = ({ setModal }) => {
   };
   useEffect(() => {
     updateOutputValue(acidSelected, quantity);
-  }, [refreshPage, newAlkalinity]);
+    if (selectAcid) {
+      setZindexPriority("0");
+    } else {
+      setZindexPriority("3");
+    }
+  }, [refreshPage, newAlkalinity, selectAcid]);
   return (
     <div className="waterSouceData">
       <div className="waterSouceData-modal  spargeWaterAcidification">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Sparge Water Acidification</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className="field">
