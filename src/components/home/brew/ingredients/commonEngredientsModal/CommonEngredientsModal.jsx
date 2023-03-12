@@ -13,6 +13,7 @@ import { addMaltsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addHopsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addYeastsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addOthersRecipeAction } from "../../../../../redux/actions/recipe";
+import BottomBar from "../../../../bottomBar/BottomBar";
 const CommonEngredientsModal = ({
   title,
   icon,
@@ -22,6 +23,7 @@ const CommonEngredientsModal = ({
   addProduct,
   subtractProduct,
   addThisProduct,
+  previous,
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -100,7 +102,7 @@ const CommonEngredientsModal = ({
   };
 
   return (
-    <div className="common-ingredients-container">
+    <div className="common-selection-bigger-container common-ingredients-container">
       <div className="common-ingredients-container-inside">
         <div className="common-ingredients-container-inside-section-top">
           {!add && (
@@ -114,7 +116,15 @@ const CommonEngredientsModal = ({
             </div>
           )}
           <div className="common-ingredients-container-inside-icons">
-            {icon}
+            <div
+              className="malts-container-inside-section-bottom-add"
+              onClick={() => {
+                add !== false ? setAdd(false) : setAdd(true);
+              }}
+            >
+              {!add && <div>+ Add a new {title}</div>}
+              {add && icon}
+            </div>
           </div>
         </div>
         {!add && (
@@ -164,9 +174,20 @@ const CommonEngredientsModal = ({
         )}
 
         <div className="common-ingredients-container-inside-section-bottom">
-          <div>
-            {!add && (
+          {!add && (
+            <>
               <div
+                className="button"
+                onClick={() => {
+                  add !== false ? setAdd(false) : setAdd(true);
+                  navigate(previous);
+                  saveSelected(title);
+                }}
+              >
+                Back
+              </div>
+              <div
+                className="button"
                 onClick={() => {
                   add !== false ? setAdd(false) : setAdd(true);
                   navigate(next);
@@ -175,42 +196,29 @@ const CommonEngredientsModal = ({
               >
                 Save and Proceed
               </div>
-            )}
-            {add && (
-              <div
-                onClick={() => {
-                  add !== false ? setAdd(false) : setAdd(true);
-                }}
-              >
-                Cancel
-              </div>
-            )}
-          </div>
-          <div>
-            {add && (
-              <div
-                onClick={() => {
-                  add !== false ? setAdd(false) : setAdd(true);
-                }}
-              >
-                Edit
-              </div>
-            )}
-          </div>
-
-          <div
-            className="malts-container-inside-section-bottom-add"
-            onClick={() => {
-              add !== false ? setAdd(false) : setAdd(true);
-            }}
-          >
-            {!add && <div>+ Add a new {title}</div>}
-            {add && (
-              <div onClick={(e) => postProducts(fetchProps, newIngredient)}>
-                Save
-              </div>
-            )}
-          </div>
+            </>
+          )}
+          {add && (
+            <div
+              className="button"
+              onClick={() => {
+                add !== false ? setAdd(false) : setAdd(true);
+              }}
+            >
+              Cancel
+            </div>
+          )}
+          {add && (
+            <div
+              className="button"
+              onClick={(e) => {
+                postProducts(fetchProps, newIngredient);
+                add !== false ? setAdd(false) : setAdd(true);
+              }}
+            >
+              Save
+            </div>
+          )}
         </div>
       </div>
     </div>

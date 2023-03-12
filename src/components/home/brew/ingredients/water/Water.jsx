@@ -14,11 +14,13 @@ import { IoIosWater } from "react-icons/io";
 import { TbSalt } from "react-icons/tb";
 import { GiAcid, GiChemicalDrop } from "react-icons/gi";
 import { FaEquals } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../../navBar/NavBar";
 import BottomBar from "../../../../bottomBar/BottomBar";
 import { useEffect } from "react";
 const Water = () => {
-  const [step, setStep] = useState("");
+  const navigate = useNavigate();
+  const [step, setStep] = useState("water");
   const [myZindex, setZindexPriority] = useState("");
   const [proceed, setProceed] = useState("waterSourceData");
   const [back, setBack] = useState("");
@@ -26,7 +28,7 @@ const Water = () => {
     switch (step) {
       case "waterSourceData":
         setProceed("residualAlkalinityTarger");
-        setBack("");
+        setBack("water");
         break;
       case "residualAlkalinityTarger":
         setProceed("souceWaterDiluition");
