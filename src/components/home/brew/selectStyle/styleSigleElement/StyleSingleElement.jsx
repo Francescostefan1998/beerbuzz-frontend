@@ -2,11 +2,11 @@ import "./styleSingleElement.css";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { useEffect } from "react";
-import { IoIosArrowDropupCircle } from "react-icons/io";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { FaExpandArrowsAlt } from "react-icons/fa";
+import { FaCompressArrowsAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addStyleAction } from "../../../../../redux/actions/style";
-
+import { IoMdBeer } from "react-icons/io";
 const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
   const [show, setShow] = useState(false);
   const [description, setDescription] = useState(false);
@@ -34,14 +34,13 @@ const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
         <div className="selectStyle-list-circle">
           {show && <div className="selectStyle-list-ball"></div>}
         </div>
+        <IoMdBeer />
         <h4>{body.name}</h4>
         {!description && (
-          <IoIosArrowDropdownCircle
-            onClick={(e) => handleDescription(description)}
-          />
+          <FaExpandArrowsAlt onClick={(e) => handleDescription(description)} />
         )}
         {description && (
-          <IoIosArrowDropupCircle
+          <FaCompressArrowsAlt
             onClick={(e) => handleDescription(description)}
           />
         )}

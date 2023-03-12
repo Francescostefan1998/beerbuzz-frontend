@@ -23,29 +23,31 @@ const SelectStyle = () => {
   return (
     <div className="selectStyle">
       <NavBar />
-      <div className="recipesList-search">
-        <BsSearch className="search-icon" />
-        <input type="text" placeholder="Search here the style of your beer" />
-      </div>
-      <div className="selectStyle-list">
-        {beerList &&
-          beerList.map((beer, i) => (
-            <StyleSingleElement
-              propsShow={show}
-              setPropsShow={setShow}
-              key={beer._id}
-              body={beer}
-            />
-          ))}
-        {!beerList && (
-          <StyleSingleElement propsShow={show} setPropsShow={setShow} />
-        )}
-        <div className="selectStyle-list-proceed">
-          <div
-            className="selectStyle-list-proceed-button"
-            onClick={() => navigate("/water")}
-          >
-            Proceed
+      <div className="common-selection-bigger-container">
+        <div className="recipesList-search">
+          <BsSearch className="search-icon" />
+          <input type="text" placeholder="Search here the style of your beer" />
+        </div>
+        <div className="selectStyle-list">
+          {beerList &&
+            beerList.map((beer, i) => (
+              <StyleSingleElement
+                propsShow={show}
+                setPropsShow={setShow}
+                key={beer._id}
+                body={beer}
+              />
+            ))}
+          {!beerList && (
+            <StyleSingleElement propsShow={show} setPropsShow={setShow} />
+          )}
+          <div className="selectStyle-list-proceed">
+            <div
+              className="selectStyle-list-proceed-button"
+              onClick={() => navigate("/water")}
+            >
+              Proceed
+            </div>
           </div>
         </div>
       </div>

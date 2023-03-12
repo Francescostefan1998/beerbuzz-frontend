@@ -40,7 +40,6 @@
   border-radius: 50%;
   overflow: hidden;
   background-color: var(--main-secondary);
-  margin-left: 1px;
 }
 
 .selectStyle li {
