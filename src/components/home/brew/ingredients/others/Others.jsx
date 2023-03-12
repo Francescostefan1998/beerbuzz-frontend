@@ -13,6 +13,7 @@ import { useStore } from "react-redux";
 import { useSelector } from "react-redux";
 import SingleOther from "./singleOther/SingleOther";
 import { useEffect } from "react";
+import NavBar from "../../../navBar/NavBar";
 const Others = () => {
   const [add, setAddNew] = useState(false);
   const [refreshThisState, setRefreshThisState] = useState(false);
@@ -56,8 +57,9 @@ const Others = () => {
   }, [add, refreshThisState]);
   return (
     <div className="others">
-      <NavbarIngredients prew="/yeasts" next="/mash" />
-      <div className="common-ingredients-container">
+      <NavBar />
+      {/*<NavbarIngredients prew="/yeasts" next="/mash" />*/}
+      <div className="common-selection-bigger-container">
         <div className="common-ingredients-container-inside">
           <div className="common-ingredients-container-inside-section-top">
             <div className="common-ingredients-container-inside-title">
@@ -84,13 +86,11 @@ const Others = () => {
             )}
           </div>
           <div className="common-ingredients-container-inside-section-bottom">
-            <div
-              className="malts-container-inside-section-bottom-add"
-              onClick={() => navigate("/mash")}
-            >
-              <div>Skip and proceed</div>
+            <div className="button" onClick={() => navigate("/yeasts")}>
+              Back
             </div>
             <div
+              className="button"
               onClick={() => {
                 dispatch(addOthersRecipeAction(others));
                 navigate("/mash");

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 import { addHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
-
+import NavBar from "../../../navBar/NavBar";
 const Hops = () => {
   const dispatch = useDispatch();
   const addRecipeAction = async (hop) => {
@@ -19,7 +19,8 @@ const Hops = () => {
 
   return (
     <div className="hops">
-      <NavbarIngredients prew="/malts" next="/yeasts" />
+      <NavBar />
+      {/*<NavbarIngredients prew="/malts" next="/yeasts" />*/}
       <CommonEngredientsModal
         icon={<GiHops className="icon" />}
         title={"Hops"}
@@ -29,6 +30,7 @@ const Hops = () => {
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
+        previous={"/malts"}
       />
     </div>
   );

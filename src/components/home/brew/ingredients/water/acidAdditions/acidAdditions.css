@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   padding-inline: 30%;
+  z-index: 8;
 }
 #acid-selections-container {
   display: flex;
@@ -21,6 +22,7 @@
   justify-content: space-between !important;
   padding: 10px;
   cursor: pointer;
+  z-index: 9;
   box-shadow: 0px 0px 20px var(--main-secondary);
 }
 
@@ -32,5 +34,4 @@
 }
 
 .acidAddition {
-  height: 70vh;
 }

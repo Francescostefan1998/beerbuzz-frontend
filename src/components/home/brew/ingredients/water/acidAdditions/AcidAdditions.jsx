@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { subtractAcidRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addAcidRecipeAction } from "../../../../../../redux/actions/recipe";
 import { afterAcidOriginalAlkalinityAction } from "../../../../../../redux/actions/afterSalt";
-const AcidAdditions = ({ setModal }) => {
+const AcidAdditions = ({ setModal, setZindexPriority }) => {
   const { mashVolume } = useSelector((state) => state.waterAndBeerData);
   const { alkalinity } = useSelector((state) => state.afterSalt);
 
@@ -29,7 +29,12 @@ const AcidAdditions = ({ setModal }) => {
   };
   useEffect(() => {
     console.log(value);
-  }, [value, acid]);
+    if (selectAcid) {
+      setZindexPriority("0");
+    } else {
+      setZindexPriority("3");
+    }
+  }, [value, acid, selectAcid]);
   const verifyIfSelected = (title, value) => {
     switch (title) {
       case "10% Hydrochloric":
@@ -71,12 +76,6 @@ const AcidAdditions = ({ setModal }) => {
       <div className="waterSouceData-modal acidAddition">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Acid Addition</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className="field">

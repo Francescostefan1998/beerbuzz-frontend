@@ -3,11 +3,13 @@ import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import { GiWheat } from "react-icons/gi";
 import { HiSearch } from "react-icons/hi";
 import { useState } from "react";
+import NavBar from "../../../navBar/NavBar";
 import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsModal";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
+import BottomBar from "../../../../bottomBar/BottomBar";
 const Malts = () => {
   const dispatch = useDispatch();
   const addRecipeAction = async (malt) => {
@@ -19,7 +21,7 @@ const Malts = () => {
   const addThisProduct = async (product) => {};
   return (
     <div className="malts">
-      <NavbarIngredients prew="/water" next="/hops" />
+      <NavBar />
       <CommonEngredientsModal
         icon={<GiWheat className="icon" />}
         title={"Fermentable"}
@@ -29,6 +31,7 @@ const Malts = () => {
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
+        previous={"/water"}
       />
     </div>
   );

@@ -43,12 +43,6 @@ const AdjustedWaterResults = ({ setModal }) => {
       <div className="waterSouceData-modal adjustedWaterResults">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Adjusted Water Results</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className=" column">

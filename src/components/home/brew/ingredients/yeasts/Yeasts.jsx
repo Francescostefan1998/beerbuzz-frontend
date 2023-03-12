@@ -6,6 +6,7 @@ import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients.j
 import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
+import NavBar from "../../../navBar/NavBar";
 const Yeasts = () => {
   const dispatch = useDispatch();
   const addRecipeAction = async (yeast) => {
@@ -18,7 +19,8 @@ const Yeasts = () => {
 
   return (
     <div className="yeasts">
-      <NavbarIngredients prew="/hops" next="/others" />
+      <NavBar />
+      {/*<NavbarIngredients prew="/hops" next="/others" />*/}
       <CommonEngredientsModal
         icon={<FaBacterium className="icon" />}
         title={"Yeasts and Bacterias"}
@@ -28,6 +30,7 @@ const Yeasts = () => {
         addProduct={addRecipeAction}
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
+        previous={"/hops"}
       />
     </div>
   );

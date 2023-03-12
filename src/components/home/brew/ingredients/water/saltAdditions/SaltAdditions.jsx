@@ -140,12 +140,6 @@ const SaltAdditions = ({ setModal }) => {
       <div className="waterSouceData-modal saltAdditions">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Salt Additions</h4>
-          <div
-            className="waterSouceData-close"
-            onClick={() => setModal("closed")}
-          >
-            <RiCloseLine className="waterSouceData-close-icon" />
-          </div>
         </div>
         <div className="waterSouceData-salt">
           <div className="field">
@@ -260,7 +254,7 @@ const SaltAdditions = ({ setModal }) => {
               <div>{(naSoda + NaSalt).toFixed(2)}</div>
             </div>
           </div>
-          <div className="field">
+          <div className="field mb-4">
             <div>Adjusted Residual Alkalinity as CaCO3</div>
             <div>
               <div>{alkSoda.toFixed(2)}</div>
