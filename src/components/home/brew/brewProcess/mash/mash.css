@@ -95,6 +95,10 @@
 .mash-top-section-right-container1 {
   width: 60vh;
   height: 25vh;
+  margin-right: 10vh;
+}
+.mash-top-section-right-container {
+  text-align: right;
 }
 
 @media (max-width: 1024px) {

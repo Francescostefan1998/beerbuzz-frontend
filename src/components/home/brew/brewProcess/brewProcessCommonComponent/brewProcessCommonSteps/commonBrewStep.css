@@ -22,6 +22,11 @@
   font-size: 25px;
   cursor: pointer;
 }
+.commonBrewStep-others-single-icon-add {
+  text-align: left;
+  width: 100%;
+  margin-top: 10px;
+}
 
 .commonBrewStep-others-single-icon:hover {
   scale: 1.2;
@@ -59,6 +64,19 @@
   text-align: left;
   flex-grow: 1;
 }
+.commonBrewStep-others-single-grow1.flex-grow3 {
+  width: 90%;
+  height: 1em;
+  margin-top: 10px;
+  margin-inline: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+.commonBrewStep-others-single-grow1-first {
+  text-align: left;
+  width: 30%;
+}
 .commonBrewStep-others-nonebig {
   display: flex;
 }
@@ -91,4 +109,22 @@
     width: 28vh !important;
     margin-top: 10px;
   }
+}
+
+.commonBrewStep-others-single-grow1.flex-grow3::-webkit-scrollbar {
+  width: 10px;
+}
+
+.commonBrewStep-others-single-grow1.flex-grow3::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.commonBrewStep-others-single-grow1.flex-grow3::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.commonBrewStep-others-single-grow1.flex-grow3::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
 }

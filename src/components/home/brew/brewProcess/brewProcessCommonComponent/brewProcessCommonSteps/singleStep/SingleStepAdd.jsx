@@ -33,7 +33,7 @@ const SingleStepAdd = ({ addStepRecipeAction, refresh, setShow }) => {
         />
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Step duration (minuts)</div>
+        <div className="none">Duration (min)</div>
         <input
           type="text"
           placeholder="Step Duration"

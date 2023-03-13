@@ -4,62 +4,73 @@ import { FaSave } from "react-icons/fa";
 import { MdAddCircle } from "react-icons/md";
 import { useState } from "react";
 import { useEffect } from "react";
+import { FaExpandArrowsAlt } from "react-icons/fa";
+import { FaCompressArrowsAlt } from "react-icons/fa";
 
 const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
   const [refreshThis, setRefresh] = useState("");
+  const [showDescription, setShowDescription] = useState(true);
   useEffect(() => {
     setRefresh(refresh);
-    console.log(refresh);
-  }, [refresh]);
+    console.log(showDescription);
+  }, [refresh, showDescription]);
 
   return (
-    <div className="commonBrewStep-others-single mt-5">
-      <div>
-        {" "}
-        {refresh !== "refresh check page" ? (
-          <BsTrashFill
-            className="commonBrewStep-others-single-icon"
-            onClick={(e) => subtractStepRecipeAction(body)}
-          />
-        ) : (
-          <div></div>
-        )}
-      </div>
+    <>
+      <div className="commonBrewStep-others-single mt-3">
+        <div>
+          {" "}
+          {refresh !== "refresh check page" ? (
+            <BsTrashFill
+              className="commonBrewStep-others-single-icon"
+              onClick={(e) => subtractStepRecipeAction(body)}
+            />
+          ) : (
+            <div></div>
+          )}
+        </div>
 
-      <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Name</div>
-        <div>{body.name}</div>
-      </div>
-      <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Step duration (minuts)</div>
-        <div>{body.duration}min</div>
-      </div>
-      <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Temperature (C)</div>
-        <div>{body.temperature}(C)</div>
-      </div>
-      <div className="commonBrewStep-others-single-grow1">
-        <div className="none">{body.description}</div>
+        <div className="commonBrewStep-others-single-grow1-first">
+          <div>Name: {body.name},</div>
+        </div>
+        <div className="commonBrewStep-others-single-grow1">
+          <div>Duration: {body.duration}min, </div>
+        </div>
+        <div className="commonBrewStep-others-single-grow1">
+          <div>Temperature: {body.temperature}(C)</div>
+        </div>
 
-        <div className="none">
+        <div> </div>
+        <div className="commonBrewStep-others-nonebig">
           this beer is amzing, please note to add some cheese in it
         </div>
-      </div>
-      <div>
-        {" "}
-        {refresh !== "refresh check page" ? (
-          <MdAddCircle
+        {showDescription && refresh !== "refresh check page" ? (
+          <FaExpandArrowsAlt
             className="commonBrewStep-others-single-icon"
-            onClick={(e) => setShow(true)}
+            onClick={(e) => setShowDescription(false)}
+          />
+        ) : !showDescription && refresh !== "refresh check page" ? (
+          <FaCompressArrowsAlt
+            className="commonBrewStep-others-single-icon"
+            onClick={(e) => setShowDescription(true)}
           />
         ) : (
           <div></div>
         )}
       </div>
-      <div className="commonBrewStep-others-nonebig">
-        this beer is amzing, please note to add some cheese in it
-      </div>
-    </div>
+      {!showDescription && (
+        <div className="commonBrewStep-others-single-grow1 flex-grow3">
+          <div className="none">Description: {body.description}</div>
+        </div>
+      )}
+      {refresh === "refresh check page" ? (
+        <div className="commonBrewStep-others-single-grow1 flex-grow3">
+          <div className="none">Description: {body.description}</div>
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </>
   );
 };
 
