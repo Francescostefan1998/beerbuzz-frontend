@@ -23,7 +23,7 @@ const Water = () => {
   const [step, setStep] = useState("water");
   const [myZindex, setZindexPriority] = useState("");
   const [proceed, setProceed] = useState("waterSourceData");
-  const [back, setBack] = useState("");
+  const [back, setBack] = useState("selectstyle");
   const setBackAndForth = (step) => {
     switch (step) {
       case "waterSourceData":
@@ -56,7 +56,7 @@ const Water = () => {
 
         break;
       case "spargeWaterAcidification":
-        setProceed("");
+        setProceed("malts");
         setBack("adjustedWaterResults");
 
         break;

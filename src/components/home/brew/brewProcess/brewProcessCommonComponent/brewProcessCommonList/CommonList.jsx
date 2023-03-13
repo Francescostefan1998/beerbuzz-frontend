@@ -139,7 +139,9 @@ const CommonList = ({
                   onChange={(e) => handleQuantity(body, e.target.value)}
                 />
               ) : (
-                <div>{body.quantity}</div>
+                <div className="commonList-element-dont-add">
+                  {body.quantity}
+                </div>
               )}
             </div>
           </div>

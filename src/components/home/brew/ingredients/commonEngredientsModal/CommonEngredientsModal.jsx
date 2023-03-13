@@ -13,6 +13,7 @@ import { addMaltsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addHopsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addYeastsRecipeAction } from "../../../../../redux/actions/recipe";
 import { addOthersRecipeAction } from "../../../../../redux/actions/recipe";
+import { IoMdAdd } from "react-icons/io";
 import BottomBar from "../../../../bottomBar/BottomBar";
 const CommonEngredientsModal = ({
   title,
@@ -107,7 +108,7 @@ const CommonEngredientsModal = ({
         <div className="common-ingredients-container-inside-section-top">
           {!add && (
             <div className="common-ingredients-container-inside-title">
-              Select {title}
+              <h2>Select {title}</h2>
             </div>
           )}
           {add && (
@@ -115,30 +116,40 @@ const CommonEngredientsModal = ({
               Add {title}
             </div>
           )}
-          <div className="common-ingredients-container-inside-icons">
-            <div
-              className="malts-container-inside-section-bottom-add"
-              onClick={() => {
-                add !== false ? setAdd(false) : setAdd(true);
-              }}
-            >
-              {!add && <div>+ Add a new {title}</div>}
-              {add && icon}
-            </div>
-          </div>
         </div>
         {!add && (
           <div className="common-ingredients-container-inside-section-middle">
-            <div className="common-ingredients-container-inside-search">
-              <div>
-                <HiSearch />
+            <div className="common-ingredients-container-inside-search-outerContainer">
+              {" "}
+              <div className="common-ingredients-container-inside-search">
+                <div>
+                  <HiSearch />
+                </div>
+                <div className="common-ingredients-container-inside-search-input">
+                  <input
+                    type="text"
+                    placeholder="Search the product you need"
+                    onChange={(e) => onchangeHandler(e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="common-ingredients-container-inside-search-input">
-                <input
-                  type="text"
-                  placeholder="Search the product you need"
-                  onChange={(e) => onchangeHandler(e.target.value)}
-                />
+              <div className="common-ingredients-container-inside-icons">
+                <div
+                  className="malts-container-inside-section-bottom-add"
+                  onClick={() => {
+                    add !== false ? setAdd(false) : setAdd(true);
+                  }}
+                >
+                  {!add && (
+                    <div className="make-appear-just-on-hover">
+                      <IoMdAdd className="commonList-make-appear-just-on-hover-icon" />
+                      <span className="add-appear-just-on-hover">
+                        Add a new {title}
+                      </span>
+                    </div>
+                  )}
+                  {add && icon}
+                </div>
               </div>
             </div>
             {loading && (

@@ -49,9 +49,15 @@ const SelectStyle = () => {
           <div className="selectStyle-list-proceed">
             <div
               className="selectStyle-list-proceed-button"
+              onClick={() => navigate("/brew")}
+            >
+              Back
+            </div>
+            <div
+              className="selectStyle-list-proceed-button"
               onClick={() => navigate("/water")}
             >
-              Proceed
+              Save and Proceed
             </div>
           </div>
         </div>

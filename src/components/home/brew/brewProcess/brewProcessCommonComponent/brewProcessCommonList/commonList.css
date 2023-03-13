@@ -22,7 +22,10 @@
   text-align: right;
   color: white;
 }
-
+.commonList-element-dont-add {
+  text-align: left;
+  padding-right: 20px;
+}
 .commonList-title {
   width: 100%;
   display: flex;
