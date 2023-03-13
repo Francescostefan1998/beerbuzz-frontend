@@ -88,13 +88,16 @@ const CommonList = ({
       switch (title) {
         case "Mash":
           dispatch(addMaltsRecipeAction(newList));
+          addThisProduct(value);
           break;
         case "Hops":
           dispatch(addHopsRecipeAction(newList));
+          addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
           dispatch(addYeastsRecipeAction(newList));
+          addThisProduct(value);
 
           break;
         case "Others":

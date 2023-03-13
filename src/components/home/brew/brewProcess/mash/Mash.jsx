@@ -10,7 +10,7 @@ import { GiWheat } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { addEbcbRecipeAction } from "../../../../../redux/actions/recipe";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
@@ -24,7 +24,8 @@ import MashWater from "../mashWater/MashWater";
 const Mash = () => {
   const { mash } = useSelector((state) => state.recipeSteps);
   const { malts } = useSelector((state) => state.recipeIngredient);
-
+  const maltsList = useSelector((state) => state.createRecipe.malts[0]);
+  const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,7 +41,16 @@ const Mash = () => {
       default:
     }
   };
+  const calculateAverageEbcAndYeld = () => {
+    let sumOfEbc = 0;
 
+    for (let i = 0; i < maltsList.length; i++) {
+      sumOfEbc += maltsList[i].color * parseFloat(maltsList[i].quantity);
+    }
+    let ebcBeer = sumOfEbc / postBoil;
+    setRefresh("sumOfEbc");
+    dispatch(addEbcbRecipeAction(ebcBeer));
+  };
   const addRecipeAction = async (malt) => {
     await dispatch(addMaltRecipeAction(malt));
     setRefresh(malt._id);
@@ -59,10 +69,12 @@ const Mash = () => {
     await dispatch(subtractMashStepRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const addThisProduct = async (product) => {};
+  const addThisProduct = async (product) => {
+    setRefresh(product);
+  };
 
   useEffect(() => {
-    console.log(refresh);
+    calculateAverageEbcAndYeld();
   }, [refresh]);
 
   return (
