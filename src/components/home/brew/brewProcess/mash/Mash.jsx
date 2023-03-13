@@ -10,15 +10,20 @@ import { GiWheat } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractMashStepRecipeAction } from "../../../../../redux/actions/steps";
-import { addMashRecipeAction } from "../../../../../redux/actions/recipe";
+import {
+  addMaltsRecipeAction,
+  addMashRecipeAction,
+} from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import MashWater from "../mashWater/MashWater";
 const Mash = () => {
   const { mash } = useSelector((state) => state.recipeSteps);
+  const { malts } = useSelector((state) => state.recipeIngredient);
 
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
@@ -42,6 +47,8 @@ const Mash = () => {
   };
   const subtractRecipeAction = async (malt) => {
     await dispatch(subtractMaltRecipeAction(malt));
+    await setRefresh(malt._id);
+    await dispatch(addMaltsRecipeAction(malts));
     setRefresh(malt._id);
   };
   const addStepRecipeAction = async (step) => {
