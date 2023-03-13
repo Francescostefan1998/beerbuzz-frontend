@@ -18,6 +18,7 @@ import { FaBacterium } from "react-icons/fa";
 import { GiHops } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import Comment from "../comments/Comment";
+import MashWater from "../mashWater/MashWater";
 const CheckResults = () => {
   const [refresh, setRefresh] = useState("");
   const { others } = useSelector((state) => state.recipeIngredient);
@@ -55,6 +56,8 @@ const CheckResults = () => {
             </div>
           </div>
         </div>
+        <MashWater setRefresh={setRefresh} />
+
         <div className="checkResults-main-section">
           <div>
             <h1>

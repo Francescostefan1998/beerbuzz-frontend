@@ -12,6 +12,7 @@
   height: 88vh;
   padding-bottom: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .checkResults-top-section {
@@ -21,7 +22,6 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-right: 0vh;
-  border-bottom: 3px solid var(--main-secondary);
   overflow: hidden;
 }
 

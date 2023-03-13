@@ -16,10 +16,11 @@
 }
 .selectStyle li {
   text-align: left;
-  margin-inline: 30px;
+  margin-inline: 22px;
 }
 .selectStyle ul {
   padding: 20px;
+  padding-inline: 0px;
 }
 .selectStyle-list-proceed {
   width: 64%;

@@ -46,7 +46,7 @@ const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
         )}
       </div>
       {description && (
-        <div>
+        <div className="selectStyle-list-element-description">
           <ul>
             <li>
               <strong> ABV</strong>: {body.stats.abv[0]}-{body.stats.abv[1]}

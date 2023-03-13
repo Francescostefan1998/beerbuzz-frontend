@@ -18,6 +18,7 @@ import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps
 import { addBoilRecipeAction } from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import MashWater from "../mashWater/MashWater";
 const Boil = () => {
   const { boil } = useSelector((state) => state.recipeSteps);
 
@@ -73,6 +74,8 @@ const Boil = () => {
             </div>
           </div>
         </div>
+        <MashWater setRefresh={setRefresh} />
+
         <div className="boil-main-section">
           <div>
             <h1>Boil</h1>

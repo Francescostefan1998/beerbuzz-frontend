@@ -79,8 +79,8 @@ const Mash = () => {
         <MashWater setRefresh={setRefresh} />
 
         <div className="mash-main-section">
-          <div>
-            <h1>Mash</h1>
+          <div className="mash-main-section-malts">
+            <h1>Malts</h1>
             <CommonList
               icon={<GiWheat />}
               colorOrIbu={"Color (EBC)"}
@@ -93,7 +93,7 @@ const Mash = () => {
             />
           </div>
           <div className="mash-main-section-process">
-            <h1>Mash Process</h1>
+            <h1>Mash</h1>
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}

@@ -24,9 +24,14 @@ const SelectStyle = () => {
     <div className="selectStyle">
       <NavBar />
       <div className="common-selection-bigger-container">
-        <div className="recipesList-search">
-          <BsSearch className="search-icon" />
-          <input type="text" placeholder="Search here the style of your beer" />
+        <div className="common-selection-bigger-container-search-bar">
+          <div className="recipesList-search">
+            <BsSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search here the style of your beer"
+            />
+          </div>
         </div>
         <div className="selectStyle-list">
           {beerList &&

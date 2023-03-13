@@ -125,8 +125,10 @@ const MashWater = ({ setRefresh }) => {
   };
   return (
     <div className="mashWater">
-      <div className="mashWater-tab">
-        <div className="mashWater-tab-line head">Measured values</div>
+      <div className="mashWater-tab border-right-visible">
+        <div className="mashWater-tab-line head">
+          <h1>Measured values</h1>
+        </div>
         <div className="mashWater-tab-line">
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
@@ -279,7 +281,7 @@ const MashWater = ({ setRefresh }) => {
           </div>
         </div>
       </div>
-      <div className="mashWater-tab">
+      <div className="mashWater-tab border-left-visible">
         <div className="mashWater-tab-line head">Additions</div>
         <ul>
           <div className="image">

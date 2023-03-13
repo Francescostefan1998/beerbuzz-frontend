@@ -29,14 +29,20 @@
   padding-bottom: 20px;
 }
 .common-ingredients-container-inside-search {
-  width: 100%;
+  width: 94%;
   background-color: var(--background-black);
 
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px;
-  padding-inline: 24px;
+  gap: 10px;
+  padding: 1vh;
+  border-radius: 3vh;
+  padding-inline: 3vh;
+  margin-block: 1vh;
+  margin-inline: auto;
+  position: sticky;
+  top: 10px;
+  box-shadow: 0px 0px 10px var(--main-secondary);
 }
 
 .common-ingredients-container-inside-search:hover {
