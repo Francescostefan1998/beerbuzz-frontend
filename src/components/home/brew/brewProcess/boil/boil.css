@@ -5,13 +5,16 @@
   overflow-x: hidden;
 }
 .boil h1 {
-  padding: 20px;
   text-align: left;
 }
 .boil-overflow-scroll {
   height: 88vh;
   padding-bottom: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+.boil-main-section-hops h1 {
+  padding-left: 30px;
 }
 
 .boil-top-section {
@@ -21,29 +24,37 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-right: 0vh;
-  border-bottom: 3px solid var(--main-secondary);
   overflow: hidden;
 }
 
 .boil-top-section-right {
+  box-sizing: border-box;
   display: flex;
   flex-grow: 1;
   gap: 50px;
 }
 .boil-top-section-left {
+  box-sizing: border-box;
+
   flex-grow: 2;
 }
 
 .boil-main-section {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  border-bottom: 3px solid var(--main-secondary);
+  border-bottom: 3px solid var(--main-secondary-opacue);
 }
 .boil-main-section-process {
-  flex-grow: 1;
-  border-left: 3px solid var(--main-secondary);
+  width: 50%;
+  padding: 36px;
 }
+.boil-main-section-hops {
+  padding: 36px;
+
+  width: 50%;
+  border-right: 3px solid var(--main-secondary-opacue);
+}
+
 .boil-bottom-section {
   display: flex;
   align-items: center;

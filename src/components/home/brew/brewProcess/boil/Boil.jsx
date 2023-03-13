@@ -18,6 +18,7 @@ import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps
 import { addBoilRecipeAction } from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import MashWater from "../mashWater/MashWater";
 const Boil = () => {
   const { boil } = useSelector((state) => state.recipeSteps);
 
@@ -73,9 +74,11 @@ const Boil = () => {
             </div>
           </div>
         </div>
+        <MashWater setRefresh={setRefresh} />
+
         <div className="boil-main-section">
-          <div>
-            <h1>Boil</h1>
+          <div className="boil-main-section-hops">
+            <h1>Hops</h1>
             <CommonList
               icon={<GiHops />}
               colorOrIbu={"Alpha Acid (%)"}
@@ -88,7 +91,7 @@ const Boil = () => {
             />
           </div>
           <div className="boil-main-section-process">
-            <h1>Boil Process</h1>
+            <h1>Boil</h1>
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}

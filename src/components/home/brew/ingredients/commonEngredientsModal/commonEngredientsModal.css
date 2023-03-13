@@ -13,12 +13,35 @@
 .common-ingredients-container-inside-section-top {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  padding-inline: 15px;
-  font-size: 20px;
+  justify-content: center;
+  padding-block: 3vh;
   align-items: center;
-  box-shadow: 0px 0px 10px var(--main-secondary);
+}
+.malts-container-inside-section-bottom-add .add-appear-just-on-hover {
+  display: none;
+}
+.malts-container-inside-section-bottom-add .make-appear-just-on-hover {
+  background-color: var(--main-secondary);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  cursor: pointer;
+  padding: 1vh;
+  border-radius: 3vh;
+  margin-left: 20px;
+}
+.commonList-make-appear-just-on-hover-icon {
+  color: white;
+  font-size: 20px;
+}
+.malts-container-inside-section-bottom-add
+  .make-appear-just-on-hover:hover
+  .add-appear-just-on-hover {
+  display: flex;
+}
+.common-ingredients-container-inside-section-top h2 {
+  text-align: center;
 }
 .common-ingredients-container-inside-section-middle {
   width: 100%;
@@ -28,15 +51,26 @@
   overflow-y: scroll;
   padding-bottom: 20px;
 }
-.common-ingredients-container-inside-search {
+.common-ingredients-container-inside-search-outerContainer {
+  position: sticky;
   width: 100%;
+  display: flex;
+  padding-inline: 3%;
+  top: 0px;
+  background-color: var(--background-dark);
+}
+.common-ingredients-container-inside-search {
   background-color: var(--background-black);
-
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px;
-  padding-inline: 24px;
+  gap: 10px;
+  padding: 1vh;
+  border-radius: 3vh;
+  padding-inline: 3vh;
+  margin-block: 1vh;
+  margin-inline: auto;
+  box-shadow: 0px 0px 10px var(--main-secondary);
 }
 
 .common-ingredients-container-inside-search:hover {

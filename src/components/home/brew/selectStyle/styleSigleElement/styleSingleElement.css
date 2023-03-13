@@ -1,12 +1,12 @@
 .selectStyle-list-element {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   width: 100%;
   height: 8vh;
   opacity: 0.8;
   background-color: var(--background-dark);
-  padding-inline: 30px;
+  padding-inline: 5%;
   cursor: pointer;
   border-top: 1px solid var(--background-black);
 }
@@ -41,7 +41,9 @@
   overflow: hidden;
   background-color: var(--main-secondary);
 }
-
+.selectStyle-list-element-description {
+  padding-inline: 5%;
+}
 .selectStyle li {
   text-align: left;
 }

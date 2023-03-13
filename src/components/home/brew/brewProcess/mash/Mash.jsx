@@ -10,16 +10,22 @@ import { GiWheat } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { addEbcbRecipeAction } from "../../../../../redux/actions/recipe";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractMashStepRecipeAction } from "../../../../../redux/actions/steps";
-import { addMashRecipeAction } from "../../../../../redux/actions/recipe";
+import {
+  addMaltsRecipeAction,
+  addMashRecipeAction,
+} from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import MashWater from "../mashWater/MashWater";
 const Mash = () => {
   const { mash } = useSelector((state) => state.recipeSteps);
-
+  const { malts } = useSelector((state) => state.recipeIngredient);
+  const maltsList = useSelector((state) => state.createRecipe.malts[0]);
+  const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -35,13 +41,24 @@ const Mash = () => {
       default:
     }
   };
+  const calculateAverageEbcAndYeld = () => {
+    let sumOfEbc = 0;
 
+    for (let i = 0; i < maltsList.length; i++) {
+      sumOfEbc += maltsList[i].color * parseFloat(maltsList[i].quantity);
+    }
+    let ebcBeer = sumOfEbc / postBoil;
+    setRefresh("sumOfEbc");
+    dispatch(addEbcbRecipeAction(ebcBeer));
+  };
   const addRecipeAction = async (malt) => {
     await dispatch(addMaltRecipeAction(malt));
     setRefresh(malt._id);
   };
   const subtractRecipeAction = async (malt) => {
     await dispatch(subtractMaltRecipeAction(malt));
+    await setRefresh(malt._id);
+    await dispatch(addMaltsRecipeAction(malts));
     setRefresh(malt._id);
   };
   const addStepRecipeAction = async (step) => {
@@ -52,10 +69,12 @@ const Mash = () => {
     await dispatch(subtractMashStepRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const addThisProduct = async (product) => {};
+  const addThisProduct = async (product) => {
+    setRefresh(product);
+  };
 
   useEffect(() => {
-    console.log(refresh);
+    calculateAverageEbcAndYeld();
   }, [refresh]);
 
   return (
@@ -79,8 +98,8 @@ const Mash = () => {
         <MashWater setRefresh={setRefresh} />
 
         <div className="mash-main-section">
-          <div>
-            <h1>Mash</h1>
+          <div className="mash-main-section-malts">
+            <h1>Malts</h1>
             <CommonList
               icon={<GiWheat />}
               colorOrIbu={"Color (EBC)"}
@@ -93,7 +112,7 @@ const Mash = () => {
             />
           </div>
           <div className="mash-main-section-process">
-            <h1>Mash Process</h1>
+            <h1>Mash</h1>
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}

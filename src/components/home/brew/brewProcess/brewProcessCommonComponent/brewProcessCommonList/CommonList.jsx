@@ -88,13 +88,16 @@ const CommonList = ({
       switch (title) {
         case "Mash":
           dispatch(addMaltsRecipeAction(newList));
+          addThisProduct(value);
           break;
         case "Hops":
           dispatch(addHopsRecipeAction(newList));
+          addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
           dispatch(addYeastsRecipeAction(newList));
+          addThisProduct(value);
 
           break;
         case "Others":
@@ -113,7 +116,7 @@ const CommonList = ({
   return (
     <div className="commonList">
       <div className="commonList-title">
-        <h2>{title}</h2>
+        <h3>Products</h3>
         <div>Kg</div>
       </div>
       <div>
@@ -139,7 +142,9 @@ const CommonList = ({
                   onChange={(e) => handleQuantity(body, e.target.value)}
                 />
               ) : (
-                <div>{body.quantity}</div>
+                <div className="commonList-element-dont-add">
+                  {body.quantity}
+                </div>
               )}
             </div>
           </div>

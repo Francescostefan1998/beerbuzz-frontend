@@ -24,9 +24,9 @@
   width: 100%;
   object-fit: cover;
   filter: invert(1);
-  opacity: 0.4;
+  opacity: 0.3;
 }
-.brewMainPage-section h1 {
+.brewMainPage-section h2 {
   z-index: 1;
 }
 
@@ -52,6 +52,18 @@
 }
 .brewMainPage-step:hover {
   background-color: var(--main-secondary);
+}
+.brewMainPage-section.block {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+}
+.brewMainPage-row.block {
+  display: block;
+  text-align: center;
+  border-radius: 0;
+  margin: 0;
 }
 
 @media (max-width: 788px) {

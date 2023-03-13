@@ -5,7 +5,7 @@ import SingleStepAdd from "./singleStep/SingleStepAdd";
 import SingleStep from "./singleStep/SingleStep";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
+import { MdAddCircle } from "react-icons/md";
 const CommonBrewStep = ({
   addStepRecipeAction,
   subtractStepRecipeAction,
@@ -66,6 +66,18 @@ const CommonBrewStep = ({
           refresh={refresh}
           setShow={setShow}
         />
+      )}
+      {!showAddingStep && (
+        <div className="commonBrewStep-others-single-icon-add">
+          {refresh !== "refresh check page" ? (
+            <MdAddCircle
+              className="commonBrewStep-others-single-icon"
+              onClick={(e) => setShow(true)}
+            />
+          ) : (
+            <div></div>
+          )}
+        </div>
       )}
     </div>
   );

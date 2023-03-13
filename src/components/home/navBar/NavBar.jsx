@@ -7,6 +7,7 @@ import { MdContacts } from "react-icons/md";
 import { IoIosListBox } from "react-icons/io";
 import { AiFillSetting } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import BeerLogo from "./beerLogo/BeerLogo";
 import SettingDropdown from "./settingDropdown/SettingDropdown";
 
 const NavBar = ({ selectedSection }) => {
@@ -25,7 +26,9 @@ const NavBar = ({ selectedSection }) => {
 
   return (
     <div className="my-navbar">
-      <div className="my-navbar-logo">logo</div>
+      <div className="my-navbar-logo">
+        <BeerLogo />
+      </div>
       <div className="my-navbar-menue">
         <HiMenu
           className="my-navbar-icon"
