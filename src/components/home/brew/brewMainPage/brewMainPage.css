@@ -53,6 +53,18 @@
 .brewMainPage-step:hover {
   background-color: var(--main-secondary);
 }
+.brewMainPage-section.block {
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+}
+.brewMainPage-row.block {
+  display: block;
+  text-align: center;
+  border-radius: 0;
+  margin: 0;
+}
 
 @media (max-width: 788px) {
   .brewMainPage-section {
