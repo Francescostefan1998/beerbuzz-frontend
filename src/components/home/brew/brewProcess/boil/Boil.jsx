@@ -77,8 +77,8 @@ const Boil = () => {
         <MashWater setRefresh={setRefresh} />
 
         <div className="boil-main-section">
-          <div>
-            <h1>Boil</h1>
+          <div className="boil-main-section-hops">
+            <h1>Hops</h1>
             <CommonList
               icon={<GiHops />}
               colorOrIbu={"Alpha Acid (%)"}
@@ -91,7 +91,7 @@ const Boil = () => {
             />
           </div>
           <div className="boil-main-section-process">
-            <h1>Boil Process</h1>
+            <h1>Boil</h1>
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}

@@ -113,7 +113,7 @@ const CommonList = ({
   return (
     <div className="commonList">
       <div className="commonList-title">
-        <h2>{title}</h2>
+        <h3>Products</h3>
         <div>Kg</div>
       </div>
       <div>

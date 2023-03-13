@@ -78,8 +78,8 @@ const Fermentation = () => {
         <MashWater setRefresh={setRefresh} />
 
         <div className="fermentation-main-section">
-          <div>
-            <h1>Fermentation</h1>
+          <div className="fermentation-main-section-yeasts">
+            <h1>Yeasts And Bacteria</h1>
             <CommonList
               icon={<FaBacterium />}
               colorOrIbu={"Attenuation (%)"}
@@ -92,7 +92,7 @@ const Fermentation = () => {
             />
           </div>
           <div className="fermentation-main-section-process">
-            <h1>Fermentation Process</h1>
+            <h1>Fermentation</h1>
             <CommonBrewStep
               addStepRecipeAction={addStepRecipeAction}
               subtractStepRecipeAction={subtractStepRecipeAction}

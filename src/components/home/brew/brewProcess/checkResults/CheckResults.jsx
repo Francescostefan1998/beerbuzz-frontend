@@ -59,9 +59,9 @@ const CheckResults = () => {
         <MashWater setRefresh={setRefresh} />
 
         <div className="checkResults-main-section">
-          <div>
+          <div className="check-main-section-products">
             <h1>
-              Mash
+              Malts
               <button onClick={(e) => navigate("/mash")}>
                 GO TO MASH PAGE
               </button>
@@ -79,7 +79,7 @@ const CheckResults = () => {
           </div>
           <div className="checkResults-main-section-process">
             <h1>
-              Mash Process{" "}
+              Mash{" "}
               <button onClick={(e) => navigate("/mash")}>
                 GO TO MASH PAGE
               </button>
@@ -93,9 +93,9 @@ const CheckResults = () => {
           </div>
         </div>
         <div className="boil-main-section">
-          <div>
+          <div className="check-main-section-products">
             <h1>
-              Boil
+              Hops
               <button onClick={(e) => navigate("/boil")}>
                 GO TO BOIL PAGE
               </button>
@@ -114,7 +114,7 @@ const CheckResults = () => {
 
           <div className="boil-main-section-process">
             <h1>
-              Boil Process
+              Boil
               <button onClick={(e) => navigate("/boil")}>
                 GO TO BOIL PAGE
               </button>
@@ -129,9 +129,9 @@ const CheckResults = () => {
         </div>
 
         <div className="fermentation-main-section">
-          <div>
+          <div className="check-main-section-products">
             <h1>
-              Fermentation
+              Yeasts And Bacteria
               <button onClick={(e) => navigate("/fermentation")}>
                 GO TO FERMENTATION PAGE
               </button>
@@ -149,7 +149,7 @@ const CheckResults = () => {
           </div>
           <div className="fermentation-main-section-process">
             <h1>
-              Fermentation Process
+              Fermentation
               <button onClick={(e) => navigate("/fermentation")}>
                 GO TO FERMENTATION PAGE
               </button>

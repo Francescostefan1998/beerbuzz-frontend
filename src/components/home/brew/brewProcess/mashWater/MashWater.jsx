@@ -282,7 +282,9 @@ const MashWater = ({ setRefresh }) => {
         </div>
       </div>
       <div className="mashWater-tab border-left-visible">
-        <div className="mashWater-tab-line head">Additions</div>
+        <div className="mashWater-tab-line head">
+          <h1>Additions</h1>
+        </div>
         <ul>
           <div className="image">
             <img
