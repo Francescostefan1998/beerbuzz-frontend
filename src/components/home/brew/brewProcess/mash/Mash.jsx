@@ -27,6 +27,7 @@ const Mash = () => {
   const maltsList = useSelector((state) => state.createRecipe.malts[0]);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
+  const [newProduct, setRefreshAddthisProduct] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -43,11 +44,13 @@ const Mash = () => {
   };
   const calculateAverageEbcAndYeld = () => {
     let sumOfEbc = 0;
-
     for (let i = 0; i < maltsList.length; i++) {
-      sumOfEbc += maltsList[i].color * parseFloat(maltsList[i].quantity);
+      console.log(sumOfEbc);
+      sumOfEbc =
+        sumOfEbc +
+        parseFloat(maltsList[i].color) * parseFloat(maltsList[i].quantity);
     }
-    let ebcBeer = sumOfEbc / postBoil;
+    let ebcBeer = sumOfEbc / parseFloat(postBoil);
     setRefresh("sumOfEbc");
     dispatch(addEbcbRecipeAction(ebcBeer));
   };
@@ -70,12 +73,12 @@ const Mash = () => {
     setRefresh(step.name + "sub");
   };
   const addThisProduct = async (product) => {
-    setRefresh(product);
+    setRefreshAddthisProduct(product);
   };
 
   useEffect(() => {
     calculateAverageEbcAndYeld();
-  }, [refresh]);
+  }, [refresh, newProduct]);
 
   return (
     <div className="mash">
