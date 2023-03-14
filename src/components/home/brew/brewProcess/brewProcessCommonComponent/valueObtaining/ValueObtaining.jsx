@@ -71,7 +71,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editABV && (
           <div className="valueObtaining-section-input">
-            <div>{abv} </div>{" "}
+            <div>{abv.toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditABV(true)} className="icon" />
           </div>
         )}
@@ -92,7 +92,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editEBC && (
           <div className="valueObtaining-section-input">
-            <div>{ebc} </div>{" "}
+            <div>{ebc.toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditEBC(true)} className="icon" />
           </div>
         )}
@@ -113,7 +113,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editIBU && (
           <div className="valueObtaining-section-input">
-            <div>{ibu} </div>{" "}
+            <div>{ibu.toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditIBU(true)} className="icon" />
           </div>
         )}
@@ -134,7 +134,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editOG && (
           <div className="valueObtaining-section-input">
-            <div>{og}</div>{" "}
+            <div>{og.toFixed(3)}</div>{" "}
             <FaPen onClick={() => setEditOG(true)} className="icon" />
           </div>
         )}
@@ -155,7 +155,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editFG && (
           <div className="valueObtaining-section-input">
-            <div>{fg}</div>{" "}
+            <div>{fg.toFixed(3)}</div>{" "}
             <FaPen onClick={() => setEditFG(true)} className="icon" />
           </div>
         )}

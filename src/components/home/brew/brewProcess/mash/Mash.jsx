@@ -10,7 +10,10 @@ import { GiWheat } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addEbcbRecipeAction } from "../../../../../redux/actions/recipe";
+import {
+  addEbcbRecipeAction,
+  addOgRecipeAction,
+} from "../../../../../redux/actions/recipe";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addMashStepRecipeAction } from "../../../../../redux/actions/steps";
@@ -24,9 +27,14 @@ import MashWater from "../mashWater/MashWater";
 const Mash = () => {
   const { mash } = useSelector((state) => state.recipeSteps);
   const { malts } = useSelector((state) => state.recipeIngredient);
+  const { equipmentEfficienty } = useSelector(
+    (state) => state.waterAndBeerData
+  );
+
   const maltsList = useSelector((state) => state.createRecipe.malts[0]);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
+  const [newProduct, setRefreshAddthisProduct] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -43,13 +51,26 @@ const Mash = () => {
   };
   const calculateAverageEbcAndYeld = () => {
     let sumOfEbc = 0;
-
+    let originalGravity = 0;
     for (let i = 0; i < maltsList.length; i++) {
-      sumOfEbc += maltsList[i].color * parseFloat(maltsList[i].quantity);
+      sumOfEbc =
+        sumOfEbc +
+        parseFloat(maltsList[i].color) * parseFloat(maltsList[i].quantity);
     }
-    let ebcBeer = sumOfEbc / postBoil;
+    let ebcBeer = sumOfEbc / parseFloat(postBoil);
     setRefresh("sumOfEbc");
     dispatch(addEbcbRecipeAction(ebcBeer));
+    for (let i = 0; i < maltsList.length; i++) {
+      originalGravity =
+        originalGravity +
+        (parseFloat(maltsList[i].yield) / 100) *
+          parseFloat(maltsList[i].quantity);
+    }
+    let originalGravityBeer =
+      1 +
+      (originalGravity * (parseFloat(equipmentEfficienty) / 100)) /
+        (parseFloat(postBoil) * 3.9);
+    dispatch(addOgRecipeAction(originalGravityBeer));
   };
   const addRecipeAction = async (malt) => {
     await dispatch(addMaltRecipeAction(malt));
@@ -70,12 +91,14 @@ const Mash = () => {
     setRefresh(step.name + "sub");
   };
   const addThisProduct = async (product) => {
-    setRefresh(product);
+    setRefreshAddthisProduct(product);
   };
 
   useEffect(() => {
-    calculateAverageEbcAndYeld();
-  }, [refresh]);
+    if (maltsList) {
+      calculateAverageEbcAndYeld();
+    }
+  }, [refresh, newProduct]);
 
   return (
     <div className="mash">

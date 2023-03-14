@@ -5,9 +5,22 @@ import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
+import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
 import BottomBar from "../../../bottomBar/BottomBar";
+import { useEffect } from "react";
 const RecipesList = () => {
-  const [image, setImage] = useState("");
+  const [myRecipes, setMyRecipes] = useState([]);
+  const [recipeSelected, setRecipeSelected] = useState("");
+  console.log(myRecipes);
+  const userIdRec = localStorage.getItem("userId");
+  const fetchRecipes = async (userId) => {
+    const res = await fetch(`http://localhost:3001/recipes/${userId}`);
+    const data = await res.json();
+    setMyRecipes(data);
+  };
+  useEffect(() => {
+    fetchRecipes(userIdRec);
+  }, []);
   return (
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
@@ -17,44 +30,20 @@ const RecipesList = () => {
           <input type="text" placeholder="Search here the name of your beer" />
         </div>
         <div className="recipesList-list">
-          <div className="recipesList-recipe">
-            <div className="recipesList-recipe-image">
-              {image !== "" ? (
-                <img src={image} alt="mybeer" />
-              ) : (
-                <CiBeerMugFull className="recipesList-recipe-image-icon" />
-              )}
-            </div>
-            <div className="recipesList-recipe-data">
-              <div className="title">
-                <span>
-                  <strong>Name of the beer </strong>
-                </span>{" "}
-                <span className="author">BeerBuzz</span>
-              </div>
-              <div className="style">Indian Pale Ale</div>
-              <div className="details">
-                <div>
-                  <strong>ABV:</strong> 5.00%,
-                </div>
-                <div>
-                  <strong>IBU:</strong> 50,
-                </div>
-                <div>
-                  <strong>OG:</strong> 1055,
-                </div>
-                <div>
-                  <strong>FG:</strong> 1005,
-                </div>
-              </div>
-            </div>
-            <div className="recipesList-recipe-date mb-4">
-              <div className="recipesList-recipe-date-date">date</div>
-              <div className="recipesList-recipe-date-edit">
-                <BsPencilFill />
-              </div>
-            </div>
-          </div>
+          {recipeSelected === "" ? (
+            myRecipes.map((recipe, i) => (
+              <SingleRecipe
+                key={recipe._id}
+                body={recipe}
+                setRecipe={setRecipeSelected}
+              />
+            ))
+          ) : (
+            <ShowEntireRecipe
+              setRecipe={setRecipeSelected}
+              recipeId={recipeSelected}
+            />
+          )}
         </div>
         <BottomBar
           prew={"/home"}

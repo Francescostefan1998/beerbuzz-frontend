@@ -1,0 +1,22 @@
+.showRecipeTitle {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: baseline;
+}
+.showRecipeTitle h2 {
+  margin: 0;
+}
+.showRecipeTitle-image {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.showRecipeTitle-image img {
+  height: 100%;
+  object-fit: contain;
+}

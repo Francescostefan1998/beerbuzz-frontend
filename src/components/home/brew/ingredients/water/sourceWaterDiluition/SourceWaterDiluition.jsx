@@ -60,7 +60,6 @@ const SourceWaterDiluition = ({ setModal }) => {
       <div className="waterSouceData-modal sourceWaterDiluition">
         <div className="waterSouceData-modal-top">
           <h4 className="mt-2">Source Water Diluition</h4>
-          
         </div>
         <div className="waterSouceData-salt">
           <div className="field">
@@ -90,7 +89,11 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newCalcium ? `${calcium}` : `${newCalcium}`}
+                placeholder={
+                  !newCalcium
+                    ? `${calcium.toFixed(2)}`
+                    : `${newCalcium.toFixed(2)}`
+                }
               />
             </div>
           </div>
@@ -99,7 +102,11 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newMagnesium ? `${magnesium}` : `${newMagnesium}`}
+                placeholder={
+                  !newMagnesium
+                    ? `${magnesium.toFixed(2)}`
+                    : `${newMagnesium.toFixed(2)}`
+                }
               />
             </div>
           </div>
@@ -115,7 +122,9 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newAlkalinity ? `${alkalinity}` : `${newAlkalinity}`
+                  !newAlkalinity
+                    ? `${alkalinity.toFixed(2)}`
+                    : `${newAlkalinity.toFixed(2)}`
                 }
               />
             </div>
@@ -125,7 +134,11 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newSulfate ? `${sulfate}` : `${newSulfate}`}
+                placeholder={
+                  !newSulfate
+                    ? `${sulfate.toFixed(2)}`
+                    : `${newSulfate.toFixed(2)}`
+                }
               />
             </div>
           </div>
@@ -134,7 +147,11 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newChloride ? `${chloride}` : `${newChloride}`}
+                placeholder={
+                  !newChloride
+                    ? `${chloride.toFixed(2)}`
+                    : `${newChloride.toFixed(2)}`
+                }
               />
             </div>
           </div>
@@ -143,7 +160,11 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newSodium ? `${sodium}` : `${newSodium}`}
+                placeholder={
+                  !newSodium
+                    ? `${sodium.toFixed(2)}`
+                    : `${newSodium.toFixed(2)}`
+                }
               />
             </div>
           </div>
@@ -152,7 +173,9 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={!newPh ? `${ph}` : `${newPh}`}
+                placeholder={
+                  !newPh ? `${ph.toFixed(2)}` : `${newPh.toFixed(2)}`
+                }
               />
             </div>
           </div>

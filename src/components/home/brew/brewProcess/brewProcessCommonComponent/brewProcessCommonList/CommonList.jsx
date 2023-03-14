@@ -82,21 +82,22 @@ const CommonList = ({
   const handleQuantity = async (body, value) => {
     const index = selectedList.findIndex((product) => product._id === body._id);
     if (index !== -1) {
-      const newList = [...selectedList];
-      newList[index] = { ...selectedList[index], quantity: value };
-      setSelected(newList);
+      const newList = await [...selectedList];
+      newList[index] = await { ...selectedList[index], quantity: value };
       switch (title) {
         case "Mash":
-          dispatch(addMaltsRecipeAction(newList));
+          await dispatch(addMaltsRecipeAction(newList));
+          await setSelected(newList);
+
           addThisProduct(value);
           break;
         case "Hops":
-          dispatch(addHopsRecipeAction(newList));
+          await dispatch(addHopsRecipeAction(newList));
           addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
-          dispatch(addYeastsRecipeAction(newList));
+          await dispatch(addYeastsRecipeAction(newList));
           addThisProduct(value);
 
           break;

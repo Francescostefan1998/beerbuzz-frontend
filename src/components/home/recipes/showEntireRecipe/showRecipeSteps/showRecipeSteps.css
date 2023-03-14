@@ -1,0 +1,16 @@
+.showRecipeSteps {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  text-align: left;
+}
+
+.showRecipeSteps h2 {
+  margin-inline: 0;
+}
+.showRecipeSteps h4 {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  margin-inline: 0;
+}
