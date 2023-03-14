@@ -95,7 +95,9 @@ const Mash = () => {
   };
 
   useEffect(() => {
-    calculateAverageEbcAndYeld();
+    if (maltsList) {
+      calculateAverageEbcAndYeld();
+    }
   }, [refresh, newProduct]);
 
   return (
