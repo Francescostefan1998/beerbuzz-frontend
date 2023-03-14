@@ -100,7 +100,9 @@
   border-radius: 50%;
   overflow: hidden;
 }
-
+.recipesList-recipe-date-date {
+  font-size: 12px;
+}
 .recipesList-recipe-date:hover .recipesList-recipe-date-date {
   display: none;
 }
