@@ -30,8 +30,22 @@ const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
           <ShowRecipeData body={body} />
         </div>
       </div>
-      <ShowRecipeMaterial body={body} />
-      <ShowRecipeSteps body={body} />
+      <div className="showEntireRecipe-middle">
+        <div className="showEntireRecipe-middle-left">
+          <ShowRecipeMaterial body={body} />
+        </div>
+        <div className="showEntireRecipe-middle-right">
+          <ShowRecipeSteps body={body} />
+        </div>
+      </div>
+      <div className="showEntireRecipe-bottom">
+        {body &&
+          body.comments.map((comment, i) => (
+            <div key={comment.name}>
+              {comment.name}: {comment.description}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

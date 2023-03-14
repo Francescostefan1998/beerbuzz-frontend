@@ -15,3 +15,20 @@
   width: 70%;
   height: 100%;
 }
+
+.showEntireRecipe-middle {
+  width: 100%;
+  padding: 6vh;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.showEntireRecipe-middle-left {
+  text-align: left;
+  width: 35%;
+}
+.showEntireRecipe-middle-right {
+  text-align: left;
+  width: 45%;
+}
