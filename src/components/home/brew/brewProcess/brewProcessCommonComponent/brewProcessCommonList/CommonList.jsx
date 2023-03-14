@@ -80,12 +80,10 @@ const CommonList = ({
   };
 
   const handleQuantity = async (body, value) => {
-    console.log(selectedList);
     const index = selectedList.findIndex((product) => product._id === body._id);
     if (index !== -1) {
       const newList = await [...selectedList];
       newList[index] = await { ...selectedList[index], quantity: value };
-      console.log(newList);
       switch (title) {
         case "Mash":
           await dispatch(addMaltsRecipeAction(newList));
