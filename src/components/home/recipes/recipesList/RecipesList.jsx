@@ -5,10 +5,12 @@ import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
+import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
 import BottomBar from "../../../bottomBar/BottomBar";
 import { useEffect } from "react";
 const RecipesList = () => {
   const [myRecipes, setMyRecipes] = useState([]);
+  const [recipeSelected, setRecipeSelected] = useState("");
   console.log(myRecipes);
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
@@ -28,9 +30,17 @@ const RecipesList = () => {
           <input type="text" placeholder="Search here the name of your beer" />
         </div>
         <div className="recipesList-list">
-          {myRecipes.map((recipe, i) => (
-            <SingleRecipe key={recipe._id} body={recipe} />
-          ))}
+          {recipeSelected === "" ? (
+            myRecipes.map((recipe, i) => (
+              <SingleRecipe
+                key={recipe._id}
+                body={recipe}
+                setRecipe={setRecipeSelected}
+              />
+            ))
+          ) : (
+            <ShowEntireRecipe setRecipe={setRecipeSelected} />
+          )}
         </div>
         <BottomBar
           prew={"/home"}

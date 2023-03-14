@@ -3,11 +3,11 @@ import "./singleRecipe.css";
 import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
 import { useState } from "react";
-const SingleRecipe = ({ body }) => {
+const SingleRecipe = ({ body, setRecipe }) => {
   const [image, setImage] = useState("");
 
   return (
-    <div className="recipesList-recipe">
+    <div className="recipesList-recipe" onClick={(e) => setRecipe(body._id)}>
       <div className="recipesList-recipe-image">
         {body.image !== "" ? (
           <img src={body.image} alt="mybeer" />
