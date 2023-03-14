@@ -39,7 +39,10 @@ const RecipesList = () => {
               />
             ))
           ) : (
-            <ShowEntireRecipe setRecipe={setRecipeSelected} />
+            <ShowEntireRecipe
+              setRecipe={setRecipeSelected}
+              recipeId={recipeSelected}
+            />
           )}
         </div>
         <BottomBar

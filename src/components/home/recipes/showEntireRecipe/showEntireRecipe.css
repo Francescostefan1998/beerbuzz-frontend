@@ -1,0 +1,17 @@
+.showEntireRecipe-top {
+  width: 100%;
+  height: 42vh;
+  display: flex;
+  padding: 6vh;
+  justify-content: space-between;
+}
+
+.showEntireRecipe-top-left {
+  width: 30%;
+  height: 100%;
+}
+
+.showEntireRecipe-top-right {
+  width: 70%;
+  height: 100%;
+}
