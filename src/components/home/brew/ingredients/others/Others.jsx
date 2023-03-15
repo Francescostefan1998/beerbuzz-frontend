@@ -63,7 +63,7 @@ const Others = () => {
         <div className="common-ingredients-container-inside">
           <div className="common-ingredients-container-inside-section-top">
             <div className="common-ingredients-container-inside-title">
-              Add a new Ingredients to your beer
+              <h2>Add a new Ingredients to your beer</h2>
             </div>
           </div>
           <div className="common-ingredients-container-inside-section-middle">

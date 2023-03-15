@@ -3,6 +3,9 @@ import { BsTrashFill } from "react-icons/bs";
 import { MdAddCircle } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { FaExpandArrowsAlt } from "react-icons/fa";
+import { FaCompressArrowsAlt } from "react-icons/fa";
+
 const SingleOther = ({
   engredient,
   setAdd,
@@ -12,6 +15,7 @@ const SingleOther = ({
 }) => {
   const [classPurple, setClassPurple] = useState("ingredients-others-single");
   const [refresh, setRefresh] = useState();
+  const [showDescription, setShowDescription] = useState(false);
   const { others } = useSelector((state) => state.recipeIngredient);
 
   const deleteElement = async (others, engredient) => {
@@ -70,34 +74,56 @@ const SingleOther = ({
   }, [engredient]);
 
   return (
-    <div
-      className={classPurple}
-      onClick={() => addOrSubtractOther(engredient, others)}
-    >
-      <div>
-        {" "}
-        <BsTrashFill
-          className="ingredients-others-single-icon"
-          onClick={() => deleteElement("others", engredient)}
-        />
-      </div>
+    <>
+      <div
+        className={classPurple}
+        onClick={() => addOrSubtractOther(engredient, others)}
+      >
+        <div>
+          {" "}
+          <BsTrashFill
+            className="ingredients-others-single-icon"
+            onClick={() => deleteElement("others", engredient)}
+          />
+        </div>
 
-      {engredient && (
-        <div className="ingredients-others-single-grow1">{engredient.name}</div>
-      )}
-      {engredient && (
-        <div className="ingredients-others-single-grow1">
+        {engredient && (
+          <div className="ingredients-others-single-grow1">
+            {engredient.name}
+          </div>
+        )}
+        {!showDescription && (
+          <div>
+            {" "}
+            <FaExpandArrowsAlt
+              className="ingredients-others-single-icon"
+              onClick={() => setShowDescription(true)}
+            />
+          </div>
+        )}
+        {showDescription && (
+          <div>
+            {" "}
+            <FaCompressArrowsAlt
+              className="ingredients-others-single-icon"
+              onClick={() => setShowDescription(false)}
+            />
+          </div>
+        )}
+      </div>
+      {showDescription && engredient && (
+        <div className="ingredients-others-single-grow1 description">
           Desc: {engredient.description}
         </div>
-      )}
-      <div>
+      )}{" "}
+      <div className="ingredients-others-single-icon-circle">
         {" "}
         <MdAddCircle
-          className="ingredients-others-single-icon"
+          className="ingredients-others-single-icon circle"
           onClick={() => setAdd(true)}
         />
       </div>
-    </div>
+    </>
   );
 };
 

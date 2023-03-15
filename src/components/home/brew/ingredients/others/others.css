@@ -6,9 +6,11 @@
 
 .ingredients-others-single {
   text-align: left;
+  position: relative;
   gap: 6px;
   background-color: transparent;
   cursor: pointer;
+  padding-inline: 3vh;
   z-index: 3;
   width: 100%;
   padding-block: 10px;
@@ -26,4 +28,33 @@
 .ingredients-others-single-grow1 {
   text-align: left;
   flex-grow: 1;
+}
+.ingredients-others-single-grow1.description {
+  max-height: 6vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 90%;
+  padding-inline: 11vh;
+}
+
+.ingredients-others-single-grow1.description::-webkit-scrollbar {
+  width: 10px;
+}
+.ingredients-others-single-grow1.description::-webkit-scrollbar-track {
+  background-color: var(--background-black);
+}
+
+.ingredients-others-single-grow1.description::-webkit-scrollbar-thumb {
+  background-color: var(--main-secondary);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.ingredients-others-single-grow1.description::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-secondary);
+}
+.ingredients-others-single-icon-circle {
+  width: 100%;
+  padding-inline: 3vh;
+  text-align: left;
 }

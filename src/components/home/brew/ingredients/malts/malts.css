@@ -6,6 +6,7 @@
 
 @media (max-width: 778px) {
   .malts {
-    min-height: 100vh;
+    height: fit-content;
+    padding-bottom: 10vh;
   }
 }

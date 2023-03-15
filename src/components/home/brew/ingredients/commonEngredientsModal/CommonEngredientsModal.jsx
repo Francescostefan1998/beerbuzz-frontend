@@ -103,136 +103,183 @@ const CommonEngredientsModal = ({
   };
 
   return (
-    <div className="common-selection-bigger-container common-ingredients-container">
-      <div className="common-ingredients-container-inside">
-        <div className="common-ingredients-container-inside-section-top">
-          {!add && (
-            <div className="common-ingredients-container-inside-title">
-              <h2>Select {title}</h2>
-            </div>
-          )}
-          {add && (
-            <div className="common-ingredients-container-inside-title">
-              <h2>Add {title}</h2>
-            </div>
-          )}
-        </div>
+    <>
+      <div className="common-ingredients-container-inside-section-top invisible-in-big-screen">
         {!add && (
-          <div className="common-ingredients-container-inside-section-middle">
-            <div className="common-ingredients-container-inside-search-outerContainer">
-              {" "}
-              <div className="common-ingredients-container-inside-search">
-                <div>
-                  <HiSearch />
-                </div>
-                <div className="common-ingredients-container-inside-search-input">
-                  <input
-                    type="text"
-                    placeholder="Search the product you need"
-                    onChange={(e) => onchangeHandler(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="common-ingredients-container-inside-icons">
-                <div
-                  className="malts-container-inside-section-bottom-add"
-                  onClick={() => {
-                    add !== false ? setAdd(false) : setAdd(true);
-                  }}
-                >
-                  {!add && (
-                    <div className="make-appear-just-on-hover">
-                      <IoMdAdd className="commonList-make-appear-just-on-hover-icon" />
-                      <span className="add-appear-just-on-hover">
-                        Add a new {title}
-                      </span>
-                    </div>
-                  )}
-                  {add && icon}
-                </div>
-              </div>
-            </div>
-            {loading && (
-              <div class="loading-spinner">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            )}
-            {listProducts.map((product, i) => (
-              <CommonSingleElement
-                icon={icon}
-                colorOrIbu={colorOrIbu}
-                key={product._id}
-                body={product}
-                addProduct={addProduct}
-                subtractProduct={subtractProduct}
-                title={title}
-                addThisProduct={addThisProduct}
-              />
-            ))}
+          <div className="common-ingredients-container-inside-title">
+            <h2>Select {title}</h2>
           </div>
         )}
         {add && (
-          <AddProduct
-            colorOrIbu={colorOrIbu}
-            fetchProp={fetchProps}
-            setNewIngredient={addNewField}
-          />
+          <div className="common-ingredients-container-inside-title">
+            <h2>Add {title}</h2>
+          </div>
         )}
-
-        <div className="common-ingredients-container-inside-section-bottom">
-          {!add && (
-            <>
-              <div
-                className="button"
-                onClick={() => {
-                  add !== false ? setAdd(false) : setAdd(true);
-                  navigate(previous);
-                  saveSelected(title);
-                }}
-              >
-                Back
+      </div>
+      <div className="common-ingredients-container-inside-search-outerContainer invisible-in-big-screen">
+        {" "}
+        <div className="common-ingredients-container-inside-search">
+          <div>
+            <HiSearch />
+          </div>
+          <div className="common-ingredients-container-inside-search-input">
+            <input
+              type="text"
+              placeholder="Search the product you need"
+              onChange={(e) => onchangeHandler(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="common-ingredients-container-inside-icons">
+          <div
+            className="malts-container-inside-section-bottom-add"
+            onClick={() => {
+              add !== false ? setAdd(false) : setAdd(true);
+            }}
+          >
+            {!add && (
+              <div className="make-appear-just-on-hover">
+                <IoMdAdd className="commonList-make-appear-just-on-hover-icon" />
+                <span className="add-appear-just-on-hover">
+                  Add a new {title}
+                </span>
               </div>
-              <div
-                className="button"
-                onClick={() => {
-                  add !== false ? setAdd(false) : setAdd(true);
-                  navigate(next);
-                  saveSelected(title);
-                }}
-              >
-                Save and Proceed
-              </div>
-            </>
-          )}
-          {add && (
-            <div
-              className="button"
-              onClick={() => {
-                add !== false ? setAdd(false) : setAdd(true);
-              }}
-            >
-              Cancel
-            </div>
-          )}
-          {add && (
-            <div
-              className="button"
-              onClick={(e) => {
-                postProducts(fetchProps, newIngredient);
-                add !== false ? setAdd(false) : setAdd(true);
-              }}
-            >
-              Save
-            </div>
-          )}
+            )}
+            {add && icon}
+          </div>
         </div>
       </div>
-    </div>
+      <div className="common-selection-bigger-container common-ingredients-container">
+        <div className="common-ingredients-container-inside">
+          <div className="common-ingredients-container-inside-section-top invisible-in-small-screen">
+            {!add && (
+              <div className="common-ingredients-container-inside-title">
+                <h2>Select {title}</h2>
+              </div>
+            )}
+            {add && (
+              <div className="common-ingredients-container-inside-title">
+                <h2>Add {title}</h2>
+              </div>
+            )}
+          </div>
+          {!add && (
+            <div className="common-ingredients-container-inside-section-middle">
+              <div className="common-ingredients-container-inside-search-outerContainer invisible-in-small-screen">
+                {" "}
+                <div className="common-ingredients-container-inside-search">
+                  <div>
+                    <HiSearch />
+                  </div>
+                  <div className="common-ingredients-container-inside-search-input">
+                    <input
+                      type="text"
+                      placeholder="Search the product you need"
+                      onChange={(e) => onchangeHandler(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="common-ingredients-container-inside-icons">
+                  <div
+                    className="malts-container-inside-section-bottom-add"
+                    onClick={() => {
+                      add !== false ? setAdd(false) : setAdd(true);
+                    }}
+                  >
+                    {!add && (
+                      <div className="make-appear-just-on-hover">
+                        <IoMdAdd className="commonList-make-appear-just-on-hover-icon" />
+                        <span className="add-appear-just-on-hover">
+                          Add a new {title}
+                        </span>
+                      </div>
+                    )}
+                    {add && icon}
+                  </div>
+                </div>
+              </div>
+              {loading && (
+                <div class="loading-spinner">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              )}
+              {listProducts.map((product, i) => (
+                <CommonSingleElement
+                  icon={icon}
+                  colorOrIbu={colorOrIbu}
+                  key={product._id}
+                  body={product}
+                  addProduct={addProduct}
+                  subtractProduct={subtractProduct}
+                  title={title}
+                  addThisProduct={addThisProduct}
+                />
+              ))}
+            </div>
+          )}
+          {add && (
+            <AddProduct
+              colorOrIbu={colorOrIbu}
+              fetchProp={fetchProps}
+              setNewIngredient={addNewField}
+            />
+          )}
+
+          <div className="common-ingredients-container-inside-section-bottom">
+            {!add && (
+              <>
+                <div
+                  className="button"
+                  onClick={() => {
+                    add !== false ? setAdd(false) : setAdd(true);
+                    navigate(previous);
+                    saveSelected(title);
+                  }}
+                >
+                  Back
+                </div>
+                <div
+                  className="button"
+                  onClick={() => {
+                    add !== false ? setAdd(false) : setAdd(true);
+                    navigate(next);
+                    saveSelected(title);
+                  }}
+                >
+                  Save and Proceed
+                </div>
+              </>
+            )}
+            {add && (
+              <div
+                className="button"
+                onClick={() => {
+                  add !== false ? setAdd(false) : setAdd(true);
+                }}
+              >
+                Cancel
+              </div>
+            )}
+            {add && (
+              <div
+                className="button"
+                onClick={(e) => {
+                  postProducts(fetchProps, newIngredient);
+                  add !== false ? setAdd(false) : setAdd(true);
+                }}
+              >
+                Save
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
