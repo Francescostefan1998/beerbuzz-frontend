@@ -78,6 +78,18 @@ const CommonList = ({
       }
     }
   };
+  const handleAmountOfminuts = async (body, value) => {
+    const index = selectedList.findIndex((product) => product._id === body._id);
+    if (index !== -1) {
+      const newList = await [...selectedList];
+      newList[index] = await { ...selectedList[index], minutsBoil: value };
+
+      await dispatch(addHopsRecipeAction(newList));
+      await setSelected(newList);
+
+      addThisProduct(value);
+    }
+  };
 
   const handleQuantity = async (body, value) => {
     const index = selectedList.findIndex((product) => product._id === body._id);
@@ -122,7 +134,7 @@ const CommonList = ({
     <div className="commonList">
       <div className="commonList-title">
         <h3>Products</h3>
-        <div>Kg</div>
+        <div>-</div>
       </div>
       <div>
         {Array.isArray(selectedList) &&
@@ -152,7 +164,26 @@ const CommonList = ({
                     {body.quantity}
                   </div>
                 )}
+                kg
               </div>
+              {body.alpha && (
+                <div className="commonList-element-add">
+                  {colorOff === "colorOff" ? (
+                    <input
+                      type="number"
+                      placeholder="0 min"
+                      onChange={(e) =>
+                        handleAmountOfminuts(body, e.target.value)
+                      }
+                    />
+                  ) : (
+                    <div className="commonList-element-dont-add">
+                      {body.timeBoil && body.timeBoil}
+                    </div>
+                  )}
+                  boil(time)
+                </div>
+              )}
             </div>
           ))}
       </div>

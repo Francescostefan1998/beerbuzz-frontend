@@ -63,14 +63,58 @@ const Boil = () => {
   };
   const calculateIbu = () => {
     let sumIbu = 0;
+
     for (let i = 0; i < hops.length; i++) {
+      console.log(hops);
+      let utilizitaion = 0;
+
+      if (parseFloat(hops[i].minutsBoil) < 5) {
+        utilizitaion = 0.05;
+      } else if (
+        parseFloat(hops[i].minutsBoil) >= 5 &&
+        parseFloat(hops[i].minutsBoil) < 10
+      ) {
+        utilizitaion = 0.08;
+      } else if (
+        parseFloat(hops[i].minutsBoil) >= 10 &&
+        parseFloat(hops[i].minutsBoil) < 15
+      ) {
+        utilizitaion = 0.11;
+      } else if (
+        parseFloat(hops[i].minutsBoil) >= 15 &&
+        parseFloat(hops[i].minutsBoil) < 25
+      ) {
+        utilizitaion = 0.15;
+      } else if (
+        parseFloat(hops[i].minutsBoil) >= 25 &&
+        parseFloat(hops[i].minutsBoil) < 35
+      ) {
+        utilizitaion = 0.18;
+      } else if (
+        parseFloat(hops[i].minutsBoil) >= 35 &&
+        parseFloat(hops[i].minutsBoil) < 50
+      ) {
+        utilizitaion = 0.21;
+      } else if (parseFloat(hops[i].minutsBoil) >= 50) {
+        utilizitaion = 0.24;
+      }
       sumIbu =
-        sumIbu + (parseFloat(hops[i].quantity) * 100) / parseFloat(postBoil);
+        sumIbu +
+        (parseFloat(hops[i].quantity) *
+          1000 *
+          utilizitaion *
+          parseFloat(hops[i].alpha)) /
+          parseFloat(postBoil);
+      console.log(sumIbu);
+      console.log(utilizitaion);
     }
+
     dispatch(addIbuRecipeAction(sumIbu));
     setRefresh("sumOfibu" + sumIbu);
   };
-  const addThisProduct = async (product) => {};
+  const addThisProduct = async (product) => {
+    setRefresh(product);
+  };
   useEffect(() => {
     if (hops) {
       calculateIbu();
