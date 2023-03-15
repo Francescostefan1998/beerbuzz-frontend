@@ -105,6 +105,8 @@
   .water-title.invisible-in-big-screen {
     position: sticky;
     top: 6.3vh;
+    height: 8vh;
+    padding-block: 2vh;
     z-index: 4;
     background-color: var(--background-dark);
   }

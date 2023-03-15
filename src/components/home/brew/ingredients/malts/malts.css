@@ -3,3 +3,9 @@
   width: 100%;
   height: 100vh;
 }
+
+@media (max-width: 778px) {
+  .malts {
+    min-height: 100vh;
+  }
+}

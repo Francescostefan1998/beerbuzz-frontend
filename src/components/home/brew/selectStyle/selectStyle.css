@@ -80,8 +80,10 @@
 @media (max-width: 778px) {
   .selectStyle-list-proceed {
     width: 100%;
-    padding-inline: 10px;
+    padding: 10px;
+    padding-bottom: 12px;
     font-size: 14px;
+    height: 10vh;
   }
   .selectStyle-list-proceed-button {
     height: 5.8vh;
