@@ -19,7 +19,7 @@ const CommonList = ({
   colorOff,
   addThisProduct,
 }) => {
-  const [selectedList, setSelected] = useState([]);
+  const [selectedList, setSelected] = useState();
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
@@ -125,35 +125,36 @@ const CommonList = ({
         <div>Kg</div>
       </div>
       <div>
-        {selectedList.map((body, i) => (
-          <div className="commonList-element">
-            {" "}
-            <CommonSingleElement
-              icon={icon}
-              colorOrIbu={colorOrIbu}
-              body={body}
-              key={body._id}
-              colorOff={colorOff}
-              addProduct={addProduct}
-              subtractProduct={subtractProduct}
-              refresh={refresh}
-              addThisProduct={addThisProduct}
-            />
-            <div className="commonList-element-add">
-              {colorOff === "colorOff" ? (
-                <input
-                  type="number"
-                  placeholder="0.000kg"
-                  onChange={(e) => handleQuantity(body, e.target.value)}
-                />
-              ) : (
-                <div className="commonList-element-dont-add">
-                  {body.quantity}
-                </div>
-              )}
+        {Array.isArray(selectedList) &&
+          selectedList.map((body, i) => (
+            <div className="commonList-element">
+              {" "}
+              <CommonSingleElement
+                icon={icon}
+                colorOrIbu={colorOrIbu}
+                body={body}
+                key={body._id}
+                colorOff={colorOff}
+                addProduct={addProduct}
+                subtractProduct={subtractProduct}
+                refresh={refresh}
+                addThisProduct={addThisProduct}
+              />
+              <div className="commonList-element-add">
+                {colorOff === "colorOff" ? (
+                  <input
+                    type="number"
+                    placeholder="0.000kg"
+                    onChange={(e) => handleQuantity(body, e.target.value)}
+                  />
+                ) : (
+                  <div className="commonList-element-dont-add">
+                    {body.quantity}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

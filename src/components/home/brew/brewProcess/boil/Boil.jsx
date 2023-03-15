@@ -18,11 +18,14 @@ import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps
 import {
   addBoilRecipeAction,
   addHopsRecipeAction,
+  addIbuRecipeAction,
 } from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import MashWater from "../mashWater/MashWater";
 const Boil = () => {
+  const { postBoil } = useSelector((state) => state.waterAndBeerData);
+
   const { boil } = useSelector((state) => state.recipeSteps);
   const hops = useSelector((state) => state.createRecipe.hops[0]);
 
@@ -58,9 +61,20 @@ const Boil = () => {
       default:
     }
   };
+  const calculateIbu = () => {
+    let sumIbu = 0;
+    for (let i = 0; i < hops.length; i++) {
+      sumIbu =
+        sumIbu + (parseFloat(hops[i].quantity) * 100) / parseFloat(postBoil);
+    }
+    dispatch(addIbuRecipeAction(sumIbu));
+    setRefresh("sumOfibu" + sumIbu);
+  };
   const addThisProduct = async (product) => {};
   useEffect(() => {
-    console.log(refresh);
+    if (hops) {
+      calculateIbu();
+    }
   }, [refresh]);
   return (
     <div className="boil">
@@ -73,7 +87,7 @@ const Boil = () => {
           <div className="boil-top-section-right">
             <div className="boil-top-section-right-container1">
               {" "}
-              <ValueObtaining />
+              <ValueObtaining refresh={refresh} />
             </div>
             <div className="boil-top-section-right-container">
               <ValueSuggested />
