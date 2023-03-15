@@ -7,7 +7,6 @@
   opacity: 0.8;
   background-color: transparent;
   cursor: pointer;
-  border-radius: 10px;
   margin: 8px;
   overflow: hidden;
   padding-block: 8vh;
@@ -70,6 +69,7 @@
   .brewMainPage-section {
     width: 100%;
     display: block;
+    margin-block: 0;
   }
   .brewMainPage-row {
     display: block;

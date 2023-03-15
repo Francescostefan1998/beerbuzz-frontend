@@ -64,7 +64,7 @@
 .mashWater-tab li {
   text-align: left;
   padding-top: 10px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .mashWater-tab .image {

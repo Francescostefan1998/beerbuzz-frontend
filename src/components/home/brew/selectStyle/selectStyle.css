@@ -62,3 +62,37 @@
 .selectStyle-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-secondary);
 }
+
+@media (max-width: 1024px) {
+  .selectStyle {
+    background-color: var(--background-dark);
+    width: 100%;
+    min-height: 100vh;
+  }
+  .selectStyle-list {
+    min-height: 80vh;
+    overflow: hidden;
+  }
+  .selectStyle-list-proceed {
+    width: 100%;
+  }
+}
+@media (max-width: 778px) {
+  .selectStyle-list-proceed {
+    width: 100%;
+    padding-inline: 10px;
+    font-size: 14px;
+  }
+  .selectStyle-list-proceed-button {
+    height: 5.8vh;
+  }
+  .selectStyle-list-element {
+    font-size: 14px;
+  }
+  .selectStyle-list-element h4 {
+    font-size: 16px;
+  }
+  .selectStyle-list-element-description li {
+    font-size: 14px;
+  }
+}

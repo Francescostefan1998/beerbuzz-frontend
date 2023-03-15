@@ -27,3 +27,20 @@
 .bottomBar-list-proceed-button:hover {
   box-shadow: 0 0 10px var(--main-secondary);
 }
+
+@media (max-width: 1024px) {
+  .bottomBar-list-proceed {
+    width: 100%;
+  }
+}
+@media (max-width: 778px) {
+  .bottomBar-list-proceed {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    position: sticky;
+  }
+  .bottomBar-list-proceed-button {
+    height: 5.8vh;
+  }
+}

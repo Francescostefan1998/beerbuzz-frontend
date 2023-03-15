@@ -69,3 +69,61 @@
 .water-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-secondary);
 }
+@media (min-width: 778px) {
+  .water-bottom-bar-visible-when-big-display {
+    display: block;
+  }
+  .water-bottom-bar-invisible-when-big-display {
+    display: none;
+  }
+  .water-title.invisible-in-small-screen {
+    display: block;
+  }
+  .water-title.invisible-in-big-screen {
+    display: none;
+  }
+}
+
+@media (max-width: 778px) {
+  .water {
+    min-height: 100vh;
+    overflow-y: scroll;
+  }
+  .water-list-element .icon {
+    font-size: 24px;
+  }
+  .water-list-element h5 {
+    font-size: 16px;
+  }
+  .water-list-element {
+    gap: 10px;
+    padding: 1vh;
+    padding-inline: 1.2vh;
+
+    font-size: 14px;
+  }
+  .water-title.invisible-in-big-screen {
+    position: sticky;
+    top: 6.3vh;
+    z-index: 4;
+    background-color: var(--background-dark);
+  }
+  .water-list {
+    height: fit-content;
+    padding-bottom: 8vh;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .water-bottom-bar-visible-when-big-display {
+    display: none;
+  }
+  .water-bottom-bar-invisible-when-big-display {
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+  }
+  .water-title.invisible-in-small-screen {
+    display: none;
+  }
+}
