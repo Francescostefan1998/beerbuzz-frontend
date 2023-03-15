@@ -58,3 +58,24 @@
   padding-inline: 3vh;
   text-align: left;
 }
+@media (max-width: 778px) {
+  .ingredients-others-single-icon-circle {
+    padding-inline: 1vh;
+  }
+  .ingredients-others-single {
+    font-size: 14px;
+    gap: 3px;
+    padding-inline: 1vh;
+
+    padding-block: 10px;
+  }
+  .ingredients-others-single-grow1.description {
+    width: 100%;
+    padding-inline: 2vh;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .ingredients-others-single-icon {
+    font-size: 20px;
+  }
+}

@@ -190,7 +190,7 @@ const MashWater = ({ setRefresh }) => {
         <div className="mashWater-tab-line">
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
-              <div>Pre Boil Volume</div>
+              <div>Pre Boil Vol.</div>
               <div>L</div>
             </div>
             <input
@@ -205,7 +205,13 @@ const MashWater = ({ setRefresh }) => {
           </div>
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
-              <div>Evaporation rate/hr</div>
+              <div className="mashWater-tab-line-cell-visible-big-screen">
+                Evaporation rate/hr
+              </div>
+              <div className="mashWater-tab-line-cell-visible-small-screen">
+                Ev.rate/hr
+              </div>
+
               <div>(%)</div>
             </div>
             <input
@@ -255,7 +261,13 @@ const MashWater = ({ setRefresh }) => {
         <div className="mashWater-tab-line">
           <div className="mashWater-tab-line-cell">
             <div className="first-line">
-              <div>Equipment Efficiency</div>
+              <div className="mashWater-tab-line-cell-visible-big-screen">
+                Equipment Efficiency
+              </div>
+              <div className="mashWater-tab-line-cell-visible-small-screen">
+                Eq. eff.
+              </div>
+
               <div>(%)</div>
             </div>
             <input

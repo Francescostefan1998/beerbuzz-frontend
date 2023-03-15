@@ -45,7 +45,18 @@
   .commonList-element-add input {
     width: 10vh;
   }
+  .commonList h3 {
+    width: 100%;
+    padding-left: 0px;
+    text-align: left;
+  }
   .commonList {
     padding: 10px;
+  }
+}
+
+@media (max-width: 468px) {
+  .commonList {
+    padding: 0px;
   }
 }
