@@ -15,12 +15,16 @@ import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addBoilStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractBoilStepRecipeAction } from "../../../../../redux/actions/steps";
-import { addBoilRecipeAction } from "../../../../../redux/actions/recipe";
+import {
+  addBoilRecipeAction,
+  addHopsRecipeAction,
+} from "../../../../../redux/actions/recipe";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import MashWater from "../mashWater/MashWater";
 const Boil = () => {
   const { boil } = useSelector((state) => state.recipeSteps);
+  const hops = useSelector((state) => state.createRecipe.hops[0]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,6 +35,8 @@ const Boil = () => {
   };
   const subtractRecipeAction = async (hop) => {
     await dispatch(subtractHopRecipeAction(hop));
+    const newHops = await hops.filter((hops) => hops._id !== hop._id);
+    await dispatch(addHopsRecipeAction(newHops));
     setRefresh(hop._id);
   };
   const addStepRecipeAction = async (step) => {

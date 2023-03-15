@@ -59,14 +59,14 @@ const CommonList = ({
     } else {
       switch (title) {
         case "Mash":
-          setSelected(malts);
+          setSelected(recipeMalts[0]);
           break;
         case "Hops":
-          setSelected(hops);
+          setSelected(recipeHops[0]);
 
           break;
         case "Yeasts and Bacteria":
-          setSelected(yeasts);
+          setSelected(recipeYeasts[0]);
 
           break;
         case "Others":
@@ -93,11 +93,15 @@ const CommonList = ({
           break;
         case "Hops":
           await dispatch(addHopsRecipeAction(newList));
+          await setSelected(newList);
+
           addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
           await dispatch(addYeastsRecipeAction(newList));
+          await setSelected(newList);
+
           addThisProduct(value);
 
           break;

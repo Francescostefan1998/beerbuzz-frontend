@@ -90,9 +90,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newCalcium
-                    ? `${calcium.toFixed(2)}`
-                    : `${newCalcium.toFixed(2)}`
+                  !newCalcium ? `${calcium}` : `${newCalcium.toFixed(2)}`
                 }
               />
             </div>
@@ -103,9 +101,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newMagnesium
-                    ? `${magnesium.toFixed(2)}`
-                    : `${newMagnesium.toFixed(2)}`
+                  !newMagnesium ? `${magnesium}` : `${newMagnesium.toFixed(2)}`
                 }
               />
             </div>
@@ -123,7 +119,7 @@ const SourceWaterDiluition = ({ setModal }) => {
                 type="number"
                 placeholder={
                   !newAlkalinity
-                    ? `${alkalinity.toFixed(2)}`
+                    ? `${alkalinity}`
                     : `${newAlkalinity.toFixed(2)}`
                 }
               />
@@ -135,9 +131,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newSulfate
-                    ? `${sulfate.toFixed(2)}`
-                    : `${newSulfate.toFixed(2)}`
+                  !newSulfate ? `${sulfate}` : `${newSulfate.toFixed(2)}`
                 }
               />
             </div>
@@ -148,9 +142,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newChloride
-                    ? `${chloride.toFixed(2)}`
-                    : `${newChloride.toFixed(2)}`
+                  !newChloride ? `${chloride}` : `${newChloride.toFixed(2)}`
                 }
               />
             </div>
@@ -161,9 +153,7 @@ const SourceWaterDiluition = ({ setModal }) => {
               <input
                 type="number"
                 placeholder={
-                  !newSodium
-                    ? `${sodium.toFixed(2)}`
-                    : `${newSodium.toFixed(2)}`
+                  !newSodium ? `${sodium}` : `${newSodium.toFixed(2)}`
                 }
               />
             </div>
@@ -173,9 +163,7 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <input
                 type="number"
-                placeholder={
-                  !newPh ? `${ph.toFixed(2)}` : `${newPh.toFixed(2)}`
-                }
+                placeholder={!newPh ? `${ph}` : `${newPh.toFixed(2)}`}
               />
             </div>
           </div>

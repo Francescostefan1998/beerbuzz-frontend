@@ -17,11 +17,13 @@ import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredie
 import { addFermentationStepRecipeAction } from "../../../../../redux/actions/steps";
 import { subtractFermentationSteptRecipeAction } from "../../../../../redux/actions/steps";
 import { addFermentationRecipeAction } from "../../../../../redux/actions/recipe";
+import { addYeastsRecipeAction } from "../../../../../redux/actions/recipe";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import MashWater from "../mashWater/MashWater";
 const Fermentation = () => {
   const { fermentation } = useSelector((state) => state.recipeSteps);
+  const yeastsList = useSelector((state) => state.createRecipe.yeasts[0]);
 
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
@@ -32,6 +34,11 @@ const Fermentation = () => {
   };
   const subtractRecipeAction = async (yeast) => {
     await dispatch(subtractYeastRecipeAction(yeast));
+    const newYeasts = await yeastsList.filter(
+      (yeasts) => yeasts._id !== yeast._id
+    );
+
+    await dispatch(addYeastsRecipeAction(newYeasts));
     setRefresh(yeast._id);
   };
   const addStepRecipeAction = async (step) => {
