@@ -85,7 +85,7 @@
     display: none;
   }
 }
-@media (max-width: 788px) {
+@media (max-width: 768px) {
   .commonBrewStep-others-single {
     position: relative;
     padding-bottom: 4vh;
@@ -127,4 +127,11 @@
 
 .commonBrewStep-others-single-grow1.flex-grow3::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-secondary);
+}
+
+@media (max-width: 468px) {
+  .commonBrewStep {
+    padding-inline: 8px;
+    font-size: 14px;
+  }
 }

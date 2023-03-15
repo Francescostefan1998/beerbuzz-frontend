@@ -64,7 +64,7 @@
 .mashWater-tab li {
   text-align: left;
   padding-top: 10px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .mashWater-tab .image {
@@ -84,4 +84,57 @@
   object-fit: cover;
   z-index: 0;
   filter: hue-rotate(270deg) brightness(80%) contrast(120%);
+}
+.mashWater-tab-line-cell-visible-small-screen {
+  display: none;
+}
+.mashWater-tab-line-cell-visible-big-screen {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .mashWater {
+    display: flex;
+    flex-direction: column;
+  }
+  .mashWater-tab {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 36px;
+    border: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mashWater {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+  }
+  .mashWater h1 {
+    margin-left: 2vh;
+  }
+  .mashWater-tab-line-cell {
+    padding-inline: 0;
+    margin-inline: 14px;
+  }
+  .mashWater-tab {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+    font-size: 14px;
+  }
+  .mashWater-tab.border-right-visible {
+    padding: 0;
+  }
+  .mashWater-tab-line-cell-visible-small-screen {
+    display: block;
+  }
+  .mashWater-tab-line-cell-visible-big-screen {
+    display: none;
+  }
 }

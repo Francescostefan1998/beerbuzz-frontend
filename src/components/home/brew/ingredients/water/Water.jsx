@@ -71,8 +71,17 @@ const Water = () => {
   return (
     <div className="water">
       <NavBar />
-      <div className="common-selection-bigger-container">
-        <div className="water-title" style={{ zIndex: `${myZindex}` }}>
+      <div
+        className="water-title invisible-in-big-screen"
+        style={{ zIndex: `${myZindex}` }}
+      >
+        <h2>Water</h2>
+      </div>
+      <div className="common-selection-bigger-container ">
+        <div
+          className="water-title invisible-in-small-screen"
+          style={{ zIndex: `${myZindex}` }}
+        >
           <h2>Water</h2>
         </div>
         <div className="water-list">
@@ -247,6 +256,16 @@ const Water = () => {
             <div></div>
           )}
         </div>
+        <div className="water-bottom-bar-visible-when-big-display">
+          <BottomBar
+            proceedWater={proceed}
+            backWater={back}
+            setStepWater={setStep}
+            style={{ zIndex: `${myZindex}` }}
+          />
+        </div>
+      </div>
+      <div className="water-bottom-bar-invisible-when-big-display">
         <BottomBar
           proceedWater={proceed}
           backWater={back}

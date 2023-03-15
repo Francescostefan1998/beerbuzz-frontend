@@ -24,6 +24,7 @@
 }
 .valueObtaining-section-input input {
   background-color: var(--background-black);
+  color: white;
   outline: none;
   border: none;
 }
@@ -33,7 +34,7 @@
 .valueObtaining-section-input input {
   width: 16vh;
 }
-@media (max-width: 788px) {
+@media (max-width: 768px) {
   .valueObtaining-section-input input {
     width: 14vh;
   }

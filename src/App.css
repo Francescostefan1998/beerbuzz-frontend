@@ -30,6 +30,13 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .common-selection-bigger-container {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

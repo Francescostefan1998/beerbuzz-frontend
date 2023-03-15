@@ -36,3 +36,18 @@
 #common-element-container-inside-malt-purple {
   background-color: var(--main-secondary);
 }
+
+@media (max-width: 778px) {
+  .common-element-container-inside-malt {
+    gap: 8px;
+    padding-inline: 2.2vh;
+  }
+  .common-element-container-inside-malt .icon {
+    font-size: 20px;
+  }
+  .common-element-container-inside-malt-description-section {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+  }
+}

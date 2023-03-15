@@ -228,6 +228,15 @@
 .common-ingredients-container .loading-spinner div:nth-child(6)::after {
   animation-delay: -0.1s;
 }
+.common-ingredients-container-inside-search-outerContainer.invisible-in-big-screen {
+  display: none;
+}
+.common-ingredients-container-inside-search-outerContainer.invisible-in-small-screen {
+  display: flex;
+}
+.common-ingredients-container-inside-section-top.invisible-in-big-screen {
+  display: none;
+}
 @keyframes loading-spinner-inner-animation {
   0% {
     transform: rotate(0deg);
@@ -259,7 +268,63 @@
   border-radius: 5px;
   cursor: grab;
 }
-
+.common-selection-bigger-container .invisible-in-big-screen {
+  display: none;
+}
 .common-ingredients-container-inside-section-middle::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-secondary);
+}
+@media (max-width: 1024px) {
+  .common-ingredients-container-inside-section-bottom {
+    width: 100%;
+  }
+}
+@media (max-width: 778px) {
+  .common-ingredients-container-inside {
+    height: fit-content;
+  }
+  .common-ingredients-container-inside-section-bottom {
+    padding: 10px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    height: 10vh;
+  }
+  .common-ingredients-container-inside {
+    height: fit-content;
+  }
+  .common-ingredients-container-inside-section-middle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: fit-content;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+  }
+  .common-ingredients-container-inside-section-bottom .button {
+    height: 5.8vh;
+  }
+  .common-ingredients-container-inside-search-outerContainer.invisible-in-big-screen {
+    display: flex;
+    position: sticky;
+    top: 13.8vh;
+    z-index: 4;
+    background-color: var(--background-dark);
+  }
+  .common-ingredients-container-inside-section-top.invisible-in-big-screen {
+    padding-block: 2vh;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    display: flex;
+    position: sticky;
+    top: 6.4vh;
+    z-index: 4;
+    background-color: var(--background-dark);
+  }
+  .common-ingredients-container-inside-search-outerContainer.invisible-in-small-screen {
+    display: none;
+  }
+  .common-ingredients-container-inside-section-top.invisible-in-small-screen {
+    display: none;
+  }
 }

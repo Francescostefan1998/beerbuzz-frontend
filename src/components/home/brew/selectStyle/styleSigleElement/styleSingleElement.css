@@ -47,3 +47,8 @@
 .selectStyle li {
   text-align: left;
 }
+@media (max-width: 778px) {
+  .selectStyle-list-element {
+    gap: 6px;
+  }
+}

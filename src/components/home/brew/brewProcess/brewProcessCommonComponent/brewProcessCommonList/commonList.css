@@ -16,6 +16,7 @@
 }
 
 .commonList-element input {
+  max-width: 150px;
   outline: none;
   border: none;
   background-color: transparent;
@@ -36,6 +37,10 @@
 .commonList-title > div {
   text-align: right;
 }
+.commonList-element-add {
+  text-align: right;
+  display: flex;
+}
 .commonList h3 {
   width: 100%;
   padding-left: 16px;
@@ -45,7 +50,18 @@
   .commonList-element-add input {
     width: 10vh;
   }
+  .commonList h3 {
+    width: 100%;
+    padding-left: 0px;
+    text-align: left;
+  }
   .commonList {
     padding: 10px;
+  }
+}
+
+@media (max-width: 468px) {
+  .commonList {
+    padding: 0px;
   }
 }

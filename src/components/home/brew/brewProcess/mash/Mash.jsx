@@ -13,6 +13,8 @@ import { useDispatch } from "react-redux";
 import {
   addEbcbRecipeAction,
   addOgRecipeAction,
+  addFgRecipeAction,
+  addAbvRecipeAction,
 } from "../../../../../redux/actions/recipe";
 import { addMaltRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredients";
@@ -30,6 +32,7 @@ const Mash = () => {
   const { equipmentEfficienty } = useSelector(
     (state) => state.waterAndBeerData
   );
+  const yeasts = useSelector((state) => state.createRecipe.yeasts[0]);
 
   const maltsList = useSelector((state) => state.createRecipe.malts[0]);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
@@ -52,13 +55,14 @@ const Mash = () => {
   const calculateAverageEbcAndYeld = () => {
     let sumOfEbc = 0;
     let originalGravity = 0;
+    let averageAttenuation = 0;
+
     for (let i = 0; i < maltsList.length; i++) {
       sumOfEbc =
         sumOfEbc +
         parseFloat(maltsList[i].color) * parseFloat(maltsList[i].quantity);
     }
     let ebcBeer = sumOfEbc / parseFloat(postBoil);
-    setRefresh("sumOfEbc");
     dispatch(addEbcbRecipeAction(ebcBeer));
     for (let i = 0; i < maltsList.length; i++) {
       originalGravity =
@@ -71,6 +75,23 @@ const Mash = () => {
       (originalGravity * (parseFloat(equipmentEfficienty) / 100)) /
         (parseFloat(postBoil) * 3.9);
     dispatch(addOgRecipeAction(originalGravityBeer));
+    for (let i = 0; i < yeasts.length; i++) {
+      averageAttenuation =
+        averageAttenuation +
+        parseFloat(yeasts[i].attenuation) / parseFloat(yeasts.length);
+    }
+    let finalGravity =
+      1 +
+      ((originalGravity * (parseFloat(equipmentEfficienty) / 100)) /
+        (parseFloat(postBoil) * 3.9)) *
+        ((100 - averageAttenuation) / 100);
+
+    dispatch(addFgRecipeAction(finalGravity));
+
+    let alcool = (originalGravityBeer - finalGravity) * 131.25;
+    dispatch(addAbvRecipeAction(alcool));
+
+    setRefresh("sumOfEbc" + originalGravity + ebcBeer + finalGravity);
   };
   const addRecipeAction = async (malt) => {
     await dispatch(addMaltRecipeAction(malt));
@@ -78,8 +99,9 @@ const Mash = () => {
   };
   const subtractRecipeAction = async (malt) => {
     await dispatch(subtractMaltRecipeAction(malt));
-    await setRefresh(malt._id);
-    await dispatch(addMaltsRecipeAction(malts));
+    const newMalts = await maltsList.filter((malts) => malts._id !== malt._id);
+
+    await dispatch(addMaltsRecipeAction(newMalts));
     setRefresh(malt._id);
   };
   const addStepRecipeAction = async (step) => {

@@ -118,7 +118,7 @@
     height: 25vh;
   }
   .boil-main-section-process {
-    border-top: 3px solid var(--main-secondary);
+    border-top: 3px solid var(--main-secondary-opacue);
     border-left: 0px solid transparent;
   }
   .boil-bottom-section {
@@ -126,5 +126,39 @@
   }
 }
 
-@media (max-width: 788px) {
+@media (max-width: 768px) {
+  .boil-top-section-right-container1 {
+    margin-inline: 0;
+    width: 100%;
+  }
+  .boil-top-section-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .boil-main-section-hops h1 {
+    padding: 0;
+    margin-top: 4vh;
+
+    margin-left: 14px;
+  }
+  .boil-main-section-process h1 {
+    padding: 0;
+    margin-top: 4vh;
+    margin-left: 14px;
+  }
+  .boil-main-section-hops {
+    padding: 0px;
+
+    width: 100%;
+    border-right: 0px solid var(--main-secondary-opacue);
+  }
+  .boil-main-section-process {
+    width: 100%;
+    padding: 0px;
+  }
+  .boil-main-section {
+    display: flex;
+    flex-direction: column;
+  }
 }

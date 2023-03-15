@@ -29,7 +29,7 @@ const ValueObtaining = ({ refresh }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("refresh value");
-  }, [refresh]);
+  }, [refresh, og, fg, ibu, ebc, abv, batchVolume]);
   return (
     <div className="valueObtaining">
       <div className="valueObtaining-section">

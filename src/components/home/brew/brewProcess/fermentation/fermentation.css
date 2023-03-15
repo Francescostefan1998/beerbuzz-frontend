@@ -117,7 +117,7 @@
     height: 25vh;
   }
   .fermentation-main-section-process {
-    border-top: 3px solid var(--main-secondary);
+    border-top: 3px solid var(--main-secondary-opacue);
     border-left: 0px solid transparent;
   }
   .fermentation-bottom-section {
@@ -125,5 +125,39 @@
   }
 }
 
-@media (max-width: 788px) {
+@media (max-width: 768px) {
+  .fermentation-top-section-right-container1 {
+    margin-inline: 0;
+    width: 100%;
+  }
+  .fermentation-top-section-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .fermentation-main-section-yeasts h1 {
+    padding: 0;
+    margin-top: 4vh;
+
+    margin-left: 14px;
+  }
+  .fermentation-main-section-process h1 {
+    padding: 0;
+    margin-top: 4vh;
+    margin-left: 14px;
+  }
+  .fermentation-main-section-yeasts {
+    padding: 0px;
+
+    width: 100%;
+    border-right: 0px solid var(--main-secondary-opacue);
+  }
+  .fermentation-main-section-process {
+    width: 100%;
+    padding: 0px;
+  }
+  .fermentation-main-section {
+    display: flex;
+    flex-direction: column;
+  }
 }

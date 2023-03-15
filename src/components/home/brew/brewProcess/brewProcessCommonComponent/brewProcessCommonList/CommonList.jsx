@@ -19,7 +19,7 @@ const CommonList = ({
   colorOff,
   addThisProduct,
 }) => {
-  const [selectedList, setSelected] = useState([]);
+  const [selectedList, setSelected] = useState();
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
@@ -59,14 +59,14 @@ const CommonList = ({
     } else {
       switch (title) {
         case "Mash":
-          setSelected(malts);
+          setSelected(recipeMalts[0]);
           break;
         case "Hops":
-          setSelected(hops);
+          setSelected(recipeHops[0]);
 
           break;
         case "Yeasts and Bacteria":
-          setSelected(yeasts);
+          setSelected(recipeYeasts[0]);
 
           break;
         case "Others":
@@ -76,6 +76,18 @@ const CommonList = ({
         default:
           setSelected([]);
       }
+    }
+  };
+  const handleAmountOfminuts = async (body, value) => {
+    const index = selectedList.findIndex((product) => product._id === body._id);
+    if (index !== -1) {
+      const newList = await [...selectedList];
+      newList[index] = await { ...selectedList[index], minutsBoil: value };
+
+      await dispatch(addHopsRecipeAction(newList));
+      await setSelected(newList);
+
+      addThisProduct(value);
     }
   };
 
@@ -93,11 +105,15 @@ const CommonList = ({
           break;
         case "Hops":
           await dispatch(addHopsRecipeAction(newList));
+          await setSelected(newList);
+
           addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
           await dispatch(addYeastsRecipeAction(newList));
+          await setSelected(newList);
+
           addThisProduct(value);
 
           break;
@@ -118,38 +134,58 @@ const CommonList = ({
     <div className="commonList">
       <div className="commonList-title">
         <h3>Products</h3>
-        <div>Kg</div>
+        <div>-</div>
       </div>
       <div>
-        {selectedList.map((body, i) => (
-          <div className="commonList-element">
-            {" "}
-            <CommonSingleElement
-              icon={icon}
-              colorOrIbu={colorOrIbu}
-              body={body}
-              key={body._id}
-              colorOff={colorOff}
-              addProduct={addProduct}
-              subtractProduct={subtractProduct}
-              refresh={refresh}
-              addThisProduct={addThisProduct}
-            />
-            <div className="commonList-element-add">
-              {colorOff === "colorOff" ? (
-                <input
-                  type="number"
-                  placeholder="0.000kg"
-                  onChange={(e) => handleQuantity(body, e.target.value)}
-                />
-              ) : (
-                <div className="commonList-element-dont-add">
-                  {body.quantity}
+        {Array.isArray(selectedList) &&
+          selectedList.map((body, i) => (
+            <div className="commonList-element">
+              {" "}
+              <CommonSingleElement
+                icon={icon}
+                colorOrIbu={colorOrIbu}
+                body={body}
+                key={body._id}
+                colorOff={colorOff}
+                addProduct={addProduct}
+                subtractProduct={subtractProduct}
+                refresh={refresh}
+                addThisProduct={addThisProduct}
+              />
+              <div className="commonList-element-add">
+                {colorOff === "colorOff" ? (
+                  <input
+                    type="number"
+                    placeholder="0.000kg"
+                    onChange={(e) => handleQuantity(body, e.target.value)}
+                  />
+                ) : (
+                  <div className="commonList-element-dont-add">
+                    {body.quantity}
+                  </div>
+                )}
+                kg
+              </div>
+              {body.alpha && (
+                <div className="commonList-element-add">
+                  {colorOff === "colorOff" ? (
+                    <input
+                      type="number"
+                      placeholder="0 min"
+                      onChange={(e) =>
+                        handleAmountOfminuts(body, e.target.value)
+                      }
+                    />
+                  ) : (
+                    <div className="commonList-element-dont-add">
+                      {body.timeBoil && body.timeBoil}
+                    </div>
+                  )}
+                  boil(time)
                 </div>
               )}
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

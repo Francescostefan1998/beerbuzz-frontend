@@ -132,52 +132,70 @@ const CheckResults = () => {
       ibu: ibuRec,
       og: ogRec,
       fg: fgRec,
-      malts: maltsRec.map((malt) => ({
-        nameId: malt._id,
-        amount: malt.quantity,
-      })),
-      hops: hopsRec.map((hop) => ({
-        nameId: hop._id,
-        amount: hop.quantity,
-      })),
-      yeasts: yeastsRec.map((yeast) => ({
-        nameId: yeast._id,
-        amount: yeast.quantity,
-      })),
-      others: othersRec.map((other) => ({
-        nameId: other._id,
-        amount: 0,
-      })),
-      salts: saltsRec.map((salt) => ({
-        name: salt.name,
-        amount: salt.quantity,
-      })),
-      mash: mashRec.map((mash) => ({
-        name: mash.name,
-        description: mash.description,
-        temperature: mash.temperature,
-        duration: mash.duration,
-      })),
-      boil: boilRec.map((boil) => ({
-        name: boil.name,
-        description: boil.description,
-        temperature: boil.temperature,
-        duration: boil.duration,
-      })),
-      fermentation: fermentationRec.map((fermentation) => ({
-        name: fermentation.name,
-        description: fermentation.description,
-        temperature: fermentation.temperature,
-        duration: fermentation.duration,
-      })),
+      malts:
+        Array.isArray(maltsRec) &&
+        maltsRec.map((malt) => ({
+          nameId: malt._id,
+          amount: malt.quantity,
+        })),
+      hops:
+        Array.isArray(hopsRec) &&
+        hopsRec.map((hop) => ({
+          nameId: hop._id,
+          amount: hop.quantity,
+        })),
+      yeasts:
+        Array.isArray(yeastsRec) &&
+        yeastsRec.map((yeast) => ({
+          nameId: yeast._id,
+          amount: yeast.quantity,
+        })),
+      others:
+        Array.isArray(othersRec) &&
+        othersRec.map((other) => ({
+          nameId: other._id,
+          amount: 0,
+        })),
+      salts:
+        Array.isArray(saltsRec) &&
+        saltsRec.map((salt) => ({
+          name: salt.name,
+          amount: salt.quantity,
+        })),
+      mash:
+        Array.isArray(mashRec) &&
+        mashRec.map((mash) => ({
+          name: mash.name,
+          description: mash.description,
+          temperature: mash.temperature,
+          duration: mash.duration,
+        })),
+      boil:
+        Array.isArray(boilRec) &&
+        boilRec.map((boil) => ({
+          name: boil.name,
+          description: boil.description,
+          temperature: boil.temperature,
+          duration: boil.duration,
+        })),
+      fermentation:
+        Array.isArray(fermentationRec) &&
+        fermentationRec.map((fermentation) => ({
+          name: fermentation.name,
+          description: fermentation.description,
+          temperature: fermentation.temperature,
+          duration: fermentation.duration,
+        })),
       fermentationChart: Array.from({ length: boilRec.length }, () => ({
         day: 0,
         temperature: 0,
       })),
-      comments: commentsRec.map((comment) => ({
-        name: comment.name,
-        comment: comment.description,
-      })),
+      comments:
+        Array.isArray(commentsRec) &&
+        commentsRec.map((comment) => ({
+          name: comment.name,
+          comment: comment.description,
+        })),
     };
     setRecipe(newRecipe);
     console.log(newRecipe);

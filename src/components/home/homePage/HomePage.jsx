@@ -112,6 +112,47 @@ const HomePage = () => {
           </Container>
         </div>
       </div>
+      <div className="homePage-container-for-small-page">
+        <Container className="mt-5">
+          <Row className={`brewMainPage-row block`}>
+            <Col
+              className={`brewMainPage-section block`}
+              onClick={() => navigate("/recipes")}
+            >
+              <img
+                src="https://thumbs.dreamstime.com/z/grande-insieme-d-annata-degli-oggetti-della-birra-vari-tipi-di-vetri-e-tazze-vecchio-barilotto-legno-luppolo-bottiglia-latta-apri-150652832.jpg"
+                alt="style"
+              />
+              <h2>Recipes</h2>
+              <div className="brewMainPage-step">1</div>
+            </Col>
+            <Col
+              className={`brewMainPage-section block`}
+              onClick={() => navigate("/brew")}
+            >
+              <img
+                src="https://thumbnails.yayimages.com/1600/2/243/22439ea.jpg"
+                alt="ingredients"
+              />
+              <h2>Make A New Beer</h2>
+              <div className="brewMainPage-step">2</div>
+            </Col>
+          </Row>
+          <Row
+            className={`brewMainPage-row block`}
+            onClick={() => navigate("/instruction")}
+          >
+            <Col className={`brewMainPage-section block`}>
+              <img
+                src="https://th.bing.com/th/id/OIP.CPsBCeMpHQ57V3weDLMbMQHaJg?pid=ImgDet&rs=1"
+                alt="grain"
+              />
+              <h2>Instruction</h2>
+              <div className="brewMainPage-step">3</div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 };

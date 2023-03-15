@@ -41,9 +41,7 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
         </div>
 
         <div> </div>
-        <div className="commonBrewStep-others-nonebig">
-          this beer is amzing, please note to add some cheese in it
-        </div>
+
         {showDescription && refresh !== "refresh check page" ? (
           <FaExpandArrowsAlt
             className="commonBrewStep-others-single-icon"
