@@ -39,7 +39,7 @@ const SingleRecipe = ({ body, setRecipe }) => {
         <div className="details">
           {body.abv !== "" ? (
             <div>
-              <strong>ABV:</strong> {body.abv}%,
+              <strong>ABV:</strong> {parseFloat(body.abv).toFixed(2)}%,
             </div>
           ) : (
             <div>
@@ -48,7 +48,7 @@ const SingleRecipe = ({ body, setRecipe }) => {
           )}
           {body.ibu !== "" ? (
             <div>
-              <strong>IBU:</strong> {body.ibu},
+              <strong>IBU:</strong> {parseFloat(body.ibu).toFixed(2)},
             </div>
           ) : (
             <div>
@@ -57,7 +57,7 @@ const SingleRecipe = ({ body, setRecipe }) => {
           )}
           {body.og !== "" ? (
             <div>
-              <strong>OG:</strong> {body.og},
+              <strong>OG:</strong> {parseFloat(body.og).toFixed(2)},
             </div>
           ) : (
             <div>
@@ -66,7 +66,7 @@ const SingleRecipe = ({ body, setRecipe }) => {
           )}
           {body.fg !== "" ? (
             <div>
-              <strong>FG:</strong> {body.fg},
+              <strong>FG:</strong> {parseFloat(body.fg).toFixed(2)},
             </div>
           ) : (
             <div>

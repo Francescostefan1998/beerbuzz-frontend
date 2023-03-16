@@ -11,6 +11,7 @@
 }
 .showRecipeData-overview.water {
   width: 60%;
+  min-height: 0;
 }
 .showRecipeData-overview {
   display: flex;
@@ -24,4 +25,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .showRecipeData {
+    height: fit-content;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .showRecipeData-overview.sensibleData {
+    width: 100%;
+  }
+  .showRecipeData-overview.water {
+    min-height: 0;
+    width: 100%;
+    height: fit-content;
+  }
 }

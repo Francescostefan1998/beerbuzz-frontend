@@ -10,7 +10,7 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>ABV:</strong>
               </div>
-              <div>{body.abv}%</div>
+              <div>{parseFloat(body.abv).toFixed(2)}%</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
@@ -22,19 +22,19 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>IBU:</strong>
               </div>
-              <div>{body.ibu}</div>
+              <div>{parseFloat(body.ibu).toFixed(2)}</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>OG:</strong>
               </div>
-              <div>{body.og}</div>
+              <div>{parseFloat(body.og).toFixed(2)}</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>FG:</strong>
               </div>
-              <div>{body.fg}</div>
+              <div>{parseFloat(body.fg).toFixed(2)}</div>
             </div>
           </div>
           <div className="showRecipeData-overview water">
@@ -48,13 +48,13 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>Batch Volume:</strong>
               </div>
-              <div>{body.batchVolume}L</div>
+              <div>{parseFloat(body.batchVolume).toFixed(2)}L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Mash Volume:</strong>
               </div>
-              <div>{body.mashVolume}L</div>
+              <div>{parseFloat(body.mashVolume).toFixed(2)}L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>

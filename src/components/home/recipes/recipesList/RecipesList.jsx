@@ -7,10 +7,12 @@ import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
 import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
 import BottomBar from "../../../bottomBar/BottomBar";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const RecipesList = () => {
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
+  const navigate = useNavigate();
   console.log(myRecipes);
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
@@ -53,14 +55,22 @@ const RecipesList = () => {
           )}
         </div>
         {recipeSelected === "" ? (
-          <BottomBar
-            prew={"/home"}
-            next={"/home"}
-            proceedWater={""}
-            backWater={""}
-          />
+          <div className="bottomBar-list-proceed invisible-in-small-screen">
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => navigate("/home")}
+            >
+              Back
+            </div>
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => navigate("/home")}
+            >
+              Save and Proceed
+            </div>
+          </div>
         ) : (
-          <div className="bottomBar-list-proceed">
+          <div className="bottomBar-list-proceed invisible-in-small-screen">
             <div
               className="bottomBar-list-proceed-button"
               onClick={() => setRecipeSelected("")}
@@ -76,6 +86,37 @@ const RecipesList = () => {
           </div>
         )}
       </div>
+      {recipeSelected === "" ? (
+        <div className="bottomBar-list-proceed invisible-in-big-screen">
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => navigate("/home")}
+          >
+            Back
+          </div>
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => navigate("/home")}
+          >
+            Save and Proceed
+          </div>
+        </div>
+      ) : (
+        <div className="bottomBar-list-proceed invisible-in-big-screen">
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => setRecipeSelected("")}
+          >
+            Back
+          </div>
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => setRecipeSelected("")}
+          >
+            Save and Proceed
+          </div>
+        </div>
+      )}
     </div>
   );
 };
