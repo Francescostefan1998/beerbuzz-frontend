@@ -29,7 +29,7 @@ const ValueObtaining = ({ refresh }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("refresh value");
-  }, [refresh, og, fg, ibu, ebc, abv, batchVolume]);
+  }, [refresh]);
   return (
     <div className="valueObtaining">
       <div className="valueObtaining-section">
@@ -50,7 +50,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editVolume && (
           <div className="valueObtaining-section-input">
-            <div>{batchVolume.toFixed(2)} L</div>{" "}
+            <div>{parseFloat(batchVolume).toFixed(2)} L</div>{" "}
             <FaPen onClick={() => setEditVolume(true)} className="icon" />
           </div>
         )}
@@ -71,7 +71,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editABV && (
           <div className="valueObtaining-section-input">
-            <div>{abv.toFixed(2)} </div>{" "}
+            <div>{parseFloat(abv).toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditABV(true)} className="icon" />
           </div>
         )}
@@ -92,7 +92,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editEBC && (
           <div className="valueObtaining-section-input">
-            <div>{ebc.toFixed(2)} </div>{" "}
+            <div>{parseFloat(ebc).toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditEBC(true)} className="icon" />
           </div>
         )}
@@ -113,7 +113,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editIBU && (
           <div className="valueObtaining-section-input">
-            <div>{ibu.toFixed(2)} </div>{" "}
+            <div>{parseFloat(ibu).toFixed(2)} </div>{" "}
             <FaPen onClick={() => setEditIBU(true)} className="icon" />
           </div>
         )}
@@ -134,7 +134,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editOG && (
           <div className="valueObtaining-section-input">
-            <div>{og.toFixed(3)}</div>{" "}
+            <div>{parseFloat(og).toFixed(3)}</div>{" "}
             <FaPen onClick={() => setEditOG(true)} className="icon" />
           </div>
         )}
@@ -155,7 +155,7 @@ const ValueObtaining = ({ refresh }) => {
         )}
         {!editFG && (
           <div className="valueObtaining-section-input">
-            <div>{fg.toFixed(3)}</div>{" "}
+            <div>{parseFloat(fg).toFixed(3)}</div>{" "}
             <FaPen onClick={() => setEditFG(true)} className="icon" />
           </div>
         )}
