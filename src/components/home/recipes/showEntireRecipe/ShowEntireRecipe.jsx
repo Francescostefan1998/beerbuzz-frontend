@@ -19,7 +19,7 @@ const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
     fetchSingleRecipe(userIdRec);
   }, [recipeId]);
   return (
-    <div onClick={(e) => setRecipe("")}>
+    <div onClick={(e) => setRecipe("")} className="showEntireRecipe">
       <div className="showEntireRecipe-top">
         {" "}
         <div className="showEntireRecipe-top-left">
@@ -39,6 +39,7 @@ const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
         </div>
       </div>
       <div className="showEntireRecipe-bottom">
+        <h4>Comments</h4>
         {body &&
           body.comments.map((comment, i) => (
             <div key={comment.name}>

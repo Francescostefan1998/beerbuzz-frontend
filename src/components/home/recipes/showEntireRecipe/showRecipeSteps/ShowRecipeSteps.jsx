@@ -5,35 +5,135 @@ const ShowRecipeSteps = ({ body }) => {
     <>
       {body && (
         <div className="showRecipeSteps">
-          <h2>Material</h2>
-          <h4>Salts</h4>
+          <h2>Steps</h2>
+          <h4>Mash</h4>
+          <div className="showRecipeSteps-single-step first">
+            <div className="showRecipeSteps-single-step-cell">Name</div>{" "}
+            <div className="showRecipeSteps-single-step-cell">
+              Duration(min)
+            </div>
+            <div className="showRecipeSteps-single-step-cell">
+              Temperature(C)
+            </div>
+            <div className="showRecipeSteps-single-step-cell description">
+              Description
+            </div>
+          </div>
+
           {body.mash.map((salt, i) => (
-            <div key={salt.name}>
-              {salt.name}: {salt.duration}g
+            <div className="showRecipeSteps-single-step" key={salt.name}>
+              {" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.name}
+              </div>{" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.duration}
+              </div>
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.temperature}
+              </div>
+              <div className="showRecipeSteps-single-step-cell description">
+                {salt.description}
+              </div>
             </div>
           ))}
-          <h4>Malts</h4>
-          {body.malts.map((malt, i) => (
-            <div key={malt.nameId}>
-              {malt.nameId}: {malt.amount}kg
+          <div className="showRecipeSteps-single-step last"></div>
+          <h4>Boil</h4>
+          <div className="showRecipeSteps-single-step first">
+            <div className="showRecipeSteps-single-step-cell">Name</div>{" "}
+            <div className="showRecipeSteps-single-step-cell">
+              Duration(min)
+            </div>
+            <div className="showRecipeSteps-single-step-cell">
+              Temperature(C)
+            </div>
+            <div className="showRecipeSteps-single-step-cell description">
+              Description
+            </div>
+          </div>
+
+          {body.boil.map((salt, i) => (
+            <div className="showRecipeSteps-single-step" key={salt.name}>
+              {" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.name}
+              </div>{" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.duration}
+              </div>
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.temperature}
+              </div>
+              <div className="showRecipeSteps-single-step-cell description">
+                {salt.description}
+              </div>
             </div>
           ))}
-          <h4>Hops</h4>
-          {body.hops.map((malt, i) => (
-            <div key={malt.nameId}>
-              {malt.nameId}: {malt.amount}kg
+          <div className="showRecipeSteps-single-step last"></div>
+
+          <h4>Fermetation</h4>
+          <div className="showRecipeSteps-single-step first">
+            <div className="showRecipeSteps-single-step-cell">Name</div>{" "}
+            <div className="showRecipeSteps-single-step-cell">
+              Duration(min)
+            </div>
+            <div className="showRecipeSteps-single-step-cell">
+              Temperature(C)
+            </div>
+            <div className="showRecipeSteps-single-step-cell description">
+              Description
+            </div>
+          </div>
+
+          {body.fermentation.map((salt, i) => (
+            <div className="showRecipeSteps-single-step" key={salt.name}>
+              {" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.name}
+              </div>{" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.duration}
+              </div>
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.temperature}
+              </div>
+              <div className="showRecipeSteps-single-step-cell description">
+                {salt.description}
+              </div>
             </div>
           ))}
-          <h4>Yeasts</h4>
-          {body.yeasts.map((malt, i) => (
-            <div key={malt.nameId}>
-              {malt.nameId}: {malt.amount}kg
+          <div className="showRecipeSteps-single-step last"></div>
+
+          <h4>Fermentation chart</h4>
+          <div className="showRecipeSteps-single-step first">
+            <div className="showRecipeSteps-single-step-cell">Day</div>{" "}
+            <div className="showRecipeSteps-single-step-cell">Day</div>
+            <div className="showRecipeSteps-single-step-cell">
+              Temperature(C)
+            </div>
+            <div className="showRecipeSteps-single-step-cell description">
+              Description
+            </div>
+          </div>
+
+          {body.mash.map((salt, i) => (
+            <div className="showRecipeSteps-single-step" key={salt.name}>
+              {" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.name}
+              </div>{" "}
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.duration}
+              </div>
+              <div className="showRecipeSteps-single-step-cell">
+                {salt.temperature}
+              </div>
+              <div className="showRecipeSteps-single-step-cell description">
+                {salt.description}
+              </div>
             </div>
           ))}
-          <h4>Others</h4>
-          {body.others.map((malt, i) => (
-            <div key={malt.nameId}>{malt.nameId}</div>
-          ))}
+          <div className="showRecipeSteps-single-step last"></div>
         </div>
       )}
     </>

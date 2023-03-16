@@ -2,6 +2,7 @@
   width: 100%;
   height: 30vh;
   display: flex;
+  padding-top: 14px;
   gap: 100px;
   justify-content: space-between;
 }
