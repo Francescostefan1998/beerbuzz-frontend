@@ -45,12 +45,29 @@ const RecipesList = () => {
             />
           )}
         </div>
-        <BottomBar
-          prew={"/home"}
-          next={"/home"}
-          proceedWater={""}
-          backWater={""}
-        />
+        {recipeSelected === "" ? (
+          <BottomBar
+            prew={"/home"}
+            next={"/home"}
+            proceedWater={""}
+            backWater={""}
+          />
+        ) : (
+          <div className="bottomBar-list-proceed">
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => setRecipeSelected("")}
+            >
+              Back
+            </div>
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => setRecipeSelected("")}
+            >
+              Save and Proceed
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

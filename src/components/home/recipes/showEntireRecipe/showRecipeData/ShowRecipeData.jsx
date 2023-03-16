@@ -40,6 +40,12 @@ const ShowRecipeData = ({ body }) => {
           <div className="showRecipeData-overview water">
             <div className="showRecipeData-overview-inner">
               <div>
+                <strong>All grain</strong>
+              </div>
+              <div></div>
+            </div>
+            <div className="showRecipeData-overview-inner">
+              <div>
                 <strong>Batch Volume:</strong>
               </div>
               <div>{body.batchVolume}</div>
@@ -61,12 +67,6 @@ const ShowRecipeData = ({ body }) => {
                 <strong>Equipment Efficiency:</strong>
               </div>
               <div>75%</div>
-            </div>
-            <div className="showRecipeData-overview-inner">
-              <div>
-                <strong>All grain</strong>
-              </div>
-              <div></div>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@
   height: 42vh;
   display: flex;
   padding: 6vh;
+  padding-bottom: 2vh;
   justify-content: space-between;
 }
 
@@ -24,6 +25,7 @@
 .showEntireRecipe-middle {
   height: fit-content;
   padding: 6vh;
+  padding-block: 2vh;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -31,8 +33,8 @@
 .showEntireRecipe-bottom {
   width: 100%;
   height: fit-content;
-  padding: 5vh;
-  padding-bottom: 30vh;
+  padding: 4vh;
+  padding-bottom: 20vh;
   text-align: left;
 }
 
@@ -42,4 +44,25 @@
 }
 .showEntireRecipe-middle-right {
   width: 55%;
+}
+.showEntireRecipe-comments {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.ingredients-others-single-icon-circle.showEntireRecipe {
+  padding: 0;
+  width: 50px;
+}
+.showEntireRecipe-comments .ingredients-others-single-grow1 input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+.showEntireRecipe-comments .ingredients-others-single-grow1 textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
 }
