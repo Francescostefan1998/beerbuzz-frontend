@@ -3,3 +3,6 @@
   height: 100vh;
   background-color: var(--background-dark);
 }
+
+@media (max-width: 768px) {
+}

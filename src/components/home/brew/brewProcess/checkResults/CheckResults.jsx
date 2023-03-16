@@ -135,24 +135,31 @@ const CheckResults = () => {
       malts:
         Array.isArray(maltsRec) &&
         maltsRec.map((malt) => ({
+          name: malt.name,
           nameId: malt._id,
           amount: malt.quantity,
         })),
       hops:
         Array.isArray(hopsRec) &&
         hopsRec.map((hop) => ({
+          name: hop.name,
+
           nameId: hop._id,
           amount: hop.quantity,
         })),
       yeasts:
         Array.isArray(yeastsRec) &&
         yeastsRec.map((yeast) => ({
+          name: yeast.name,
+
           nameId: yeast._id,
           amount: yeast.quantity,
         })),
       others:
         Array.isArray(othersRec) &&
         othersRec.map((other) => ({
+          name: other.name,
+
           nameId: other._id,
           amount: 0,
         })),
@@ -194,7 +201,7 @@ const CheckResults = () => {
         Array.isArray(commentsRec) &&
         commentsRec.map((comment) => ({
           name: comment.name,
-          comment: comment.description,
+          comment: comment.comment,
         })),
     };
     setRecipe(newRecipe);

@@ -98,11 +98,11 @@ const CommonSingleElement = ({
       ) : (
         <div></div>
       )}
-      {colorOff === "colorOff" ? (
+      {/*colorOff === "colorOff" ? (
         <div className="visible-icon">{icon}</div>
       ) : (
         <div>{icon}</div>
-      )}
+      )*/}
       <div className="common-element-container-inside-malt-description">
         <div className="common-element-container-inside-malt-description-section">
           <b>{body.name}</b>

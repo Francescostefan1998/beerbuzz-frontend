@@ -7,10 +7,12 @@ import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
 import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
 import BottomBar from "../../../bottomBar/BottomBar";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const RecipesList = () => {
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
+  const navigate = useNavigate();
   console.log(myRecipes);
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
@@ -25,10 +27,17 @@ const RecipesList = () => {
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
       <div className="common-selection-bigger-container">
-        <div className="recipesList-search">
-          <BsSearch className="search-icon" />
-          <input type="text" placeholder="Search here the name of your beer" />
-        </div>
+        {recipeSelected === "" ? (
+          <div className="recipesList-search">
+            <BsSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search here the name of your beer"
+            />
+          </div>
+        ) : (
+          <div></div>
+        )}
         <div className="recipesList-list">
           {recipeSelected === "" ? (
             myRecipes.map((recipe, i) => (
@@ -45,13 +54,69 @@ const RecipesList = () => {
             />
           )}
         </div>
-        <BottomBar
-          prew={"/home"}
-          next={"/home"}
-          proceedWater={""}
-          backWater={""}
-        />
+        {recipeSelected === "" ? (
+          <div className="bottomBar-list-proceed invisible-in-small-screen">
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => navigate("/home")}
+            >
+              Back
+            </div>
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => navigate("/home")}
+            >
+              Save and Proceed
+            </div>
+          </div>
+        ) : (
+          <div className="bottomBar-list-proceed invisible-in-small-screen">
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => setRecipeSelected("")}
+            >
+              Back
+            </div>
+            <div
+              className="bottomBar-list-proceed-button"
+              onClick={() => setRecipeSelected("")}
+            >
+              Save and Proceed
+            </div>
+          </div>
+        )}
       </div>
+      {recipeSelected === "" ? (
+        <div className="bottomBar-list-proceed invisible-in-big-screen">
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => navigate("/home")}
+          >
+            Back
+          </div>
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => navigate("/home")}
+          >
+            Save and Proceed
+          </div>
+        </div>
+      ) : (
+        <div className="bottomBar-list-proceed invisible-in-big-screen">
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => setRecipeSelected("")}
+          >
+            Back
+          </div>
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => setRecipeSelected("")}
+          >
+            Save and Proceed
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,8 +1,14 @@
+.showEntireRecipe {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
 .showEntireRecipe-top {
   width: 100%;
   height: 42vh;
   display: flex;
   padding: 6vh;
+  padding-bottom: 2vh;
   justify-content: space-between;
 }
 
@@ -17,11 +23,19 @@
 }
 
 .showEntireRecipe-middle {
-  width: 100%;
+  height: fit-content;
   padding: 6vh;
+  padding-block: 2vh;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+}
+.showEntireRecipe-bottom {
+  width: 100%;
+  height: fit-content;
+  padding: 4vh;
+  padding-bottom: 20vh;
+  text-align: left;
 }
 
 .showEntireRecipe-middle-left {
@@ -29,6 +43,68 @@
   width: 35%;
 }
 .showEntireRecipe-middle-right {
-  text-align: left;
-  width: 45%;
+  width: 55%;
+}
+.showEntireRecipe-comments {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.ingredients-others-single-icon-circle.showEntireRecipe {
+  padding: 0;
+  width: 50px;
+}
+.showEntireRecipe-comments .ingredients-others-single-grow1 input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+.showEntireRecipe-comments .ingredients-others-single-grow1 textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+@media (max-width: 768px) {
+  .showEntireRecipe-top {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    height: fit-content;
+    justify-content: flex-start;
+  }
+  .showEntireRecipe-top-left {
+    width: 100%;
+    height: fit-content;
+    font-size: 14px;
+  }
+  .showEntireRecipe-top-right {
+    width: 100%;
+    height: fit-content;
+    font-size: 14px;
+  }
+  .showEntireRecipe-middle {
+    height: fit-content;
+    padding: 2vh;
+    padding-block: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .showEntireRecipe-bottom {
+    padding: 2vh;
+    padding-bottom: 20vh;
+    font-size: 14px;
+  }
+  .showEntireRecipe-middle-left {
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+  }
+  .showEntireRecipe-middle-right {
+    width: 100%;
+    font-size: 14px;
+  }
 }
