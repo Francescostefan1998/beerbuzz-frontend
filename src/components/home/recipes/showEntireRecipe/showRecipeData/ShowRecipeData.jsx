@@ -16,7 +16,7 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>EBC:</strong>
               </div>
-              <div>{body.ebc}</div>
+              <div>{parseFloat(body.ebc).toFixed(2)}</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
@@ -48,19 +48,19 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>Batch Volume:</strong>
               </div>
-              <div>{body.batchVolume}</div>
+              <div>{body.batchVolume}L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Mash Volume:</strong>
               </div>
-              <div>{body.mashVolume}</div>
+              <div>{body.mashVolume}L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Sparge Volume:</strong>
               </div>
-              <div>200l</div>
+              <div>200L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
