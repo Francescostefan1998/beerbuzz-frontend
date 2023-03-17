@@ -109,22 +109,22 @@ const Fermentation = () => {
           </div>
         </div>
         <FermentationChart />
-        <div className="fermentation-bottom-section">
-          <div
-            className="fermentation-bottom-section-button"
-            onClick={() => navigate("/boil")}
-          >
-            Back
-          </div>
-          <div
-            className="fermentation-bottom-section-button"
-            onClick={() => {
-              saveSelected("Fermentation");
-              navigate("/check");
-            }}
-          >
-            Save and Go to Check Page
-          </div>
+      </div>
+      <div className="fermentation-bottom-section">
+        <div
+          className="fermentation-bottom-section-button"
+          onClick={() => navigate("/boil")}
+        >
+          Back
+        </div>
+        <div
+          className="fermentation-bottom-section-button"
+          onClick={() => {
+            saveSelected("Fermentation");
+            navigate("/check");
+          }}
+        >
+          Save and Go to Check Page
         </div>
       </div>
     </div>

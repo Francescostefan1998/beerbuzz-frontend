@@ -2,8 +2,9 @@ import "../commonEngredientsModal/commonEngredientsModal.css";
 import "./others.css";
 import { useState } from "react";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
-
+import { HiSearch } from "react-icons/hi";
 import AddOthers from "./addOthers/AddOthers";
+import { MdAddCircle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { addOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractOtherRecipeAction } from "../../../../../redux/actions/ingredients.js";
@@ -60,12 +61,31 @@ const Others = () => {
       <NavBar />
       {/*<NavbarIngredients prew="/yeasts" next="/mash" />*/}
       <div className="common-selection-bigger-container">
-        <div className="common-ingredients-container-inside">
-          <div className="common-ingredients-container-inside-section-top">
-            <div className="common-ingredients-container-inside-title">
-              <h2>Add a new Ingredients to your beer</h2>
+        <div className="common-ingredients-container-inside-section-top">
+          <div className="common-ingredients-container-inside-title">
+            <h2>Add a new Ingredients to your beer</h2>
+          </div>
+        </div>
+        <div className="common-ingredients-container-inside-search-outerContainer invisible-in-small-screen">
+          {" "}
+          <div className="common-ingredients-container-inside-search">
+            <div>
+              <HiSearch />
+            </div>
+            <div className="common-ingredients-container-inside-search-input">
+              <input type="text" placeholder="Search the product you need" />
             </div>
           </div>
+          <div className="common-ingredients-container-inside-icons">
+            <div
+              className="malts-container-inside-section-bottom-add"
+              onClick={() => {
+                add !== false ? setAdd(false) : setAdd(true);
+              }}
+            ></div>
+          </div>
+        </div>
+        <div className="common-ingredients-container-inside">
           <div className="common-ingredients-container-inside-section-middle">
             {engredientsFetched.length >= 1 ? (
               engredientsFetched.map((engredient, i) => (
@@ -79,25 +99,36 @@ const Others = () => {
                 />
               ))
             ) : (
-              <SingleOther engredient={engredients[0]} setAdd={setAdd} />
+              <>
+                <SingleOther engredient={engredients[0]} setAdd={setAdd} />
+              </>
             )}
             {add && (
               <AddOthers addRecipeAction={addRecipeAction} setAdd={setAdd} />
             )}
+            {!add && (
+              <div className="ingredients-others-single-icon-circle">
+                {" "}
+                <MdAddCircle
+                  className="ingredients-others-single-icon circle"
+                  onClick={() => setAdd(true)}
+                />
+              </div>
+            )}
           </div>
-          <div className="common-ingredients-container-inside-section-bottom">
-            <div className="button" onClick={() => navigate("/yeasts")}>
-              Back
-            </div>
-            <div
-              className="button"
-              onClick={() => {
-                dispatch(addOthersRecipeAction(others));
-                navigate("/mash");
-              }}
-            >
-              Save and proceed
-            </div>
+        </div>
+        <div className="common-ingredients-container-inside-section-bottom">
+          <div className="button" onClick={() => navigate("/yeasts")}>
+            Back
+          </div>
+          <div
+            className="button"
+            onClick={() => {
+              dispatch(addOthersRecipeAction(others));
+              navigate("/mash");
+            }}
+          >
+            Save and proceed
           </div>
         </div>
       </div>

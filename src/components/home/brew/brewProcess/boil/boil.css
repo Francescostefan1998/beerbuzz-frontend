@@ -1,14 +1,14 @@
 .boil {
   background-color: var(--background-dark);
   width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 .boil h1 {
   text-align: left;
 }
 .boil-overflow-scroll {
-  height: 88vh;
+  height: 78vh;
   padding-bottom: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -60,6 +60,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px;
+  padding-inline: 9vh;
 }
 .boil-bottom-section-button {
   padding: 6px;

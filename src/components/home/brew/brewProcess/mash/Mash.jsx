@@ -166,22 +166,22 @@ const Mash = () => {
             />
           </div>
         </div>
-        <div className="mash-bottom-section">
-          <div
-            className="mash-bottom-section-button"
-            onClick={() => navigate("/others")}
-          >
-            Back
-          </div>
-          <div
-            className="mash-bottom-section-button"
-            onClick={() => {
-              saveSelected("Mash");
-              navigate("/boil");
-            }}
-          >
-            Save and Go to Boil Page
-          </div>
+      </div>
+      <div className="mash-bottom-section">
+        <div
+          className="mash-bottom-section-button"
+          onClick={() => navigate("/others")}
+        >
+          Back
+        </div>
+        <div
+          className="mash-bottom-section-button"
+          onClick={() => {
+            saveSelected("Mash");
+            navigate("/boil");
+          }}
+        >
+          Save and Go to Boil Page
         </div>
       </div>
     </div>

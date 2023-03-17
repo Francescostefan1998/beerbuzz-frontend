@@ -164,22 +164,22 @@ const Boil = () => {
             />
           </div>
         </div>
-        <div className="boil-bottom-section">
-          <div
-            className="boil-bottom-section-button"
-            onClick={() => navigate("/mash")}
-          >
-            Back
-          </div>
-          <div
-            className="boil-bottom-section-button"
-            onClick={() => {
-              saveSelected("Boil");
-              navigate("/fermentation");
-            }}
-          >
-            Save and Go to Fermentation Page
-          </div>
+      </div>
+      <div className="boil-bottom-section">
+        <div
+          className="boil-bottom-section-button"
+          onClick={() => navigate("/mash")}
+        >
+          Back
+        </div>
+        <div
+          className="boil-bottom-section-button"
+          onClick={() => {
+            saveSelected("Boil");
+            navigate("/fermentation");
+          }}
+        >
+          Save and Go to Fermentation Page
         </div>
       </div>
     </div>

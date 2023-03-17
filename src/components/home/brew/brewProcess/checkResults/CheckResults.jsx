@@ -348,22 +348,22 @@ const CheckResults = () => {
         </div>
         <FermentationChart />
         <Comment />
-        <div className="checkResults-bottom-section">
-          <div
-            className="checkResults-bottom-section-button"
-            onClick={() => navigate("/fermentation")}
-          >
-            Back
-          </div>
-          <div
-            className="checkResults-bottom-section-button"
-            onClick={() => {
-              postANewRecipe(recipe);
-              navigate("/home");
-            }}
-          >
-            Save Recipe!!
-          </div>
+      </div>
+      <div className="checkResults-bottom-section">
+        <div
+          className="checkResults-bottom-section-button"
+          onClick={() => navigate("/fermentation")}
+        >
+          Back
+        </div>
+        <div
+          className="checkResults-bottom-section-button"
+          onClick={() => {
+            postANewRecipe(recipe);
+            navigate("/home");
+          }}
+        >
+          Save Recipe!!
         </div>
       </div>
     </div>
