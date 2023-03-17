@@ -28,29 +28,27 @@ const Fermentation = () => {
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const addRecipeAction = async (yeast) => {
-    await dispatch(addYeastRecipeAction(yeast));
+  const addRecipeAction = (yeast) => {
+    dispatch(addYeastRecipeAction(yeast));
     setRefresh(yeast._id);
   };
-  const subtractRecipeAction = async (yeast) => {
-    await dispatch(subtractYeastRecipeAction(yeast));
-    const newYeasts = await yeastsList.filter(
-      (yeasts) => yeasts._id !== yeast._id
-    );
+  const subtractRecipeAction = (yeast) => {
+    dispatch(subtractYeastRecipeAction(yeast));
+    const newYeasts = yeastsList.filter((yeasts) => yeasts._id !== yeast._id);
 
-    await dispatch(addYeastsRecipeAction(newYeasts));
+    dispatch(addYeastsRecipeAction(newYeasts));
     setRefresh(yeast._id);
   };
-  const addStepRecipeAction = async (step) => {
-    await dispatch(addFermentationStepRecipeAction(step));
+  const addStepRecipeAction = (step) => {
+    dispatch(addFermentationStepRecipeAction(step));
     setRefresh(step.name);
   };
-  const subtractStepRecipeAction = async (step) => {
-    await dispatch(subtractFermentationSteptRecipeAction(step));
+  const subtractStepRecipeAction = (step) => {
+    dispatch(subtractFermentationSteptRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const saveSelected = async (title) => {
-    await setRefresh(title);
+  const saveSelected = (title) => {
+    setRefresh(title);
     switch (title) {
       case "Fermentation":
         dispatch(addFermentationRecipeAction(fermentation));
@@ -60,56 +58,64 @@ const Fermentation = () => {
       default:
     }
   };
-  const addThisProduct = async (product) => {};
+  const addThisProduct = (product) => {};
   useEffect(() => {
     console.log(refresh);
   }, [refresh]);
   return (
-    <div className="fermentation">
-      <NavBar />
-      <div className="fermentation-overflow-scroll">
-        <div className="fermentation-top-section">
-          <div className="fermentation-top-section-left">
-            <BrewProcessCommonTitle select={"fermentation"} />
-          </div>
-          <div className="fermentation-top-section-right">
-            <div className="fermentation-top-section-right-container1">
-              {" "}
-              <ValueObtaining />
-            </div>
-            <div className="fermentation-top-section-right-container">
-              <ValueSuggested />
-            </div>
-          </div>
+    <>
+      <div className="navbar-visible-in-small-screen">
+        <NavBar />
+      </div>
+      <div className="fermentation">
+        <div className="navbar-visible-in-big-screen">
+          <NavBar />
         </div>
-        <MashWater setRefresh={setRefresh} />
 
-        <div className="fermentation-main-section">
-          <div className="fermentation-main-section-yeasts">
-            <h1>Yeasts And Bacteria</h1>
-            <CommonList
-              icon={<FaBacterium />}
-              colorOrIbu={"Attenuation (%)"}
-              title={"Yeasts and Bacteria"}
-              addProduct={addRecipeAction}
-              subtractProduct={subtractRecipeAction}
-              refresh={refresh}
-              colorOff={"colorOff"}
-              addThisProduct={addThisProduct}
-            />
+        <div className="fermentation-overflow-scroll">
+          <div className="fermentation-top-section">
+            <div className="fermentation-top-section-left">
+              <BrewProcessCommonTitle select={"fermentation"} />
+            </div>
+            <div className="fermentation-top-section-right">
+              <div className="fermentation-top-section-right-container1">
+                {" "}
+                <ValueObtaining />
+              </div>
+              <div className="fermentation-top-section-right-container">
+                <ValueSuggested />
+              </div>
+            </div>
           </div>
-          <div className="fermentation-main-section-process">
-            <h1>Fermentation</h1>
-            <CommonBrewStep
-              addStepRecipeAction={addStepRecipeAction}
-              subtractStepRecipeAction={subtractStepRecipeAction}
-              title={"Fermentation"}
-              refresh={refresh}
-            />
+          <MashWater setRefresh={setRefresh} />
+
+          <div className="fermentation-main-section">
+            <div className="fermentation-main-section-yeasts">
+              <h1>Yeasts And Bacteria</h1>
+              <CommonList
+                icon={<FaBacterium />}
+                colorOrIbu={"Attenuation (%)"}
+                title={"Yeasts and Bacteria"}
+                addProduct={addRecipeAction}
+                subtractProduct={subtractRecipeAction}
+                refresh={refresh}
+                colorOff={"colorOff"}
+                addThisProduct={addThisProduct}
+              />
+            </div>
+            <div className="fermentation-main-section-process">
+              <h1>Fermentation</h1>
+              <CommonBrewStep
+                addStepRecipeAction={addStepRecipeAction}
+                subtractStepRecipeAction={subtractStepRecipeAction}
+                title={"Fermentation"}
+                refresh={refresh}
+              />
+            </div>
           </div>
+          <FermentationChart />
         </div>
-        <FermentationChart />
-        <div className="fermentation-bottom-section">
+        <div className="fermentation-bottom-section visible-in-big-screen">
           <div
             className="fermentation-bottom-section-button"
             onClick={() => navigate("/boil")}
@@ -127,7 +133,24 @@ const Fermentation = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="fermentation-bottom-section visible-in-small-screen">
+        <div
+          className="fermentation-bottom-section-button"
+          onClick={() => navigate("/boil")}
+        >
+          Back
+        </div>
+        <div
+          className="fermentation-bottom-section-button"
+          onClick={() => {
+            saveSelected("Fermentation");
+            navigate("/check");
+          }}
+        >
+          Save and Go to Check Page
+        </div>
+      </div>
+    </>
   );
 };
 

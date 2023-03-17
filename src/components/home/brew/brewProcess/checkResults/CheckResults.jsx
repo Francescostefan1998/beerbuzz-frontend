@@ -3,7 +3,6 @@ import "../fermentation/fermentationChart/fermentationChart.css";
 import "../fermentation/fermentation.css";
 import "../boil/boil.css";
 import NavBar from "../../../navBar/NavBar";
-import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
 import BrewProcessCommonTitle from "../brewProcessCommonComponent/brewProcessCommonTitle/brewProcessCommonTitle";
 import ValueObtaining from "../brewProcessCommonComponent/valueObtaining/ValueObtaining";
 import ValueSuggested from "../brewProcessCommonComponent/valueSuggested/ValueSuggested";
@@ -20,8 +19,7 @@ import { useSelector } from "react-redux";
 import Comment from "../comments/Comment";
 import MashWater from "../mashWater/MashWater";
 const CheckResults = () => {
-  const [refresh, setRefresh] = useState("");
-  const [filledUp, setFilledUp] = useState(null);
+  const [refresh, setRefresh] = useState("refresh check page");
   const { others } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { hops } = useSelector((state) => state.recipeIngredient);
@@ -223,132 +221,139 @@ const CheckResults = () => {
   }, []);
 
   return (
-    <div className="checkResults">
-      <NavBar />
-      <div className="checkResults-overflow-scroll">
-        <div className="checkResults-top-section">
-          <div className="checkResults-top-section-left">
-            <BrewProcessCommonTitle select={"checkResults"} />
-          </div>
-          <div className="checkResults-top-section-right">
-            <div className="checkResults-top-section-right-container1">
-              {" "}
-              <ValueObtaining />
+    <>
+      <div className="navbar-visible-in-small-screen">
+        <NavBar />
+      </div>
+      <div className="mash">
+        <div className="navbar-visible-in-big-screen">
+          <NavBar />
+        </div>
+        <div className="checkResults-overflow-scroll">
+          <div className="checkResults-top-section">
+            <div className="checkResults-top-section-left">
+              <BrewProcessCommonTitle select={"checkResults"} />
             </div>
-            <div className="checkResults-top-section-right-container">
-              <ValueSuggested />
+            <div className="checkResults-top-section-right">
+              <div className="checkResults-top-section-right-container1">
+                {" "}
+                <ValueObtaining />
+              </div>
+              <div className="checkResults-top-section-right-container">
+                <ValueSuggested />
+              </div>
             </div>
           </div>
-        </div>
-        <MashWater setRefresh={setRefresh} />
+          <MashWater setRefresh={setRefresh} />
 
-        <div className="checkResults-main-section">
-          <div className="check-main-section-products">
-            <h1>
-              Malts
-              <button onClick={(e) => navigate("/mash")}>
-                GO TO MASH PAGE
-              </button>
-            </h1>
-            <CommonList
-              icon={<GiWheat />}
-              colorOrIbu={"Color (EBC)"}
-              title={"Mash"}
-              colorOff={"false"}
-              refresh={"refresh check page"}
-              addProduct={addProduct}
-              addThisProduct={addProduct}
-              subtractProduct={nonSenseFunction}
-            />
+          <div className="checkResults-main-section">
+            <div className="check-main-section-products">
+              <h1>
+                Malts
+                <button onClick={(e) => navigate("/mash")}>
+                  GO TO MASH PAGE
+                </button>
+              </h1>
+              <CommonList
+                icon={<GiWheat />}
+                colorOrIbu={"Color (EBC)"}
+                title={"Mash"}
+                colorOff={"false"}
+                refresh={"refresh check page"}
+                addProduct={addProduct}
+                addThisProduct={addProduct}
+                subtractProduct={nonSenseFunction}
+              />
+            </div>
+            <div className="checkResults-main-section-process">
+              <h1>
+                Mash{" "}
+                <button onClick={(e) => navigate("/mash")}>
+                  GO TO MASH PAGE
+                </button>
+              </h1>
+              <CommonBrewStep
+                addStepRecipeAction={nonSenseFunction}
+                subtractStepRecipeAction={nonSenseFunction}
+                refresh={"refresh check page"}
+                title={"Mash"}
+              />
+            </div>
           </div>
-          <div className="checkResults-main-section-process">
-            <h1>
-              Mash{" "}
-              <button onClick={(e) => navigate("/mash")}>
-                GO TO MASH PAGE
-              </button>
-            </h1>
-            <CommonBrewStep
-              addStepRecipeAction={nonSenseFunction}
-              subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
-              title={"Mash"}
-            />
-          </div>
-        </div>
-        <div className="boil-main-section">
-          <div className="check-main-section-products">
-            <h1>
-              Hops
-              <button onClick={(e) => navigate("/boil")}>
-                GO TO BOIL PAGE
-              </button>
-            </h1>
-            <CommonList
-              icon={<GiHops />}
-              colorOrIbu={"Alpha Acid (%)"}
-              title={"Hops"}
-              colorOff={"false"}
-              refresh={"refresh check page"}
-              addProduct={addProduct}
-              addThisProduct={addProduct}
-              subtractProduct={nonSenseFunction}
-            />
+          <div className="boil-main-section">
+            <div className="check-main-section-products">
+              <h1>
+                Hops
+                <button onClick={(e) => navigate("/boil")}>
+                  GO TO BOIL PAGE
+                </button>
+              </h1>
+              <CommonList
+                icon={<GiHops />}
+                colorOrIbu={"Alpha Acid (%)"}
+                title={"Hops"}
+                colorOff={"false"}
+                refresh={"refresh check page"}
+                addProduct={addProduct}
+                addThisProduct={addProduct}
+                subtractProduct={nonSenseFunction}
+              />
+            </div>
+
+            <div className="boil-main-section-process">
+              <h1>
+                Boil
+                <button onClick={(e) => navigate("/boil")}>
+                  GO TO BOIL PAGE
+                </button>
+              </h1>
+              <CommonBrewStep
+                addStepRecipeAction={nonSenseFunction}
+                subtractStepRecipeAction={nonSenseFunction}
+                refresh={"refresh check page"}
+                title={"Boil"}
+              />
+            </div>
           </div>
 
-          <div className="boil-main-section-process">
-            <h1>
-              Boil
-              <button onClick={(e) => navigate("/boil")}>
-                GO TO BOIL PAGE
-              </button>
-            </h1>
-            <CommonBrewStep
-              addStepRecipeAction={nonSenseFunction}
-              subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
-              title={"Boil"}
-            />
+          <div className="fermentation-main-section">
+            <div className="check-main-section-products">
+              <h1>
+                Yeasts And Bacteria
+                <button onClick={(e) => navigate("/fermentation")}>
+                  GO TO FERMENTATION PAGE
+                </button>
+              </h1>
+              <CommonList
+                icon={<FaBacterium />}
+                colorOrIbu={"Attenuation (%)"}
+                title={"Yeasts and Bacteria"}
+                colorOff={"false"}
+                refresh={"refresh check page"}
+                addThisProduct={addProduct}
+                addProduct={addProduct}
+                subtractProduct={nonSenseFunction}
+              />
+            </div>
+            <div className="fermentation-main-section-process">
+              <h1>
+                Fermentation
+                <button onClick={(e) => navigate("/fermentation")}>
+                  GO TO FERMENTATION PAGE
+                </button>
+              </h1>
+              <CommonBrewStep
+                addStepRecipeAction={nonSenseFunction}
+                subtractStepRecipeAction={nonSenseFunction}
+                refresh={"refresh check page"}
+                title={"Fermentation"}
+              />
+            </div>
           </div>
+          <FermentationChart />
+          <Comment />
         </div>
-
-        <div className="fermentation-main-section">
-          <div className="check-main-section-products">
-            <h1>
-              Yeasts And Bacteria
-              <button onClick={(e) => navigate("/fermentation")}>
-                GO TO FERMENTATION PAGE
-              </button>
-            </h1>
-            <CommonList
-              icon={<FaBacterium />}
-              colorOrIbu={"Attenuation (%)"}
-              title={"Yeasts and Bacteria"}
-              colorOff={"false"}
-              refresh={"refresh check page"}
-              addThisProduct={addProduct}
-              addProduct={addProduct}
-              subtractProduct={nonSenseFunction}
-            />
-          </div>
-          <div className="fermentation-main-section-process">
-            <h1>
-              Fermentation
-              <button onClick={(e) => navigate("/fermentation")}>
-                GO TO FERMENTATION PAGE
-              </button>
-            </h1>
-            <CommonBrewStep
-              addStepRecipeAction={nonSenseFunction}
-              subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
-              title={"Fermentation"}
-            />
-          </div>
-        </div>
-        <FermentationChart />
-        <Comment />
-        <div className="checkResults-bottom-section">
+        <div className="checkResults-bottom-section visible-in-big-screen">
           <div
             className="checkResults-bottom-section-button"
             onClick={() => navigate("/fermentation")}
@@ -366,7 +371,24 @@ const CheckResults = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="checkResults-bottom-section visible-in-small-screen">
+        <div
+          className="checkResults-bottom-section-button"
+          onClick={() => navigate("/fermentation")}
+        >
+          Back
+        </div>
+        <div
+          className="checkResults-bottom-section-button"
+          onClick={() => {
+            postANewRecipe(recipe);
+            navigate("/home");
+          }}
+        >
+          Save Recipe!!
+        </div>
+      </div>
+    </>
   );
 };
 

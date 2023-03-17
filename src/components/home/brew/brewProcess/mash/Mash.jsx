@@ -37,12 +37,14 @@ const Mash = () => {
   const maltsList = useSelector((state) => state.createRecipe.malts[0]);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
+  console.log(refresh);
   const [newProduct, setRefreshAddthisProduct] = useState("");
+  console.log(newProduct);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const saveSelected = async (title) => {
-    await setRefresh(title);
+  const saveSelected = (title) => {
+    setRefresh(title);
     switch (title) {
       case "Mash":
         dispatch(addMashRecipeAction(mash));
@@ -93,27 +95,32 @@ const Mash = () => {
 
     setRefresh("sumOfEbc" + originalGravity + ebcBeer + finalGravity);
   };
-  const addRecipeAction = async (malt) => {
-    await dispatch(addMaltRecipeAction(malt));
-    setRefresh(malt._id);
+  const addRecipeAction = (malt) => {
+    dispatch(addMaltRecipeAction(malt));
+    setRefresh(malt._id + malt.quatity);
   };
-  const subtractRecipeAction = async (malt) => {
-    await dispatch(subtractMaltRecipeAction(malt));
-    const newMalts = await maltsList.filter((malts) => malts._id !== malt._id);
+  const subtractRecipeAction = (malt) => {
+    dispatch(subtractMaltRecipeAction(malt));
+    const newMalts = maltsList.filter((malts) => malts._id !== malt._id);
 
-    await dispatch(addMaltsRecipeAction(newMalts));
-    setRefresh(malt._id);
+    dispatch(addMaltsRecipeAction(newMalts));
+    setRefresh(malt._id + malt.quantity);
   };
-  const addStepRecipeAction = async (step) => {
-    await dispatch(addMashStepRecipeAction(step));
+  const addStepRecipeAction = (step) => {
+    dispatch(addMashStepRecipeAction(step));
     setRefresh(step.name);
   };
-  const subtractStepRecipeAction = async (step) => {
-    await dispatch(subtractMashStepRecipeAction(step));
+  const subtractStepRecipeAction = (step) => {
+    dispatch(subtractMashStepRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const addThisProduct = async (product) => {
+  const addThisProduct = (product) => {
     setRefreshAddthisProduct(product);
+    setTimeout(() => {
+      calculateAverageEbcAndYeld();
+    }, 500);
+
+    setRefresh(product);
   };
 
   useEffect(() => {
@@ -123,50 +130,58 @@ const Mash = () => {
   }, [refresh, newProduct]);
 
   return (
-    <div className="mash">
-      <NavBar />
-      <div className="mash-overflow-scroll">
-        <div className="mash-top-section">
-          <div className="mash-top-section-left">
-            <BrewProcessCommonTitle select={"mash"} />
-          </div>
-          <div className="mash-top-section-right">
-            <div className="mash-top-section-right-container1">
-              {" "}
-              <ValueObtaining refresh={refresh} />
-            </div>
-            <div className="mash-top-section-right-container">
-              <ValueSuggested />
-            </div>
-          </div>
+    <>
+      <div className="navbar-visible-in-small-screen">
+        <NavBar />
+      </div>
+      <div className="mash">
+        <div className="navbar-visible-in-big-screen">
+          <NavBar />
         </div>
-        <MashWater setRefresh={setRefresh} />
 
-        <div className="mash-main-section">
-          <div className="mash-main-section-malts">
-            <h1>Malts</h1>
-            <CommonList
-              icon={<GiWheat />}
-              colorOrIbu={"Color (EBC)"}
-              title={"Mash"}
-              addProduct={addRecipeAction}
-              subtractProduct={subtractRecipeAction}
-              refresh={refresh}
-              colorOff={"colorOff"}
-              addThisProduct={addThisProduct}
-            />
+        <div className="mash-overflow-scroll">
+          <div className="mash-top-section">
+            <div className="mash-top-section-left">
+              <BrewProcessCommonTitle select={"mash"} />
+            </div>
+            <div className="mash-top-section-right">
+              <div className="mash-top-section-right-container1">
+                {" "}
+                <ValueObtaining refresh={refresh} />
+              </div>
+              <div className="mash-top-section-right-container">
+                <ValueSuggested />
+              </div>
+            </div>
           </div>
-          <div className="mash-main-section-process">
-            <h1>Mash</h1>
-            <CommonBrewStep
-              addStepRecipeAction={addStepRecipeAction}
-              subtractStepRecipeAction={subtractStepRecipeAction}
-              refresh={refresh}
-              title={"Mash"}
-            />
+          <MashWater setRefresh={setRefresh} />
+
+          <div className="mash-main-section">
+            <div className="mash-main-section-malts">
+              <h1>Malts</h1>
+              <CommonList
+                icon={<GiWheat />}
+                colorOrIbu={"Color (EBC)"}
+                title={"Mash"}
+                addProduct={addRecipeAction}
+                subtractProduct={subtractRecipeAction}
+                refresh={refresh}
+                colorOff={"colorOff"}
+                addThisProduct={addThisProduct}
+              />
+            </div>
+            <div className="mash-main-section-process">
+              <h1>Mash</h1>
+              <CommonBrewStep
+                addStepRecipeAction={addStepRecipeAction}
+                subtractStepRecipeAction={subtractStepRecipeAction}
+                refresh={refresh}
+                title={"Mash"}
+              />
+            </div>
           </div>
         </div>
-        <div className="mash-bottom-section">
+        <div className="mash-bottom-section visible-in-big-screen">
           <div
             className="mash-bottom-section-button"
             onClick={() => navigate("/others")}
@@ -184,7 +199,24 @@ const Mash = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="mash-bottom-section visible-in-small-screen">
+        <div
+          className="mash-bottom-section-button"
+          onClick={() => navigate("/others")}
+        >
+          Back
+        </div>
+        <div
+          className="mash-bottom-section-button"
+          onClick={() => {
+            saveSelected("Mash");
+            navigate("/boil");
+          }}
+        >
+          Save and Go to Boil Page
+        </div>
+      </div>
+    </>
   );
 };
 

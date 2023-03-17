@@ -23,6 +23,31 @@ const CommonSingleElement = ({
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
   const { others } = useSelector((state) => state.recipeIngredient);
+  const [startX, setStartX] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+
+  const handleTouchStart = (e) => {
+    setStartX(e.touches[0].clientX);
+    setIsSwiping(false);
+  };
+
+  const handleTouchMove = (e) => {
+    const currentX = e.touches[0].clientX;
+    const diffX = startX - currentX;
+
+    if (Math.abs(diffX) > 50) {
+      // check if user has swiped enough
+      setIsSwiping(true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (isSwiping) {
+      subtractProduct({ ...body, quantity: 0 });
+    }
+    setIsSwiping(false);
+  };
+
   const verifyIfSelected = (title) => {
     switch (title) {
       case "Fermentable":
@@ -88,6 +113,9 @@ const CommonSingleElement = ({
       className="common-element-container-inside-malt"
       id={colorOff !== "colorOff" ? selected : "colorOff"}
       onClick={() => handleMainClick()}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {colorOff === "colorOff" ? (
         <div className="visible-trash">

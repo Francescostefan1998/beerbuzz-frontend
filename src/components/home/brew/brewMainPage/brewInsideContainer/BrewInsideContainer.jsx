@@ -32,7 +32,10 @@ const BrewInsideContainer = ({ block }) => {
         </Col>
       </Row>
       <Row className={`brewMainPage-row ${block}`}>
-        <Col className={`brewMainPage-section ${block}`}>
+        <Col
+          className={`brewMainPage-section ${block}`}
+          onClick={() => navigate("/mash")}
+        >
           <img
             src="https://i.pinimg.com/originals/ec/2b/57/ec2b5789fa7128f5f178aac22c15fc16.jpg"
             alt="grain"
@@ -40,7 +43,10 @@ const BrewInsideContainer = ({ block }) => {
           <h2>Mash</h2>
           <div className="brewMainPage-step">3</div>
         </Col>
-        <Col className={`brewMainPage-section ${block}`}>
+        <Col
+          className={`brewMainPage-section ${block}`}
+          onClick={() => navigate("/boil")}
+        >
           <img
             src="https://media.istockphoto.com/vectors/hops-seamless-pattern-vector-illustration-background-with-hop-hand-vector-id1350080899?s=612x612"
             alt="hops"
@@ -51,7 +57,10 @@ const BrewInsideContainer = ({ block }) => {
         </Col>
       </Row>
       <Row className={`brewMainPage-row ${block}`}>
-        <Col className={`brewMainPage-section ${block}`}>
+        <Col
+          className={`brewMainPage-section ${block}`}
+          onClick={() => navigate("/fermentation")}
+        >
           <img
             src="https://th.bing.com/th/id/R.b21ed8463990bcbec9f59fcf9008e6f8?rik=x5zavyRiVngscA&riu=http%3a%2f%2fetc.usf.edu%2fclipart%2f15400%2f15447%2fgrwyeastcell_15447_md.gif&ehk=WkfyJJg0H6T1cSkozZXbWz24YqAKzBGFgZOW%2fM9hIT4%3d&risl=&pid=ImgRaw&r=0"
             alt="yeast"
@@ -64,7 +73,10 @@ const BrewInsideContainer = ({ block }) => {
           <h2>Fermentation</h2>
           <div className="brewMainPage-step">5</div>
         </Col>
-        <Col className={`brewMainPage-section ${block}`}>
+        <Col
+          className={`brewMainPage-section ${block}`}
+          onClick={() => navigate("/check")}
+        >
           <img
             src="https://th.bing.com/th/id/OIP.L1fecSeXJixZLAYWMGeSCQHaEA?pid=ImgDet&w=718&h=388&rs=1"
             alt="results"

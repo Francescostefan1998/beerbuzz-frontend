@@ -116,13 +116,7 @@ const SingleOther = ({
           Desc: {engredient.description}
         </div>
       )}{" "}
-      <div className="ingredients-others-single-icon-circle">
-        {" "}
-        <MdAddCircle
-          className="ingredients-others-single-icon circle"
-          onClick={() => setAdd(true)}
-        />
-      </div>
+      
     </>
   );
 };

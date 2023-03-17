@@ -62,7 +62,7 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
         </div>
       )}
       {refresh === "refresh check page" ? (
-        <div className="commonBrewStep-others-single-grow1 flex-grow3">
+        <div className="commonBrewStep-others-single-grow1 flex-grow3-checkPage">
           <div className="none">Description: {body.description}</div>
         </div>
       ) : (

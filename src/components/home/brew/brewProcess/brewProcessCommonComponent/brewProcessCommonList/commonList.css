@@ -60,8 +60,11 @@
   }
 }
 
-@media (max-width: 468px) {
+@media (max-width: 514px) {
   .commonList {
     padding: 0px;
+  }
+  .commonList-element {
+    padding-right: 1.6vh;
   }
 }

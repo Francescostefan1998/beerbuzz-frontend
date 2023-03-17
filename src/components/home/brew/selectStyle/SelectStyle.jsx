@@ -6,20 +6,24 @@ import StyleSingleElement from "./styleSigleElement/StyleSingleElement";
 import NavBar from "../../navBar/NavBar";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { addStyleAction } from "../../../../redux/actions/style";
+import { useDispatch } from "react-redux";
 const SelectStyle = () => {
   const [show, setShow] = useState(false);
+  const [myBodyBeer, bodyToDispatch] = useState(null);
+  const [allowSelection, setAllowSelection] = useState("m");
   const [beerList, setBeerList] = useState([]);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const fetchAllStyles = async () => {
     const res = await fetch("http://localhost:3001/beers");
     const data = await res.json();
-    console.log(data);
     await setBeerList(data);
   };
+
   useEffect(() => {
     fetchAllStyles();
-  }, []);
+  }, [allowSelection]);
   return (
     <div className="selectStyle">
       <NavBar />
@@ -41,24 +45,30 @@ const SelectStyle = () => {
                 setPropsShow={setShow}
                 key={beer._id}
                 body={beer}
+                setAllowSelection={setAllowSelection}
+                allowSelection={allowSelection}
+                bodyToDispatch={bodyToDispatch}
               />
             ))}
           {!beerList && (
             <StyleSingleElement propsShow={show} setPropsShow={setShow} />
           )}
-          <div className="selectStyle-list-proceed">
-            <div
-              className="selectStyle-list-proceed-button"
-              onClick={() => navigate("/brew")}
-            >
-              Back
-            </div>
-            <div
-              className="selectStyle-list-proceed-button"
-              onClick={() => navigate("/water")}
-            >
-              Save and Proceed
-            </div>
+        </div>
+        <div className="selectStyle-list-proceed">
+          <div
+            className="selectStyle-list-proceed-button"
+            onClick={() => navigate("/brew")}
+          >
+            Back
+          </div>
+          <div
+            className="selectStyle-list-proceed-button"
+            onClick={() => {
+              dispatch(addStyleAction(myBodyBeer));
+              navigate("/water");
+            }}
+          >
+            Save and Proceed
           </div>
         </div>
       </div>

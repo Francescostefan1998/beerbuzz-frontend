@@ -20,15 +20,19 @@ import BottomBar from "../../../../bottomBar/BottomBar";
 import { useEffect } from "react";
 const Water = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState("water");
+  const [step, setStep] = useState("closed");
   const [myZindex, setZindexPriority] = useState("");
   const [proceed, setProceed] = useState("waterSourceData");
   const [back, setBack] = useState("selectstyle");
   const setBackAndForth = (step) => {
     switch (step) {
+      case "closed":
+        setProceed("waterSourceData");
+        setBack("selectstyle");
+        break;
       case "waterSourceData":
         setProceed("residualAlkalinityTarger");
-        setBack("water");
+        setBack("closed");
         break;
       case "residualAlkalinityTarger":
         setProceed("souceWaterDiluition");
@@ -85,20 +89,24 @@ const Water = () => {
           <h2>Water</h2>
         </div>
         <div className="water-list">
-          <div
-            className="water-list-element"
-            onClick={() => setStep("waterSourceData")}
-          >
-            <div>
-              <IoWaterOutline className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("waterSourceData")}
+            >
               <div>
-                <h5>Step 1: Source Water Data</h5>
+                <IoWaterOutline className="icon" />
               </div>
-              <div>Enter Source Water Profile </div>
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 1: Source Water Data</h5>
+                </div>
+                <div>Enter Source Water Profile </div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "waterSourceData" ? (
             <WaterSourceData
               setModal={setStep}
@@ -108,22 +116,26 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("residualAlkalinityTarger")}
-          >
-            <div>
-              <FiTarget className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("residualAlkalinityTarger")}
+            >
               <div>
-                <h5>Step 2: Residual Alkalinity Target</h5>
+                <FiTarget className="icon" />
               </div>
-              <div>
-                Enter your target RA and the water volume to be adjusted
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 2: Residual Alkalinity Target</h5>
+                </div>
+                <div>
+                  Enter your target RA and the water volume to be adjusted
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "residualAlkalinityTarger" ? (
             <ResidualAlkalinity
               setModal={setStep}
@@ -133,20 +145,24 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("souceWaterDiluition")}
-          >
-            <div>
-              <IoIosWater className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("souceWaterDiluition")}
+            >
               <div>
-                <h5>Step 3: Source Water Diluition</h5>
+                <IoIosWater className="icon" />
               </div>
-              <div>Diluite source water with distilled water</div>
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 3: Source Water Diluition</h5>
+                </div>
+                <div>Diluite source water with distilled water</div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "souceWaterDiluition" ? (
             <SourceWaterDiluition
               setModal={setStep}
@@ -156,20 +172,24 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("saltAdditions")}
-          >
-            <div>
-              <TbSalt className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("saltAdditions")}
+            >
               <div>
-                <h5>Step 4: Salt Additions</h5>
+                <TbSalt className="icon" />
               </div>
-              <div>Add various salt to boots ion levels</div>
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 4: Salt Additions</h5>
+                </div>
+                <div>Add various salt to boots ion levels</div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "saltAdditions" ? (
             <SaltAdditions
               setModal={setStep}
@@ -179,20 +199,24 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("acidAdditions")}
-          >
-            <div>
-              <GiAcid className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("acidAdditions")}
+            >
               <div>
-                <h5>Step 5: Acid Additions</h5>
+                <GiAcid className="icon" />
               </div>
-              <div>Suggested Acid Additions to help reach your RA target</div>
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 5: Acid Additions</h5>
+                </div>
+                <div>Suggested Acid Additions to help reach your RA target</div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "acidAdditions" ? (
             <AcidAdditions
               setModal={setStep}
@@ -203,22 +227,26 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("adjustedWaterResults")}
-          >
-            <div>
-              <FaEquals className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("adjustedWaterResults")}
+            >
               <div>
-                <h5>Step 6: Adjusted Water Results</h5>
+                <FaEquals className="icon" />
               </div>
-              <div>
-                Compare your results with the suggested ranges for the style
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 6: Adjusted Water Results</h5>
+                </div>
+                <div>
+                  Compare your results with the suggested ranges for the style
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "adjustedWaterResults" ? (
             <AdjustedWaterResults
               setModal={setStep}
@@ -228,23 +256,27 @@ const Water = () => {
           ) : (
             <div></div>
           )}
-          <div
-            className="water-list-element"
-            onClick={() => setStep("spargeWaterAcidification")}
-          >
-            <div>
-              <GiChemicalDrop className="icon" />
-            </div>
-            <div className="water-list-element-tile">
+          {step === "closed" ? (
+            <div
+              className="water-list-element"
+              onClick={() => setStep("spargeWaterAcidification")}
+            >
               <div>
-                <h5>Step 7: Sparge Water Acidification</h5>
+                <GiChemicalDrop className="icon" />
               </div>
-              <div>
-                Optional: if sparge water is being treated separately from mash
-                water
+              <div className="water-list-element-tile">
+                <div>
+                  <h5>Step 7: Sparge Water Acidification</h5>
+                </div>
+                <div>
+                  Optional: if sparge water is being treated separately from
+                  mash water
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
           {step === "spargeWaterAcidification" ? (
             <SpargeWaterAcidification
               setModal={setStep}
@@ -259,6 +291,7 @@ const Water = () => {
         <div className="water-bottom-bar-visible-when-big-display">
           <BottomBar
             proceedWater={proceed}
+            prew={"/selectstyle"}
             backWater={back}
             setStepWater={setStep}
             style={{ zIndex: `${myZindex}` }}

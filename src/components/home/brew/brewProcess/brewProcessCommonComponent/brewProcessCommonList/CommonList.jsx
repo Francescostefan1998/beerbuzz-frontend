@@ -29,6 +29,7 @@ const CommonList = ({
   const recipeYeasts = useSelector((state) => state.createRecipe.yeasts);
 
   const dispatch = useDispatch();
+
   const verifyIfSelected = (title, refresh) => {
     if (refresh === "refresh check page") {
       switch (title) {
@@ -91,28 +92,28 @@ const CommonList = ({
     }
   };
 
-  const handleQuantity = async (body, value) => {
+  const handleQuantity = (body, value) => {
     const index = selectedList.findIndex((product) => product._id === body._id);
     if (index !== -1) {
-      const newList = await [...selectedList];
-      newList[index] = await { ...selectedList[index], quantity: value };
+      const newList = [...selectedList];
+      newList[index] = { ...selectedList[index], quantity: value };
       switch (title) {
         case "Mash":
-          await dispatch(addMaltsRecipeAction(newList));
-          await setSelected(newList);
-
+          dispatch(addMaltsRecipeAction(newList));
+          setSelected(newList);
+          console.log(value);
           addThisProduct(value);
           break;
         case "Hops":
-          await dispatch(addHopsRecipeAction(newList));
-          await setSelected(newList);
+          dispatch(addHopsRecipeAction(newList));
+          setSelected(newList);
 
           addThisProduct(value);
 
           break;
         case "Yeasts and Bacteria":
-          await dispatch(addYeastsRecipeAction(newList));
-          await setSelected(newList);
+          dispatch(addYeastsRecipeAction(newList));
+          setSelected(newList);
 
           addThisProduct(value);
 
@@ -132,10 +133,7 @@ const CommonList = ({
   }, [refresh, title]);
   return (
     <div className="commonList">
-      <div className="commonList-title">
-        <h3>Products</h3>
-        <div>-</div>
-      </div>
+      <div className="commonList-title"></div>
       <div>
         {Array.isArray(selectedList) &&
           selectedList.map((body, i) => (
@@ -156,7 +154,7 @@ const CommonList = ({
                 {colorOff === "colorOff" ? (
                   <input
                     type="number"
-                    placeholder="0.000kg"
+                    placeholder="0.00"
                     onChange={(e) => handleQuantity(body, e.target.value)}
                   />
                 ) : (

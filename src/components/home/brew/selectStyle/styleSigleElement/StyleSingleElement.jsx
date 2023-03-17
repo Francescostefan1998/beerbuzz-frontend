@@ -7,19 +7,21 @@ import { FaCompressArrowsAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addStyleAction } from "../../../../../redux/actions/style";
 import { IoMdBeer } from "react-icons/io";
-const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
-  const [show, setShow] = useState(false);
+const StyleSingleElement = ({
+  propsShow,
+  setPropsShow,
+  body,
+  setAllowSelection,
+  allowSelection,
+  bodyToDispatch,
+}) => {
   const [description, setDescription] = useState(false);
   const dispatch = useDispatch();
-  useEffect(() => {}, [propsShow]);
+  useEffect(() => {}, [propsShow, allowSelection]);
   const handleShowClick = async () => {
     await setPropsShow(false);
-    if (!show) {
-      setShow(true);
-      dispatch(addStyleAction(body));
-    } else {
-      setShow(false);
-    }
+    await setAllowSelection(body._id);
+    bodyToDispatch(body);
   };
   const handleDescription = (description) => {
     if (description) {
@@ -30,9 +32,16 @@ const StyleSingleElement = ({ propsShow, setPropsShow, body }) => {
   };
   return (
     <>
-      <div className="selectStyle-list-element" onClick={handleShowClick}>
+      <div
+        className="selectStyle-list-element"
+        onClick={() => handleShowClick()}
+      >
         <div className="selectStyle-list-circle">
-          {show && <div className="selectStyle-list-ball"></div>}
+          {allowSelection === body._id ? (
+            <div className="selectStyle-list-ball"></div>
+          ) : (
+            <div></div>
+          )}
         </div>
         <IoMdBeer />
         <h4>{body.name}</h4>
