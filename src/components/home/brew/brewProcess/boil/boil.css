@@ -103,6 +103,18 @@
   height: 25vh;
   padding-right: 5vh;
 }
+@media (max-width: 1150px) {
+  .boil-top-section-right-container1 {
+    width: 48vh;
+    height: 25vh;
+  }
+  .boil-top-section-right-container {
+    width: 50vh;
+    height: 25vh;
+    padding-right: 5vh;
+  }
+}
+
 @media (max-width: 1024px) {
   .boil-top-section {
     flex-direction: column;

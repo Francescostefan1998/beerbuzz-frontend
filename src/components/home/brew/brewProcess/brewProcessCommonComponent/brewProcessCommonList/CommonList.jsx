@@ -29,6 +29,7 @@ const CommonList = ({
   const recipeYeasts = useSelector((state) => state.createRecipe.yeasts);
 
   const dispatch = useDispatch();
+
   const verifyIfSelected = (title, refresh) => {
     if (refresh === "refresh check page") {
       switch (title) {
@@ -153,7 +154,7 @@ const CommonList = ({
                 {colorOff === "colorOff" ? (
                   <input
                     type="number"
-                    placeholder="0.000kg"
+                    placeholder="0.00"
                     onChange={(e) => handleQuantity(body, e.target.value)}
                   />
                 ) : (

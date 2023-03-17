@@ -130,51 +130,76 @@ const Mash = () => {
   }, [refresh, newProduct]);
 
   return (
-    <div className="mash">
-      <NavBar />
-      <div className="mash-overflow-scroll">
-        <div className="mash-top-section">
-          <div className="mash-top-section-left">
-            <BrewProcessCommonTitle select={"mash"} />
-          </div>
-          <div className="mash-top-section-right">
-            <div className="mash-top-section-right-container1">
-              {" "}
-              <ValueObtaining refresh={refresh} />
+    <>
+      <div className="navbar-visible-in-small-screen">
+        <NavBar />
+      </div>
+      <div className="mash">
+        <div className="navbar-visible-in-big-screen">
+          <NavBar />
+        </div>
+
+        <div className="mash-overflow-scroll">
+          <div className="mash-top-section">
+            <div className="mash-top-section-left">
+              <BrewProcessCommonTitle select={"mash"} />
             </div>
-            <div className="mash-top-section-right-container">
-              <ValueSuggested />
+            <div className="mash-top-section-right">
+              <div className="mash-top-section-right-container1">
+                {" "}
+                <ValueObtaining refresh={refresh} />
+              </div>
+              <div className="mash-top-section-right-container">
+                <ValueSuggested />
+              </div>
+            </div>
+          </div>
+          <MashWater setRefresh={setRefresh} />
+
+          <div className="mash-main-section">
+            <div className="mash-main-section-malts">
+              <h1>Malts</h1>
+              <CommonList
+                icon={<GiWheat />}
+                colorOrIbu={"Color (EBC)"}
+                title={"Mash"}
+                addProduct={addRecipeAction}
+                subtractProduct={subtractRecipeAction}
+                refresh={refresh}
+                colorOff={"colorOff"}
+                addThisProduct={addThisProduct}
+              />
+            </div>
+            <div className="mash-main-section-process">
+              <h1>Mash</h1>
+              <CommonBrewStep
+                addStepRecipeAction={addStepRecipeAction}
+                subtractStepRecipeAction={subtractStepRecipeAction}
+                refresh={refresh}
+                title={"Mash"}
+              />
             </div>
           </div>
         </div>
-        <MashWater setRefresh={setRefresh} />
-
-        <div className="mash-main-section">
-          <div className="mash-main-section-malts">
-            <h1>Malts</h1>
-            <CommonList
-              icon={<GiWheat />}
-              colorOrIbu={"Color (EBC)"}
-              title={"Mash"}
-              addProduct={addRecipeAction}
-              subtractProduct={subtractRecipeAction}
-              refresh={refresh}
-              colorOff={"colorOff"}
-              addThisProduct={addThisProduct}
-            />
+        <div className="mash-bottom-section visible-in-big-screen">
+          <div
+            className="mash-bottom-section-button"
+            onClick={() => navigate("/others")}
+          >
+            Back
           </div>
-          <div className="mash-main-section-process">
-            <h1>Mash</h1>
-            <CommonBrewStep
-              addStepRecipeAction={addStepRecipeAction}
-              subtractStepRecipeAction={subtractStepRecipeAction}
-              refresh={refresh}
-              title={"Mash"}
-            />
+          <div
+            className="mash-bottom-section-button"
+            onClick={() => {
+              saveSelected("Mash");
+              navigate("/boil");
+            }}
+          >
+            Save and Go to Boil Page
           </div>
         </div>
       </div>
-      <div className="mash-bottom-section">
+      <div className="mash-bottom-section visible-in-small-screen">
         <div
           className="mash-bottom-section-button"
           onClick={() => navigate("/others")}
@@ -191,7 +216,7 @@ const Mash = () => {
           Save and Go to Boil Page
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

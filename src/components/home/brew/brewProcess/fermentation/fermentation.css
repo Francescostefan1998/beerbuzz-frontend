@@ -102,7 +102,17 @@
   height: 25vh;
   padding-right: 5vh;
 }
-
+@media (max-width: 1150px) {
+  .fermentation-top-section-right-container1 {
+    width: 48vh;
+    height: 25vh;
+  }
+  .fermentation-top-section-right-container {
+    width: 50vh;
+    height: 25vh;
+    padding-right: 5vh;
+  }
+}
 @media (max-width: 1024px) {
   .fermentation-top-section {
     flex-direction: column;
