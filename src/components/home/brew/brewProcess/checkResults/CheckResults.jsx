@@ -3,7 +3,6 @@ import "../fermentation/fermentationChart/fermentationChart.css";
 import "../fermentation/fermentation.css";
 import "../boil/boil.css";
 import NavBar from "../../../navBar/NavBar";
-import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
 import BrewProcessCommonTitle from "../brewProcessCommonComponent/brewProcessCommonTitle/brewProcessCommonTitle";
 import ValueObtaining from "../brewProcessCommonComponent/valueObtaining/ValueObtaining";
 import ValueSuggested from "../brewProcessCommonComponent/valueSuggested/ValueSuggested";
@@ -20,8 +19,7 @@ import { useSelector } from "react-redux";
 import Comment from "../comments/Comment";
 import MashWater from "../mashWater/MashWater";
 const CheckResults = () => {
-  const [refresh, setRefresh] = useState("");
-  const [filledUp, setFilledUp] = useState(null);
+  const [refresh, setRefresh] = useState("refresh check page");
   const { others } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { hops } = useSelector((state) => state.recipeIngredient);
@@ -271,7 +269,7 @@ const CheckResults = () => {
             <CommonBrewStep
               addStepRecipeAction={nonSenseFunction}
               subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
+              refresh={"refresh check page"}
               title={"Mash"}
             />
           </div>
@@ -306,7 +304,7 @@ const CheckResults = () => {
             <CommonBrewStep
               addStepRecipeAction={nonSenseFunction}
               subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
+              refresh={"refresh check page"}
               title={"Boil"}
             />
           </div>
@@ -341,7 +339,7 @@ const CheckResults = () => {
             <CommonBrewStep
               addStepRecipeAction={nonSenseFunction}
               subtractStepRecipeAction={nonSenseFunction}
-              refresh={refresh}
+              refresh={"refresh check page"}
               title={"Fermentation"}
             />
           </div>

@@ -32,26 +32,26 @@ const Boil = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [refresh, setRefresh] = useState("");
-  const addRecipeAction = async (hop) => {
-    await dispatch(addHopRecipeAction(hop));
+  const addRecipeAction = (hop) => {
+    dispatch(addHopRecipeAction(hop));
     setRefresh(hop._id);
   };
-  const subtractRecipeAction = async (hop) => {
-    await dispatch(subtractHopRecipeAction(hop));
-    const newHops = await hops.filter((hops) => hops._id !== hop._id);
-    await dispatch(addHopsRecipeAction(newHops));
+  const subtractRecipeAction = (hop) => {
+    dispatch(subtractHopRecipeAction(hop));
+    const newHops = hops.filter((hops) => hops._id !== hop._id);
+    dispatch(addHopsRecipeAction(newHops));
     setRefresh(hop._id);
   };
-  const addStepRecipeAction = async (step) => {
-    await dispatch(addBoilStepRecipeAction(step));
+  const addStepRecipeAction = (step) => {
+    dispatch(addBoilStepRecipeAction(step));
     setRefresh(step.name);
   };
-  const subtractStepRecipeAction = async (step) => {
-    await dispatch(subtractBoilStepRecipeAction(step));
+  const subtractStepRecipeAction = (step) => {
+    dispatch(subtractBoilStepRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const saveSelected = async (title) => {
-    await setRefresh(title);
+  const saveSelected = (title) => {
+    setRefresh(title);
     switch (title) {
       case "Boil":
         dispatch(addBoilRecipeAction(boil));

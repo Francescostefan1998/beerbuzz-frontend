@@ -5,7 +5,8 @@
   overflow: hidden;
 }
 .fermentation h1 {
-  text-align: left;
+  text-align: center;
+  margin-block: 1vh;
 }
 .fermentation-overflow-scroll {
   height: 78vh;
@@ -13,9 +14,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.fermentation-main-section-yeasts h1 {
-  padding-left: 30px;
-}
+
 .fermentation-top-section {
   display: flex;
   height: 28vh;
@@ -28,6 +27,7 @@
 
 .fermentation-top-section-right {
   box-sizing: border-box;
+  justify-content: space-between;
 
   display: flex;
   flex-grow: 1;
@@ -93,8 +93,14 @@
 }
 
 .fermentation-top-section-right-container1 {
-  width: 60vh;
+  width: 58vh;
   height: 25vh;
+}
+
+.fermentation-top-section-right-container {
+  width: 50vh;
+  height: 25vh;
+  padding-right: 5vh;
 }
 
 @media (max-width: 1024px) {

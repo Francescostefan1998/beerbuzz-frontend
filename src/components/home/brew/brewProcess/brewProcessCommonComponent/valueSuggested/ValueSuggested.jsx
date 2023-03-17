@@ -15,11 +15,11 @@ const ValueSuggested = () => {
     <div className="valueObtaining">
       <div className="valueObtaining-section">
         <div className="valueObtaining-section-title">
-          <b>Style: {style && style.name}</b>
+          <b>Style: </b>
         </div>
 
         <div className="valueObtaining-section-input">
-          <div></div>{" "}
+          <div>{style && style.name}</div>{" "}
         </div>
       </div>
       <div className="valueObtaining-section">

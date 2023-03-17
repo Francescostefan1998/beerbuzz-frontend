@@ -5,16 +5,14 @@
   overflow: hidden;
 }
 .boil h1 {
-  text-align: left;
+  text-align: center;
+  margin-block: 1vh;
 }
 .boil-overflow-scroll {
   height: 78vh;
   padding-bottom: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-.boil-main-section-hops h1 {
-  padding-left: 30px;
 }
 
 .boil-top-section {
@@ -30,6 +28,8 @@
 .boil-top-section-right {
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
+
   flex-grow: 1;
   gap: 50px;
 }
@@ -94,10 +94,15 @@
 }
 
 .boil-top-section-right-container1 {
-  width: 60vh;
+  width: 58vh;
   height: 25vh;
 }
 
+.boil-top-section-right-container {
+  width: 50vh;
+  height: 25vh;
+  padding-right: 5vh;
+}
 @media (max-width: 1024px) {
   .boil-top-section {
     flex-direction: column;

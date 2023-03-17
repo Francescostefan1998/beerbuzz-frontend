@@ -132,10 +132,7 @@ const CommonList = ({
   }, [refresh, title]);
   return (
     <div className="commonList">
-      <div className="commonList-title">
-        <h3>Products</h3>
-        <div>-</div>
-      </div>
+      <div className="commonList-title"></div>
       <div>
         {Array.isArray(selectedList) &&
           selectedList.map((body, i) => (

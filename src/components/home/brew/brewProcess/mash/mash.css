@@ -5,17 +5,14 @@
   overflow: hidden;
 }
 .mash h1 {
-  text-align: left;
+  text-align: center;
+  margin-block: 1vh;
 }
 .mash-overflow-scroll {
   height: 78vh;
   padding-bottom: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-
-.mash-main-section-malts h1 {
-  padding-left: 30px;
 }
 
 .mash-top-section {
@@ -30,6 +27,8 @@
 
 .mash-top-section-right {
   box-sizing: border-box;
+  justify-content: space-between;
+
   display: flex;
   flex-grow: 1;
   gap: 50px;
@@ -95,12 +94,13 @@
 }
 
 .mash-top-section-right-container1 {
-  width: 60vh;
+  width: 58vh;
   height: 25vh;
-  margin-right: 10vh;
 }
 .mash-top-section-right-container {
-  text-align: right;
+  width: 50vh;
+  height: 25vh;
+  padding-right: 5vh;
 }
 
 @media (max-width: 1024px) {

@@ -28,29 +28,27 @@ const Fermentation = () => {
   const [refresh, setRefresh] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const addRecipeAction = async (yeast) => {
-    await dispatch(addYeastRecipeAction(yeast));
+  const addRecipeAction = (yeast) => {
+    dispatch(addYeastRecipeAction(yeast));
     setRefresh(yeast._id);
   };
-  const subtractRecipeAction = async (yeast) => {
-    await dispatch(subtractYeastRecipeAction(yeast));
-    const newYeasts = await yeastsList.filter(
-      (yeasts) => yeasts._id !== yeast._id
-    );
+  const subtractRecipeAction = (yeast) => {
+    dispatch(subtractYeastRecipeAction(yeast));
+    const newYeasts = yeastsList.filter((yeasts) => yeasts._id !== yeast._id);
 
-    await dispatch(addYeastsRecipeAction(newYeasts));
+    dispatch(addYeastsRecipeAction(newYeasts));
     setRefresh(yeast._id);
   };
-  const addStepRecipeAction = async (step) => {
-    await dispatch(addFermentationStepRecipeAction(step));
+  const addStepRecipeAction = (step) => {
+    dispatch(addFermentationStepRecipeAction(step));
     setRefresh(step.name);
   };
-  const subtractStepRecipeAction = async (step) => {
-    await dispatch(subtractFermentationSteptRecipeAction(step));
+  const subtractStepRecipeAction = (step) => {
+    dispatch(subtractFermentationSteptRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const saveSelected = async (title) => {
-    await setRefresh(title);
+  const saveSelected = (title) => {
+    setRefresh(title);
     switch (title) {
       case "Fermentation":
         dispatch(addFermentationRecipeAction(fermentation));
@@ -60,7 +58,7 @@ const Fermentation = () => {
       default:
     }
   };
-  const addThisProduct = async (product) => {};
+  const addThisProduct = (product) => {};
   useEffect(() => {
     console.log(refresh);
   }, [refresh]);
