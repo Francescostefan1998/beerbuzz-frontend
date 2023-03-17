@@ -102,24 +102,65 @@
   height: 25vh;
   padding-right: 5vh;
 }
-@media (max-width: 1150px) {
+.fermentation-bottom-section.visible-in-small-screen {
+  display: none;
+}
+.fermentation-bottom-section.visible-in-big-screen {
+  display: flex;
+}
+.navbar-visible-in-big-screen {
+  display: block;
+}
+.navbar-visible-in-small-screen {
+  display: none;
+}
+@media (max-width: 1190px) {
   .fermentation-top-section-right-container1 {
-    width: 48vh;
+    width: 42vh;
     height: 25vh;
   }
   .fermentation-top-section-right-container {
-    width: 50vh;
+    width: 45vh;
     height: 25vh;
     padding-right: 5vh;
   }
+  .navbar-visible-in-big-screen {
+    display: block;
+  }
+  .navbar-visible-in-small-screen {
+    display: none;
+  }
 }
+
 @media (max-width: 1024px) {
   .fermentation-top-section {
     flex-direction: column;
     height: fit-content;
+    padding-top: 4vh;
+
+    padding-inline: 7vh;
   }
   .fermentation-top-section-right {
-    flex-direction: column;
+    width: 100%;
+  }
+  .fermentation-top-section-right-container1 {
+    width: 50vh;
+    height: 25vh;
+    padding-left: 0vh;
+  }
+  .fermentation-top-section-right-container {
+    width: 45vh;
+    height: 25vh;
+    padding-right: 0vh;
+  }
+  .navbar-visible-in-big-screen {
+    display: none;
+  }
+  .navbar-visible-in-small-screen {
+    display: block;
+    z-index: 3;
+    position: sticky;
+    top: 0;
   }
   .fermentation-main-section {
     flex-direction: column;
@@ -127,25 +168,69 @@
   .fermentation-overflow-scroll {
     height: fit-content;
     padding-bottom: 10px;
-    overflow-y: hidden;
   }
-  .fermentation-top-section-right-container1 {
-    width: 45vh;
-    height: 25vh;
-  }
+
   .fermentation-main-section-process {
     border-top: 3px solid var(--main-secondary-opacue);
     border-left: 0px solid transparent;
   }
-  .fermentation-bottom-section {
-    padding: 10px;
+  .fermentation-bottom-section.visible-in-small-screen {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    padding: 7.4vh;
+    padding-block: 2vh;
+    background-color: var(--background-dark);
+  }
+  .fermentation-bottom-section.visible-in-big-screen {
+    display: none;
+  }
+  .fermentation {
+    background-color: var(--background-dark);
+    max-width: 100%;
+    height: fit-content;
+    overflow: hidden;
+  }
+  .fermentation-main-section {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  .fermentation-main-section-yeasts {
+    width: 100%;
+    border-right: 0px solid var(--main-secondary-opacue);
+  }
+  .fermentation-main-section-process {
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .fermentation-top-section {
+    flex-direction: column;
+    height: fit-content;
+    padding-top: 4vh;
+    padding-left: 0vh;
+    padding-inline: 2vh;
+  }
   .fermentation-top-section-right-container1 {
-    margin-inline: 0;
     width: 100%;
+    height: 25vh;
+    padding-left: 0vh;
+  }
+  .fermentation-top-section-right-container {
+    width: 100%;
+    height: 25vh;
+    padding-right: 0vh;
+  }
+  .fermentation-bottom-section.visible-in-small-screen {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    padding: 3vh;
+    padding-block: 2vh;
+    background-color: var(--background-dark);
   }
   .fermentation-top-section-right {
     flex-direction: column;
@@ -165,7 +250,7 @@
   }
   .fermentation-main-section-yeasts {
     padding: 0px;
-
+    height: fit-content;
     width: 100%;
     border-right: 0px solid var(--main-secondary-opacue);
   }
@@ -176,5 +261,70 @@
   .fermentation-main-section {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 514px) {
+  .fermentation-top-section {
+    flex-direction: column;
+    height: fit-content;
+    padding-top: 1vh;
+    padding-left: 0vh;
+    padding-inline: 1vh;
+  }
+  .fermentation-top-section-right-container1 {
+    width: 100%;
+    height: 25vh;
+    padding-left: 0vh;
+  }
+  .fermentation-top-section-right-container {
+    width: 100%;
+    height: 25vh;
+    padding-right: 0vh;
+  }
+  .fermentation-bottom-section.visible-in-small-screen {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    padding: 3vh;
+    padding-block: 2vh;
+    background-color: var(--background-dark);
+  }
+  .fermentation-top-section-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .fermentation-main-section-yeasts h1 {
+    padding: 0;
+    margin-top: 4vh;
+
+    margin-left: 14px;
+  }
+  .fermentation-main-section-process h1 {
+    padding: 0;
+    margin-top: 4vh;
+    margin-left: 14px;
+  }
+  .fermentation-main-section-yeasts {
+    padding: 0px;
+    height: fit-content;
+    width: 100%;
+    border-right: 0px solid var(--main-secondary-opacue);
+  }
+  .fermentation-main-section-process {
+    width: 100%;
+    padding: 0px;
+  }
+  .fermentation-main-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .fermentation-top-section {
+    flex-direction: column;
+    height: fit-content;
+    padding-top: 1vh;
+    padding-left: 0vh;
+    padding-inline: 0.6vh;
   }
 }

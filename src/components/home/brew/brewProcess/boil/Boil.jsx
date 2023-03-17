@@ -124,51 +124,75 @@ const Boil = () => {
     }
   }, [refresh]);
   return (
-    <div className="boil">
-      <NavBar />
-      <div className="boil-overflow-scroll">
-        <div className="boil-top-section">
-          <div className="boil-top-section-left">
-            <BrewProcessCommonTitle select={"boil"} />
-          </div>
-          <div className="boil-top-section-right">
-            <div className="boil-top-section-right-container1">
-              {" "}
-              <ValueObtaining refresh={refresh} />
+    <>
+      <div className="navbar-visible-in-small-screen">
+        <NavBar />
+      </div>
+      <div className="boil">
+        <div className="navbar-visible-in-big-screen">
+          <NavBar />
+        </div>
+        <div className="boil-overflow-scroll">
+          <div className="boil-top-section">
+            <div className="boil-top-section-left">
+              <BrewProcessCommonTitle select={"boil"} />
             </div>
-            <div className="boil-top-section-right-container">
-              <ValueSuggested />
+            <div className="boil-top-section-right">
+              <div className="boil-top-section-right-container1">
+                {" "}
+                <ValueObtaining refresh={refresh} />
+              </div>
+              <div className="boil-top-section-right-container">
+                <ValueSuggested />
+              </div>
+            </div>
+          </div>
+          <MashWater setRefresh={setRefresh} />
+
+          <div className="boil-main-section">
+            <div className="boil-main-section-hops">
+              <h1>Hops</h1>
+              <CommonList
+                icon={<GiHops />}
+                colorOrIbu={"Alpha Acid (%)"}
+                title={"Hops"}
+                addProduct={addRecipeAction}
+                subtractProduct={subtractRecipeAction}
+                refresh={refresh}
+                colorOff={"colorOff"}
+                addThisProduct={addThisProduct}
+              />
+            </div>
+            <div className="boil-main-section-process">
+              <h1>Boil</h1>
+              <CommonBrewStep
+                addStepRecipeAction={addStepRecipeAction}
+                subtractStepRecipeAction={subtractStepRecipeAction}
+                refresh={refresh}
+                title={"Boil"}
+              />
             </div>
           </div>
         </div>
-        <MashWater setRefresh={setRefresh} />
-
-        <div className="boil-main-section">
-          <div className="boil-main-section-hops">
-            <h1>Hops</h1>
-            <CommonList
-              icon={<GiHops />}
-              colorOrIbu={"Alpha Acid (%)"}
-              title={"Hops"}
-              addProduct={addRecipeAction}
-              subtractProduct={subtractRecipeAction}
-              refresh={refresh}
-              colorOff={"colorOff"}
-              addThisProduct={addThisProduct}
-            />
+        <div className="boil-bottom-section visible-in-big-screen">
+          <div
+            className="boil-bottom-section-button"
+            onClick={() => navigate("/mash")}
+          >
+            Back
           </div>
-          <div className="boil-main-section-process">
-            <h1>Boil</h1>
-            <CommonBrewStep
-              addStepRecipeAction={addStepRecipeAction}
-              subtractStepRecipeAction={subtractStepRecipeAction}
-              refresh={refresh}
-              title={"Boil"}
-            />
+          <div
+            className="boil-bottom-section-button"
+            onClick={() => {
+              saveSelected("Boil");
+              navigate("/fermentation");
+            }}
+          >
+            Save and Go to Fermentation Page
           </div>
         </div>
       </div>
-      <div className="boil-bottom-section">
+      <div className="boil-bottom-section visible-in-small-screen">
         <div
           className="boil-bottom-section-button"
           onClick={() => navigate("/mash")}
@@ -185,7 +209,7 @@ const Boil = () => {
           Save and Go to Fermentation Page
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
