@@ -1,6 +1,6 @@
 .bottomBar-list-proceed {
-  width: 64%;
-  position: fixed;
+  width: 100%;
+  position: sticky;
   bottom: 0;
   height: 12vh;
   padding-left: 70px;
@@ -11,7 +11,7 @@
   justify-content: space-between;
   background-color: var(--background-dark);
   z-index: 2;
-  box-shadow: 0px 0px 10px var(--main-secondary);
+  /*box-shadow: 0px 0px 10px var(--main-secondary);*/
   margin-left: auto;
 }
 .bottomBar-list-proceed-button {

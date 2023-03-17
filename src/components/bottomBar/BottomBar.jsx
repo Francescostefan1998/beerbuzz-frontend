@@ -42,6 +42,21 @@ const BottomBar = ({
           </div>
           <div
             className="bottomBar-list-proceed-button"
+            onClick={() => setStepWater("waterSourceData")}
+          >
+            Save and Proceed
+          </div>
+        </>
+      ) : proceedWater === "residualAlkalinityTarger" ? (
+        <>
+          <div
+            className="bottomBar-list-proceed-button"
+            onClick={() => setStepWater("closed")}
+          >
+            Back
+          </div>
+          <div
+            className="bottomBar-list-proceed-button"
             onClick={() => setStepWater(proceedWater)}
           >
             Save and Proceed

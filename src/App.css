@@ -14,9 +14,12 @@
 }
 .common-selection-bigger-container {
   width: 64%;
+  padding-top: 4vh;
   margin-inline: auto;
-  box-shadow: 0px 0px 10px var(--main-secondary);
+  /*box-shadow: 0px 0px 10px var(--main-secondary);*/
   overflow-y: hidden;
+  border-left: 3px solid var(--main-secondary);
+  border-right: 3px solid var(--main-secondary);
 }
 
 .App-logo {

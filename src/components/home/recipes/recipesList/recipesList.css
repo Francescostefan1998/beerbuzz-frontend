@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0px 0px 10px var(--main-secondary);
+  /*box-shadow: 0px 0px 10px var(--main-secondary);*/
 }
 .recipesList-search input {
   outline: none;
@@ -29,7 +29,7 @@
 }
 
 .recipesList-search .search-icon {
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
 }
 .recipesList-list {

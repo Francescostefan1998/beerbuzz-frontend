@@ -17,10 +17,6 @@ const HomePage = () => {
       <NavBar selectedSection={"Home"} />
       <div className="homePage-container">
         <div className="homePage-main homepage-sticky-to-top">
-          <ImList2 className="homePage-main-icon iconList" />
-          <BsPencilFill className="homePage-main-icon iconPen" />
-          <GiHops className="homePage-main-icon iconHops" />
-          <GiWheat className="homePage-main-icon iconWheat" />
           <h1 className="mb-4">Recipes</h1>
           <Container>
             <Row className={`brewMainPage-row block`}>
@@ -69,7 +65,10 @@ const HomePage = () => {
           <BrewInsideContainer block={"block"} />
         </div>
         <div className="homePage-main homepage-sticky-to-top">
-          <AiOutlineSetting className="homePage-main-icon iconSetting" />
+          <AiOutlineSetting
+            className="homePage-main-icon iconSetting"
+            onClick={() => navigate("/instruction")}
+          />
           <h1 className="mb-4">Instructions</h1>
           <Container>
             <Row className={`brewMainPage-row block`}>
