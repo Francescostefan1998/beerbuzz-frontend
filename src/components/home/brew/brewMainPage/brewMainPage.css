@@ -1,13 +1,14 @@
 .brewMainPage {
   background-color: var(--background-dark);
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 .brewMainPage-section {
   opacity: 0.8;
   background-color: transparent;
   cursor: pointer;
-  margin: 8px;
+  margin-inline: 8px;
   overflow: hidden;
   padding-block: 8vh;
   position: relative;

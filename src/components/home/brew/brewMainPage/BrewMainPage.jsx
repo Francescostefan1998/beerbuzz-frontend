@@ -11,7 +11,23 @@ const BrewMainPage = () => {
       <div>
         <h1 className="mt-4">Follow the step below to make your beer</h1>
       </div>
-      <BrewInsideContainer/>
+      <BrewInsideContainer />
+      <div className="boil-bottom-section">
+        <div
+          className="boil-bottom-section-button"
+          onClick={() => navigate("/home")}
+        >
+          Back
+        </div>
+        <div
+          className="boil-bottom-section-button"
+          onClick={() => {
+            navigate("/selectstyle");
+          }}
+        >
+          Proceed
+        </div>
+      </div>
     </div>
   );
 };

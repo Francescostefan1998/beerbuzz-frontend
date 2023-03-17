@@ -118,6 +118,9 @@ const Boil = () => {
   useEffect(() => {
     if (hops) {
       calculateIbu();
+      setTimeout(() => {
+        calculateIbu();
+      }, 500);
     }
   }, [refresh]);
   return (

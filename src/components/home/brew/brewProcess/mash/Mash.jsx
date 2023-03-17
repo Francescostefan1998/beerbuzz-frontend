@@ -37,12 +37,14 @@ const Mash = () => {
   const maltsList = useSelector((state) => state.createRecipe.malts[0]);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
   const [refresh, setRefresh] = useState("");
+  console.log(refresh);
   const [newProduct, setRefreshAddthisProduct] = useState("");
+  console.log(newProduct);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const saveSelected = async (title) => {
-    await setRefresh(title);
+  const saveSelected = (title) => {
+    setRefresh(title);
     switch (title) {
       case "Mash":
         dispatch(addMashRecipeAction(mash));
@@ -93,27 +95,32 @@ const Mash = () => {
 
     setRefresh("sumOfEbc" + originalGravity + ebcBeer + finalGravity);
   };
-  const addRecipeAction = async (malt) => {
-    await dispatch(addMaltRecipeAction(malt));
-    setRefresh(malt._id);
+  const addRecipeAction = (malt) => {
+    dispatch(addMaltRecipeAction(malt));
+    setRefresh(malt._id + malt.quatity);
   };
-  const subtractRecipeAction = async (malt) => {
-    await dispatch(subtractMaltRecipeAction(malt));
-    const newMalts = await maltsList.filter((malts) => malts._id !== malt._id);
+  const subtractRecipeAction = (malt) => {
+    dispatch(subtractMaltRecipeAction(malt));
+    const newMalts = maltsList.filter((malts) => malts._id !== malt._id);
 
-    await dispatch(addMaltsRecipeAction(newMalts));
-    setRefresh(malt._id);
+    dispatch(addMaltsRecipeAction(newMalts));
+    setRefresh(malt._id + malt.quantity);
   };
-  const addStepRecipeAction = async (step) => {
-    await dispatch(addMashStepRecipeAction(step));
+  const addStepRecipeAction = (step) => {
+    dispatch(addMashStepRecipeAction(step));
     setRefresh(step.name);
   };
-  const subtractStepRecipeAction = async (step) => {
-    await dispatch(subtractMashStepRecipeAction(step));
+  const subtractStepRecipeAction = (step) => {
+    dispatch(subtractMashStepRecipeAction(step));
     setRefresh(step.name + "sub");
   };
-  const addThisProduct = async (product) => {
+  const addThisProduct = (product) => {
     setRefreshAddthisProduct(product);
+    setTimeout(() => {
+      calculateAverageEbcAndYeld();
+    }, 500);
+
+    setRefresh(product);
   };
 
   useEffect(() => {
