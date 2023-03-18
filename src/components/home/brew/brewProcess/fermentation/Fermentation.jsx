@@ -76,7 +76,7 @@ const Fermentation = () => {
           <NavBar />
         </div>
         <div className="selectStyle-sideBar-left">
-          <SideBarLeft title={"Select Style"} />
+          <SideBarLeft title={"Steps"} subtitle={"Fermentation"} />
         </div>
 
         <div className="fermentation-overflow-scroll">

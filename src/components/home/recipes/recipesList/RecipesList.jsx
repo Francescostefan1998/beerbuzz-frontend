@@ -31,7 +31,7 @@ const RecipesList = () => {
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft title={"Recipes"} subtitle={"r"} />
       </div>
       <div className="common-selection-bigger-container">
         {recipeSelected === "" ? (

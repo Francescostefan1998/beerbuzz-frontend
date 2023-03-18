@@ -24,7 +24,7 @@ const Yeasts = () => {
     <div className="yeasts">
       <NavBar />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft title={"Ingredients"} subtitle={"Yeasts"} />
       </div>
       {/*<NavbarIngredients prew="/hops" next="/others" />*/}
       <CommonEngredientsModal

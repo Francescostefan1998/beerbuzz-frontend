@@ -25,7 +25,7 @@ const Malts = () => {
     <div className="malts">
       <NavBar />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft title={"Ingredients"} subtitle={"Fermentables"} />
       </div>
       <CommonEngredientsModal
         icon={<GiWheat className="icon" />}

@@ -137,7 +137,7 @@ const Boil = () => {
           <NavBar />
         </div>
         <div className="selectStyle-sideBar-left">
-          <SideBarLeft title={"Select Style"} />
+          <SideBarLeft title={"Steps"} subtitle={"Boil"} />
         </div>
         <div className="boil-overflow-scroll">
           <div className="boil-top-section">

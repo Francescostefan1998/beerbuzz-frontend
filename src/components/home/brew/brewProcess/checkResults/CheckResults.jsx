@@ -234,7 +234,7 @@ const CheckResults = () => {
           <NavBar />
         </div>
         <div className="selectStyle-sideBar-left">
-          <SideBarLeft title={"Select Style"} />
+          <SideBarLeft title={"Steps"} subtitle={"Check Results"} />
         </div>
 
         <div className="checkResults-overflow-scroll">
