@@ -236,7 +236,10 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
       </div>
       {material && (
         <>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/malts")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div
@@ -245,21 +248,30 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
               Fermentables
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/hops")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div className={subtitle === "Hops" ? "selected" : "normal"}>
               Hops
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/yeasts")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div className={subtitle === "Yeasts" ? "selected" : "normal"}>
               Yeasts and Bacteria
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/others")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div className={subtitle === "Others" ? "selected" : "normal"}>
@@ -290,21 +302,30 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
       </div>
       {steps && (
         <>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/mash")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div className={subtitle === "Mash" ? "selected" : "normal"}>
               Mash
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/boil")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div className={subtitle === "Boil" ? "selected" : "normal"}>
               Boil
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/fermentation")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div
@@ -313,7 +334,10 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
               Fermentation{" "}
             </div>
           </div>
-          <div className="section ineerSection">
+          <div
+            className="section ineerSection"
+            onClick={() => navigate("/check")}
+          >
             <div className="sideBarLeft-littleBlock"></div>
 
             <div
