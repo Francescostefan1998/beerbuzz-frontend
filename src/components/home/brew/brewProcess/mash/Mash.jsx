@@ -1,4 +1,6 @@
+import "../../selectStyle/selectStyle.css";
 import "./mash.css";
+
 import NavBar from "../../../navBar/NavBar";
 import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
 import BrewProcessCommonTitle from "../brewProcessCommonComponent/brewProcessCommonTitle/brewProcessCommonTitle";
@@ -10,6 +12,7 @@ import { GiWheat } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 import {
   addEbcbRecipeAction,
   addOgRecipeAction,
@@ -137,6 +140,9 @@ const Mash = () => {
       <div className="mash">
         <div className="navbar-visible-in-big-screen">
           <NavBar />
+        </div>
+        <div className="selectStyle-sideBar-left">
+          <SideBarLeft title={"Select Style"} />
         </div>
 
         <div className="mash-overflow-scroll">

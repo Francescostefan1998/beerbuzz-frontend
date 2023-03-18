@@ -9,6 +9,10 @@
   margin-block: 1vh;
 }
 .boil-overflow-scroll {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 0px;
+
   height: 78vh;
   padding-bottom: 10px;
   overflow-y: scroll;
@@ -56,6 +60,10 @@
 }
 
 .boil-bottom-section {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 0px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,7 +102,7 @@
 }
 
 .boil-top-section-right-container1 {
-  width: 58vh;
+  width: 46vh;
   height: 25vh;
 }
 .boil-bottom-section.visible-in-small-screen {
@@ -114,13 +122,48 @@
 .navbar-visible-in-small-screen {
   display: none;
 }
-@media (max-width: 1190px) {
+
+@media (min-width: 1400px) {
+  .boil-main-section-hops {
+    padding-inline: 2vh;
+    padding-left: 0vh;
+  }
+  .boil-main-section-process {
+    padding-inline: 2vh;
+    padding-left: 0vh;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
   .boil-top-section-right-container1 {
-    width: 42vh;
+    width: 38vh;
     height: 25vh;
   }
   .boil-top-section-right-container {
-    width: 45vh;
+    width: 32vh;
+    height: 25vh;
+    padding-right: 5vh;
+  }
+  .boil-main-section-hops {
+    padding: 6px;
+    padding-left: 0px;
+
+    width: 50%;
+    border-right: 3px solid var(--main-secondary-opacue);
+  }
+  .boil-main-section-process {
+    width: 50%;
+    padding: 6px;
+    padding-right: 6px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .boil-top-section-right-container1 {
+    width: 32vh;
+    height: 25vh;
+  }
+  .boil-top-section-right-container {
+    width: 30vh;
     height: 25vh;
     padding-right: 5vh;
   }
@@ -131,8 +174,10 @@
     display: none;
   }
 }
-
 @media (max-width: 1024px) {
+  .boil-overflow-scroll {
+    width: 100%;
+  }
   .boil-top-section {
     flex-direction: column;
     height: fit-content;
@@ -175,6 +220,7 @@
     border-left: 0px solid transparent;
   }
   .boil-bottom-section.visible-in-small-screen {
+    width: 100%;
     display: flex;
     position: sticky;
     bottom: 0;
@@ -183,6 +229,7 @@
     background-color: var(--background-dark);
   }
   .boil-bottom-section.visible-in-big-screen {
+    width: 100%;
     display: none;
   }
   .boil {

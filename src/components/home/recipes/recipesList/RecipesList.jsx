@@ -1,3 +1,5 @@
+import "../../brew/sideBarLeft/sideBarLeft.css";
+
 import "./recipesList.css";
 import SingleRecipe from "../singleRecipe/SingleRecipe";
 import NavBar from "../../navBar/NavBar";
@@ -8,6 +10,8 @@ import { BsPencilFill } from "react-icons/bs";
 import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
 import BottomBar from "../../../bottomBar/BottomBar";
 import { useNavigate } from "react-router-dom";
+import SideBarLeft from "../../brew/sideBarLeft/SideBarLeft";
+
 import { useEffect } from "react";
 const RecipesList = () => {
   const [myRecipes, setMyRecipes] = useState([]);
@@ -26,6 +30,9 @@ const RecipesList = () => {
   return (
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       <div className="common-selection-bigger-container">
         {recipeSelected === "" ? (
           <div className="recipesList-search">

@@ -1,4 +1,6 @@
 import "../commonEngredientsModal/commonEngredientsModal.css";
+import "../../selectStyle/selectStyle.css";
+
 import "./others.css";
 import { useState } from "react";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
@@ -11,6 +13,7 @@ import { subtractOtherRecipeAction } from "../../../../../redux/actions/ingredie
 import { addOthersRecipeAction } from "../../../../../redux/actions/recipe.js";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 import { useSelector } from "react-redux";
 import SingleOther from "./singleOther/SingleOther";
 import { useEffect } from "react";
@@ -59,6 +62,9 @@ const Others = () => {
   return (
     <div className="others">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       {/*<NavbarIngredients prew="/yeasts" next="/mash" />*/}
       <div className="common-selection-bigger-container">
         <div className="common-ingredients-container-inside-section-top">

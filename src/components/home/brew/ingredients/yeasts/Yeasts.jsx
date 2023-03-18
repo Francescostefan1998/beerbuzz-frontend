@@ -1,3 +1,5 @@
+import "../../selectStyle/selectStyle.css";
+
 import "./yeasts.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsModal";
@@ -5,6 +7,7 @@ import { FaBacterium } from "react-icons/fa";
 import { addYeastRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractYeastRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { useDispatch } from "react-redux";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 import { useStore } from "react-redux";
 import NavBar from "../../../navBar/NavBar";
 const Yeasts = () => {
@@ -20,6 +23,9 @@ const Yeasts = () => {
   return (
     <div className="yeasts">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       {/*<NavbarIngredients prew="/hops" next="/others" />*/}
       <CommonEngredientsModal
         icon={<FaBacterium className="icon" />}

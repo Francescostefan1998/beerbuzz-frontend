@@ -1,3 +1,5 @@
+import "../../selectStyle/selectStyle.css";
+
 import "./fermentation.css";
 import NavBar from "../../../navBar/NavBar";
 import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
@@ -19,6 +21,8 @@ import { subtractFermentationSteptRecipeAction } from "../../../../../redux/acti
 import { addFermentationRecipeAction } from "../../../../../redux/actions/recipe";
 import { addYeastsRecipeAction } from "../../../../../redux/actions/recipe";
 import { useEffect } from "react";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
+
 import { useSelector } from "react-redux";
 import MashWater from "../mashWater/MashWater";
 const Fermentation = () => {
@@ -70,6 +74,9 @@ const Fermentation = () => {
       <div className="fermentation">
         <div className="navbar-visible-in-big-screen">
           <NavBar />
+        </div>
+        <div className="selectStyle-sideBar-left">
+          <SideBarLeft title={"Select Style"} />
         </div>
 
         <div className="fermentation-overflow-scroll">

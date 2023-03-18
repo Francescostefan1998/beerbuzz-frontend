@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../../../navBar/NavBar";
 import BottomBar from "../../../../bottomBar/BottomBar";
 import { useEffect } from "react";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 const Water = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState("closed");
@@ -75,6 +76,9 @@ const Water = () => {
   return (
     <div className="water">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       <div
         className="water-title invisible-in-big-screen"
         style={{ zIndex: `${myZindex}` }}

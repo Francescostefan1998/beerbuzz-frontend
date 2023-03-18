@@ -1,9 +1,12 @@
+import "../../selectStyle/selectStyle.css";
+
 import "./hops.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import CommonEngredientsModal from "../commonEngredientsModal/CommonEngredientsModal";
 import { GiHops } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 import { addHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients.js";
 import NavBar from "../../../navBar/NavBar";
@@ -20,6 +23,9 @@ const Hops = () => {
   return (
     <div className="hops">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       {/*<NavbarIngredients prew="/malts" next="/yeasts" />*/}
       <CommonEngredientsModal
         icon={<GiHops className="icon" />}
