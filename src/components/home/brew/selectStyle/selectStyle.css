@@ -10,7 +10,14 @@
   overflow-y: scroll;
   z-index: 0;
 }
-
+.selectStyle-sideBar-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  display: block;
+}
 .selectStyle-list::-webkit-scrollbar {
   width: 10px;
 }
@@ -75,6 +82,14 @@
   }
   .selectStyle-list-proceed {
     width: 100%;
+  }
+  .selectStyle-sideBar-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    display: none;
   }
 }
 @media (max-width: 778px) {

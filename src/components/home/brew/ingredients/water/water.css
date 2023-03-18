@@ -5,6 +5,14 @@
   overflow: hidden;
   position: relative;
 }
+.selectStyle-sideBar-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  display: block;
+}
 .water-list {
   height: 68vh;
   overflow-y: scroll;
@@ -81,6 +89,16 @@
     display: block;
   }
   .water-title.invisible-in-big-screen {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .selectStyle-sideBar-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
     display: none;
   }
 }

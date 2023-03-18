@@ -1,0 +1,48 @@
+.sideBarLeft {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  background-color: var(--background-black);
+  padding-top: 12vh;
+  gap: 0vh;
+  padding-inline: 2vh;
+  border-right: 3px solid var(--main-secondary);
+}
+
+.sideBarLeft .section {
+  padding-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.sideBarLeft .section:hover .normal {
+  transform: scale(1.2) translateX(20px);
+}
+
+.sideBarLeft .section.ineerSection {
+  padding-top: 2vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.sideBarLeft .section .normal {
+  flex-grow: 1;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sideBarLeft-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+.sideBarLeft-littleBlock {
+  height: 100%;
+  width: 30px;
+}

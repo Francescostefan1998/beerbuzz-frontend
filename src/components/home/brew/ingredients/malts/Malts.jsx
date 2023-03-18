@@ -1,3 +1,4 @@
+import "../../selectStyle/selectStyle.css";
 import "./malts.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import { GiWheat } from "react-icons/gi";
@@ -10,6 +11,7 @@ import { subtractMaltRecipeAction } from "../../../../../redux/actions/ingredien
 import { useDispatch } from "react-redux";
 import { useStore } from "react-redux";
 import BottomBar from "../../../../bottomBar/BottomBar";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 const Malts = () => {
   const dispatch = useDispatch();
   const addRecipeAction = async (malt) => {
@@ -22,6 +24,9 @@ const Malts = () => {
   return (
     <div className="malts">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       <CommonEngredientsModal
         icon={<GiWheat className="icon" />}
         title={"Fermentable"}

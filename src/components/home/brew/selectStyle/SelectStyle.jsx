@@ -8,6 +8,7 @@ import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { addStyleAction } from "../../../../redux/actions/style";
 import { useDispatch } from "react-redux";
+import SideBarLeft from "../sideBarLeft/SideBarLeft";
 const SelectStyle = () => {
   const [show, setShow] = useState(false);
   const [myBodyBeer, bodyToDispatch] = useState(null);
@@ -27,6 +28,9 @@ const SelectStyle = () => {
   return (
     <div className="selectStyle">
       <NavBar />
+      <div className="selectStyle-sideBar-left">
+        <SideBarLeft title={"Select Style"} />
+      </div>
       <div className="common-selection-bigger-container">
         <div className="common-selection-bigger-container-search-bar">
           <div className="recipesList-search">
