@@ -1,3 +1,5 @@
+import "../../selectStyle/selectStyle.css";
+
 import "./boil.css";
 import NavBar from "../../../navBar/NavBar";
 import NavbarIngredients from "../../ingredients/navbarIngredients/NavbarIngredients";
@@ -11,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 import { GiHops } from "react-icons/gi";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
+
 import { addHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { subtractHopRecipeAction } from "../../../../../redux/actions/ingredients";
 import { addBoilStepRecipeAction } from "../../../../../redux/actions/steps";
@@ -131,6 +135,9 @@ const Boil = () => {
       <div className="boil">
         <div className="navbar-visible-in-big-screen">
           <NavBar />
+        </div>
+        <div className="selectStyle-sideBar-left">
+          <SideBarLeft title={"Select Style"} />
         </div>
         <div className="boil-overflow-scroll">
           <div className="boil-top-section">

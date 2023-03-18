@@ -1,4 +1,6 @@
 import "./checkResults.css";
+import "../../selectStyle/selectStyle.css";
+
 import "../fermentation/fermentationChart/fermentationChart.css";
 import "../fermentation/fermentation.css";
 import "../boil/boil.css";
@@ -10,6 +12,8 @@ import CommonList from "../brewProcessCommonComponent/brewProcessCommonList/Comm
 import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps/CommonBrewStep";
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import SideBarLeft from "../../sideBarLeft/SideBarLeft";
+
 import FermentationChart from "../fermentation/fermentationChart/FermentationChart";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -229,6 +233,10 @@ const CheckResults = () => {
         <div className="navbar-visible-in-big-screen">
           <NavBar />
         </div>
+        <div className="selectStyle-sideBar-left">
+          <SideBarLeft title={"Select Style"} />
+        </div>
+
         <div className="checkResults-overflow-scroll">
           <div className="checkResults-top-section">
             <div className="checkResults-top-section-left">

@@ -9,6 +9,10 @@
   margin-block: 1vh;
 }
 .checkResults-overflow-scroll {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 0px;
+
   height: 78vh;
   padding-bottom: 10px;
   overflow-y: scroll;
@@ -60,6 +64,10 @@
   border-right: 3px solid var(--main-secondary-opacue);
 }
 .checkResults-bottom-section {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 0px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -120,7 +128,7 @@
 }
 
 .checkResults-top-section-right-container1 {
-  width: 58vh;
+  width: 46vh;
   height: 25vh;
 }
 
@@ -142,13 +150,46 @@
 .navbar-visible-in-small-screen {
   display: none;
 }
-@media (max-width: 1190px) {
+@media (min-width: 1400px) {
+  .check-main-section-products {
+    padding-inline: 2vh;
+    padding-left: 0vh;
+  }
+  .checkResults-main-section-process {
+    padding-inline: 2vh;
+    padding-left: 0vh;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
   .checkResults-top-section-right-container1 {
-    width: 42vh;
+    width: 38vh;
     height: 25vh;
   }
   .checkResults-top-section-right-container {
-    width: 45vh;
+    width: 32vh;
+    height: 25vh;
+    padding-right: 5vh;
+  }
+  .check-main-section-products {
+    padding: 6px;
+    padding-left: 0px;
+
+    width: 50%;
+    border-right: 3px solid var(--main-secondary-opacue);
+  }
+  .checkResults-main-section-process {
+    width: 50%;
+    padding: 6px;
+    padding-right: 6px;
+  }
+}
+@media (max-width: 1190px) {
+  .checkResults-top-section-right-container1 {
+    width: 32vh;
+    height: 25vh;
+  }
+  .checkResults-top-section-right-container {
+    width: 30vh;
     height: 25vh;
     padding-right: 5vh;
   }
@@ -161,6 +202,9 @@
 }
 
 @media (max-width: 1024px) {
+  .checkResults-overflow-scroll {
+    width: 100%;
+  }
   .checkResults-top-section {
     flex-direction: column;
     height: fit-content;
@@ -203,6 +247,7 @@
     border-left: 0px solid transparent;
   }
   .checkResults-bottom-section.visible-in-small-screen {
+    width: 100%;
     display: flex;
     position: sticky;
     bottom: 0;
@@ -211,6 +256,7 @@
     background-color: var(--background-dark);
   }
   .checkResults-bottom-section.visible-in-big-screen {
+    width: 100%;
     display: none;
   }
   .checkResults {
