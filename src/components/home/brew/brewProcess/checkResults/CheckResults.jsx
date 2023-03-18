@@ -256,12 +256,7 @@ const CheckResults = () => {
 
           <div className="checkResults-main-section">
             <div className="check-main-section-products">
-              <h1>
-                Malts
-                <button onClick={(e) => navigate("/mash")}>
-                  GO TO MASH PAGE
-                </button>
-              </h1>
+              <h1>Malts</h1>
               <CommonList
                 icon={<GiWheat />}
                 colorOrIbu={"Color (EBC)"}
@@ -274,12 +269,7 @@ const CheckResults = () => {
               />
             </div>
             <div className="checkResults-main-section-process">
-              <h1>
-                Mash{" "}
-                <button onClick={(e) => navigate("/mash")}>
-                  GO TO MASH PAGE
-                </button>
-              </h1>
+              <h1>Mash </h1>
               <CommonBrewStep
                 addStepRecipeAction={nonSenseFunction}
                 subtractStepRecipeAction={nonSenseFunction}
@@ -290,12 +280,7 @@ const CheckResults = () => {
           </div>
           <div className="boil-main-section">
             <div className="check-main-section-products">
-              <h1>
-                Hops
-                <button onClick={(e) => navigate("/boil")}>
-                  GO TO BOIL PAGE
-                </button>
-              </h1>
+              <h1>Hops</h1>
               <CommonList
                 icon={<GiHops />}
                 colorOrIbu={"Alpha Acid (%)"}
@@ -309,12 +294,7 @@ const CheckResults = () => {
             </div>
 
             <div className="boil-main-section-process">
-              <h1>
-                Boil
-                <button onClick={(e) => navigate("/boil")}>
-                  GO TO BOIL PAGE
-                </button>
-              </h1>
+              <h1>Boil</h1>
               <CommonBrewStep
                 addStepRecipeAction={nonSenseFunction}
                 subtractStepRecipeAction={nonSenseFunction}
@@ -326,12 +306,7 @@ const CheckResults = () => {
 
           <div className="fermentation-main-section">
             <div className="check-main-section-products">
-              <h1>
-                Yeasts And Bacteria
-                <button onClick={(e) => navigate("/fermentation")}>
-                  GO TO FERMENTATION PAGE
-                </button>
-              </h1>
+              <h1>Yeasts And Bacteria</h1>
               <CommonList
                 icon={<FaBacterium />}
                 colorOrIbu={"Attenuation (%)"}
@@ -344,12 +319,7 @@ const CheckResults = () => {
               />
             </div>
             <div className="fermentation-main-section-process">
-              <h1>
-                Fermentation
-                <button onClick={(e) => navigate("/fermentation")}>
-                  GO TO FERMENTATION PAGE
-                </button>
-              </h1>
+              <h1>Fermentation</h1>
               <CommonBrewStep
                 addStepRecipeAction={nonSenseFunction}
                 subtractStepRecipeAction={nonSenseFunction}
