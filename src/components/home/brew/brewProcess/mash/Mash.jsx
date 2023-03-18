@@ -142,7 +142,7 @@ const Mash = () => {
           <NavBar />
         </div>
         <div className="selectStyle-sideBar-left">
-          <SideBarLeft title={"Select Style"} />
+          <SideBarLeft title={"Steps"} subtitle={"Mash"} />
         </div>
 
         <div className="mash-overflow-scroll">

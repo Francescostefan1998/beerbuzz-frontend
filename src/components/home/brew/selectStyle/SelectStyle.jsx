@@ -29,7 +29,7 @@ const SelectStyle = () => {
     <div className="selectStyle">
       <NavBar />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft title={"Select Style"} subtitle={"r"} />
       </div>
       <div className="common-selection-bigger-container">
         <div className="common-selection-bigger-container-search-bar">

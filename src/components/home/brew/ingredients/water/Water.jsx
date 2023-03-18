@@ -22,6 +22,7 @@ import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 const Water = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState("closed");
+
   const [myZindex, setZindexPriority] = useState("");
   const [proceed, setProceed] = useState("waterSourceData");
   const [back, setBack] = useState("selectstyle");
@@ -68,7 +69,9 @@ const Water = () => {
       default:
     }
   };
-
+  const setStepFromTheSidebar = (param) => {
+    setStep(param);
+  };
   useEffect(() => {
     console.log("water");
     setBackAndForth(step);
@@ -77,7 +80,11 @@ const Water = () => {
     <div className="water">
       <NavBar />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft
+          title={"Water"}
+          subtitle={step}
+          setStepFromTheSidebar={setStepFromTheSidebar}
+        />
       </div>
       <div
         className="water-title invisible-in-big-screen"

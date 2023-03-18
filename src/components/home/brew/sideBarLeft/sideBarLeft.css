@@ -24,6 +24,9 @@
 .sideBarLeft .section:hover .normal {
   transform: scale(1.2) translateX(20px);
 }
+.sideBarLeft .section:hover .selected {
+  transform: scale(1.2) translateX(20px);
+}
 
 .sideBarLeft .section.ineerSection {
   padding-top: 2vh;
@@ -37,14 +40,26 @@
   flex-grow: 1;
   text-align: left;
   transition: transform 0.2s ease-in-out;
+  opacity: 0.6;
+}
+.sideBarLeft .section .selected {
+  flex-grow: 1;
+  opacity: 1;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
 }
 
 .sideBarLeft-icon {
   font-size: 26px;
   cursor: pointer;
+  opacity: 0.6;
 }
 .sideBarLeft-littleBlock {
   height: 100%;
   width: 30px;
   margin-right: 4px;
+  opacity: 0.6;
+}
+.sideBarLeft-littleBlock.Colored {
+  opacity: 1;
 }

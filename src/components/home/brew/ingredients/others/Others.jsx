@@ -63,7 +63,7 @@ const Others = () => {
     <div className="others">
       <NavBar />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Select Style"} />
+        <SideBarLeft title={"Ingredients"} subtitle={"Others"} />
       </div>
       {/*<NavbarIngredients prew="/yeasts" next="/mash" />*/}
       <div className="common-selection-bigger-container">
