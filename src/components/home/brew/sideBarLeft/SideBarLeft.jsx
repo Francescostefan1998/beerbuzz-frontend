@@ -26,6 +26,24 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
   }
   useEffect(() => {
     console.log(title);
+    switch (title) {
+      case "Recipes":
+        setRecipe(true);
+        break;
+      case "Water":
+        setWater(true);
+        break;
+      case "Ingredients":
+        setMaterial(true);
+        break;
+      case "Steps":
+        setSteps(true);
+        break;
+      case "Select Style":
+        setStyle(true);
+        break;
+        defult: setSteps(false);
+    }
   }, [title, water, material, style, steps, recipe, subtitle]);
   return (
     <div className="sideBarLeft">

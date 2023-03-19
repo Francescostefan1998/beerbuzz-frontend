@@ -3,6 +3,7 @@ import "./sourceWaterDiluition.css";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RiCloseLine } from "react-icons/ri";
+import { useEffect } from "react";
 import { useState } from "react";
 import {
   updateOriginalAlkalinityAction,
@@ -32,6 +33,12 @@ const SourceWaterDiluition = ({ setModal }) => {
   const [newPh, setPh] = useState(null);
 
   const [diluition, setDiluitionData] = useState(null);
+  useEffect(() => {
+    setDiluitionData();
+    setTimeout(() => {
+      saveResults();
+    }, 200);
+  }, [diluition]);
   const setDiluition = async (value) => {
     await setDiluitionData(value);
     setCa((100 - value) * 0.01 * calcium);
@@ -45,7 +52,8 @@ const SourceWaterDiluition = ({ setModal }) => {
         (10 - value / 10 + 1)
     );
   };
-  const saveResults = async () => {
+  const saveResults = () => {
+    console.log(newAlkalinity, newCalcium);
     dispatch(updateOriginalAlkalinityAction(newAlkalinity));
     dispatch(updateOriginalCalciumAction(newCalcium));
     dispatch(updateOriginalMagnesiumAction(newMagnesium));
@@ -171,7 +179,6 @@ const SourceWaterDiluition = ({ setModal }) => {
             <div>
               <button
                 onClick={() => {
-                  saveResults();
                   setModal("saltAdditions");
                 }}
               >

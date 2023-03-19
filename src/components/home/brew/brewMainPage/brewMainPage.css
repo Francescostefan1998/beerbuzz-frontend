@@ -4,17 +4,27 @@
   height: 100vh;
   overflow: hidden;
 }
+.brewMainPage h1 {
+  margin-inline: auto;
+  margin-top: 1.6vh;
+  margin-bottom: 1.5vh;
+}
+.brewMain-page-title {
+  margin-inline: auto;
+}
 .brewMainPage-section {
   opacity: 0.8;
   background-color: transparent;
   cursor: pointer;
-  margin-inline: 8px;
+  margin-inline: 0px;
   overflow: hidden;
   padding-block: 8vh;
   position: relative;
   height: 22vh;
   width: 50vh;
   position: relative;
+}
+.brewMainPage .ml-5-mr-5 {
 }
 .brewMainPage-section img {
   position: absolute;
