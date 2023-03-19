@@ -13,7 +13,7 @@
   margin-left: auto;
   margin-right: 0px;
 
-  height: 78vh;
+  height: 78.4vh;
   padding-bottom: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -72,13 +72,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px;
-  padding-inline: 9vh;
+  padding-inline: 46px;
 }
 .checkResults-bottom-section-button {
-  padding: 6px;
-  padding-inline: 8px;
-  cursor: pointer;
+  height: 6vh;
+  text-align: center;
+  font-weight: 700;
+  background-color: var(--main-secondary);
   border-radius: 4px;
+  overflow: hidden;
+  padding: 10px;
+  cursor: pointer;
   background-color: var(--main-secondary);
   z-index: 3;
 }

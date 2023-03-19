@@ -6,6 +6,7 @@
 }
 .instruction-inner-description {
   padding: 10vh;
+  padding-inline: 6vh;
   text-align: left;
   z-index: 2;
 }
@@ -19,6 +20,7 @@
   margin: 0;
   margin-inline: auto;
   height: fit-content;
+  margin-bottom: 1vh;
 }
 .instruction-inner-description h2 {
   margin: 3vh;

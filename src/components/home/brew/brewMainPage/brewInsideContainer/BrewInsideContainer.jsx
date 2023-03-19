@@ -6,7 +6,7 @@ const BrewInsideContainer = ({ block }) => {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container className="ml-5-mr-5">
       <Row className={`brewMainPage-row ${block}`}>
         <Col
           className={`brewMainPage-section ${block}`}
