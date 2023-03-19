@@ -43,7 +43,12 @@ const RecipesList = () => {
             />
           </div>
         ) : (
-          <div></div>
+          <div className="showEnt-recipe-title">
+            <div>
+              <h1>ff</h1>
+            </div>
+            <div>delete</div>
+          </div>
         )}
         <div className="recipesList-list">
           {recipeSelected === "" ? (
@@ -55,10 +60,12 @@ const RecipesList = () => {
               />
             ))
           ) : (
-            <ShowEntireRecipe
-              setRecipe={setRecipeSelected}
-              recipeId={recipeSelected}
-            />
+            <>
+              <ShowEntireRecipe
+                setRecipe={setRecipeSelected}
+                recipeId={recipeSelected}
+              />
+            </>
           )}
         </div>
         {recipeSelected === "" ? (

@@ -154,7 +154,9 @@ const MashWater = ({ setRefresh }) => {
               type="number"
               className="second-line"
               placeholder={
-                finalpHMash !== 0 ? finalpHMash : initialpHMash.toFixed(2)
+                finalpHMash !== 0
+                  ? finalpHMash
+                  : parseFloat(initialpHMash).toFixed(2)
               }
             />
           </div>
@@ -234,7 +236,7 @@ const MashWater = ({ setRefresh }) => {
             <input
               type="number"
               className="second-line"
-              placeholder={postBoil.toFixed(2)}
+              placeholder={parseFloat(postBoil).toFixed(2)}
               onChange={(e) => {
                 changePostBoilVolume(e.target.value);
                 updateTheValues(e.target.value);
