@@ -101,6 +101,9 @@
     height: 100%;
     display: none;
   }
+  .common-selection-bigger-container-search-bar.visible-in-small-screen h2 {
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 778px) {
@@ -136,10 +139,10 @@
     z-index: 1;
     overflow: hidden;
   }
-  .water-bottom-bar-visible-when-big-display {
+  .water-bottom-bar-invisible-when-big-display {
     display: none;
   }
-  .water-bottom-bar-invisible-when-big-display {
+  .water-bottom-bar-visible-when-big-display {
     position: sticky;
     bottom: 0;
     z-index: 4;

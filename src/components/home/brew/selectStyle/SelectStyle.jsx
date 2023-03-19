@@ -29,13 +29,17 @@ const SelectStyle = () => {
     <>
       <div className="navbar-visible-in-small-screen">
         <NavBar />
-      </div>
-      <div className="common-selection-bigger-container-search-bar visible-in-small-screen">
-        <div className="recipesList-search">
-          <BsSearch className="search-icon" />
-          <input type="text" placeholder="Search here the style of your beer" />
+        <div className="common-selection-bigger-container-search-bar visible-in-small-screen">
+          <div className="recipesList-search">
+            <BsSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="Search here the style of your beer"
+            />
+          </div>
         </div>
       </div>
+
       <div className="selectStyle">
         <div className="navbar-visible-in-big-screen">
           <NavBar />

@@ -118,12 +118,10 @@
   }
   .common-selection-bigger-container-search-bar.visible-in-small-screen {
     display: flex;
-    position: sticky;
-    margin-top: -22px;
-    padding-top: 3vh;
-    top: 6vh;
     z-index: 3;
+    padding-top: 2vh;
     background-color: var(--background-dark);
+    margin-block: 0;
   }
   .common-selection-bigger-container-search-bar.visible-in-big-screen {
     display: none;
@@ -131,7 +129,6 @@
 }
 @media (max-width: 778px) {
   .selectStyle-list-proceed {
-    position: sticky;
     bottom: 0;
     width: 100%;
     padding: 10px;
