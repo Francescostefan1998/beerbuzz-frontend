@@ -75,14 +75,16 @@
 .water-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--main-secondary);
 }
-@media (min-width: 778px) {
-  .water-bottom-bar-visible-when-big-display {
+
+@media (min-width: 1024px) {
+  .water-bottom-bar-invisible-when-big-display {
     display: block;
     position: sticky;
     bottom: 0;
     z-index: 8;
   }
-  .water-bottom-bar-invisible-when-big-display {
+
+  .water-bottom-bar-visible-when-big-display {
     display: none;
   }
   .water-title.invisible-in-small-screen {
@@ -101,13 +103,35 @@
     height: 100%;
     display: none;
   }
+  .common-selection-bigger-container-search-bar.visible-in-small-screen h2 {
+    margin-inline: auto;
+  }
+  .water-bottom-bar-invisible-when-big-display {
+    display: none;
+  }
+  .water-bottom-bar-visible-when-big-display {
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+  }
+
+  .water {
+    height: fit-content;
+  }
+  .water-list {
+    height: fit-content;
+    min-height: 70vh;
+    padding-bottom: 8vh;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .water-title.invisible-in-small-screen {
+    display: none;
+  }
 }
 
 @media (max-width: 778px) {
-  .water {
-    min-height: 100vh;
-    overflow-y: scroll;
-  }
   .water-list-element .icon {
     font-size: 24px;
   }
@@ -128,23 +152,5 @@
     padding-block: 2vh;
     z-index: 4;
     background-color: var(--background-dark);
-  }
-  .water-list {
-    height: fit-content;
-    padding-bottom: 8vh;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
-  .water-bottom-bar-visible-when-big-display {
-    display: none;
-  }
-  .water-bottom-bar-invisible-when-big-display {
-    position: sticky;
-    bottom: 0;
-    z-index: 4;
-  }
-  .water-title.invisible-in-small-screen {
-    display: none;
   }
 }

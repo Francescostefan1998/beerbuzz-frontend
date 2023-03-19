@@ -103,6 +103,9 @@
   .waterSouceData-modal {
     width: 100%;
   }
+  .waterSouceData-salt {
+    visibility: visible;
+  }
 }
 
 @media (max-width: 414px) {
