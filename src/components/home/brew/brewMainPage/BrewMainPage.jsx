@@ -13,10 +13,11 @@ const BrewMainPage = () => {
       <div className="selectStyle-sideBar-left">
         <SideBarLeft title={"Select Style"} subtitle={"r"} />
       </div>
-      <div>
-        <h1 className="mt-3">Follow the step below to make your beer</h1>
-      </div>
+
       <div className="common-selection-bigger-container">
+        <div className="brewMain-page-title">
+          <h1>Follow the step below to make your beer</h1>
+        </div>
         <BrewInsideContainer />
         <div className="selectStyle-list-proceed">
           <div
