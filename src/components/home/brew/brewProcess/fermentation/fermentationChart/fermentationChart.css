@@ -16,7 +16,26 @@
   color: white;
   text-align: right;
 }
+.input-chart-number {
+  width: 80px;
+}
+.input-chart-number-widher {
+  width: 130px;
+}
+.button-chart-pink {
+  width: 120px;
+}
+.button-chart-none {
+  width: 60px;
+  background-color: var(--background-dark);
+}
+.table-row-chart {
+  width: 20vh;
+}
 
+td.day-number-chart-number {
+  width: 80px;
+}
 .fermentationChart button {
   color: white;
   background-color: var(--main-secondary);

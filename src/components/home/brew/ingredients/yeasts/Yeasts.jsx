@@ -30,7 +30,7 @@ const Yeasts = () => {
       <CommonEngredientsModal
         icon={<FaBacterium className="icon" />}
         title={"Yeasts and Bacterias"}
-        colorOrIbu={"Cells/g"}
+        colorOrIbu={"Cell/g"}
         next={"/others"}
         fetchProps={"yeasts"}
         addProduct={addRecipeAction}

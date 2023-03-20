@@ -9,6 +9,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding-right: 20px;
 }
 
 .commonList-element:hover {
@@ -16,7 +19,7 @@
 }
 
 .commonList-element input {
-  max-width: 150px;
+  max-width: 100px;
   outline: none;
   border: none;
   background-color: transparent;

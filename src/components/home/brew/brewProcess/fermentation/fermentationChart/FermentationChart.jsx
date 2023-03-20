@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./fermentationChart.css";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addChartRecipeAction } from "../../../../../../redux/actions/recipe";
 import {
   LineChart,
   Line,
@@ -18,15 +21,19 @@ const Chart = () => {
     { day: "Day 4", temperature: 22 },
     { day: "Day 5", temperature: 27 },
   ]);
+
+  const [newChartData, setNewChartData] = useState([]);
   const [newDayNumber, setNewDayNumber] = useState("");
   const [newTemperature, setNewTemperature] = useState("");
-
+  const dispatch = useDispatch();
   const handleTemperatureChange = (event, index) => {
     const newData = [...data];
     newData[index].temperature = event.target.value;
     setData(newData);
   };
-
+  useEffect(() => {
+    dispatch(addChartRecipeAction(data));
+  }, [data]);
   const handleAddDay = () => {
     const newDay = { day: `Day ${newDayNumber}`, temperature: newTemperature };
     const newData = [...data];
@@ -79,17 +86,23 @@ const Chart = () => {
         </thead>
         <tbody>
           {data.map((entry, index) => (
-            <tr key={index}>
-              <td>{entry.day}</td>
+            <tr key={index} className="table-row-chart">
+              <td>
+                <button className="button-chart-none">{entry.day}</button>
+              </td>
               <td>
                 <input
+                  className="input-chart-number"
                   type="number"
                   value={entry.temperature}
                   onChange={(event) => handleTemperatureChange(event, index)}
                 />
               </td>
               <td>
-                <button onClick={() => handleRemoveDay(index)}>
+                <button
+                  onClick={() => handleRemoveDay(index)}
+                  className="button-chart-pink"
+                >
                   Remove Day
                 </button>
               </td>
@@ -101,6 +114,7 @@ const Chart = () => {
         <div>
           <label>New Day Number:</label>
           <input
+            className="input-chart-number-widher"
             type="number"
             value={newDayNumber}
             onChange={handleNewDayNumberChange}
@@ -109,6 +123,7 @@ const Chart = () => {
         <div>
           <label>New Temperature:</label>
           <input
+            className="input-chart-number-widher"
             type="number"
             value={newTemperature}
             onChange={handleNewTemperatureChange}

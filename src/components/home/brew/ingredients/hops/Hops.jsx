@@ -30,7 +30,7 @@ const Hops = () => {
       <CommonEngredientsModal
         icon={<GiHops className="icon" />}
         title={"Hops"}
-        colorOrIbu={"Alpha Acid (%)"}
+        colorOrIbu={"Acid"}
         next={"/yeasts"}
         fetchProps={"hops"}
         addProduct={addRecipeAction}

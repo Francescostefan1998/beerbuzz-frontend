@@ -167,7 +167,7 @@ const Mash = () => {
               <h1>Malts</h1>
               <CommonList
                 icon={<GiWheat />}
-                colorOrIbu={"Color (EBC)"}
+                colorOrIbu={"(EBC)"}
                 title={"Mash"}
                 addProduct={addRecipeAction}
                 subtractProduct={subtractRecipeAction}

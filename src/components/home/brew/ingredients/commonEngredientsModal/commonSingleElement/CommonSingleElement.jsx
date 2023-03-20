@@ -133,7 +133,9 @@ const CommonSingleElement = ({
       )*/}
       <div className="common-element-container-inside-malt-description">
         <div className="common-element-container-inside-malt-description-section">
-          <b>{body.name}</b>
+          <h6>
+            <b>{body.name}</b>
+          </h6>
         </div>
         <div className="common-element-container-inside-malt-description-section">
           <div>
@@ -146,9 +148,8 @@ const CommonSingleElement = ({
           {body.alpha && <div>alpha:{body.alpha}%</div>}
           {body.attenuation && <div>att:{body.attenuation}%</div>}
           <div>-</div>
-          {body.potential && <div>potential:{body.potential}</div>}
-          {body.alpha && <div>origin:{body.origin}</div>}
-          {body.attenuation && <div>maxAbv:{body.maxAbv}%</div>}
+          {body.potential && <div>p:{body.potential}</div>}
+          {body.attenuation && <div>Abv:{body.maxAbv}%</div>}
           <div>-</div>
           <div>{body.type}</div>
         </div>

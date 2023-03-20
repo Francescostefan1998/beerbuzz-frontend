@@ -161,7 +161,7 @@ const Boil = () => {
               <h1>Hops</h1>
               <CommonList
                 icon={<GiHops />}
-                colorOrIbu={"Alpha Acid (%)"}
+                colorOrIbu={"Acid"}
                 title={"Hops"}
                 addProduct={addRecipeAction}
                 subtractProduct={subtractRecipeAction}

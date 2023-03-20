@@ -15,7 +15,7 @@ const SingleStepAdd = ({ addStepRecipeAction, refresh, setShow }) => {
     console.log("r");
   }, [refresh]);
   return (
-    <div className="commonBrewStep-others-single mt-5">
+    <div className="commonBrewStep-others-single mt-3">
       <div>
         {" "}
         <BsTrashFill
@@ -43,7 +43,7 @@ const SingleStepAdd = ({ addStepRecipeAction, refresh, setShow }) => {
         />
       </div>
       <div className="commonBrewStep-others-single-grow1">
-        <div className="none">Temperature (C)</div>
+        <div className="none">Temp. (C)</div>
         <input
           type="text"
           placeholder="Temperature"
