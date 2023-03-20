@@ -136,11 +136,19 @@ const CommonSingleElement = ({
           <b>{body.name}</b>
         </div>
         <div className="common-element-container-inside-malt-description-section">
-          <div>{colorOrIbu}</div>
+          <div>
+            {colorOrIbu}
+            {body.color && body.color}
+            {body.cellsPerGram && body.cellsPerGram}
+          </div>
           <div>-</div>
-          {body.potential && <div>{body.potential}</div>}
-          {body.alpha && <div>{body.alpha}</div>}
-          {body.attenuation && <div>{body.attenuation}</div>}
+          {body.yield && <div>yeld:{body.yield}%</div>}
+          {body.alpha && <div>alpha:{body.alpha}%</div>}
+          {body.attenuation && <div>att:{body.attenuation}%</div>}
+          <div>-</div>
+          {body.potential && <div>potential:{body.potential}</div>}
+          {body.alpha && <div>origin:{body.origin}</div>}
+          {body.attenuation && <div>maxAbv:{body.maxAbv}%</div>}
           <div>-</div>
           <div>{body.type}</div>
         </div>
