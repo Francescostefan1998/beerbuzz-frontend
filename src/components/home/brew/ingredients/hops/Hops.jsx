@@ -22,7 +22,9 @@ const Hops = () => {
 
   return (
     <div className="hops">
-      <NavBar />
+      <div className="malts-navbar-position-fixed">
+        <NavBar />
+      </div>
       <div className="selectStyle-sideBar-left">
         <SideBarLeft title={"Ingredients"} subtitle={"Hops"} />
       </div>
@@ -30,7 +32,7 @@ const Hops = () => {
       <CommonEngredientsModal
         icon={<GiHops className="icon" />}
         title={"Hops"}
-        colorOrIbu={"Alpha Acid (%)"}
+        colorOrIbu={"Acid"}
         next={"/yeasts"}
         fetchProps={"hops"}
         addProduct={addRecipeAction}

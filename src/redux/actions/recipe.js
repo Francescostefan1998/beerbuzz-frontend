@@ -6,6 +6,14 @@ export const addMaltsRecipeAction = (param) => {
     });
   };
 };
+export const addChartRecipeAction = (param) => {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: "ADD_CHART_TO_RECIPE",
+      payload: param,
+    });
+  };
+};
 
 export const addHopsRecipeAction = (param) => {
   return async (dispatch, getState) => {

@@ -6,14 +6,21 @@ const ShowRecipeTitle = ({ body }) => {
       {body && (
         <div className="showRecipeTitle">
           <div>
-            <h2>{body.name}</h2>
+            <h2>{body.name !== "" ? body.name : "Beer"}</h2>
           </div>
           <div className="showRecipeTitle-image">
-            <img src={body.image} alt="recipeImage" />
+            <img
+              src={
+                body.image !== ""
+                  ? body.image
+                  : "https://th.bing.com/th/id/OIP.CaxyTtW5_xdxtnmTND4GeQHaHa?pid=ImgDet&rs=1"
+              }
+              alt="recipeImage"
+            />
           </div>
 
           <div>
-            <h3>{body.author}</h3>
+            <h3>{body.author !== "" ? body.author : "Me"}</h3>
           </div>
         </div>
       )}

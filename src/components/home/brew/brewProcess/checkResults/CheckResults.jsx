@@ -13,7 +13,7 @@ import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import SideBarLeft from "../../sideBarLeft/SideBarLeft";
-
+import FermentationChartCheck from "../fermentation/fermentationChartCheck/FermentationChartCheck";
 import FermentationChart from "../fermentation/fermentationChart/FermentationChart";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -32,12 +32,17 @@ const CheckResults = () => {
   const imageRec = useSelector((state) => state.createRecipe.image);
   const authorRec = useSelector((state) => state.createRecipe.author);
   const userIdRec = localStorage.getItem("userId");
-  const styleRec = useSelector((state) => state.style.name);
+  const { style } = useSelector((state) => state.style);
+  const styleRec = style ? style.name : "";
   const batchVolumeRec = useSelector((state) => state.createRecipe.batchVolume);
   const mashVolumeRec = useSelector(
     (state) => state.waterAndBeerData.mashVolume
   );
   const preBoilRec = useSelector((state) => state.waterAndBeerData.preBoil);
+  const efficiencyRec = useSelector(
+    (state) => state.waterAndBeerData.equipmentEfficiency
+  );
+
   const postBoilRec = useSelector((state) => state.waterAndBeerData.postBoil);
   const abvRec = useSelector((state) => state.createRecipe.abv);
   const ebcRec = useSelector((state) => state.createRecipe.ebc);
@@ -51,8 +56,10 @@ const CheckResults = () => {
   const saltsRec = useSelector((state) => state.createRecipe.salts);
   const mashRec = useSelector((state) => state.recipeSteps.mash);
   const boilRec = useSelector((state) => state.recipeSteps.boil);
-  const commentsRec = useSelector((state) => state.createRecipe.comments);
+  const spargeRec = useSelector((state) => state.sparge.volume);
 
+  const commentsRec = useSelector((state) => state.createRecipe.comments);
+  const chartData = useSelector((state) => state.createRecipe.chart);
   const fermentationRec = useSelector(
     (state) => state.recipeSteps.fermentation
   );
@@ -64,6 +71,8 @@ const CheckResults = () => {
     userId: "",
     style: "",
     batchVolume: 0,
+    spargeVolume: 0,
+    efficiency: 0,
     mashVolume: 0,
     preBoil: 0,
     postBoil: 0,
@@ -101,16 +110,11 @@ const CheckResults = () => {
         duration: 0,
       },
     ],
-    fermentationChart: [
-      {
-        day: 0,
-        temperature: 0,
-      },
-    ],
+
     comments: [],
+    chart: [],
   });
   const navigate = useNavigate();
-
   const addProduct = async (body) => {
     await setRefresh(body.name);
   };
@@ -128,6 +132,8 @@ const CheckResults = () => {
       batchVolume: batchVolumeRec,
       mashVolume: mashVolumeRec,
       preBoil: preBoilRec,
+      spargeVolume: spargeRec,
+      efficiency: efficiencyRec,
       postBoil: postBoilRec,
       abv: abvRec,
       ebc: ebcRec,
@@ -161,7 +167,7 @@ const CheckResults = () => {
         Array.isArray(othersRec) &&
         othersRec.map((other) => ({
           name: other.name,
-
+          description: other.description,
           nameId: other._id,
           amount: 0,
         })),
@@ -195,16 +201,14 @@ const CheckResults = () => {
           temperature: fermentation.temperature,
           duration: fermentation.duration,
         })),
-      fermentationChart: Array.from({ length: boilRec.length }, () => ({
-        day: 0,
-        temperature: 0,
-      })),
+
       comments:
         Array.isArray(commentsRec) &&
         commentsRec.map((comment) => ({
           name: comment.name,
           comment: comment.comment,
         })),
+      chart: chartData,
     };
     setRecipe(newRecipe);
     console.log(newRecipe);
@@ -328,7 +332,7 @@ const CheckResults = () => {
               />
             </div>
           </div>
-          <FermentationChart />
+          <FermentationChartCheck />
           <Comment />
         </div>
         <div className="checkResults-bottom-section visible-in-big-screen">

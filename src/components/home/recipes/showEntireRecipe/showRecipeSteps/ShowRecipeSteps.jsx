@@ -3,7 +3,7 @@ import "./showRecipeSteps.css";
 const ShowRecipeSteps = ({ body }) => {
   return (
     <>
-      {body && (
+      {body && Array.isArray(body.mash) && (
         <div className="showRecipeSteps">
           <h2>Steps</h2>
           <h4>Mash</h4>
@@ -86,37 +86,6 @@ const ShowRecipeSteps = ({ body }) => {
           </div>
 
           {body.fermentation.map((salt, i) => (
-            <div className="showRecipeSteps-single-step" key={salt.name}>
-              {" "}
-              <div className="showRecipeSteps-single-step-cell">
-                {salt.name}
-              </div>{" "}
-              <div className="showRecipeSteps-single-step-cell">
-                {salt.duration}
-              </div>
-              <div className="showRecipeSteps-single-step-cell">
-                {salt.temperature}
-              </div>
-              <div className="showRecipeSteps-single-step-cell description">
-                {salt.description}
-              </div>
-            </div>
-          ))}
-          <div className="showRecipeSteps-single-step last"></div>
-
-          <h4>Fermentation chart</h4>
-          <div className="showRecipeSteps-single-step first">
-            <div className="showRecipeSteps-single-step-cell">Day</div>{" "}
-            <div className="showRecipeSteps-single-step-cell">Day</div>
-            <div className="showRecipeSteps-single-step-cell">
-              Temperature(C)
-            </div>
-            <div className="showRecipeSteps-single-step-cell description">
-              Description
-            </div>
-          </div>
-
-          {body.mash.map((salt, i) => (
             <div className="showRecipeSteps-single-step" key={salt.name}>
               {" "}
               <div className="showRecipeSteps-single-step-cell">

@@ -23,7 +23,9 @@ const Malts = () => {
   const addThisProduct = async (product) => {};
   return (
     <div className="malts">
-      <NavBar />
+      <div className="malts-navbar-position-fixed">
+        <NavBar />
+      </div>
       <div className="selectStyle-sideBar-left">
         <SideBarLeft title={"Ingredients"} subtitle={"Fermentables"} />
       </div>

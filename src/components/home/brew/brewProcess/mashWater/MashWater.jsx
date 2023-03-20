@@ -170,7 +170,7 @@ const MashWater = ({ setRefresh }) => {
             <input
               type="number"
               className="second-line"
-              placeholder={volumeSparge}
+              placeholder={parseFloat(volumeSparge).toFixed(2)}
               onChange={(e) => {
                 changeSpargeVolume(e.target.value);
                 updateTheValues(e.target.value);
@@ -185,7 +185,7 @@ const MashWater = ({ setRefresh }) => {
             <input
               type="number"
               className="second-line"
-              placeholder={finalpHSparge}
+              placeholder={parseFloat(finalpHSparge).toFixed(2)}
             />
           </div>
         </div>

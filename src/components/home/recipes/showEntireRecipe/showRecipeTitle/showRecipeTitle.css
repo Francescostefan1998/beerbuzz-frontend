@@ -21,3 +21,14 @@
   height: 100%;
   object-fit: contain;
 }
+@media (max-width: 1024px) {
+  .showRecipeTitle h2 {
+    margin: 0;
+    padding: 0;
+  }
+  .showRecipeTitle h3 {
+    margin: 0;
+    padding: 0;
+    padding-left: 4vh;
+  }
+}

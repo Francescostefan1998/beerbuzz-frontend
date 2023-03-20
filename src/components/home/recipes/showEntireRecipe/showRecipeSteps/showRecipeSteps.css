@@ -53,3 +53,20 @@
 .showRecipeSteps-single-step.last {
   border-bottom: 1px solid var(--main-secondary-opacue);
 }
+
+@media (max-width: 768px) {
+  .showRecipeSteps h2 {
+    width: 100%;
+    margin-top: 2vh;
+    margin-inline: auto;
+    text-align: center;
+    padding: 0;
+  }
+  .showRecipeSteps h4 {
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 0;
+    padding-left: 4vh;
+  }
+}

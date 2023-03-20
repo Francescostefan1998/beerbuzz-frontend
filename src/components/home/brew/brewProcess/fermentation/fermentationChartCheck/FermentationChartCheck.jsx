@@ -12,35 +12,23 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { useSelector } from "react-redux";
+const FermentationChartCheck = () => {
+  const chartData = useSelector((state) => state.createRecipe.chart);
 
-const Chart = () => {
-  const [data, setData] = useState([
-    { day: "Day 1", temperature: 25 },
-    { day: "Day 2", temperature: 28 },
-    { day: "Day 3", temperature: 24 },
-    { day: "Day 4", temperature: 22 },
-    { day: "Day 5", temperature: 27 },
-  ]);
+  const [data, setData] = useState(chartData);
 
   const [newChartData, setNewChartData] = useState([]);
   const [newDayNumber, setNewDayNumber] = useState("");
-  const [newTemperature, setNewTemperature] = useState(0);
+  const [newTemperature, setNewTemperature] = useState("");
   const dispatch = useDispatch();
   const handleTemperatureChange = (event, index) => {
     const newData = [...data];
-    newData[index] = {
-      ...newData[index],
-      temperature: parseFloat(event.target.value),
-    };
+    newData[index].temperature = event.target.value;
     setData(newData);
   };
-
   useEffect(() => {
     console.log(data);
-    setTimeout(
-      () => setTimeout(() => dispatch(addChartRecipeAction(data)), 1000),
-      1000
-    );
   }, [data]);
   const handleAddDay = () => {
     const newDay = { day: `Day ${newDayNumber}`, temperature: newTemperature };
@@ -57,7 +45,7 @@ const Chart = () => {
     newData.splice(insertIndex, 0, newDay);
     setData(newData);
     setNewDayNumber("");
-    setNewTemperature(0);
+    setNewTemperature("");
   };
 
   const handleRemoveDay = (index) => {
@@ -71,7 +59,7 @@ const Chart = () => {
   };
 
   const handleNewTemperatureChange = (event) => {
-    setNewTemperature(parseFloat(event.target.value));
+    setNewTemperature(event.target.value);
   };
 
   return (
@@ -89,7 +77,6 @@ const Chart = () => {
           <tr>
             <th>Day</th>
             <th>Temperature</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -99,50 +86,17 @@ const Chart = () => {
                 <button className="button-chart-none">{entry.day}</button>
               </td>
               <td>
-                <input
-                  className="input-chart-number"
-                  type="number"
-                  value={entry.temperature}
-                  onChange={(event) => handleTemperatureChange(event, index)}
-                />
-              </td>
-              <td>
-                <button
-                  onClick={() => handleRemoveDay(index)}
-                  className="button-chart-pink"
-                >
-                  Remove Day
+                <button className="button-chart-none">
+                  {entry.temperature}
                 </button>
               </td>
+              <td></td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="fermentationChart-insert">
-        <div>
-          <label>New Day Number:</label>
-          <input
-            className="input-chart-number-widher"
-            type="number"
-            value={newDayNumber}
-            onChange={handleNewDayNumberChange}
-          />
-        </div>
-        <div>
-          <label>New Temperature:</label>
-          <input
-            className="input-chart-number-widher"
-            type="number"
-            value={newTemperature}
-            onChange={handleNewTemperatureChange}
-          />
-        </div>
-        <div>
-          <button onClick={handleAddDay}>Add Day</button>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default Chart;
+export default FermentationChartCheck;

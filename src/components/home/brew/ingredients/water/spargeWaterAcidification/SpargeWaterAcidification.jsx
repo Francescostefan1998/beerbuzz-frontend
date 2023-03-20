@@ -95,7 +95,7 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
             <div>Target Sparge Water pH @ 20C</div>
             <div>
               <input
-                type="text"
+                type="number"
                 placeholder={initialPh}
                 onChange={(e) => {
                   dispatch(initialPhSpargeAction(e.target.value));
@@ -107,14 +107,14 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
           <div className="field">
             <div>Water Input Unit</div>
             <div>
-              <div>liter</div>
+              <div className="padding-left">liter</div>
             </div>
           </div>
           <div className="field">
             <div>Sparge Water Volume</div>
             <div>
               <input
-                type="text"
+                type="number"
                 placeholder={volume}
                 onChange={(e) => {
                   dispatch(volumeSpargeAction(e.target.value));
@@ -126,7 +126,7 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
           <div className="field" onClick={() => setSelectAcid(true)}>
             <div>Acid</div>
             <div>
-              <input type="text" placeholder={acid} />
+              <input type="text" placeholder={acid} className="padding-left" />
             </div>
             {selectAcid && (
               <div className="acid-selections-main">
@@ -197,19 +197,21 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
           <div className="field">
             <div>Raw Source Water pH @ 20C</div>
             <div>
-              <div>{finalph}</div>
+              <div className="padding-left">
+                {parseFloat(finalph).toFixed(2)}
+              </div>
             </div>
           </div>
           <div className="field">
             <div>Est. Acid Addition</div>
             <div>
-              <div>-</div>
+              <div className="padding-left">-</div>
             </div>
           </div>
           <div className="field">
             <div>Reduced Alkaninity</div>
             <div>
-              <div>{alkalinity.toFixed(2)} </div>
+              <div className="padding-left">{alkalinity.toFixed(2)} </div>
             </div>
           </div>
           <div className="field button">

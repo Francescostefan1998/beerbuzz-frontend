@@ -59,6 +59,18 @@
   padding-inline: 3vh;
   text-align: left;
 }
+@media (max-width: 1024px) {
+  .common-ingredients-container-inside-section-top {
+    position: fixed;
+    top: 8vh;
+  }
+  .common-ingredients-container-inside-search-outerContainer {
+    position: fixed;
+    top: 14vh;
+    width: 100%;
+    display: flex;
+  }
+}
 @media (max-width: 778px) {
   .ingredients-others-single-icon-circle {
     padding-inline: 1vh;

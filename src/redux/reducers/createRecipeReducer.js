@@ -21,6 +21,7 @@ const initialState = {
   boil: [],
   fermentation: [],
   comments: [],
+  chart: [{}],
 };
 
 export const createRecipeReducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ export const createRecipeReducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.payload,
+      };
+    case "ADD_CHART_TO_RECIPE":
+      return {
+        ...state,
+        chart: action.payload,
       };
     case "ADD_SALT_TO_RECIPE":
       return {

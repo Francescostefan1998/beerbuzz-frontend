@@ -101,7 +101,7 @@ const Fermentation = () => {
               <h1>Yeasts And Bacteria</h1>
               <CommonList
                 icon={<FaBacterium />}
-                colorOrIbu={"Attenuation (%)"}
+                colorOrIbu={"c/g"}
                 title={"Yeasts and Bacteria"}
                 addProduct={addRecipeAction}
                 subtractProduct={subtractRecipeAction}

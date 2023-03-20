@@ -1,3 +1,6 @@
 .spargeWaterAcidification {
   height: 100%;
 }
+.spargeWaterAcidification .field .padding-left {
+  padding-right: 2vh;
+}

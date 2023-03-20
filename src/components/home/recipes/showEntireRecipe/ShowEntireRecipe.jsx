@@ -7,7 +7,7 @@ import ShowRecipeSteps from "./showRecipeSteps/ShowRecipeSteps";
 import { MdAddCircle } from "react-icons/md";
 import { BsTrashFill } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
-
+import ShowFermentationChartCheck from "./showRecipeChart/ShowFermentationChartCheck";
 import ShowRecipeTitle from "./showRecipeTitle/ShowRecipeTitle";
 const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
   const [body, setBody] = useState(null);
@@ -65,9 +65,11 @@ const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
           <ShowRecipeSteps body={body} />
         </div>
       </div>
+      <ShowFermentationChartCheck body={body} />
       <div className="showEntireRecipe-bottom">
         <h4>Comments</h4>
         {body &&
+          Array.isArray(body.comments) &&
           body.comments.map((comment, i) => (
             <div key={comment.name}>
               {comment.name}: {comment.comment}

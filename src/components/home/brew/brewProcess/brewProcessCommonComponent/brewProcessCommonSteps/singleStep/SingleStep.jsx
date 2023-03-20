@@ -37,7 +37,7 @@ const SingleStep = ({ subtractStepRecipeAction, body, refresh, setShow }) => {
           <div>Duration: {body.duration}min, </div>
         </div>
         <div className="commonBrewStep-others-single-grow1">
-          <div>Temperature: {body.temperature}(C)</div>
+          <div>Temp: {body.temperature}(C)</div>
         </div>
 
         <div> </div>
