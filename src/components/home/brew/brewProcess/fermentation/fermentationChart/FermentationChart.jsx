@@ -24,15 +24,23 @@ const Chart = () => {
 
   const [newChartData, setNewChartData] = useState([]);
   const [newDayNumber, setNewDayNumber] = useState("");
-  const [newTemperature, setNewTemperature] = useState("");
+  const [newTemperature, setNewTemperature] = useState(0);
   const dispatch = useDispatch();
   const handleTemperatureChange = (event, index) => {
     const newData = [...data];
-    newData[index].temperature = event.target.value;
+    newData[index] = {
+      ...newData[index],
+      temperature: parseFloat(event.target.value),
+    };
     setData(newData);
   };
+
   useEffect(() => {
-    dispatch(addChartRecipeAction(data));
+    console.log(data);
+    setTimeout(
+      () => setTimeout(() => dispatch(addChartRecipeAction(data)), 1000),
+      1000
+    );
   }, [data]);
   const handleAddDay = () => {
     const newDay = { day: `Day ${newDayNumber}`, temperature: newTemperature };
@@ -49,7 +57,7 @@ const Chart = () => {
     newData.splice(insertIndex, 0, newDay);
     setData(newData);
     setNewDayNumber("");
-    setNewTemperature("");
+    setNewTemperature(0);
   };
 
   const handleRemoveDay = (index) => {
@@ -63,7 +71,7 @@ const Chart = () => {
   };
 
   const handleNewTemperatureChange = (event) => {
-    setNewTemperature(event.target.value);
+    setNewTemperature(parseFloat(event.target.value));
   };
 
   return (

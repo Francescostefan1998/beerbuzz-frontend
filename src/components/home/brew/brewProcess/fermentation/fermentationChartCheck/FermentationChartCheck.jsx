@@ -12,15 +12,11 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-
+import { useSelector } from "react-redux";
 const FermentationChartCheck = () => {
-  const [data, setData] = useState([
-    { day: "Day 1", temperature: 25 },
-    { day: "Day 2", temperature: 28 },
-    { day: "Day 3", temperature: 24 },
-    { day: "Day 4", temperature: 22 },
-    { day: "Day 5", temperature: 27 },
-  ]);
+  const chartData = useSelector((state) => state.createRecipe.chart);
+
+  const [data, setData] = useState(chartData);
 
   const [newChartData, setNewChartData] = useState([]);
   const [newDayNumber, setNewDayNumber] = useState("");
@@ -32,7 +28,7 @@ const FermentationChartCheck = () => {
     setData(newData);
   };
   useEffect(() => {
-    dispatch(addChartRecipeAction(data));
+    console.log(data);
   }, [data]);
   const handleAddDay = () => {
     const newDay = { day: `Day ${newDayNumber}`, temperature: newTemperature };
@@ -81,7 +77,6 @@ const FermentationChartCheck = () => {
           <tr>
             <th>Day</th>
             <th>Temperature</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -91,48 +86,15 @@ const FermentationChartCheck = () => {
                 <button className="button-chart-none">{entry.day}</button>
               </td>
               <td>
-                <input
-                  className="input-chart-number"
-                  type="number"
-                  value={entry.temperature}
-                  onChange={(event) => handleTemperatureChange(event, index)}
-                />
-              </td>
-              <td>
-                <button
-                  onClick={() => handleRemoveDay(index)}
-                  className="button-chart-pink"
-                >
-                  Remove Day
+                <button className="button-chart-none">
+                  {entry.temperature}
                 </button>
               </td>
+              <td></td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="fermentationChart-insert">
-        <div>
-          <label>New Day Number:</label>
-          <input
-            className="input-chart-number-widher"
-            type="number"
-            value={newDayNumber}
-            onChange={handleNewDayNumberChange}
-          />
-        </div>
-        <div>
-          <label>New Temperature:</label>
-          <input
-            className="input-chart-number-widher"
-            type="number"
-            value={newTemperature}
-            onChange={handleNewTemperatureChange}
-          />
-        </div>
-        <div>
-          <button onClick={handleAddDay}>Add Day</button>
-        </div>
-      </div>
     </div>
   );
 };

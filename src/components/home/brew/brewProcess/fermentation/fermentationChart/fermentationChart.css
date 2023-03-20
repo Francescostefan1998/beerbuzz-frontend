@@ -1,12 +1,18 @@
 .fermentationChart {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-top: 30px;
   gap: 30px;
   padding: 30px;
   border-bottom: 3px solid var(--main-secondary-opacue);
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+.fermentationChart table {
+}
+.fermentationChart-insert {
 }
 .fermentationChart input {
   background-color: var(--background-black);
@@ -83,17 +89,37 @@ td.day-number-chart-number {
 }
 #lineChart {
 }
-
+@media (max-width: 1400px) {
+  .fermentationChart {
+    gap: 10px;
+    padding: 10px;
+  }
+  .input-chart-number-widher {
+    width: 60px !important;
+  }
+}
 @media (max-width: 1324px) {
   #lineChart {
     width: 400px;
     height: 400px;
+  }
+  .fermentationChart {
+    margin-top: -6vh !important;
+  }
+}
+@media (max-width: 1114px) {
+  .input-chart-number {
+    width: 40px !important;
   }
 }
 @media (max-width: 1024px) {
   .fermentationChart {
     flex-direction: column;
     padding: 10px;
+    margin-top: -1vh !important;
+  }
+  .input-chart-number {
+    width: 80px !important;
   }
   #lineChart {
     width: 600px;
@@ -104,17 +130,26 @@ td.day-number-chart-number {
     display: none;
   }
 }
-
-@media (max-width: 788px) {
+@media (min-width: 768px) {
+  .fermentationChart {
+    align-items: flex-end;
+  }
+}
+@media (max-width: 768px) {
   .fermentationChart {
     flex-direction: column;
+    margin-top: -6vh !important;
     padding: 10px;
     padding-top: 0px;
     padding-bottom: 30px;
+    align-items: center;
   }
   #lineChart {
     width: 400px;
     height: 400px;
+  }
+  .input-chart-number {
+    width: 120px !important;
   }
 }
 
@@ -122,6 +157,11 @@ td.day-number-chart-number {
   #lineChart {
     width: 300px;
     height: 400px;
+    margin-left: -2.8vh;
+  }
+  .fermentationChart {
+    flex-direction: column;
+    margin-top: -8vh !important;
   }
   .fermentationChart input {
     width: 180px;
