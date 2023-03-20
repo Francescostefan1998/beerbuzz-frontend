@@ -38,6 +38,10 @@ const CheckResults = () => {
     (state) => state.waterAndBeerData.mashVolume
   );
   const preBoilRec = useSelector((state) => state.waterAndBeerData.preBoil);
+  const efficiencyRec = useSelector(
+    (state) => state.waterAndBeerData.equipmentEfficiency
+  );
+
   const postBoilRec = useSelector((state) => state.waterAndBeerData.postBoil);
   const abvRec = useSelector((state) => state.createRecipe.abv);
   const ebcRec = useSelector((state) => state.createRecipe.ebc);
@@ -51,6 +55,8 @@ const CheckResults = () => {
   const saltsRec = useSelector((state) => state.createRecipe.salts);
   const mashRec = useSelector((state) => state.recipeSteps.mash);
   const boilRec = useSelector((state) => state.recipeSteps.boil);
+  const spargeRec = useSelector((state) => state.sparge.volume);
+
   const commentsRec = useSelector((state) => state.createRecipe.comments);
   const chartData = useSelector((state) => state.createRecipe.chart);
   const fermentationRec = useSelector(
@@ -64,6 +70,8 @@ const CheckResults = () => {
     userId: "",
     style: "",
     batchVolume: 0,
+    spargeVolume: 0,
+    efficiency: 0,
     mashVolume: 0,
     preBoil: 0,
     postBoil: 0,
@@ -106,7 +114,6 @@ const CheckResults = () => {
     chart: [],
   });
   const navigate = useNavigate();
-  console.log(recipe);
   const addProduct = async (body) => {
     await setRefresh(body.name);
   };
@@ -124,6 +131,8 @@ const CheckResults = () => {
       batchVolume: batchVolumeRec,
       mashVolume: mashVolumeRec,
       preBoil: preBoilRec,
+      spargeVolume: spargeRec,
+      efficiency: efficiencyRec,
       postBoil: postBoilRec,
       abv: abvRec,
       ebc: ebcRec,

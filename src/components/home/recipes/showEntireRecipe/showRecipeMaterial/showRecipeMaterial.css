@@ -14,3 +14,19 @@
   margin-bottom: 6px;
   margin-inline: 0;
 }
+@media (max-width: 768px) {
+  .showRecipeMaterial h2 {
+    width: 100%;
+    margin-top: 2vh;
+    margin-inline: auto;
+    text-align: center;
+    padding: 0;
+  }
+  .showRecipeMaterial h4 {
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 0;
+    padding-left: 2vh;
+  }
+}

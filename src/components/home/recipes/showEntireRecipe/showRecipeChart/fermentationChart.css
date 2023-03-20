@@ -1,0 +1,148 @@
+.fermentationChart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 30px;
+  border-bottom: 3px solid var(--main-secondary-opacue);
+  overflow-x: hidden;
+}
+.fermentationChart input {
+  background-color: var(--background-black);
+  outline: none;
+  overflow: hidden;
+  border: none;
+  color: white;
+  text-align: right;
+}
+.input-chart-number {
+  width: 80px;
+}
+.input-chart-number-widher {
+  width: 130px;
+}
+.button-chart-pink {
+  width: 120px;
+}
+.button-chart-none {
+  width: 60px;
+  background-color: var(--background-dark);
+}
+.table-row-chart {
+  width: 20vh;
+}
+
+td.day-number-chart-number {
+  width: 80px;
+}
+.fermentationChart button {
+  color: white;
+  background-color: var(--main-secondary);
+  border: none;
+}
+.fermentationChart button:hover {
+  box-shadow: 0px 0px 10px var(--main-secondary);
+}
+
+.fermentationChart-insert {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.fermentationChart input[type="number"]::-webkit-inner-spin-button,
+.fermentationChart input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.fermentationChart input[type="number"]::-webkit-inner-spin-button::before {
+  content: "+";
+  display: block;
+  background-color: #161414;
+  color: white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fermentationChart input[type="number"]::-webkit-outer-spin-button::before {
+  content: "-";
+  display: block;
+  background-color: #161414;
+
+  color: white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+#lineChart {
+}
+
+@media (max-width: 1324px) {
+  #lineChart {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media (max-width: 1024px) {
+  .fermentationChart {
+    flex-direction: column;
+    padding: 10px;
+  }
+  #lineChart {
+    width: 600px;
+
+    height: 400px;
+  }
+  .fermentationChart ul {
+    display: none;
+  }
+}
+
+@media (max-width: 788px) {
+  .fermentationChart {
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 30px;
+  }
+  #lineChart {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 464px) {
+  #lineChart {
+    width: 300px;
+    height: 400px;
+  }
+  .fermentationChart input {
+    width: 180px;
+  }
+}
+@media (max-width: 380px) {
+  #lineChart {
+    width: 300px;
+    height: 400px;
+  }
+  .fermentationChart input {
+    width: 164px;
+  }
+}
+@media (max-width: 360px) {
+  #lineChart {
+    width: 300px;
+    height: 400px;
+  }
+  .fermentationChart input {
+    width: 146px;
+  }
+}

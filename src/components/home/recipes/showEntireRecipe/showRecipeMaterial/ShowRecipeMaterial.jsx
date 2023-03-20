@@ -3,7 +3,7 @@ import "./showRecipeMaterial.css";
 const ShowRecipeMaterial = ({ body }) => {
   return (
     <>
-      {body && (
+      {body && Array.isArray(body.malts) && (
         <div className="showRecipeMaterial">
           <h2>Material</h2>
           <h4>Salts</h4>

@@ -45,7 +45,9 @@ const RecipesList = () => {
         ) : (
           <div className="showEnt-recipe-title">
             <div>
-              <h1>ff</h1>
+              <h1>
+                {recipeSelected.name !== "" ? recipeSelected.name : "Beer"}
+              </h1>
             </div>
             <div>delete</div>
           </div>

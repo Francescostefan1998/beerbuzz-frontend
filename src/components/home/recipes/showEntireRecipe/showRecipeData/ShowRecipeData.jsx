@@ -28,13 +28,13 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>OG:</strong>
               </div>
-              <div>{parseFloat(body.og).toFixed(2)}</div>
+              <div>{parseFloat(body.og).toFixed(3)}</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>FG:</strong>
               </div>
-              <div>{parseFloat(body.fg).toFixed(2)}</div>
+              <div>{parseFloat(body.fg).toFixed(3)}</div>
             </div>
           </div>
           <div className="showRecipeData-overview water">
@@ -60,13 +60,13 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>Sparge Volume:</strong>
               </div>
-              <div>200L</div>
+              <div>{parseFloat(body.spargeVolume).toFixed(2)}L</div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Equipment Efficiency:</strong>
               </div>
-              <div>75%</div>
+              <div>{parseFloat(body.efficiency).toFixed(2)}%</div>
             </div>
           </div>
         </div>
