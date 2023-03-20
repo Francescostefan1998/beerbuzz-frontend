@@ -13,7 +13,7 @@ import CommonBrewStep from "../brewProcessCommonComponent/brewProcessCommonSteps
 import { GiWheat } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import SideBarLeft from "../../sideBarLeft/SideBarLeft";
-
+import FermentationChartCheck from "../fermentation/fermentationChartCheck/FermentationChartCheck";
 import FermentationChart from "../fermentation/fermentationChart/FermentationChart";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -52,7 +52,7 @@ const CheckResults = () => {
   const mashRec = useSelector((state) => state.recipeSteps.mash);
   const boilRec = useSelector((state) => state.recipeSteps.boil);
   const commentsRec = useSelector((state) => state.createRecipe.comments);
-
+  const chartData = useSelector((state) => state.createRecipe.chart);
   const fermentationRec = useSelector(
     (state) => state.recipeSteps.fermentation
   );
@@ -108,6 +108,7 @@ const CheckResults = () => {
       },
     ],
     comments: [],
+    chart: [],
   });
   const navigate = useNavigate();
 
@@ -205,6 +206,7 @@ const CheckResults = () => {
           name: comment.name,
           comment: comment.comment,
         })),
+      chart: chartData,
     };
     setRecipe(newRecipe);
     console.log(newRecipe);
@@ -328,7 +330,7 @@ const CheckResults = () => {
               />
             </div>
           </div>
-          <FermentationChart />
+          <FermentationChartCheck />
           <Comment />
         </div>
         <div className="checkResults-bottom-section visible-in-big-screen">
