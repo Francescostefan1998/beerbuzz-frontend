@@ -22,7 +22,9 @@ const Yeasts = () => {
 
   return (
     <div className="yeasts">
-      <NavBar />
+      <div className="malts-navbar-position-fixed">
+        <NavBar />
+      </div>
       <div className="selectStyle-sideBar-left">
         <SideBarLeft title={"Ingredients"} subtitle={"Yeasts"} />
       </div>

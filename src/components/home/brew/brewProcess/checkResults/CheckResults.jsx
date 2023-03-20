@@ -32,7 +32,8 @@ const CheckResults = () => {
   const imageRec = useSelector((state) => state.createRecipe.image);
   const authorRec = useSelector((state) => state.createRecipe.author);
   const userIdRec = localStorage.getItem("userId");
-  const styleRec = useSelector((state) => state.style.style.name);
+  const { style } = useSelector((state) => state.style);
+  const styleRec = style ? style.name : "";
   const batchVolumeRec = useSelector((state) => state.createRecipe.batchVolume);
   const mashVolumeRec = useSelector(
     (state) => state.waterAndBeerData.mashVolume

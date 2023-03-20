@@ -61,7 +61,9 @@ const Others = () => {
   }, [add, refreshThisState]);
   return (
     <div className="others">
-      <NavBar />
+      <div className="malts-navbar-position-fixed">
+        <NavBar />
+      </div>
       <div className="selectStyle-sideBar-left">
         <SideBarLeft title={"Ingredients"} subtitle={"Others"} />
       </div>
@@ -72,7 +74,7 @@ const Others = () => {
             <h2>Add a new Ingredients to your beer</h2>
           </div>
         </div>
-        <div className="common-ingredients-container-inside-search-outerContainer invisible-in-small-screen">
+        <div className="common-ingredients-container-inside-search-outerContainer ">
           {" "}
           <div className="common-ingredients-container-inside-search">
             <div>

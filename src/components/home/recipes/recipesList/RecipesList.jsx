@@ -1,10 +1,12 @@
 import "../../brew/sideBarLeft/sideBarLeft.css";
 
 import "./recipesList.css";
+import axios from "axios";
 import SingleRecipe from "../singleRecipe/SingleRecipe";
 import NavBar from "../../navBar/NavBar";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
+import { BsTrashFill } from "react-icons/bs";
 import { CiBeerMugFull } from "react-icons/ci";
 import { BsPencilFill } from "react-icons/bs";
 import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
@@ -27,6 +29,18 @@ const RecipesList = () => {
   useEffect(() => {
     fetchRecipes(userIdRec);
   }, []);
+  const deleteSingleRecipe = async (itemId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/recipes/${itemId}`
+      );
+      console.log(`Item with ID ${itemId} deleted successfully.`);
+      setRecipeSelected("");
+      fetchRecipes(userIdRec);
+    } catch (error) {
+      console.error(`Error deleting item with ID ${itemId}: ${error.message}`);
+    }
+  };
   return (
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
@@ -45,11 +59,14 @@ const RecipesList = () => {
         ) : (
           <div className="showEnt-recipe-title">
             <div>
-              <h1>
-                {recipeSelected.name !== "" ? recipeSelected.name : "Beer"}
-              </h1>
+              <h1>Beer</h1>
             </div>
-            <div>delete</div>
+            <div>
+              <BsTrashFill
+                className="showEnt-recipe-title-icon"
+                onClick={(e) => deleteSingleRecipe(recipeSelected)}
+              />
+            </div>
           </div>
         )}
         <div className="recipesList-list">

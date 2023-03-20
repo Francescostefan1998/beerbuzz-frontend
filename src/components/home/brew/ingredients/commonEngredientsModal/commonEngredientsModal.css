@@ -276,15 +276,52 @@
 @media (max-width: 1024px) {
   .common-ingredients-container-inside-section-bottom {
     width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .common-ingredients-container-inside {
+    background-color: var(--background-dark);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding-top: 18vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
+  }
+  .common-ingredients-container-inside-section-top {
+    position: fixed !important;
+    width: 100%;
+    margin-top: -0.6vh;
+    top: 0vh;
+  }
+  .common-ingredients-container-inside-search-outerContainer {
+    position: fixed !important;
+    width: 100%;
+    margin-top: -1.4vh;
+  }
+  .common-ingredients-container-inside {
+    height: fit-content;
+  }
+  .common-ingredients-container-inside-section-middle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: fit-content;
+    overflow-y: hidden;
+    padding-bottom: 20px;
   }
 }
-@media (max-width: 778px) {
+@media (max-width: 1024px) {
   .common-ingredients-container-inside {
     height: fit-content;
   }
   .common-ingredients-container-inside-section-bottom {
     padding: 10px;
     padding-bottom: 12px;
+    padding-inline: 14px;
     font-size: 14px;
     height: 10vh;
   }
@@ -325,5 +362,15 @@
   }
   .common-ingredients-container-inside-section-top.invisible-in-small-screen {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .common-ingredients-container-inside-section-bottom {
+    padding: 10px;
+    padding-inline: 14px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    height: 10vh;
   }
 }

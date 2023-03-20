@@ -1,5 +1,5 @@
 import "./showRecipeMaterial.css";
-
+import { BsDot } from "react-icons/bs";
 const ShowRecipeMaterial = ({ body }) => {
   return (
     <>
@@ -9,30 +9,32 @@ const ShowRecipeMaterial = ({ body }) => {
           <h4>Salts</h4>
           {body.salts.map((salt, i) => (
             <div key={salt.name}>
-              {salt.name}: {salt.amount}g
+              <BsDot /> {salt.name}: {salt.amount}g
             </div>
           ))}
           <h4>Malts</h4>
           {body.malts.map((malt, i) => (
             <div key={malt.nameId}>
-              {malt.name}: {malt.amount}kg
+              <BsDot /> {malt.name}: {malt.amount}kg
             </div>
           ))}
           <h4>Hops</h4>
           {body.hops.map((malt, i) => (
             <div key={malt.nameId}>
-              {malt.name}: {malt.amount}kg
+              <BsDot /> {malt.name}: {malt.amount}kg
             </div>
           ))}
           <h4>Yeasts</h4>
           {body.yeasts.map((malt, i) => (
             <div key={malt.nameId}>
-              {malt.name}: {malt.amount}kg
+              <BsDot /> {malt.name}: {malt.amount}kg
             </div>
           ))}
           <h4>Others</h4>
           {body.others.map((malt, i) => (
-            <div key={malt.name}>{malt.name}</div>
+            <div key={malt.name}>
+              <BsDot /> {malt.name}
+            </div>
           ))}
         </div>
       )}

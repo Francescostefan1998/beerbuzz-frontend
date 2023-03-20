@@ -101,7 +101,13 @@
   gap: 10px;
   align-items: center;
 }
-
+.showEnt-recipe-title-icon {
+  font-size: 30px;
+  color: var(--main-secondary);
+}
+.showEnt-recipe-title-icon:hover {
+  scale: 1.2;
+}
 .recipesList-recipe-date {
   display: flex;
   flex-direction: column;

@@ -230,7 +230,7 @@ const CommonEngredientsModal = ({
             />
           )}
         </div>
-        <div className="common-ingredients-container-inside-section-bottom">
+        <div className="common-ingredients-container-inside-section-bottom ">
           {!add && (
             <>
               <div

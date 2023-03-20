@@ -5,9 +5,14 @@
   overflow: hidden;
 }
 
-@media (max-width: 778px) {
+@media (max-width: 1024px) {
   .malts {
     height: fit-content;
     padding-bottom: 10vh;
+  }
+  .malts-navbar-position-fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
   }
 }
