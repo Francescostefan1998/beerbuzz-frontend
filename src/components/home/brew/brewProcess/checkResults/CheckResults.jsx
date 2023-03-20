@@ -32,7 +32,7 @@ const CheckResults = () => {
   const imageRec = useSelector((state) => state.createRecipe.image);
   const authorRec = useSelector((state) => state.createRecipe.author);
   const userIdRec = localStorage.getItem("userId");
-  const styleRec = useSelector((state) => state.style.name);
+  const styleRec = useSelector((state) => state.style.style.name);
   const batchVolumeRec = useSelector((state) => state.createRecipe.batchVolume);
   const mashVolumeRec = useSelector(
     (state) => state.waterAndBeerData.mashVolume
@@ -101,17 +101,12 @@ const CheckResults = () => {
         duration: 0,
       },
     ],
-    fermentationChart: [
-      {
-        day: 0,
-        temperature: 0,
-      },
-    ],
+
     comments: [],
     chart: [],
   });
   const navigate = useNavigate();
-
+  console.log(recipe);
   const addProduct = async (body) => {
     await setRefresh(body.name);
   };
@@ -162,7 +157,7 @@ const CheckResults = () => {
         Array.isArray(othersRec) &&
         othersRec.map((other) => ({
           name: other.name,
-
+          description: other.description,
           nameId: other._id,
           amount: 0,
         })),
@@ -196,10 +191,7 @@ const CheckResults = () => {
           temperature: fermentation.temperature,
           duration: fermentation.duration,
         })),
-      fermentationChart: Array.from({ length: boilRec.length }, () => ({
-        day: 0,
-        temperature: 0,
-      })),
+
       comments:
         Array.isArray(commentsRec) &&
         commentsRec.map((comment) => ({
