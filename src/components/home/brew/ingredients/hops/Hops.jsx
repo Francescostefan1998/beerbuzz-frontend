@@ -39,6 +39,7 @@ const Hops = () => {
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
         previous={"/malts"}
+        creator={"creator"}
       />
     </div>
   );

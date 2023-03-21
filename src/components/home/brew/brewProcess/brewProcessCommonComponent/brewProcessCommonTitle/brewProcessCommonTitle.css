@@ -103,7 +103,11 @@
   color: white;
   font-size: 30px;
 }
-
+@media (min-width: 1024px) {
+  .brewProcessCommonTitle-main {
+    padding-left: 5.4vh;
+  }
+}
 @media (max-width: 768px) {
   .brewProcessCommonTitle-image {
     width: 12vh;

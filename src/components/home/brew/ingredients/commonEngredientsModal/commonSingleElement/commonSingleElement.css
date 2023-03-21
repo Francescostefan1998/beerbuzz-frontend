@@ -10,6 +10,11 @@
   padding-inline: 10px;
   padding-inline: 4.2vh;
 }
+.creator-of-product {
+  text-align: right;
+  flex-grow: 1;
+  opacity: 0.6;
+}
 .common-element-container-inside-malt .visible-trash {
   display: none;
 }
@@ -41,6 +46,9 @@
   .common-element-container-inside-malt {
     gap: 8px;
     padding-inline: 2.2vh;
+  }
+  .creator-of-product {
+    font-size: 12px;
   }
   .common-element-container-inside-malt .icon {
     font-size: 20px;

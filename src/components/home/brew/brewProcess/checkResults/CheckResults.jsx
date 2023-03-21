@@ -226,6 +226,7 @@ const CheckResults = () => {
   useEffect(() => {
     setRefresh("refresh check page");
     fillUpTheRecipeField(recipe);
+    console.log(recipe);
   }, []);
 
   return (

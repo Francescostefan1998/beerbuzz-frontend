@@ -9,129 +9,123 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
   return (
     <div className="common-ingredients-container-inside-section-middle">
       <div className="add-products top">
-        <div className="left">
+        <div className="mt-3">
+          <div>Name</div>
+          <div className="add-products-top-input">
+            <input
+              type="text"
+              placeholder="Select a name"
+              onChange={(e) => setNewIngredient("name", e.target.value)}
+            />
+          </div>
+        </div>{" "}
+        {fetchProp === "hops" ? (
           <div className="mt-3">
-            <div>Name</div>
+            <div>Type</div>
+            <div className="add-products-top-input">
+              <input
+                type="text"
+                placeholder="Select a value"
+                onChange={(e) => setNewIngredient("type", e.target.value)}
+              />
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "yeasts" ? (
+          <div className="mt-3">
+            <div>ID</div>
             <div className="add-products-top-input">
               <input
                 type="text"
                 placeholder="Select a name"
-                onChange={(e) => setNewIngredient("name", e.target.value)}
+                onChange={(e) => setNewIngredient("techName", e.target.value)}
               />
             </div>
-          </div>{" "}
-          {fetchProp === "hops" ? (
-            <div className="mt-3">
-              <div>Type</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a value"
-                  onChange={(e) => setNewIngredient("type", e.target.value)}
-                />
-              </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "malts" ? (
+          <div className="mt-3">
+            <div>Category</div>
+            <div className="add-products-top-input">
+              <input
+                type="text"
+                placeholder="Select a name"
+                onChange={(e) => setNewIngredient("category", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-          {fetchProp === "yeasts" ? (
-            <div className="mt-3">
-              <div>ID</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a name"
-                  onChange={(e) => setNewIngredient("techName", e.target.value)}
-                />
-              </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "hops" ? (
+          <div className="mt-3">
+            <div>Alpha (%)</div>
+            <div className="add-products-top-input">
+              <input
+                type="number"
+                placeholder="Select a value"
+                onChange={(e) => setNewIngredient("alpha", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-          {fetchProp === "malts" ? (
-            <div className="mt-3">
-              <div>Category</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a name"
-                  onChange={(e) => setNewIngredient("category", e.target.value)}
-                />
-              </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "malts" ? (
+          <div className="mt-3">
+            <div>Supplier</div>
+            <div className="add-products-top-input">
+              <input
+                type="text"
+                placeholder="Select a name"
+                onChange={(e) => setNewIngredient("supplier", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
-        <div className="right">
-          {fetchProp === "hops" ? (
-            <div className="mt-3">
-              <div>Alpha (%)</div>
-              <div className="add-products-top-input">
-                <input
-                  type="number"
-                  placeholder="Select a value"
-                  onChange={(e) => setNewIngredient("alpha", e.target.value)}
-                />
-              </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "yeasts" ? (
+          <div className="mt-3">
+            <div>Laboratory</div>
+            <div className="add-products-top-input">
+              <input
+                type="text"
+                placeholder="Select a name"
+                onChange={(e) => setNewIngredient("laboratory", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-          {fetchProp === "malts" ? (
-            <div className="mt-3">
-              <div>Supplier</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a name"
-                  onChange={(e) => setNewIngredient("supplier", e.target.value)}
-                />
-              </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {fetchProp === "yeasts" ? (
+          <div className="mt-3">
+            <div>ABV toll (%)</div>
+            <div className="add-products-top-input">
+              <input
+                type="number"
+                placeholder="Select a value"
+                onChange={(e) => setNewIngredient("maxAbv", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-          {fetchProp === "yeasts" ? (
-            <div className="mt-3">
-              <div>Laboratory</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a name"
-                  onChange={(e) =>
-                    setNewIngredient("laboratory", e.target.value)
-                  }
-                />
-              </div>
+          </div>
+        ) : (
+          <div className="mt-3">
+            <div>Origin</div>
+            <div className="add-products-top-input">
+              <input
+                type="text"
+                placeholder="Select a name"
+                onChange={(e) => setNewIngredient("origin", e.target.value)}
+              />
             </div>
-          ) : (
-            <div></div>
-          )}
-          {fetchProp === "yeasts" ? (
-            <div className="mt-3">
-              <div>ABV toll (%)</div>
-              <div className="add-products-top-input">
-                <input
-                  type="number"
-                  placeholder="Select a value"
-                  onChange={(e) => setNewIngredient("maxAbv", e.target.value)}
-                />
-              </div>
-            </div>
-          ) : (
-            <div className="mt-3">
-              <div>Origin</div>
-              <div className="add-products-top-input">
-                <input
-                  type="text"
-                  placeholder="Select a name"
-                  onChange={(e) => setNewIngredient("origin", e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <div className="add-products below">
         {fetchProp === "yeasts" ? (
@@ -146,7 +140,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "malts" ? (
           <div className="mt-3">
@@ -160,7 +154,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "hops" ? (
           <div className="mt-3">
@@ -168,9 +162,9 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             <div className="add-products-top-input"></div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
-        {fetchProp === "hops" ? <div></div> : <div></div>}
+        {fetchProp === "hops" ? <div></div> : ""}
         {fetchProp === "yeasts" ? (
           <div className="mt-3">
             <div>{colorOrIbu}</div>
@@ -185,7 +179,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "malts" ? (
           <div className="mt-3">
@@ -199,7 +193,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "malts" ? (
           <div className="mt-3">
@@ -213,7 +207,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "yeasts" ? (
           <div className="mt-3">
@@ -229,7 +223,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "malts" ? (
           <div className="mt-3">
@@ -244,7 +238,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
         {fetchProp === "yeasts" ? (
           <div className="mt-3">
@@ -261,7 +255,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
             </div>
           </div>
         ) : (
-          <div></div>
+          ""
         )}
       </div>
       {fetchProp === "yeasts" ? (
@@ -292,7 +286,7 @@ const AddProduct = ({ colorOrIbu, fetchProp, setNewIngredient }) => {
           </div>
         </div>
       ) : (
-        <div></div>
+        ""
       )}
       <div className="add-products">
         <div></div>

@@ -39,6 +39,7 @@ const Yeasts = () => {
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
         previous={"/hops"}
+        creator={"creator"}
       />
     </div>
   );

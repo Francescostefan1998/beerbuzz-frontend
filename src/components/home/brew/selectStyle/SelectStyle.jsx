@@ -19,12 +19,22 @@ const SelectStyle = () => {
   const fetchAllStyles = async () => {
     const res = await fetch("http://localhost:3001/beers");
     const data = await res.json();
-    await setBeerList(data);
+    setBeerList(data);
   };
-
+  const fetchStylesWithQuery = async (fetchProp, search) => {
+    console.log(search);
+    const res = await fetch(
+      `http://localhost:3001/${fetchProp}?name=${search}`
+    );
+    const data = await res.json();
+    setBeerList(data);
+    setAllowSelection(search);
+    console.log(data);
+  };
   useEffect(() => {
     fetchAllStyles();
-  }, [allowSelection]);
+  }, []);
+  useEffect(() => {}, [allowSelection]);
   return (
     <>
       <div className="navbar-visible-in-small-screen">
@@ -35,6 +45,7 @@ const SelectStyle = () => {
             <input
               type="text"
               placeholder="Search here the style of your beer"
+              onChange={(e) => fetchStylesWithQuery("beers", e.target.value)}
             />
           </div>
         </div>
@@ -54,6 +65,7 @@ const SelectStyle = () => {
               <input
                 type="text"
                 placeholder="Search here the style of your beer"
+                onChange={(e) => fetchStylesWithQuery("beers", e.target.value)}
               />
             </div>
           </div>

@@ -6,6 +6,13 @@ import { addBatchVolumeRecipeAction } from "../../../../../redux/actions/recipe"
 import { volumeSpargeAction } from "../../../../../redux/actions/spargeWater";
 import { updatePreBoilWaterAndBeerAction } from "../../../../../redux/actions/waterAndBeerAction";
 import {
+  addIbuRecipeAction,
+  addOgRecipeAction,
+  addFgRecipeAction,
+  addAbvRecipeAction,
+  addEbcbRecipeAction,
+} from "../../../../../redux/actions/recipe";
+import {
   updatePostBoilWaterAndBeerAction,
   updateTotalBoilTimeWaterAndBeerAction,
   updateLostInFilteringWaterAndBeerAction,
@@ -25,7 +32,7 @@ const MashWater = ({ setRefresh }) => {
   const { lostInfiltering } = useSelector((state) => state.waterAndBeerData);
   const { totalBoilTime } = useSelector((state) => state.waterAndBeerData);
   const { malts } = useSelector((state) => state.createRecipe.malts);
-
+  const { ibu, og, fg, ebc, abv } = useSelector((state) => state.createRecipe);
   const { evaporationRate } = useSelector((state) => state.waterAndBeerData);
   const { preBoil } = useSelector((state) => state.waterAndBeerData);
   const { postBoil } = useSelector((state) => state.waterAndBeerData);
@@ -57,6 +64,9 @@ const MashWater = ({ setRefresh }) => {
     dispatch(
       addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
     );
+    dispatch(addIbuRecipeAction(ibu / (postboil / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (postboil / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (postboil / postBoil)));
   };
   const changeSpargeVolume = (e) => {
     let kg = 0;
@@ -75,6 +85,9 @@ const MashWater = ({ setRefresh }) => {
     dispatch(
       addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
     );
+    dispatch(addIbuRecipeAction(ibu / (postboil / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (postboil / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (postboil / postBoil)));
   };
   const changePreBoilVolume = (e) => {
     dispatch(updatePreBoilWaterAndBeerAction(parseFloat(e)));
@@ -85,6 +98,9 @@ const MashWater = ({ setRefresh }) => {
     dispatch(
       addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
     );
+    dispatch(addIbuRecipeAction(ibu / (postboil / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (postboil / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (postboil / postBoil)));
   };
   const changePostBoilVolume = (e) => {
     dispatch(updatePostBoilWaterAndBeerAction(parseFloat(e)));
@@ -94,6 +110,9 @@ const MashWater = ({ setRefresh }) => {
         (parseFloat(e) / 100) * (100 - lostInfiltering)
       )
     );
+    dispatch(addIbuRecipeAction(ibu / (e / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (e / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (e / postBoil)));
   };
   const changeEvaporation = (e) => {
     dispatch(updateEvaporationRateWaterAndBeerAction(parseFloat(e)));
@@ -104,6 +123,9 @@ const MashWater = ({ setRefresh }) => {
     dispatch(
       addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
     );
+    dispatch(addIbuRecipeAction(ibu / (postboil / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (postboil / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (postboil / postBoil)));
   };
   const changeFiltering = (e) => {
     dispatch(updateLostInFilteringWaterAndBeerAction(parseFloat(e)));
@@ -122,6 +144,9 @@ const MashWater = ({ setRefresh }) => {
     dispatch(
       addBatchVolumeRecipeAction((postboil / 100) * (100 - lostInfiltering))
     );
+    dispatch(addIbuRecipeAction(ibu / (postboil / postBoil)));
+    dispatch(addAbvRecipeAction(abv / (postboil / postBoil)));
+    dispatch(addEbcbRecipeAction(ebc / (postboil / postBoil)));
   };
   return (
     <div className="mashWater">

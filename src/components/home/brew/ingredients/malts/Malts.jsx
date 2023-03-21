@@ -39,6 +39,7 @@ const Malts = () => {
         subtractProduct={subtractRecipeAction}
         addThisProduct={addThisProduct}
         previous={"/water"}
+        creator={"creator"}
       />
     </div>
   );

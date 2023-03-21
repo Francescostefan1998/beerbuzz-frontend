@@ -25,6 +25,7 @@ const CommonEngredientsModal = ({
   subtractProduct,
   addThisProduct,
   previous,
+  creator,
 }) => {
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -32,6 +33,7 @@ const CommonEngredientsModal = ({
   const [status, setStatus] = useState(false);
   const [newIngredient, setNewIngredient] = useState({
     name: "",
+    creator: localStorage.getItem("userId"),
   });
   const [add, setAdd] = useState(false);
 
@@ -218,6 +220,7 @@ const CommonEngredientsModal = ({
                   subtractProduct={subtractProduct}
                   title={title}
                   addThisProduct={addThisProduct}
+                  creator={creator}
                 />
               ))}
             </div>

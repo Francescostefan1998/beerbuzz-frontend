@@ -106,32 +106,55 @@ const SaltAdditions = ({ setModal }) => {
         break;
       default:
     }
+    dispatchCorrection();
   };
 
   const dispatchCorrection = async () => {
     dispatch(
-      afterSaltOriginalAlkalinityAction((alkalinity + alkSoda).toFixed(2))
-    );
-    dispatch(
-      afterSaltOriginalCalciumAction(
-        (CaCalciumCloride + CaGypsum + calcium).toFixed(2)
+      afterSaltOriginalAlkalinityAction(
+        (parseFloat(alkalinity) + parseFloat(alkSoda)).toFixed(2)
       )
     );
     dispatch(
-      afterSaltOriginalMagnesiumAction((magnesium + mgEpson).toFixed(2))
+      afterSaltOriginalCalciumAction(
+        (
+          parseFloat(CaCalciumCloride) +
+          parseFloat(CaGypsum) +
+          parseFloat(calcium)
+        ).toFixed(2)
+      )
+    );
+    console.log(CaCalciumCloride, CaGypsum, calcium);
+
+    dispatch(
+      afterSaltOriginalMagnesiumAction(
+        (parseFloat(magnesium) + parseFloat(mgEpson)).toFixed(2)
+      )
     );
     dispatch(
       afterSaltOriginalSulfateAction(
-        (sulfate + so4Epson + so4Gypsum).toFixed(2)
+        (
+          parseFloat(sulfate) +
+          parseFloat(so4Epson) +
+          parseFloat(so4Gypsum)
+        ).toFixed(2)
       )
     );
     dispatch(
       afterSaltOriginalChlorideAction(
-        (ClCalciumCloride + ClSalt + chloride).toFixed(2)
+        (
+          parseFloat(ClCalciumCloride) +
+          parseFloat(ClSalt) +
+          parseFloat(chloride)
+        ).toFixed(2)
       )
     );
     dispatch(
-      afterSaltOriginalSodiumAction((naSoda + NaSalt + sodium).toFixed(2))
+      afterSaltOriginalSodiumAction(
+        (parseFloat(naSoda) + parseFloat(NaSalt) + parseFloat(sodium)).toFixed(
+          2
+        )
+      )
     );
   };
 
@@ -265,7 +288,6 @@ const SaltAdditions = ({ setModal }) => {
               <button
                 onClick={() => {
                   dispatchCorrection();
-                  setModal("acidAdditions");
                 }}
               >
                 Confirm and Proceed
