@@ -79,6 +79,10 @@
   align-items: center;
   justify-content: center;
 }
+.recipesList-recipe-image img {
+  width: 100%;
+  object-fit: cover;
+}
 
 .recipesList-recipe-image-icon {
   font-size: 60px;

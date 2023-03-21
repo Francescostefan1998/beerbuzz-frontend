@@ -15,6 +15,7 @@ const CommonSingleElement = ({
   colorOff,
   refresh,
   addThisProduct,
+  creator,
 }) => {
   const [selected, setSelected] = useState(
     "common-element-container-inside-malt-none"
@@ -154,6 +155,16 @@ const CommonSingleElement = ({
           <div>{body.type}</div>
         </div>
       </div>
+      {creator && creator === "creator" ? (
+        <div className="creator-of-product">
+          {!body.creator && "BeerBuzz"}
+          {body.creator && body.creator === localStorage.getItem("userId")
+            ? "me"
+            : "User"}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

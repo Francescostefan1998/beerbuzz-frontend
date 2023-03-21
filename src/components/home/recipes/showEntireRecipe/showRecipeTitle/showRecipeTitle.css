@@ -18,7 +18,7 @@
 }
 
 .showRecipeTitle-image img {
-  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 @media (max-width: 1024px) {

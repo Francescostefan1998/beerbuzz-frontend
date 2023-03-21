@@ -10,6 +10,11 @@
   padding-inline: 10px;
   padding-inline: 4.2vh;
 }
+.creator-of-product {
+  text-align: right;
+  flex-grow: 1;
+  opacity: 0.6;
+}
 .common-element-container-inside-malt .visible-trash {
   display: none;
 }
