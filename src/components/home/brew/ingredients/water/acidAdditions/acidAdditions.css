@@ -33,7 +33,11 @@
   margin: 0;
 }
 
-.acidAddition {
+@media (max-width: 1024px) {
+  .acid-selections-main {
+    position: fixed;
+    top: 60px;
+  }
 }
 @media (max-width: 768px) {
   .acid-selections-main {

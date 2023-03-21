@@ -1,6 +1,9 @@
 .spargeWaterAcidification {
   height: 100%;
 }
-.spargeWaterAcidification .field .padding-left {
-  padding-right: 2vh;
+
+@media (min-width: 1448px) {
+  .spargeWaterAcidification .field .padding-left {
+    padding-right: 2vh;
+  }
 }
