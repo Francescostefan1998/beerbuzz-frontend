@@ -5,12 +5,14 @@ import { FaSave } from "react-icons/fa";
 import { useState } from "react";
 
 const AddOthers = ({ addRecipeAction, setAdd }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [body, setBody] = useState({
     name: "",
     description: "",
   });
   const postOther = async (others, myBody) => {
-    const res = await fetch(`http://localhost:3001/${others}`, {
+    const res = await fetch(`${url}/${others}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

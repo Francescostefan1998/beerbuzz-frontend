@@ -23,6 +23,8 @@ import { useSelector } from "react-redux";
 import Comment from "../comments/Comment";
 import MashWater from "../mashWater/MashWater";
 const CheckResults = () => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [refresh, setRefresh] = useState("refresh check page");
   const { others } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
@@ -214,7 +216,7 @@ const CheckResults = () => {
     console.log(newRecipe);
   };
   const postANewRecipe = async (entireRecipe) => {
-    const res = await fetch("http://localhost:3001/recipes", {
+    const res = await fetch(`${url}/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

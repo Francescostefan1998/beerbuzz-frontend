@@ -11,6 +11,8 @@ import { addNameRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addAuthorRecipeAction } from "../../../../../../redux/actions/recipe";
 import { addUserIdRecipeAction } from "../../../../../../redux/actions/recipe";
 const BrewProcessCommonTitle = ({ select }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const dispatch = useDispatch();
   const { image } = useSelector((state) => state.createRecipe);
   const { name } = useSelector((state) => state.createRecipe);
@@ -25,15 +27,11 @@ const BrewProcessCommonTitle = ({ select }) => {
     formData.append("image", myimage);
     console.log("Upload triggered");
     try {
-      const response = await axios.post(
-        `http://localhost:3001/images/${user}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${url}/images/${user}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       console.log(response.data.imagePath);
       alert("Image uploaded successfully");
       dispatch(addImageRecipeAction(response.data.imagePath));

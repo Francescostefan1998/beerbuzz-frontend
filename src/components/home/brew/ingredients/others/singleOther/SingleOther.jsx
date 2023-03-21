@@ -13,6 +13,8 @@ const SingleOther = ({
   addRecipeAction,
   setRefreshDeleting,
 }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [classPurple, setClassPurple] = useState("ingredients-others-single");
   const [refresh, setRefresh] = useState();
   const [showDescription, setShowDescription] = useState(false);
@@ -20,15 +22,12 @@ const SingleOther = ({
 
   const deleteElement = async (others, engredient) => {
     if (engredient.name !== "example") {
-      const res = await fetch(
-        `http://localhost:3001/${others}/${engredient._id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch(`${url}/${others}/${engredient._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
       console.log(data);
       await subtractRecipeAction(engredient);
@@ -116,7 +115,6 @@ const SingleOther = ({
           Desc: {engredient.description}
         </div>
       )}{" "}
-      
     </>
   );
 };

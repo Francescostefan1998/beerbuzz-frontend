@@ -1,4 +1,5 @@
 import "./loginModal.css";
+import React from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,6 +14,8 @@ const LoginModal = ({
   signUp,
   title,
 }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfPassword] = useState("");
@@ -22,7 +25,7 @@ const LoginModal = ({
 
   const handleSubmit = async (email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/users/login", {
+      const { data } = await axios.post(`${url}/users/login`, {
         email,
         password,
       });
@@ -40,7 +43,7 @@ const LoginModal = ({
   };
 
   const handlePost = async (email, password) => {
-    await fetch("http://localhost:3001/users", {
+    await fetch(`${url}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
