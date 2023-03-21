@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./showRecipeTitle.css";
 
 const ShowRecipeTitle = ({ body }) => {

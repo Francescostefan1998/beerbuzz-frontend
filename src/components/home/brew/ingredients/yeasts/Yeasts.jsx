@@ -1,4 +1,5 @@
 import "../../selectStyle/selectStyle.css";
+import React from "react";
 
 import "./yeasts.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
@@ -11,6 +12,7 @@ import SideBarLeft from "../../sideBarLeft/SideBarLeft";
 import { useStore } from "react-redux";
 import NavBar from "../../../navBar/NavBar";
 const Yeasts = () => {
+  console.log(process.env.REACT_APP_BE_URL);
   const dispatch = useDispatch();
   const addRecipeAction = async (yeast) => {
     dispatch(addYeastRecipeAction(yeast));

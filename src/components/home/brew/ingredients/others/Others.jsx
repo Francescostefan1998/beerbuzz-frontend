@@ -19,6 +19,8 @@ import SingleOther from "./singleOther/SingleOther";
 import { useEffect } from "react";
 import NavBar from "../../../navBar/NavBar";
 const Others = () => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [add, setAddNew] = useState(false);
   const [refreshThisState, setRefreshThisState] = useState(false);
   const [engredients, setEngredients] = useState([
@@ -30,7 +32,7 @@ const Others = () => {
   const [engredientsFetched, setEngredientsFetched] = useState([]);
   const { others } = useSelector((state) => state.recipeIngredient);
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:3001/others");
+    const res = await fetch(`${url}/others`);
     const data = await res.json();
     setEngredientsFetched(data);
   };

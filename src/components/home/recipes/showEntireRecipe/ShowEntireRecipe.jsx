@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./showEntireRecipe.css";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -10,6 +12,8 @@ import { FaSave } from "react-icons/fa";
 import ShowFermentationChartCheck from "./showRecipeChart/ShowFermentationChartCheck";
 import ShowRecipeTitle from "./showRecipeTitle/ShowRecipeTitle";
 const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [body, setBody] = useState(null);
   const [comment, setNewComment] = useState({
     name: "",
@@ -18,14 +22,12 @@ const ShowEntireRecipe = ({ setRecipe, recipeId }) => {
   const [add, setAdd] = useState(false);
   const userIdRec = localStorage.getItem("userId");
   const fetchSingleRecipe = async (userId) => {
-    const res = await fetch(
-      `http://localhost:3001/recipes/${userId}/${recipeId}`
-    );
+    const res = await fetch(`${url}/recipes/${userId}/${recipeId}`);
     const data = await res.json();
     setBody(data);
   };
   const fetchNewComment = async () => {
-    const res = await fetch(`http://localhost:3001/recipes/${recipeId}`, {
+    const res = await fetch(`${url}/recipes/${recipeId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

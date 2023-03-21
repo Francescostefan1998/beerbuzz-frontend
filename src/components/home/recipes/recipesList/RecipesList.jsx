@@ -16,13 +16,15 @@ import SideBarLeft from "../../brew/sideBarLeft/SideBarLeft";
 
 import { useEffect } from "react";
 const RecipesList = () => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
   const navigate = useNavigate();
   console.log(myRecipes);
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
-    const res = await fetch(`http://localhost:3001/recipes/${userId}`);
+    const res = await fetch(`${url}/recipes/${userId}`);
     const data = await res.json();
     setMyRecipes(data);
   };
@@ -31,9 +33,7 @@ const RecipesList = () => {
   }, []);
   const deleteSingleRecipe = async (itemId) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:3001/recipes/${itemId}`
-      );
+      const response = await axios.delete(`${url}/recipes/${itemId}`);
       console.log(`Item with ID ${itemId} deleted successfully.`);
       setRecipeSelected("");
       fetchRecipes(userIdRec);

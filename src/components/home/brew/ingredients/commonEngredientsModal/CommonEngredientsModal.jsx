@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./commonEngredientsModal.css";
 import NavbarIngredients from "../navbarIngredients/NavbarIngredients";
 import { GiWheat } from "react-icons/gi";
@@ -27,6 +29,8 @@ const CommonEngredientsModal = ({
   previous,
   creator,
 }) => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -50,11 +54,9 @@ const CommonEngredientsModal = ({
   };
 
   const fetchProducts = async (fetchProp, search) => {
-    const res = await fetch(
-      `http://localhost:3001/${fetchProp}?name=${search}`
-    );
+    const res = await fetch(`${url}/${fetchProp}?name=${search}`);
     const data = await res.json();
-    await setListProducts(data);
+    setListProducts(data);
     setLoading(false);
   };
   useEffect(() => {
@@ -62,11 +64,11 @@ const CommonEngredientsModal = ({
   }, [fetchProps]);
 
   const onchangeHandler = async (e) => {
-    await setSearch(e);
+    setSearch(e);
     await fetchProducts(fetchProps, search);
   };
   const postProducts = async (fetchProps, newIngredient) => {
-    const res = await fetch(`http://localhost:3001/${fetchProps}`, {
+    const res = await fetch(`${url}/${fetchProps}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

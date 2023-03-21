@@ -10,6 +10,8 @@ import { addStyleAction } from "../../../../redux/actions/style";
 import { useDispatch } from "react-redux";
 import SideBarLeft from "../sideBarLeft/SideBarLeft";
 const SelectStyle = () => {
+  const url = process.env.REACT_APP_BE_URL;
+
   const [show, setShow] = useState(false);
   const [myBodyBeer, bodyToDispatch] = useState(null);
   const [allowSelection, setAllowSelection] = useState("m");
@@ -17,15 +19,13 @@ const SelectStyle = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const fetchAllStyles = async () => {
-    const res = await fetch("http://localhost:3001/beers");
+    const res = await fetch(`${url}/beers`);
     const data = await res.json();
     setBeerList(data);
   };
   const fetchStylesWithQuery = async (fetchProp, search) => {
     console.log(search);
-    const res = await fetch(
-      `http://localhost:3001/${fetchProp}?name=${search}`
-    );
+    const res = await fetch(`${url}/${fetchProp}?name=${search}`);
     const data = await res.json();
     setBeerList(data);
     setAllowSelection(search);

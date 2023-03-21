@@ -1,3 +1,5 @@
+import React from "react";
+
 import "../recipesList/recipesList.css";
 import "./singleRecipe.css";
 import { CiBeerMugFull } from "react-icons/ci";
