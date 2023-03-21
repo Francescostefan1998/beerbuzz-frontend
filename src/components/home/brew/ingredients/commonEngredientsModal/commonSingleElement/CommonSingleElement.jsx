@@ -160,7 +160,7 @@ const CommonSingleElement = ({
           {!body.creator && "BeerBuzz"}
           {body.creator && body.creator === localStorage.getItem("userId")
             ? "me"
-            : "User"}
+            : body.creator && "User"}
         </div>
       ) : (
         ""

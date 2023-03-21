@@ -47,6 +47,9 @@
     gap: 8px;
     padding-inline: 2.2vh;
   }
+  .creator-of-product {
+    font-size: 12px;
+  }
   .common-element-container-inside-malt .icon {
     font-size: 20px;
   }

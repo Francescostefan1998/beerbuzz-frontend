@@ -81,7 +81,7 @@
     display: block;
     position: sticky;
     bottom: 0;
-    z-index: 8;
+    z-index: 0;
   }
 
   .water-bottom-bar-visible-when-big-display {
@@ -112,7 +112,7 @@
   .water-bottom-bar-visible-when-big-display {
     position: sticky;
     bottom: 0;
-    z-index: 4;
+    z-index: 0;
   }
 
   .water {
@@ -120,10 +120,10 @@
   }
   .water-list {
     height: fit-content;
-    min-height: 70vh;
+    min-height: 90vh;
     padding-bottom: 8vh;
     position: relative;
-    z-index: 1;
+    z-index: 0;
     overflow: hidden;
   }
   .water-title.invisible-in-small-screen {

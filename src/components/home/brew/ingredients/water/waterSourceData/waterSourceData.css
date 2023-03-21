@@ -131,4 +131,7 @@
     margin-inline: auto;
     transform: translateX(-8%);
   }
+  .waterSouceData-modal-top h4 {
+    padding-left: 0vh;
+  }
 }
