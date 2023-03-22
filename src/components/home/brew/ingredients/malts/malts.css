@@ -15,4 +15,7 @@
     position: fixed;
     top: 0;
   }
+  .malts-navbar-position-fixed {
+    z-index: 9;
+  }
 }
