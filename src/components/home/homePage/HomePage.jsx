@@ -22,7 +22,7 @@ const HomePage = () => {
             <Row className={`brewMainPage-row block`}>
               <Col
                 className={`brewMainPage-section block`}
-                onClick={() => navigate("/recipes")}
+                onClick={() => navigate("/recipeFavourite")}
               >
                 <img
                   src="https://i.etsystatic.com/20492529/r/il/442b0f/3153997959/il_fullxfull.3153997959_esj0.jpg"
