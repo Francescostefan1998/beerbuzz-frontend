@@ -154,7 +154,7 @@ const CommonList = ({
                 {colorOff === "colorOff" ? (
                   <input
                     type="number"
-                    placeholder="0.00"
+                    placeholder={body && body.quantity ? body.quantity : "0.0"}
                     onChange={(e) => handleQuantity(body, e.target.value)}
                   />
                 ) : (
@@ -169,17 +169,19 @@ const CommonList = ({
                   {colorOff === "colorOff" ? (
                     <input
                       type="number"
-                      placeholder="0 min"
+                      placeholder={
+                        body && body.minutsBoil ? body.minutsBoil : "0.0"
+                      }
                       onChange={(e) =>
                         handleAmountOfminuts(body, e.target.value)
                       }
                     />
                   ) : (
                     <div className="commonList-element-dont-add">
-                      {body.timeBoil && body.timeBoil}
+                      {body.minutsBoil && body.minutsBoil}
                     </div>
                   )}
-                  boil(time)
+                  min
                 </div>
               )}
             </div>
