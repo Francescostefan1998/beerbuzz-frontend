@@ -75,8 +75,30 @@ const SideBarLeft = ({ title, subtitle, setStepFromTheSidebar }) => {
         >
           <div className="sideBarLeft-littleBlock"></div>
 
-          <div className={title === "Recipes" ? "selected" : "normal"}>
+          <div
+            className={
+              subtitle === "r" && title === "Recipes" ? "selected" : "normal"
+            }
+          >
             My Recipe List
+          </div>
+        </div>
+      )}
+      {recipe && (
+        <div
+          className="section ineerSection"
+          onClick={() => navigate("/recipeFavourite")}
+        >
+          <div className="sideBarLeft-littleBlock"></div>
+
+          <div
+            className={
+              subtitle === "favourite" && title === "Recipes"
+                ? "selected"
+                : "normal"
+            }
+          >
+            My Favourite
           </div>
         </div>
       )}

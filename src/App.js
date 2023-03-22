@@ -16,6 +16,7 @@ import Fermentation from "./components/home/brew/brewProcess/fermentation/Fermen
 import Boil from "./components/home/brew/brewProcess/boil/Boil";
 import CheckResults from "./components/home/brew/brewProcess/checkResults/CheckResults";
 import Contact from "./components/contact/Contact";
+import RecipesListFavourite from "./components/home/recipes/recipeListFavourite/RecipesList";
 import Instruction from "./components/home/instructions/Instruction";
 import "./App.css";
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/check" element={<CheckResults />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/instruction" element={<Instruction />} />
+          <Route path="/recipeFavourite" element={<RecipesListFavourite />} />
         </Routes>
       </BrowserRouter>
     </div>

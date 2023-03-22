@@ -66,6 +66,7 @@
   border: none;
   color: white;
 }
+
 @media (max-width: 768px) {
   .showEntireRecipe-top {
     display: flex;

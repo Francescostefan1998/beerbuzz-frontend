@@ -32,7 +32,7 @@ const Malts = () => {
       <CommonEngredientsModal
         icon={<GiWheat className="icon" />}
         title={"Fermentable"}
-        colorOrIbu={"Col.(EBC)"}
+        colorOrIbu={"(EBC)"}
         next={"/hops"}
         fetchProps={"malts"}
         addProduct={addRecipeAction}

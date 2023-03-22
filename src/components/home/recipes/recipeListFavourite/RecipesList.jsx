@@ -17,7 +17,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useEffect } from "react";
-const RecipesList = () => {
+const RecipesListFavourite = () => {
   const url = process.env.REACT_APP_BE_URL;
   const [refres, setRefresh] = useState("");
   const [dropDown, openDropDown] = useState(false);
@@ -61,7 +61,7 @@ const RecipesList = () => {
     <div className="recipesList">
       <NavBar selectedSection={"Recipes"} />
       <div className="selectStyle-sideBar-left">
-        <SideBarLeft title={"Recipes"} subtitle={"r"} />
+        <SideBarLeft title={"Recipes"} subtitle={"favourite"} />
       </div>
       <div className="common-selection-bigger-container">
         {recipeSelected === "" ? (
@@ -137,13 +137,17 @@ const RecipesList = () => {
         )}
         <div className="recipesList-list">
           {recipeSelected === "" ? (
-            myRecipes.map((recipe, i) => (
-              <SingleRecipe
-                key={recipe._id}
-                body={recipe}
-                setRecipe={setRecipeSelected}
-              />
-            ))
+            myRecipes.map((recipe, i) =>
+              recipe.favourite && recipe.favourite === "yes" ? (
+                <SingleRecipe
+                  key={recipe._id}
+                  body={recipe}
+                  setRecipe={setRecipeSelected}
+                />
+              ) : (
+                ""
+              )
+            )
           ) : (
             <>
               <ShowEntireRecipe
@@ -220,4 +224,4 @@ const RecipesList = () => {
   );
 };
 
-export default RecipesList;
+export default RecipesListFavourite;

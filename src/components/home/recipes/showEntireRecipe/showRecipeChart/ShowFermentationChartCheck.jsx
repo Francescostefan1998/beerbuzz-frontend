@@ -30,7 +30,7 @@ const ShowFermentationChartCheck = ({ body }) => {
     } else {
       setData([{}]);
     }
-  }, [data]);
+  }, [body]);
   const handleAddDay = () => {
     const newDay = { day: `Day ${newDayNumber}`, temperature: newTemperature };
     const newData = [...data];
