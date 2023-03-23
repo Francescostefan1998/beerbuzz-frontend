@@ -26,8 +26,8 @@
 }
 .brewProcessCommonTitle-image-modify {
   position: absolute;
-  top: 20px;
-  left: 15vh;
+  top: 14px;
+  left: 17vh;
   color: var(--main-secondary);
   font-size: 50px;
   z-index: 2;
@@ -187,7 +187,7 @@
   .brewProcessCommonTitle-image-modify {
     position: absolute;
     top: 50px;
-    left: 12vh;
+    left: 14vh;
     color: var(--main-secondary);
     font-size: 30px;
     z-index: 2;
