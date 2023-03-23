@@ -17,12 +17,13 @@ const BrewProcessCommonTitle = ({ select }) => {
   const { image } = useSelector((state) => state.createRecipe);
   const { name } = useSelector((state) => state.createRecipe);
   const { author } = useSelector((state) => state.createRecipe);
-
+  const [loading, setLoading] = useState(false);
   const [myimage, setImage] = useState(null);
   const [thisImage, setThisImage] = useState(null);
   const [changePicture, setChangePicture] = useState(false);
   const user = localStorage.getItem("userId");
   const uploadImage = async (user) => {
+    setLoading(true);
     const formData = new FormData();
     formData.append("image", myimage);
     console.log("Upload triggered");
@@ -40,9 +41,13 @@ const BrewProcessCommonTitle = ({ select }) => {
         console.log(response.imagePath);
         alert("Image uploaded successfully");
       }
+      setLoading(false);
+      setChangePicture(false);
       return response.data;
     } catch (error) {
       console.error(error);
+      setLoading(false);
+      setChangePicture(false);
     }
   };
 
@@ -56,35 +61,50 @@ const BrewProcessCommonTitle = ({ select }) => {
           />
           {changePicture && (
             <div className="file-uploader">
-              <div className="file-uploader-modal">
-                <div
-                  className="waterSouceData-close"
-                  onClick={() => setChangePicture(false)}
-                >
-                  <RiCloseLine className="waterSouceData-close-icon" />
+              {loading && (
+                <div class="loading-spinner">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
                 </div>
-                <div className="file-uploader__message-area">
-                  <p> New Picture Upload</p>
-                </div>
-                {user && (
-                  <div className="file-chooser mt-2">
-                    <input
-                      className="file-chooser__input input"
-                      type="file"
-                      onChange={(e) => {
-                        setImage(e.target.files[0]);
-                      }}
-                    />
+              )}
+              {!loading && (
+                <div className="file-uploader-modal">
+                  <div
+                    className="waterSouceData-close"
+                    onClick={() => setChangePicture(false)}
+                  >
+                    <RiCloseLine className="waterSouceData-close-icon" />
                   </div>
-                )}
-                <input
-                  className="file-uploader__submit-button mt-5 input"
-                  onClick={() => uploadImage(user)}
-                  type="submit"
-                  value="Upload"
-                />
-                <hr />
-              </div>
+                  <div className="file-uploader__message-area">
+                    <p> New Picture Upload</p>
+                  </div>
+                  {user && (
+                    <div className="file-chooser mt-2">
+                      <input
+                        className="file-chooser__input input"
+                        type="file"
+                        onChange={(e) => {
+                          setImage(e.target.files[0]);
+                        }}
+                      />
+                    </div>
+                  )}
+                  <input
+                    className="file-uploader__submit-button mt-5 input"
+                    onClick={() => {
+                      setLoading(true);
+                      uploadImage(user);
+                    }}
+                    type="submit"
+                    value="Upload"
+                  />
+                  <hr />
+                </div>
+              )}
             </div>
           )}
           <div className="brewProcessCommonTitle-image">
