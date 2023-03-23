@@ -16,6 +16,7 @@ import SideBarLeft from "../../brew/sideBarLeft/SideBarLeft";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsFillPencilFill } from "react-icons/bs";
+import { BsFileEarmarkPdfFill } from "react-icons/bs";
 import { useEffect } from "react";
 const RecipesList = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -45,6 +46,11 @@ const RecipesList = () => {
     } catch (error) {
       console.error(`Error deleting item with ID ${itemId}: ${error.message}`);
     }
+  };
+  const downloadPdf = async (recipeId) => {
+    const res = await fetch(`${url}/pdf/recipes/${recipeId}/pdf`);
+    const data = await res.json();
+    return data;
   };
   const addToFavourite = async (itemId, value) => {
     try {
@@ -128,7 +134,13 @@ const RecipesList = () => {
                         onClick={() => openDropDown(false)}
                       />
                     </div>
-                    <div className="relative-line-dropDown"></div>
+                    <div className="relative-line-dropDown">
+                      <div className="section-dropdown">Download Pdf</div>
+                      <BsFileEarmarkPdfFill
+                        className="showEnt-recipe-title-icon section-dropdown"
+                        onClick={() => downloadPdf(recipeSelected)}
+                      />
+                    </div>
                   </div>
                 )}
               </div>
