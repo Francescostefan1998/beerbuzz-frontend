@@ -19,11 +19,13 @@ const LoginModal = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (email, password) => {
+    setLoading(true);
     try {
       const { data } = await axios.post(`${url}/users/login`, {
         email,
@@ -34,10 +36,14 @@ const LoginModal = ({
 
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("userId", data._id);
+      setLoading(false);
 
       navigate("/home");
     } catch (error) {
+      setLoading(false);
+
       alert("wrong email or password");
+
       setError(error.response.data.message);
     }
   };
@@ -79,56 +85,72 @@ const LoginModal = ({
   return (
     <div className={mainClass}>
       <div className="loginModal-form">
-        <h2>{title}</h2>
-        <div className="loginModal-inputBox">
-          <input
-            type="text"
-            placeholder="Type here your email"
-            id="loginModal-inputBox-input1"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span>Email or Username </span>
-          <hr />
-        </div>
-        <div className="loginModal-inputBox">
-          <input
-            type="password"
-            placeholder="Type here your email"
-            id="loginModal-inputBox-input2"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <span>Password </span>
-          <hr />
-        </div>
-        <div className="loginModal-inputBox" id={dispalayNone}>
-          <input
-            type="password"
-            placeholder="Type here your email"
-            id="loginModal-inputBox-input3"
-            onChange={(e) => setConfPassword(e.target.value)}
-          />
-          <span>Confirm password </span>
-          <hr />
-        </div>
-        <div className="loginModal-links">
-          <div
-            className="loginModal-links-click"
-            onClick={() => handleLogin(title, email, password, confirmPassword)}
-          >
-            {login}
+        {loading && (
+          <div class="loading-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="loginModal-links-click" onClick={setRegister}>
-            {signUp}
-          </div>
-        </div>
-        <a href="http://localhost:3001/users/googleLogin">
-          <div className="loginModal-google">
-            <div className="loginModal-google-inset">
-              <FaGoogle className="loginModal-google-inset-icon" />
-              <div>Login with Google</div>
+        )}
+        {!loading && (
+          <>
+            <h2>{title}</h2>
+            <div className="loginModal-inputBox">
+              <input
+                type="text"
+                placeholder="Type here your email"
+                id="loginModal-inputBox-input1"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <span>Email or Username </span>
+              <hr />
             </div>
-          </div>
-        </a>
+            <div className="loginModal-inputBox">
+              <input
+                type="password"
+                placeholder="Type here your email"
+                id="loginModal-inputBox-input2"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span>Password </span>
+              <hr />
+            </div>
+            <div className="loginModal-inputBox" id={dispalayNone}>
+              <input
+                type="password"
+                placeholder="Type here your email"
+                id="loginModal-inputBox-input3"
+                onChange={(e) => setConfPassword(e.target.value)}
+              />
+              <span>Confirm password </span>
+              <hr />
+            </div>
+            <div className="loginModal-links">
+              <div
+                className="loginModal-links-click"
+                onClick={() =>
+                  handleLogin(title, email, password, confirmPassword)
+                }
+              >
+                {login}
+              </div>
+              <div className="loginModal-links-click" onClick={setRegister}>
+                {signUp}
+              </div>
+            </div>
+            <a href="http://localhost:3001/users/googleLogin">
+              <div className="loginModal-google">
+                <div className="loginModal-google-inset">
+                  <FaGoogle className="loginModal-google-inset-icon" />
+                  <div>Login with Google</div>
+                </div>
+              </div>
+            </a>
+          </>
+        )}
       </div>
     </div>
   );

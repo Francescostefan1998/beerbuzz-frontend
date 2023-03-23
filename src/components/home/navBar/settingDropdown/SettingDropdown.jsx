@@ -35,17 +35,29 @@ const SettingDropdown = ({ classname, setSettingDropdown }) => {
         </div>
       </div>
       <div className="settingDropdown-main">
-        <div className="settingDropdown-main-section">
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/recipes")}
+        >
           {" "}
           <CgProfile /> Profile
         </div>
-        <div className="settingDropdown-main-section">
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/instruction")}
+        >
           <BiHelpCircle /> Help
         </div>
-        <div className="settingDropdown-main-section">
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/instruction")}
+        >
           <FiTool /> Tool
         </div>
-        <div className="settingDropdown-main-section">
+        <div
+          className="settingDropdown-main-section"
+          onClick={() => navigate("/instruction")}
+        >
           <MdContactSupport /> About
         </div>
         <div
@@ -76,7 +88,7 @@ const SettingDropdown = ({ classname, setSettingDropdown }) => {
         </div>
         <div
           className="settingDropdown-main-section"
-          onClick={() => navigate("/contacts")}
+          onClick={() => navigate("/contact")}
         >
           <IoIosContact />
           Contacts

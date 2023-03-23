@@ -24,6 +24,8 @@ const RecipesList = () => {
   const [dropDown, openDropDown] = useState(false);
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
+  console.log(recipeSelected);
+
   const navigate = useNavigate();
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
@@ -33,9 +35,9 @@ const RecipesList = () => {
   };
   useEffect(() => {
     fetchRecipes(userIdRec);
+
     console.log("Refresh");
   }, [dropDown, refres]);
-
   const deleteSingleRecipe = async (itemId) => {
     try {
       const response = await axios.delete(`${url}/recipes/${itemId}`);
@@ -47,11 +49,7 @@ const RecipesList = () => {
       console.error(`Error deleting item with ID ${itemId}: ${error.message}`);
     }
   };
-  const downloadPdf = async (recipeId) => {
-    const res = await fetch(`${url}/pdf/recipes/${recipeId}/pdf`);
-    const data = await res.json();
-    return data;
-  };
+
   const addToFavourite = async (itemId, value) => {
     try {
       const response = await axios.put(`${url}/recipes/${itemId}`, {
@@ -136,10 +134,22 @@ const RecipesList = () => {
                     </div>
                     <div className="relative-line-dropDown">
                       <div className="section-dropdown">Download Pdf</div>
-                      <BsFileEarmarkPdfFill
-                        className="showEnt-recipe-title-icon section-dropdown"
-                        onClick={() => downloadPdf(recipeSelected)}
-                      />
+
+                      {myRecipes &&
+                        myRecipes.map((item, i) => (
+                          <>
+                            {item._id === recipeSelected ? (
+                              <a
+                                href={`${url}/pdf/recipes/${item._id}/pdf`}
+                                key={item._id}
+                              >
+                                <BsFileEarmarkPdfFill className="showEnt-recipe-title-icon section-dropdown" />
+                              </a>
+                            ) : (
+                              ""
+                            )}
+                          </>
+                        ))}
                     </div>
                   </div>
                 )}

@@ -16,6 +16,8 @@ import SideBarLeft from "../../brew/sideBarLeft/SideBarLeft";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsFillPencilFill } from "react-icons/bs";
+import { BsFileEarmarkPdfFill } from "react-icons/bs";
+
 import { useEffect } from "react";
 const RecipesListFavourite = () => {
   const url = process.env.REACT_APP_BE_URL;
@@ -128,7 +130,25 @@ const RecipesListFavourite = () => {
                         onClick={() => openDropDown(false)}
                       />
                     </div>
-                    <div className="relative-line-dropDown"></div>
+                    <div className="relative-line-dropDown">
+                      <div className="section-dropdown">Download Pdf</div>
+
+                      {myRecipes &&
+                        myRecipes.map((item, i) => (
+                          <>
+                            {item._id === recipeSelected ? (
+                              <a
+                                href={`${url}/pdf/recipes/${item._id}/pdf`}
+                                key={item._id}
+                              >
+                                <BsFileEarmarkPdfFill className="showEnt-recipe-title-icon section-dropdown" />
+                              </a>
+                            ) : (
+                              ""
+                            )}
+                          </>
+                        ))}
+                    </div>
                   </div>
                 )}
               </div>
