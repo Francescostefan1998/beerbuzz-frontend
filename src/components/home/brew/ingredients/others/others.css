@@ -11,7 +11,7 @@
   gap: 6px;
   background-color: transparent;
   cursor: pointer;
-  padding-inline: 3vh;
+  padding-inline: 5vh;
   z-index: 3;
   width: 100%;
   padding-block: 10px;
@@ -56,7 +56,7 @@
 }
 .ingredients-others-single-icon-circle {
   width: 100%;
-  padding-inline: 3vh;
+  padding-inline: 5vh;
   text-align: left;
 }
 @media (max-width: 1024px) {
