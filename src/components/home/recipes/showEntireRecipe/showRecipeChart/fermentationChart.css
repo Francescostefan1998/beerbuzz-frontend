@@ -31,7 +31,10 @@
   background-color: var(--background-dark);
 }
 .table-row-chart {
-  width: 20vh;
+  width: 10vh;
+}
+.table-row-chart td button {
+  width: 10vh;
 }
 
 td.day-number-chart-number {
