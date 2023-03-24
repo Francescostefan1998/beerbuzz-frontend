@@ -24,14 +24,19 @@ const RecipesList = () => {
   const [dropDown, openDropDown] = useState(false);
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
+  const [loading, setLoading] = useState(false);
+
   console.log(recipeSelected);
 
   const navigate = useNavigate();
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
+    setLoading(true);
+
     const res = await fetch(`${url}/recipes/${userId}`);
     const data = await res.json();
     setMyRecipes(data);
+    setLoading(false);
   };
   useEffect(() => {
     fetchRecipes(userIdRec);
@@ -49,7 +54,11 @@ const RecipesList = () => {
       console.error(`Error deleting item with ID ${itemId}: ${error.message}`);
     }
   };
-
+  const onchangeHandler = async (userId, e) => {
+    const res = await fetch(`${url}/recipes/${userId}?name=${e}`);
+    const data = await res.json();
+    setMyRecipes(data);
+  };
   const addToFavourite = async (itemId, value) => {
     try {
       const response = await axios.put(`${url}/recipes/${itemId}`, {
@@ -74,6 +83,7 @@ const RecipesList = () => {
             <input
               type="text"
               placeholder="Search here the name of your beer"
+              onChange={(e) => onchangeHandler(userIdRec, e.target.value)}
             />
           </div>
         ) : (
@@ -158,7 +168,17 @@ const RecipesList = () => {
           </div>
         )}
         <div className="recipesList-list">
-          {recipeSelected === "" ? (
+          {loading && (
+            <div class="loading-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
+          {!loading && recipeSelected === "" ? (
             myRecipes.map((recipe, i) => (
               <SingleRecipe
                 key={recipe._id}

@@ -7,10 +7,7 @@ import NavBar from "../../navBar/NavBar";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import { BsTrashFill } from "react-icons/bs";
-import { CiBeerMugFull } from "react-icons/ci";
-import { BsPencilFill } from "react-icons/bs";
 import ShowEntireRecipe from "../showEntireRecipe/ShowEntireRecipe";
-import BottomBar from "../../../bottomBar/BottomBar";
 import { useNavigate } from "react-router-dom";
 import SideBarLeft from "../../brew/sideBarLeft/SideBarLeft";
 import { HiDotsHorizontal } from "react-icons/hi";
@@ -25,18 +22,27 @@ const RecipesListFavourite = () => {
   const [dropDown, openDropDown] = useState(false);
   const [myRecipes, setMyRecipes] = useState([]);
   const [recipeSelected, setRecipeSelected] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const userIdRec = localStorage.getItem("userId");
   const fetchRecipes = async (userId) => {
+    setLoading(true);
+
     const res = await fetch(`${url}/recipes/${userId}`);
     const data = await res.json();
     setMyRecipes(data);
+    setLoading(false);
   };
   useEffect(() => {
     fetchRecipes(userIdRec);
     console.log("Refresh");
   }, [dropDown, refres]);
-
+  const onchangeHandler = async (userId, e) => {
+    const res = await fetch(`${url}/recipes/${userId}?name=${e}`);
+    const data = await res.json();
+    setMyRecipes(data);
+  };
   const deleteSingleRecipe = async (itemId) => {
     try {
       const response = await axios.delete(`${url}/recipes/${itemId}`);
@@ -72,6 +78,7 @@ const RecipesListFavourite = () => {
             <input
               type="text"
               placeholder="Search here the name of your beer"
+              onChange={(e) => onchangeHandler(userIdRec, e.target.value)}
             />
           </div>
         ) : (
@@ -156,7 +163,17 @@ const RecipesListFavourite = () => {
           </div>
         )}
         <div className="recipesList-list">
-          {recipeSelected === "" ? (
+          {loading && (
+            <div class="loading-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
+          {!loading && recipeSelected === "" ? (
             myRecipes.map((recipe, i) =>
               recipe.favourite && recipe.favourite === "yes" ? (
                 <SingleRecipe
