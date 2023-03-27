@@ -27,6 +27,7 @@ const FermentationChartCheck = () => {
     newData[index].temperature = event.target.value;
     setData(newData);
   };
+  //
   useEffect(() => {
     console.log(data);
   }, [data]);

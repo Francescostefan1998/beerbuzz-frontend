@@ -30,7 +30,7 @@ const CommonEngredientsModal = ({
   creator,
 }) => {
   const url = process.env.REACT_APP_BE_URL;
-
+  const userId = localStorage.getItem("userId");
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,7 @@ const CommonEngredientsModal = ({
     creator: localStorage.getItem("userId"),
   });
   const [add, setAdd] = useState(false);
-
+  const [showModalRequest, setShowLittleModalForRequest] = useState(false);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
@@ -67,15 +67,35 @@ const CommonEngredientsModal = ({
     setSearch(e);
     await fetchProducts(fetchProps, search);
   };
-  const postProducts = async (fetchProps, newIngredient) => {
-    const res = await fetch(`${url}/${fetchProps}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newIngredient),
-    });
-    const data = await res.json();
+  const authorizePost = (fetchProps, newIngredient) => {
+    setShowLittleModalForRequest(true);
+  };
+  const postProducts = async (fetchProps, newIngredient, no) => {
+    if (no && no === "no") {
+      const res = await fetch(`${url}/${fetchProps}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...newIngredient, pubblic: no }),
+      });
+      setShowLittleModalForRequest(false);
+
+      add !== false ? setAdd(false) : setAdd(true);
+      const data = await res.json();
+    } else {
+      const res = await fetch(`${url}/${fetchProps}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newIngredient),
+      });
+      setShowLittleModalForRequest(false);
+
+      add !== false ? setAdd(false) : setAdd(true);
+      const data = await res.json();
+    }
   };
   const setRefreshStatus = () => {
     if (!status) {
@@ -108,6 +128,30 @@ const CommonEngredientsModal = ({
 
   return (
     <>
+      {showModalRequest && (
+        <div
+          className="showModalRequest"
+          onClick={() => setShowLittleModalForRequest(false)}
+        >
+          <div className="showModalRequest-inner">
+            <div>Would you like to pubblish this product?</div>
+            <div className="showModalRequest-inner-flex">
+              <button
+                onClick={() => {
+                  postProducts(fetchProps, newIngredient, "no");
+                }}
+              >
+                Keep it private
+              </button>
+              <button
+                onClick={() => postProducts(fetchProps, newIngredient, "yes")}
+              >
+                Make it public
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="common-ingredients-container-inside-section-top invisible-in-big-screen">
         {!add && (
           <div className="common-ingredients-container-inside-title">
@@ -212,19 +256,25 @@ const CommonEngredientsModal = ({
                   <div></div>
                 </div>
               )}
-              {listProducts.map((product, i) => (
-                <CommonSingleElement
-                  icon={icon}
-                  colorOrIbu={colorOrIbu}
-                  key={product._id}
-                  body={product}
-                  addProduct={addProduct}
-                  subtractProduct={subtractProduct}
-                  title={title}
-                  addThisProduct={addThisProduct}
-                  creator={creator}
-                />
-              ))}
+              {listProducts.map((product, i) =>
+                product.pubblic &&
+                product.pubblic === "no" &&
+                product.creator !== userId ? (
+                  ""
+                ) : (
+                  <CommonSingleElement
+                    icon={icon}
+                    colorOrIbu={colorOrIbu}
+                    key={product._id}
+                    body={product}
+                    addProduct={addProduct}
+                    subtractProduct={subtractProduct}
+                    title={title}
+                    addThisProduct={addThisProduct}
+                    creator={creator}
+                  />
+                )
+              )}
             </div>
           )}
           {add && (
@@ -274,8 +324,7 @@ const CommonEngredientsModal = ({
             <div
               className="button"
               onClick={(e) => {
-                postProducts(fetchProps, newIngredient);
-                add !== false ? setAdd(false) : setAdd(true);
+                authorizePost(fetchProps, newIngredient);
               }}
             >
               Save
