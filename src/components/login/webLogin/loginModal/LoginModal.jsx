@@ -26,6 +26,7 @@ const LoginModal = ({
 
   const handleSubmit = async (email, password) => {
     setLoading(true);
+    console.log(email, password);
     try {
       const { data } = await axios.post(`${url}/users/login`, {
         email,
