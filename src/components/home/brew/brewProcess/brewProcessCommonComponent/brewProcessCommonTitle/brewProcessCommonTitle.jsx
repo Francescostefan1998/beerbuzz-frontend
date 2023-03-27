@@ -34,12 +34,10 @@ const BrewProcessCommonTitle = ({ select }) => {
         },
       });
       console.log(response.data.imagePath);
-      alert("Image uploaded successfully");
       dispatch(addImageRecipeAction(response.data.imagePath));
       setThisImage(response.data.imagePath);
       if (response.ok) {
         console.log(response.imagePath);
-        alert("Image uploaded successfully");
       }
       setLoading(false);
       setChangePicture(false);

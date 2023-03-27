@@ -12,8 +12,11 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { useSelector } from "react-redux";
 
 const Chart = () => {
+  const chartData = useSelector((state) => state.createRecipe.chart);
+
   const [data, setData] = useState([
     { day: "Day 1", temperature: 25 },
     { day: "Day 2", temperature: 28 },
@@ -34,9 +37,15 @@ const Chart = () => {
     };
     setData(newData);
   };
+  useEffect(() => {
+    if (chartData && chartData.length > 1) {
+      setData(chartData);
+    }
+  }, []);
 
   useEffect(() => {
     console.log(data);
+
     setTimeout(
       () => setTimeout(() => dispatch(addChartRecipeAction(data)), 1000),
       1000

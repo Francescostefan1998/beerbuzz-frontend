@@ -163,7 +163,7 @@ const RecipesListFavourite = () => {
           </div>
         )}
         <div className="recipesList-list">
-          {loading && (
+          {loading && recipeSelected === "" ? (
             <div class="loading-spinner">
               <div></div>
               <div></div>
@@ -172,6 +172,8 @@ const RecipesListFavourite = () => {
               <div></div>
               <div></div>
             </div>
+          ) : (
+            ""
           )}
           {!loading && recipeSelected === "" ? (
             myRecipes.map((recipe, i) =>

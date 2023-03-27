@@ -40,7 +40,7 @@ const CommonEngredientsModal = ({
     creator: localStorage.getItem("userId"),
   });
   const [add, setAdd] = useState(false);
-
+  const [showModalRequest, setShowLittleModalForRequest] = useState(false);
   const { hops } = useSelector((state) => state.recipeIngredient);
   const { malts } = useSelector((state) => state.recipeIngredient);
   const { yeasts } = useSelector((state) => state.recipeIngredient);
@@ -67,6 +67,9 @@ const CommonEngredientsModal = ({
     setSearch(e);
     await fetchProducts(fetchProps, search);
   };
+  const authorizePost = (fetchProps, newIngredient) => {
+    setShowLittleModalForRequest(true);
+  };
   const postProducts = async (fetchProps, newIngredient) => {
     const res = await fetch(`${url}/${fetchProps}`, {
       method: "POST",
@@ -75,6 +78,9 @@ const CommonEngredientsModal = ({
       },
       body: JSON.stringify(newIngredient),
     });
+    setShowLittleModalForRequest(false);
+
+    add !== false ? setAdd(false) : setAdd(true);
     const data = await res.json();
   };
   const setRefreshStatus = () => {
@@ -108,6 +114,24 @@ const CommonEngredientsModal = ({
 
   return (
     <>
+      {showModalRequest && (
+        <div
+          className="showModalRequest"
+          onClick={() => setShowLittleModalForRequest(false)}
+        >
+          <div className="showModalRequest-inner">
+            <div>Would you like to pubblish this product?</div>
+            <div className="showModalRequest-inner-flex">
+              <button onClick={() => postProducts(fetchProps, newIngredient)}>
+                Keep it private
+              </button>
+              <button onClick={() => postProducts(fetchProps, newIngredient)}>
+                Make it public
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="common-ingredients-container-inside-section-top invisible-in-big-screen">
         {!add && (
           <div className="common-ingredients-container-inside-title">
@@ -274,8 +298,7 @@ const CommonEngredientsModal = ({
             <div
               className="button"
               onClick={(e) => {
-                postProducts(fetchProps, newIngredient);
-                add !== false ? setAdd(false) : setAdd(true);
+                authorizePost(fetchProps, newIngredient);
               }}
             >
               Save
