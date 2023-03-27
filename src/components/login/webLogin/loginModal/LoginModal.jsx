@@ -141,7 +141,9 @@ const LoginModal = ({
                 {signUp}
               </div>
             </div>
-            <a href={`${url}/users/googleLogin`}>
+            <a
+              href={`https://beerbuzz-backend-production.up.railway.app/users/googleLogin`}
+            >
               <div className="loginModal-google">
                 <div className="loginModal-google-inset">
                   <FaGoogle className="loginModal-google-inset-icon" />

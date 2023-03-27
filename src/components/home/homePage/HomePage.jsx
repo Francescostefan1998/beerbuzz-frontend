@@ -8,10 +8,21 @@ import { GiHops } from "react-icons/gi";
 import { GiWheat } from "react-icons/gi";
 import { AiOutlineSetting } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import BrewInsideContainer from "../brew/brewMainPage/brewInsideContainer/BrewInsideContainer";
 const HomePage = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("accessToken")) navigate("/login");
+    if (searchParams.get("accessToken")) {
+      localStorage.setItem("accessToken", searchParams.get("accessToken"));
+      localStorage.setItem("userId", searchParams.get("userId"));
 
+      navigate("/home");
+    }
+  }, [navigate, searchParams]);
   return (
     <div className="homePage">
       <NavBar selectedSection={"Home"} />
