@@ -30,7 +30,7 @@ const CommonEngredientsModal = ({
   creator,
 }) => {
   const url = process.env.REACT_APP_BE_URL;
-
+  const userId = localStorage.getItem("userId");
   const [listProducts, setListProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -70,18 +70,32 @@ const CommonEngredientsModal = ({
   const authorizePost = (fetchProps, newIngredient) => {
     setShowLittleModalForRequest(true);
   };
-  const postProducts = async (fetchProps, newIngredient) => {
-    const res = await fetch(`${url}/${fetchProps}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newIngredient),
-    });
-    setShowLittleModalForRequest(false);
+  const postProducts = async (fetchProps, newIngredient, no) => {
+    if (no && no === "no") {
+      const res = await fetch(`${url}/${fetchProps}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...newIngredient, pubblic: no }),
+      });
+      setShowLittleModalForRequest(false);
 
-    add !== false ? setAdd(false) : setAdd(true);
-    const data = await res.json();
+      add !== false ? setAdd(false) : setAdd(true);
+      const data = await res.json();
+    } else {
+      const res = await fetch(`${url}/${fetchProps}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newIngredient),
+      });
+      setShowLittleModalForRequest(false);
+
+      add !== false ? setAdd(false) : setAdd(true);
+      const data = await res.json();
+    }
   };
   const setRefreshStatus = () => {
     if (!status) {
@@ -122,10 +136,16 @@ const CommonEngredientsModal = ({
           <div className="showModalRequest-inner">
             <div>Would you like to pubblish this product?</div>
             <div className="showModalRequest-inner-flex">
-              <button onClick={() => postProducts(fetchProps, newIngredient)}>
+              <button
+                onClick={() => {
+                  postProducts(fetchProps, newIngredient, "no");
+                }}
+              >
                 Keep it private
               </button>
-              <button onClick={() => postProducts(fetchProps, newIngredient)}>
+              <button
+                onClick={() => postProducts(fetchProps, newIngredient, "yes")}
+              >
                 Make it public
               </button>
             </div>
@@ -236,19 +256,25 @@ const CommonEngredientsModal = ({
                   <div></div>
                 </div>
               )}
-              {listProducts.map((product, i) => (
-                <CommonSingleElement
-                  icon={icon}
-                  colorOrIbu={colorOrIbu}
-                  key={product._id}
-                  body={product}
-                  addProduct={addProduct}
-                  subtractProduct={subtractProduct}
-                  title={title}
-                  addThisProduct={addThisProduct}
-                  creator={creator}
-                />
-              ))}
+              {listProducts.map((product, i) =>
+                product.pubblic &&
+                product.pubblic === "no" &&
+                product.creator !== userId ? (
+                  ""
+                ) : (
+                  <CommonSingleElement
+                    icon={icon}
+                    colorOrIbu={colorOrIbu}
+                    key={product._id}
+                    body={product}
+                    addProduct={addProduct}
+                    subtractProduct={subtractProduct}
+                    title={title}
+                    addThisProduct={addThisProduct}
+                    creator={creator}
+                  />
+                )
+              )}
             </div>
           )}
           {add && (
