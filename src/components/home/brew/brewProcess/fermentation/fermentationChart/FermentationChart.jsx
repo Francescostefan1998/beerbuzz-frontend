@@ -120,7 +120,7 @@ const Chart = () => {
                   onClick={() => handleRemoveDay(index)}
                   className="button-chart-pink"
                 >
-                  Remove Day
+                  Remove
                 </button>
               </td>
             </tr>
