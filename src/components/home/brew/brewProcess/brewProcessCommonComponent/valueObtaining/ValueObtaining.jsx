@@ -75,7 +75,7 @@ const ValueObtaining = ({ refresh }) => {
         {!editABV && (
           <div className="valueObtaining-section-input">
             <div>
-              {abv && parseFloat(abv).toFixed(2)}
+              {abv && !isNaN(abv) && parseFloat(abv).toFixed(2)}
               {!abv && 0}{" "}
             </div>{" "}
             <FaPen onClick={() => setEditABV(true)} className="icon" />
@@ -99,7 +99,7 @@ const ValueObtaining = ({ refresh }) => {
         {!editEBC && (
           <div className="valueObtaining-section-input">
             <div>
-              {ebc && parseFloat(ebc).toFixed(2)}
+              {ebc && !isNaN(ebc) && parseFloat(ebc).toFixed(2)}
               {!ebc && 0}{" "}
             </div>{" "}
             <FaPen onClick={() => setEditEBC(true)} className="icon" />
@@ -123,7 +123,7 @@ const ValueObtaining = ({ refresh }) => {
         {!editIBU && (
           <div className="valueObtaining-section-input">
             <div>
-              {ibu && parseFloat(ibu).toFixed(2)}
+              {ibu && !isNaN(ibu) && parseFloat(ibu).toFixed(2)}
               {!ibu && 0}{" "}
             </div>{" "}
             <FaPen onClick={() => setEditIBU(true)} className="icon" />
@@ -147,7 +147,7 @@ const ValueObtaining = ({ refresh }) => {
         {!editOG && (
           <div className="valueObtaining-section-input">
             <div>
-              {og && parseFloat(og).toFixed(3)}
+              {og && !isNaN(og) && parseFloat(og).toFixed(3)}
               {!og && 0}
             </div>{" "}
             <FaPen onClick={() => setEditOG(true)} className="icon" />
@@ -171,7 +171,7 @@ const ValueObtaining = ({ refresh }) => {
         {!editFG && (
           <div className="valueObtaining-section-input">
             <div>
-              {fg && parseFloat(fg).toFixed(3)}
+              {fg && !isNaN(fg) && parseFloat(fg).toFixed(3)}
               {!fg && 0}
             </div>{" "}
             <FaPen onClick={() => setEditFG(true)} className="icon" />
