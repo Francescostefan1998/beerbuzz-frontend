@@ -10,31 +10,52 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>ABV:</strong>
               </div>
-              <div>{parseFloat(body.abv).toFixed(2)}%</div>
+              <div>
+                {body.abv && !isNaN(body.abv)
+                  ? parseFloat(body.abv).toFixed(2)
+                  : 0}
+                %
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>EBC:</strong>
               </div>
-              <div>{parseFloat(body.ebc).toFixed(2)}</div>
+              <div>
+                {body.ebc && !isNaN(body.ebc)
+                  ? parseFloat(body.ebc).toFixed(2)
+                  : 0}
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>IBU:</strong>
               </div>
-              <div>{parseFloat(body.ibu).toFixed(2)}</div>
+              <div>
+                {body.ibu && !isNaN(body.ibu)
+                  ? parseFloat(body.ibu).toFixed(2)
+                  : 0}
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>OG:</strong>
               </div>
-              <div>{parseFloat(body.og).toFixed(3)}</div>
+              <div>
+                {body.og && !isNaN(body.og)
+                  ? parseFloat(body.og).toFixed(3)
+                  : 0}
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>FG:</strong>
               </div>
-              <div>{parseFloat(body.fg).toFixed(3)}</div>
+              <div>
+                {body.fg && !isNaN(body.fg)
+                  ? parseFloat(body.fg).toFixed(3)
+                  : 0}
+              </div>
             </div>
           </div>
           <div className="showRecipeData-overview water">
@@ -48,21 +69,33 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>Batch Volume:</strong>
               </div>
-              <div>{parseFloat(body.batchVolume).toFixed(2)}L</div>
+              <div>
+                {body.batchVolume && !isNaN(body.batchVolume)
+                  ? parseFloat(body.batchVolume).toFixed(2)
+                  : 0}
+                L
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Mash Volume:</strong>
               </div>
-              <div>{parseFloat(body.mashVolume).toFixed(2)}L</div>
+              <div>
+                {body.mashVolume && !isNaN(body.mashVolume)
+                  ? parseFloat(body.mashVolume).toFixed(2)
+                  : 0}
+                L
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Sparge Volume:</strong>
               </div>
               <div>
-                {body.spargeVolume && parseFloat(body.spargeVolume).toFixed(2)}
-                {!body.spargeVolume && 0}L
+                {body.spargeVolume && !isNaN(body.spargeVolume)
+                  ? parseFloat(body.spargeVolume).toFixed(2)
+                  : 0}
+                L
               </div>
             </div>
             <div className="showRecipeData-overview-inner">
@@ -70,8 +103,10 @@ const ShowRecipeData = ({ body }) => {
                 <strong>Equipment Efficiency:</strong>
               </div>
               <div>
-                {body.efficiency && parseFloat(body.efficiency).toFixed(2)}
-                {!body.efficiency && 0}%
+                {body.efficiency && !isNaN(body.efficiency)
+                  ? parseFloat(body.efficiency).toFixed(2)
+                  : 0}
+                %
               </div>
             </div>
           </div>
