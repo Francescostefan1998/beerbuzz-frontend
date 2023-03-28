@@ -99,7 +99,7 @@ const HomePage = () => {
                 onClick={() => navigate("/instruction")}
               >
                 <img
-                  src="https://i.pinimg.com/originals/47/b9/6a/47b96afa1546896d95478d7a2fd19eb9.jpg"
+                  src="https://i.pinimg.com/originals/d3/76/ea/d376ea8d40c4504bd933f75f17d1d7ce.jpg"
                   alt="ingredients"
                 />
                 <h2>Personalize Recipe</h2>
