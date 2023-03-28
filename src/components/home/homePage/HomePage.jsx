@@ -99,10 +99,10 @@ const HomePage = () => {
                 onClick={() => navigate("/instruction")}
               >
                 <img
-                  src="https://s-media-cache-ak0.pinimg.com/originals/36/86/82/368682c58984186b516cc255148e0f6b.jpg"
+                  src="https://i.pinimg.com/originals/47/b9/6a/47b96afa1546896d95478d7a2fd19eb9.jpg"
                   alt="ingredients"
                 />
-                <h2>Presonalize Recipe</h2>
+                <h2>Personalize Recipe</h2>
                 <div className="brewMainPage-step">2</div>
               </Col>
             </Row>
