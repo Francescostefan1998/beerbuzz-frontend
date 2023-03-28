@@ -84,10 +84,14 @@ const Mash = () => {
     dispatch(addOgRecipeAction(originalGravityBeer));
     if (Array.isArray(yeasts)) {
       for (let i = 0; i < yeasts.length; i++) {
+        console.log("yeasts");
         averageAttenuation =
           averageAttenuation +
           parseFloat(yeasts[i].attenuation) / parseFloat(yeasts.length);
       }
+    } else if (yeasts) {
+      averageAttenuation =
+        averageAttenuation + parseFloat(yeasts[0].attenuation) / parseFloat(1);
     }
     let finalGravity =
       1 +
@@ -96,9 +100,12 @@ const Mash = () => {
         ((100 - averageAttenuation) / 100);
 
     dispatch(addFgRecipeAction(finalGravity));
-
-    let alcool = (originalGravityBeer - finalGravity) * 131.25;
-    dispatch(addAbvRecipeAction(alcool));
+    console.log(equipmentEfficienty, postBoil, averageAttenuation);
+    dispatch(
+      addAbvRecipeAction(
+        (parseFloat(originalGravityBeer) - parseFloat(finalGravity)) * 131.25
+      )
+    );
 
     setRefresh("sumOfEbc" + originalGravity + ebcBeer + finalGravity);
   };

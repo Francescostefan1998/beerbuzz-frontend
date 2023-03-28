@@ -114,7 +114,7 @@ const CommonEngredientsModal = ({
         dispatch(addHopsRecipeAction(hops));
 
         break;
-      case "Yeasts and Bacterias":
+      case "Yeasts and Bacteria":
         dispatch(addYeastsRecipeAction(yeasts));
 
         break;
