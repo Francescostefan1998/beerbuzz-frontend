@@ -33,7 +33,7 @@ const Yeasts = () => {
       {/*<NavbarIngredients prew="/hops" next="/others" />*/}
       <CommonEngredientsModal
         icon={<FaBacterium className="icon" />}
-        title={"Yeasts and Bacterias"}
+        title={"Yeasts and Bacteria"}
         colorOrIbu={"Cell/g"}
         next={"/others"}
         fetchProps={"yeasts"}

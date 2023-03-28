@@ -24,15 +24,15 @@ const SourceWaterDiluition = ({ setModal }) => {
   const { sulfate } = useSelector((state) => state.originalWater);
   const { sodium } = useSelector((state) => state.originalWater);
   const { ph } = useSelector((state) => state.originalWater);
-  const [newCalcium, setCa] = useState(null);
-  const [newMagnesium, setMg] = useState(null);
-  const [newChloride, setCl] = useState(null);
-  const [newSulfate, setS] = useState(null);
-  const [newSodium, setNa] = useState(null);
-  const [newAlkalinity, setCaCO3] = useState(null);
-  const [newPh, setPh] = useState(null);
+  const [newCalcium, setCa] = useState(0);
+  const [newMagnesium, setMg] = useState(0);
+  const [newChloride, setCl] = useState(0);
+  const [newSulfate, setS] = useState(0);
+  const [newSodium, setNa] = useState(0);
+  const [newAlkalinity, setCaCO3] = useState(0);
+  const [newPh, setPh] = useState(0);
 
-  const [diluition, setDiluitionData] = useState(null);
+  const [diluition, setDiluitionData] = useState(0);
   useEffect(() => {
     setDiluitionData();
     setTimeout(() => {

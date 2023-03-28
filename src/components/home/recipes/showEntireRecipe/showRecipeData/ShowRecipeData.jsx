@@ -60,13 +60,19 @@ const ShowRecipeData = ({ body }) => {
               <div>
                 <strong>Sparge Volume:</strong>
               </div>
-              <div>{parseFloat(body.spargeVolume).toFixed(2)}L</div>
+              <div>
+                {body.spargeVolume && parseFloat(body.spargeVolume).toFixed(2)}
+                {!body.spargeVolume && 0}L
+              </div>
             </div>
             <div className="showRecipeData-overview-inner">
               <div>
                 <strong>Equipment Efficiency:</strong>
               </div>
-              <div>{parseFloat(body.efficiency).toFixed(2)}%</div>
+              <div>
+                {body.efficiency && parseFloat(body.efficiency).toFixed(2)}
+                {!body.efficiency && 0}%
+              </div>
             </div>
           </div>
         </div>

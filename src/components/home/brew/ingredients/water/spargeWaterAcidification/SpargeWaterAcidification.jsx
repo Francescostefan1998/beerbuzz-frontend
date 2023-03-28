@@ -198,7 +198,9 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
             <div>Raw Source Water pH @ 20C</div>
             <div>
               <div className="padding-left">
-                {parseFloat(finalph).toFixed(2)}
+                {finalph && finalph !== "0.0"
+                  ? parseFloat(finalph).toFixed(2)
+                  : 0}
               </div>
             </div>
           </div>
@@ -211,7 +213,11 @@ const SpargeWaterAcidification = ({ setModal, setZindexPriority }) => {
           <div className="field">
             <div>Reduced Alkaninity</div>
             <div>
-              <div className="padding-left">{alkalinity.toFixed(2)} </div>
+              <div className="padding-left">
+                {alkalinity && alkalinity !== "0.0"
+                  ? parseFloat(alkalinity).toFixed(2)
+                  : 0}{" "}
+              </div>
             </div>
           </div>
           <div className="field button">
