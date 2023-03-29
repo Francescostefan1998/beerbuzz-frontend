@@ -249,38 +249,52 @@ const SaltAdditions = ({ setModal }) => {
           <div className="field">
             <div>Calcium (ppm)</div>
             <div>
-              <div>{(CaCalciumCloride + CaGypsum).toFixed(2)}</div>
+              <div>
+                {!isNaN(CaCalciumCloride + CaGypsum)
+                  ? (CaCalciumCloride + CaGypsum).toFixed(2)
+                  : 0}
+              </div>
             </div>
           </div>
           <div className="field">
             <div>Magnesium (ppm)</div>
             <div>
-              <div>{mgEpson.toFixed(2)}</div>
+              <div>{!isNaN(mgEpson) ? mgEpson.toFixed(2) : 0}</div>
             </div>
           </div>
 
           <div className="field">
             <div>Sulfate (ppm)</div>
             <div>
-              <div>{(so4Epson + so4Gypsum).toFixed(2)}</div>
+              <div>
+                {!isNaN(so4Epson + so4Gypsum)
+                  ? (so4Epson + so4Gypsum).toFixed(2)
+                  : 0}
+              </div>
             </div>
           </div>
           <div className="field">
             <div>Chloride (ppm)</div>
             <div>
-              <div>{(ClCalciumCloride + ClSalt).toFixed(2)}</div>
+              <div>
+                {!isNaN(ClCalciumCloride + ClSalt)
+                  ? (ClCalciumCloride + ClSalt).toFixed(2)
+                  : 0}
+              </div>
             </div>
           </div>
           <div className="field">
             <div>Sodium (ppm)</div>
             <div>
-              <div>{(naSoda + NaSalt).toFixed(2)}</div>
+              <div>
+                {!isNaN(naSoda + NaSalt) ? (naSoda + NaSalt).toFixed(2) : 0}
+              </div>
             </div>
           </div>
           <div className="field mb-4">
             <div>Adjusted Residual Alkalinity as CaCO3</div>
             <div>
-              <div>{alkSoda.toFixed(2)}</div>
+              <div>{!isNaN(alkSoda) ? alkSoda.toFixed(2) : 0}</div>
             </div>
           </div>
           <div className="field button saltAdditions-button">

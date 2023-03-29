@@ -50,11 +50,13 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Calcium (ppm)</div>
               <div>
                 <div className="my-value">
-                  {calcium3 !== 0 && calcium3 !== "0.00"
+                  {calcium3 !== 0 && !isNaN(calcium3) && calcium3 !== "0.00"
                     ? parseFloat(calcium3).toFixed(2)
-                    : calcium2 !== 0 && calcium2 !== "0.00"
+                    : calcium2 !== 0 && !isNaN(calcium2) && calcium2 !== "0.00"
                     ? parseFloat(calcium2).toFixed(2)
-                    : parseFloat(calcium1).toFixed(2)}
+                    : parseFloat(calcium1).toFixed(2) && !isNaN(calcium1)
+                    ? parseFloat(calcium1).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
@@ -72,11 +74,17 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Magnesium (ppm)</div>
               <div>
                 <div className="my-value">
-                  {magnesium3 !== 0 && magnesium3 !== "0.00"
+                  {magnesium3 !== 0 &&
+                  !isNaN(magnesium3) &&
+                  magnesium3 !== "0.00"
                     ? parseFloat(magnesium3).toFixed(2)
-                    : magnesium2 !== 0 && magnesium2 !== "0.00"
+                    : magnesium2 !== 0 &&
+                      !isNaN(magnesium2) &&
+                      magnesium2 !== "0.00"
                     ? parseFloat(magnesium2).toFixed(2)
-                    : parseFloat(magnesium1).toFixed(2)}
+                    : !isNaN(magnesium1)
+                    ? parseFloat(magnesium1).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
@@ -93,11 +101,17 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Alkalinity as CaCo3</div>
               <div>
                 <div className="my-value">
-                  {alkalinity4 !== 0 && alkalinity4 !== "0.00"
+                  {alkalinity4 !== 0 &&
+                  !isNaN(alkalinity4) &&
+                  alkalinity4 !== "0.00"
                     ? parseFloat(alkalinity4).toFixed(2)
-                    : alkalinity3 !== 0 && alkalinity3 !== "0.00"
+                    : alkalinity3 !== 0 &&
+                      !isNaN(alkalinity3) &&
+                      alkalinity3 !== "0.00"
                     ? parseFloat(alkalinity3).toFixed(2)
-                    : parseFloat(alkalinity2).toFixed(2)}
+                    : !isNaN(alkalinity2)
+                    ? parseFloat(alkalinity2).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
@@ -115,11 +129,13 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Sulfate (ppm)</div>
               <div>
                 <div className="my-value">
-                  {sulfate3 !== 0 && sulfate3 !== "0.00"
+                  {sulfate3 !== 0 && !isNaN(sulfate3) && sulfate3 !== "0.00"
                     ? parseFloat(sulfate3).toFixed(2)
-                    : sulfate2 !== 0 && sulfate2 !== "0.00"
+                    : sulfate2 !== 0 && !isNaN(sulfate2) && sulfate2 !== "0.00"
                     ? parseFloat(sulfate2).toFixed(2)
-                    : parseFloat(sulfalte1).toFixed(2)}
+                    : !isNaN(sulfalte1)
+                    ? parseFloat(sulfalte1).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
@@ -136,11 +152,15 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Chloride (ppm)</div>
               <div>
                 <div className="my-value">
-                  {chloride3 !== 0 && chloride3 !== "0.00"
+                  {chloride3 !== 0 && !isNaN(chloride3) && chloride3 !== "0.00"
                     ? parseFloat(chloride3).toFixed(2)
-                    : chloride2 !== 0 && chloride2 !== "0.00"
+                    : chloride2 !== 0 &&
+                      !isNaN(chloride2) &&
+                      chloride2 !== "0.00"
                     ? parseFloat(chloride2).toFixed(2)
-                    : parseFloat(chloride1).toFixed(2)}
+                    : !isNaN(chloride1)
+                    ? parseFloat(chloride1).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
@@ -157,11 +177,13 @@ const AdjustedWaterResults = ({ setModal }) => {
               <div>Final Sodium (ppm)</div>
               <div>
                 <div className="my-value">
-                  {sodium3 !== 0 && sodium3 !== "0.00"
+                  {sodium3 !== 0 && !isNaN(sodium3) && sodium3 !== "0.00"
                     ? parseFloat(sodium3).toFixed(2)
-                    : sodium2 !== 0 && sodium2 !== "0.00"
+                    : sodium2 !== 0 && !isNaN(sodium2) && sodium2 !== "0.00"
                     ? parseFloat(sodium2).toFixed(2)
-                    : parseFloat(sodium1).toFixed(2)}
+                    : !isNaN(sodium1)
+                    ? parseFloat(sodium1).toFixed(2)
+                    : 0}
                 </div>
               </div>
             </div>
