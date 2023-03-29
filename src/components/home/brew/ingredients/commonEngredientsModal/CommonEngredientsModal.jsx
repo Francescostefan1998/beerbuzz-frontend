@@ -134,7 +134,7 @@ const CommonEngredientsModal = ({
           onClick={() => setShowLittleModalForRequest(false)}
         >
           <div className="showModalRequest-inner">
-            <div>Would you like to pubblish this product?</div>
+            <div>Would you like to publish this product?</div>
             <div className="showModalRequest-inner-flex">
               <button
                 onClick={() => {
